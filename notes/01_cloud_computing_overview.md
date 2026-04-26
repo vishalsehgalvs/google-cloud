@@ -247,3 +247,53 @@ Many organizations worry: _"What if we move to Google Cloud and then can't leave
 ### The Bottom Line
 
 > Google provides **interoperability at multiple layers** of the stack — you're free to run workloads across clouds or leave entirely.
+
+---
+
+## 💰 Google Cloud Pricing & Cost Control
+
+### Billing Highlights
+
+| Service                            | Billing model                                        |
+| ---------------------------------- | ---------------------------------------------------- |
+| **Compute Engine**                 | Per-second billing (first major cloud to offer this) |
+| **Google Kubernetes Engine (GKE)** | Per-second billing                                   |
+| **Dataproc** (managed Hadoop)      | Per-second billing                                   |
+| **App Engine flexible VMs**        | Per-second billing                                   |
+
+### Automatic Discounts
+
+- **Sustained-use discounts** — run a VM for more than **25% of the month** and Google automatically discounts every extra minute. No action needed.
+- **Custom VM types** — pick exact vCPU + memory combos to avoid paying for resources you don't need.
+
+> Estimate costs: [cloud.google.com/products/calculator](https://cloud.google.com/products/calculator)
+
+---
+
+### Keeping Costs Under Control
+
+#### Budgets & Alerts
+
+- Set a **budget** at the billing account level or project level.
+- Budget can be a **fixed amount** or tied to a metric (e.g. % of last month's spend).
+- Set **alerts** to get notified before you hit the limit.
+  - Common thresholds: **50%, 90%, 100%** (customizable)
+  - Example: $20,000 budget + 90% alert → notification fires at $18,000.
+
+#### Reports
+
+- Visual tool in Google Cloud Console to monitor spending by project or service.
+
+---
+
+### Quotas — Protection Against Runaway Costs
+
+Quotas prevent over-consumption — whether from a bug or a malicious attack. Both types apply at the **project level**.
+
+| Type                 | What it does                                            | Resets?                       | Example                                          |
+| -------------------- | ------------------------------------------------------- | ----------------------------- | ------------------------------------------------ |
+| **Rate quota**       | Limits how many API calls you can make in a time window | Yes — resets after the window | GKE: 3,000 API calls per 100 seconds per project |
+| **Allocation quota** | Limits how many resources you can have                  | No — it's a cap               | Max 15 VPC networks per project                  |
+
+- All projects start with the same default quotas.
+- You can request an increase from **Google Cloud Support** if needed.
