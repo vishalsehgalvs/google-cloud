@@ -221,3 +221,29 @@ North America · South America · Europe · Africa · Middle East · Asia · Aus
 | **Secure software development** | Central source control, two-party code review, security-safe libraries, and a public **Vulnerability Rewards Program** (bug bounty) |
 
 > Learn more: [cloud.google.com/security/security-design](https://cloud.google.com/security/security-design)
+
+---
+
+## 🔓 Open Source & Avoiding Vendor Lock-in
+
+### The Fear
+
+Many organizations worry: _"What if we move to Google Cloud and then can't leave?"_
+
+### Google's Answer
+
+- Google publishes key technologies as **open source** — so customers always have options.
+- If you ever want to move away from Google, you can.
+
+### Key Examples
+
+| Technology                         | What it is                                           | Why it matters                                            |
+| ---------------------------------- | ---------------------------------------------------- | --------------------------------------------------------- |
+| **TensorFlow**                     | Open source machine learning library built by Google | You can use it anywhere, not just on Google Cloud         |
+| **Kubernetes**                     | Open source container orchestration system           | Mix and match microservices across different clouds       |
+| **Google Kubernetes Engine (GKE)** | Managed Kubernetes on Google Cloud                   | Workloads are portable — not locked to Google             |
+| **Google Cloud Observability**     | Monitoring and logging tools                         | Can monitor workloads across **multiple cloud providers** |
+
+### The Bottom Line
+
+> Google provides **interoperability at multiple layers** of the stack — you're free to run workloads across clouds or leave entirely.
