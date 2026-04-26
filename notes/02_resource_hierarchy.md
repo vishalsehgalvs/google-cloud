@@ -188,3 +188,28 @@ This means you can attach IAM policies to the service account itself to control 
 |--------|-----------------------------|
 | Alice | Editor — can manage which accounts can act as this service account |
 | Bob | Viewer — can only see the service account exists |
+
+---
+
+## 🪪 Cloud Identity
+
+### The Problem with Using Gmail Accounts
+Many teams start by logging into Google Cloud with personal Gmail accounts and sharing access via Google Groups. This works initially but causes problems:
+- No central management of who has access.
+- If someone leaves the company, there's **no easy way to revoke their access** immediately.
+
+### What Cloud Identity Does
+Cloud Identity lets organizations **centrally manage users and groups** via the **Google Admin Console**.
+
+- Admins can use the **same usernames and passwords** from existing **Active Directory or LDAP** systems — no need to create separate Google accounts.
+- When someone leaves, an admin can instantly **disable their account and remove them from all groups** from one place.
+
+### Editions
+
+| Edition | What's included |
+|---------|----------------|
+| **Free** | User & group management, SSO, policy controls |
+| **Premium** | Everything in Free + **mobile device management** |
+
+### Already a Google Workspace customer?
+This is all already built into the **Google Admin Console** for you — no extra setup needed.
