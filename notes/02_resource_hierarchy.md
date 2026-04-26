@@ -86,6 +86,7 @@ Once created, anyone in the domain can create projects and billing accounts as u
 ## 🔑 Identity and Access Management (IAM)
 
 ### What is IAM?
+
 A way for admins to control **who can do what on which resources** in Google Cloud.
 
 > IAM = **Who** (principal) + **Can do what** (role) + **On which resource**
@@ -96,12 +97,12 @@ A way for admins to control **who can do what on which resources** in Google Clo
 
 A principal is anyone or anything that can be granted access. Each has an email-based identifier.
 
-| Type | Example |
-|------|---------|
-| Google Account | individual user |
-| Google Group | team or department |
-| Service Account | an app or VM acting as a user |
-| Cloud Identity domain | your whole company |
+| Type                  | Example                       |
+| --------------------- | ----------------------------- |
+| Google Account        | individual user               |
+| Google Group          | team or department            |
+| Service Account       | an app or VM acting as a user |
+| Cloud Identity domain | your whole company            |
 
 ---
 
@@ -112,18 +113,20 @@ A **role** is a bundle of permissions. You grant roles to principals — not ind
 > Example: Managing VMs requires create, delete, start, stop, change permissions → bundled into one role.
 
 #### 1. Basic Roles — Broad, project-wide
+
 Applied to a whole project and affect **all resources** in it. Use with caution for sensitive projects.
 
-| Role | What they can do |
-|------|-----------------|
-| **Viewer** | Read-only access |
-| **Editor** | View + make changes |
-| **Owner** | View + change + manage roles/permissions + set up billing |
-| **Billing Administrator** | Manage billing only — no access to resources |
+| Role                      | What they can do                                          |
+| ------------------------- | --------------------------------------------------------- |
+| **Viewer**                | Read-only access                                          |
+| **Editor**                | View + make changes                                       |
+| **Owner**                 | View + change + manage roles/permissions + set up billing |
+| **Billing Administrator** | Manage billing only — no access to resources              |
 
 > ⚠️ Basic roles are too broad for sensitive data projects. Use predefined or custom roles instead.
 
 #### 2. Predefined Roles — Specific to a service
+
 Each Google Cloud service offers its own set of predefined roles with precise permissions.
 
 - Applied at project, folder, or organization level.
@@ -131,6 +134,7 @@ Each Google Cloud service offers its own set of predefined roles with precise pe
 - Much safer and more precise than basic roles.
 
 #### 3. Custom Roles — You define exactly what's allowed
+
 Use when predefined roles are still too broad. Follow the **least-privilege model** — give people only what they need.
 
 - Example: Create an **`instanceOperator`** role that can start/stop VMs but NOT reconfigure them.
@@ -156,3 +160,31 @@ Basic Roles      → broad, whole project, 4 types (viewer/editor/owner/billing 
 Predefined Roles → service-specific, precise, recommended for most cases
 Custom Roles     → you define them, least-privilege, project/org level only
 ```
+
+---
+
+## 🤖 Service Accounts
+
+### What is a Service Account?
+A special account for **programs/apps/VMs** — not humans. Lets a VM or app interact with other Google Cloud services automatically, without anyone manually granting access each time.
+
+> Think of it as: giving a virtual machine its own identity and permissions.
+
+### How it Works
+- Named like an email address (e.g. `my-vm@my-project.iam.gserviceaccount.com`)
+- Uses **cryptographic keys** instead of passwords to authenticate.
+- You assign IAM roles to the service account, just like you would to a person.
+
+### Example
+- VM needs to store data in Cloud Storage (but no one else on the internet should access it).
+- Create a service account → grant it access to Cloud Storage → attach it to the VM.
+- Now the VM can read/write to Cloud Storage automatically and securely.
+
+### Service Accounts are Also Resources
+A service account is both an **identity** (like a user) AND a **resource** (like a VM).
+This means you can attach IAM policies to the service account itself to control who can manage it.
+
+| Person | Role on the Service Account |
+|--------|-----------------------------|
+| Alice | Editor — can manage which accounts can act as this service account |
+| Bob | Viewer — can only see the service account exists |
