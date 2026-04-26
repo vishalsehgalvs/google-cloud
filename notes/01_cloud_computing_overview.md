@@ -135,3 +135,89 @@ North America · South America · Europe · Africa · Middle East · Asia · Aus
 - **Latency** — serve users from the location nearest to them.
 
 > Current regions & zones list: [cloud.google.com/about/locations](https://cloud.google.com/about/locations)
+
+---
+
+## 🌱 Google Cloud & Sustainability
+
+### The Problem
+
+- All those data centers worldwide use a lot of power — existing data centers consume roughly **2% of the world's electricity**.
+- Google takes this seriously and works hard to run data centers as efficiently as possible.
+
+### What Google Has Done
+
+| Milestone                                        | Detail                                                                                                  |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| **First** to achieve ISO 14001 certification     | A global standard for improving environmental performance — reducing waste, using resources efficiently |
+| **First major company** to be carbon neutral     | Achieved in Google's founding decade                                                                    |
+| **First company** to reach 100% renewable energy | Achieved in Google's second decade                                                                      |
+| **Goal by 2030**                                 | First major company to operate completely carbon free                                                   |
+
+### Cool Example — Hamina, Finland Data Center
+
+- One of Google's most advanced and efficient data centers.
+- Uses **sea water from the Bay of Finland** to cool servers — a first-of-its-kind cooling system that significantly cuts energy use.
+
+### Why It Matters for You
+
+- Running workloads on Google Cloud helps customers meet **their own environmental goals** too.
+- You're not just saving money — you're also using greener infrastructure.
+
+---
+
+## 🔒 Google Cloud Security
+
+### The Big Picture
+
+- 9 Google services have **1 billion+ users each** — security is baked into everything.
+- Security is built in **progressive layers**, from physical hardware all the way up to operations.
+
+---
+
+### The 6 Security Layers
+
+#### 1. Hardware Infrastructure
+
+| Feature                        | What it means                                                                                                        |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| **Custom hardware**            | Google designs its own server boards, networking gear, and security chips                                            |
+| **Secure boot stack**          | Servers verify they're running the right software using cryptographic signatures on BIOS, bootloader, kernel, and OS |
+| **Physical premises security** | Google builds its own data centers with multiple physical security layers — very few employees ever get access       |
+
+#### 2. Service Deployment
+
+- All communication between Google services uses **RPC (Remote Procedure Calls)**.
+- This traffic is **automatically encrypted** between data centers.
+- Google is rolling out hardware crypto accelerators to encrypt all RPC traffic inside data centers too.
+
+#### 3. User Identity
+
+- Google's login goes beyond just username + password.
+- It **intelligently challenges** users based on risk signals (new device? unusual location?).
+- Supports **U2F (Universal 2nd Factor)** — physical security keys for stronger login.
+
+#### 4. Storage Services
+
+- Most apps access storage indirectly through Google's storage services.
+- Data is **encrypted at rest** using centrally managed keys.
+- Hard drives and SSDs also have hardware-level encryption support.
+
+#### 5. Internet Communication
+
+- Services exposed to the internet go through **Google Front End (GFE)**.
+  - GFE enforces TLS with proper certificates (X.509 from a CA) and perfect forward secrecy.
+  - GFE also provides **DoS (Denial of Service) protection**.
+- Google's massive infrastructure scale lets it simply absorb many DoS attacks.
+- Multi-tier, multi-layer DoS protection adds further safety.
+
+#### 6. Operational Security
+
+| Feature                         | What it means                                                                                                                       |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **Intrusion detection**         | Rules + machine intelligence alert security teams of threats; Red Team exercises test defenses                                      |
+| **Insider risk reduction**      | Admin access is strictly limited and actively monitored                                                                             |
+| **Employee U2F**                | All Google employees must use U2F security keys — protects against phishing                                                         |
+| **Secure software development** | Central source control, two-party code review, security-safe libraries, and a public **Vulnerability Rewards Program** (bug bounty) |
+
+> Learn more: [cloud.google.com/security/security-design](https://cloud.google.com/security/security-design)
