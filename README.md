@@ -11,6 +11,8 @@ This repository contains concise, structured notes for Google Cloud Platform (GC
 - **05_compute_engine.md** — Compute Engine: Google Cloud's IaaS solution
 - **06_vpc_features.md** — VPC compatibility features: routing, firewall, peering, shared VPC
 - **07_cloud_load_balancing.md** — Cloud Load Balancing: types, features, and use cases
+- **08_dns_cdn.md** — Cloud DNS and Cloud CDN: managed DNS, edge caching, content delivery
+- **09_connectivity_options.md** — Connectivity options: VPN, peering, Interconnect, cross-cloud
 
 Each file is self-contained and designed for quick reference.
 
