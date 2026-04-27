@@ -166,39 +166,46 @@ Custom Roles     → you define them, least-privilege, project/org level only
 ## 🤖 Service Accounts
 
 ### What is a Service Account?
+
 A special account for **programs/apps/VMs** — not humans. Lets a VM or app interact with other Google Cloud services automatically, without anyone manually granting access each time.
 
 > Think of it as: giving a virtual machine its own identity and permissions.
 
 ### How it Works
+
 - Named like an email address (e.g. `my-vm@my-project.iam.gserviceaccount.com`)
 - Uses **cryptographic keys** instead of passwords to authenticate.
 - You assign IAM roles to the service account, just like you would to a person.
 
 ### Example
+
 - VM needs to store data in Cloud Storage (but no one else on the internet should access it).
 - Create a service account → grant it access to Cloud Storage → attach it to the VM.
 - Now the VM can read/write to Cloud Storage automatically and securely.
 
 ### Service Accounts are Also Resources
+
 A service account is both an **identity** (like a user) AND a **resource** (like a VM).
 This means you can attach IAM policies to the service account itself to control who can manage it.
 
-| Person | Role on the Service Account |
-|--------|-----------------------------|
-| Alice | Editor — can manage which accounts can act as this service account |
-| Bob | Viewer — can only see the service account exists |
+| Person | Role on the Service Account                                        |
+| ------ | ------------------------------------------------------------------ |
+| Alice  | Editor — can manage which accounts can act as this service account |
+| Bob    | Viewer — can only see the service account exists                   |
 
 ---
 
 ## 🪪 Cloud Identity
 
 ### The Problem with Using Gmail Accounts
+
 Many teams start by logging into Google Cloud with personal Gmail accounts and sharing access via Google Groups. This works initially but causes problems:
+
 - No central management of who has access.
 - If someone leaves the company, there's **no easy way to revoke their access** immediately.
 
 ### What Cloud Identity Does
+
 Cloud Identity lets organizations **centrally manage users and groups** via the **Google Admin Console**.
 
 - Admins can use the **same usernames and passwords** from existing **Active Directory or LDAP** systems — no need to create separate Google accounts.
@@ -206,10 +213,11 @@ Cloud Identity lets organizations **centrally manage users and groups** via the 
 
 ### Editions
 
-| Edition | What's included |
-|---------|----------------|
-| **Free** | User & group management, SSO, policy controls |
+| Edition     | What's included                                   |
+| ----------- | ------------------------------------------------- |
+| **Free**    | User & group management, SSO, policy controls     |
 | **Premium** | Everything in Free + **mobile device management** |
 
 ### Already a Google Workspace customer?
+
 This is all already built into the **Google Admin Console** for you — no extra setup needed.

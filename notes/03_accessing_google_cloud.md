@@ -5,6 +5,7 @@ There are **4 ways** to interact with Google Cloud:
 ---
 
 ## 1. Google Cloud Console (GUI)
+
 A web-based graphical interface — the easiest way to get started.
 
 - Find, manage, and monitor your resources.
@@ -20,16 +21,18 @@ A web-based graphical interface — the easiest way to get started.
 ## 2. Google Cloud SDK & Cloud Shell (Command Line)
 
 ### Google Cloud SDK
+
 A set of tools you install locally to manage Google Cloud from your terminal.
 
-| Tool | What it does |
-|------|-------------|
+| Tool           | What it does                                         |
+| -------------- | ---------------------------------------------------- |
 | **gcloud CLI** | Main command-line tool for all Google Cloud services |
-| **bq** | Command-line tool for BigQuery |
+| **bq**         | Command-line tool for BigQuery                       |
 
 - All tools live under the `bin` directory after installation.
 
 ### Cloud Shell
+
 A browser-based terminal — no installation needed.
 
 - Runs on a **Debian-based VM** with a **persistent 5 GB home directory**.
@@ -39,6 +42,7 @@ A browser-based terminal — no installation needed.
 ---
 
 ## 3. APIs (for developers)
+
 Google Cloud services expose APIs so your code can control them programmatically.
 
 - **Google APIs Explorer** (in the Console) — browse available APIs and versions, try them interactively.
@@ -50,9 +54,11 @@ Supported languages:
 ---
 
 ## 4. Google Cloud App (Mobile)
+
 A mobile app for managing Google Cloud on the go.
 
 **What you can do:**
+
 - Start/stop **Compute Engine** instances, SSH into them, view logs.
 - Start/stop **Cloud SQL** instances.
 - Manage **App Engine** apps — view errors, roll back deployments, change traffic splitting.
