@@ -40,6 +40,11 @@ This repository contains concise, structured notes for Google Cloud Platform (GC
 - **34_vm_internal_external_ip_lab.md** — Lab demonstrating IP configuration during VM creation and stop/start behavior
 - **35_dns_external_mapping_and_alias_ips.md** — Internal/external DNS, Cloud DNS, and alias IP ranges
 - **36_routes_and_firewall_rules.md** — How packets flow through VPC, the virtual router, and firewall rule design
+- **37_network_pricing.md** — Network pricing: ingress/egress, external IPs, load balancing, and how to reduce costs
+- **38_vpc_network_lab_connectivity.md** — Lab walkthrough covering VPC creation, firewall rules, and connectivity between VMs
+- **39_common_network_designs.md** — Common network design patterns: availability, security, global deployment, and Cloud NAT
+- **40_private_vm_cloud_nat_lab.md** — Lab walkthrough for private VMs, Cloud IAP, Private Google Access, and Cloud NAT
+- **41_compute_engine_vm_overview.md** — Compute Engine VM fundamentals: IaaS model, TPUs, disk/CPU/network options, and console walkthrough
 
 Each file is self-contained and designed for quick reference.
 
@@ -52,7 +57,8 @@ The notes currently span:
 - Prompt engineering and Gemini-related fundamentals
 - Hands-on lab walkthroughs
 - Virtual networking foundations and deep dives
-- Network design: VPC, subnets, IPs, DNS, routes, firewall
+- Network design: VPC, subnets, IPs, DNS, routes, firewall, pricing
+- Compute Engine: VM types, disks, TPUs, and console configuration
 
 ---
 
