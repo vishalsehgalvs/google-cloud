@@ -22,15 +22,15 @@
 
 A VM moves through several states from creation to deletion:
 
-| State | What's Happening |
-|---|---|
-| **Provisioning** | Resources (CPU, memory, disks) are being reserved; VM not running yet |
-| **Staging** | Resources acquired; IP addresses added, system image booting |
-| **Running** | VM is live; startup scripts run; SSH/RDP access enabled |
-| **Stopping** | Shutdown scripts run; transitioning to terminated |
-| **Terminated** | VM is stopped; can be restarted or deleted |
-| **Repairing** | Internal error or host unavailable; VM unusable; not billed; not covered by SLA |
-| **Suspending / Suspended** | VM is being suspended; can be resumed or deleted |
+| State                      | What's Happening                                                                |
+| -------------------------- | ------------------------------------------------------------------------------- |
+| **Provisioning**           | Resources (CPU, memory, disks) are being reserved; VM not running yet           |
+| **Staging**                | Resources acquired; IP addresses added, system image booting                    |
+| **Running**                | VM is live; startup scripts run; SSH/RDP access enabled                         |
+| **Stopping**               | Shutdown scripts run; transitioning to terminated                               |
+| **Terminated**             | VM is stopped; can be restarted or deleted                                      |
+| **Repairing**              | Internal error or host unavailable; VM unusable; not billed; not covered by SLA |
+| **Suspending / Suspended** | VM is being suspended; can be resumed or deleted                                |
 
 ### While Running, You Can
 
