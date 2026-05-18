@@ -49,6 +49,8 @@ This repository contains concise, structured notes for Google Cloud Platform (GC
 - **43_compute_engine_vm_access_and_lifecycle.md** — VM access (SSH/RDP), full lifecycle states, availability policies, and OS patch management
 - **44_compute_engine_machine_families.md** — All four machine families: general-purpose, compute-optimized, memory-optimized, accelerator-optimized, and custom types
 - **45_compute_engine_pricing.md** — Compute Engine pricing: billing model, sustained use discounts, committed use, preemptible vs Spot VMs, and rightsizing
+- **46_compute_engine_special_vm_types.md** — Preemptible VMs, Spot VMs, sole-tenant nodes, shielded VMs, and confidential VMs
+- **47_compute_engine_images.md** — Boot disk images: public vs custom, premium image billing, importing images, and machine images
 
 Each file is self-contained and designed for quick reference.
 
