@@ -2,13 +2,13 @@
 
 ## Quick Reference
 
-| Service         | Type        | Capacity    | Max Unit Size              | Best for                                                      |
-| --------------- | ----------- | ----------- | -------------------------- | ------------------------------------------------------------- |
-| **Cloud Storage** | Object    | Petabytes   | 5 TB per object            | Immutable blobs >10 MB (images, videos, backups)              |
-| **Cloud SQL**   | Relational  | Up to 64 TB | —                          | Web frameworks, existing apps (user credentials, orders)      |
-| **Spanner**     | Relational  | Petabytes   | —                          | Full SQL + horizontal scalability, mission-critical workloads |
-| **Firestore**   | NoSQL       | Terabytes   | 1 MB per entity            | Mobile/web apps needing real-time sync and offline support    |
-| **Bigtable**    | NoSQL       | Petabytes   | 10 MB/cell, 100 MB/row     | Analytical workloads, heavy read/write (AdTech, IoT, finance) |
+| Service           | Type       | Capacity    | Max Unit Size          | Best for                                                      |
+| ----------------- | ---------- | ----------- | ---------------------- | ------------------------------------------------------------- |
+| **Cloud Storage** | Object     | Petabytes   | 5 TB per object        | Immutable blobs >10 MB (images, videos, backups)              |
+| **Cloud SQL**     | Relational | Up to 64 TB | —                      | Web frameworks, existing apps (user credentials, orders)      |
+| **Spanner**       | Relational | Petabytes   | —                      | Full SQL + horizontal scalability, mission-critical workloads |
+| **Firestore**     | NoSQL      | Terabytes   | 1 MB per entity        | Mobile/web apps needing real-time sync and offline support    |
+| **Bigtable**      | NoSQL      | Petabytes   | 10 MB/cell, 100 MB/row | Analytical workloads, heavy read/write (AdTech, IoT, finance) |
 
 ---
 

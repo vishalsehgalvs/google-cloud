@@ -21,6 +21,7 @@ The **graphical, web-based interface** for Google Cloud.
 **Access:** console.cloud.google.com
 
 **What you can do:**
+
 - View your VMs, databases, storage, and all resources
 - Click through menus to create and configure resources
 - View dashboards and monitoring
@@ -30,7 +31,7 @@ The **graphical, web-based interface** for Google Cloud.
 
 ### Understanding Console Navigation
 
-Lab instructions often say: *"On the Navigation menu, click Compute Engine > VM instances."*
+Lab instructions often say: _"On the Navigation menu, click Compute Engine > VM instances."_
 
 Here's how to follow that:
 
@@ -46,9 +47,11 @@ You'll get comfortable with this as you do more labs.
 ## 2) Cloud Shell & Google Cloud CLI
 
 ### Cloud Shell
+
 A **browser-based terminal** built right into the Google Cloud Console.
 
 **What it is:**
+
 - A temporary Linux virtual machine
 - 5 GB of persistent disk storage (your files stay between sessions)
 - Has the Google Cloud CLI (`gcloud`) pre-installed
@@ -57,9 +60,11 @@ A **browser-based terminal** built right into the Google Cloud Console.
 Access it directly from the Console — no setup needed.
 
 ### Google Cloud CLI (gcloud)
+
 A **command-line tool** for managing Google Cloud resources.
 
 **Example commands:**
+
 - `gcloud compute instances list` — list all your VMs
 - `gcloud storage buckets create my-bucket` — create a storage bucket
 - Works in Cloud Shell or any terminal on your computer
@@ -75,11 +80,13 @@ Lab instructions will sometimes say: "Copy and paste this command into Cloud She
 For programmers who want to build custom tools or integrate Google Cloud into applications.
 
 ### App APIs
+
 - Access Google Cloud services from your code
 - Optimized for languages like Python, Node.js, Java, Go, etc.
 - Good for: building applications that use Google Cloud services
 
 ### Admin APIs
+
 - Manage and automate resource creation/deletion
 - Good for: building custom automation tools and scripts
 
@@ -92,6 +99,7 @@ For programmers who want to build custom tools or integrate Google Cloud into ap
 Manage Google Cloud from your **Android or iOS device** on the go.
 
 **What you can do:**
+
 - Start, stop, and SSH into Compute Engine instances
 - View logs from instances
 - Create custom graphs for metrics (CPU, network, requests/sec, errors)
@@ -110,6 +118,7 @@ Manage Google Cloud from your **Android or iOS device** on the go.
 Google Cloud Marketplace offers pre-built solutions you can deploy in seconds — from any interface.
 
 Instead of:
+
 - Manually creating VMs
 - Installing software
 - Configuring networking
@@ -118,6 +127,7 @@ Instead of:
 You just click "Deploy" on a pre-configured solution, and Google Cloud handles all the setup for you.
 
 Examples:
+
 - WordPress
 - Jenkins
 - Popular databases
@@ -130,6 +140,7 @@ Examples:
 A **Project** is how Google Cloud organizes everything.
 
 Think of it as a container that holds:
+
 - All your resources (VMs, networks, databases, etc.)
 - Billing information
 - IAM permissions
@@ -141,19 +152,20 @@ One Google Cloud account can have many projects, and projects are isolated from 
 
 ## Choosing Your Interface
 
-| Task | Best Interface |
-|---|---|
-| Learning/exploring | Console (GUI) |
-| Quick one-off commands | Cloud Shell |
-| Automation/scripting | Cloud Shell + gcloud CLI |
-| Building custom tools | APIs/Client libraries |
-| Mobile management | Cloud Mobile App |
+| Task                   | Best Interface           |
+| ---------------------- | ------------------------ |
+| Learning/exploring     | Console (GUI)            |
+| Quick one-off commands | Cloud Shell              |
+| Automation/scripting   | Cloud Shell + gcloud CLI |
+| Building custom tools  | APIs/Client libraries    |
+| Mobile management      | Cloud Mobile App         |
 
 ---
 
 ## Key Takeaway
 
 You're not locked into one way — use whichever tool makes sense for what you're doing:
+
 - **Console** for visual, point-and-click management
 - **Cloud Shell/gcloud CLI** for command-line automation
 - **APIs** for custom applications

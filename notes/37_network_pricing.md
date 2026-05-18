@@ -16,19 +16,19 @@ Responses to requests count as egress and **are charged**.
 
 ### Free Egress Scenarios
 
-| Scenario | Cost |
-|----------|------|
-| Same zone egress (via internal IP) | ✅ Free |
-| Traffic to Google products (YouTube, Maps, Drive, Gmail) | ✅ Free |
+| Scenario                                                   | Cost    |
+| ---------------------------------------------------------- | ------- |
+| Same zone egress (via internal IP)                         | ✅ Free |
+| Traffic to Google products (YouTube, Maps, Drive, Gmail)   | ✅ Free |
 | Traffic to another Google Cloud service in the same region | ✅ Free |
 
 ### Charged Egress Scenarios
 
-| Scenario | Cost |
-|----------|------|
-| Between zones in the same region | ❌ Charged |
+| Scenario                                 | Cost       |
+| ---------------------------------------- | ---------- |
+| Between zones in the same region         | ❌ Charged |
 | Same zone egress via external IP address | ❌ Charged |
-| Between different regions | ❌ Charged |
+| Between different regions                | ❌ Charged |
 
 **Why external IP costs more in same zone:** Google Cloud cannot determine a VM's zone from its external IP address, so traffic through an external IP is treated as if it's going between zones.
 
@@ -38,18 +38,19 @@ You pay for both static and ephemeral external IPs when they're assigned to a re
 
 ### IP Address Costs
 
-| IP Type | Cost |
-|---------|------|
-| Static IP in use | Standard charge |
-| Ephemeral IP in use | Standard charge |
-| Static IP **not** assigned to any resource (idle) | Higher charge |
-| External IP on preemptible VMs | Lower charge than standard VMs |
+| IP Type                                           | Cost                           |
+| ------------------------------------------------- | ------------------------------ |
+| Static IP in use                                  | Standard charge                |
+| Ephemeral IP in use                               | Standard charge                |
+| Static IP **not** assigned to any resource (idle) | Higher charge                  |
+| External IP on preemptible VMs                    | Lower charge than standard VMs |
 
 **Key insight:** Unused static IPs cost more than in-use IPs, so release IPs you're not actively using.
 
 ## Cost Estimation: Pricing Calculator
 
 ### What It Is
+
 A web-based tool that helps you estimate costs for Google Cloud resources.
 
 ### How to Use It
@@ -67,6 +68,7 @@ A web-based tool that helps you estimate costs for Google Cloud resources.
    - Save to a unique URL for future reference
 
 ### Example
+
 Specify `n1-standard-2` instance in `us-central1` with 100 GB monthly egress to Americas and EMEA → Get total monthly cost estimate.
 
 ## Key Takeaways

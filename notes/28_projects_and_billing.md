@@ -5,6 +5,7 @@
 In Google Cloud, **projects are the main way resources are organized**.
 
 A project acts like a container for:
+
 - Virtual machines
 - Networks
 - Storage buckets
@@ -23,11 +24,13 @@ This is how Google Cloud keeps related resources grouped together and isolated f
 Projects are also how Google Cloud connects resource usage to a **billing account**.
 
 That means:
+
 - Your resources live inside a project
 - The costs for those resources are tracked through that project
 - The project is linked to a billing account
 
 So projects are not just folders. They are the basic unit for:
+
 - Organization
 - Access control
 - Quotas
@@ -51,6 +54,7 @@ To create a project in the Google Cloud Console:
 - **Project ID**: unique across Google Cloud
 
 So you might name a project:
+
 - `My New Project`
 
 But Google Cloud creates a unique project ID behind it.
@@ -62,6 +66,7 @@ But Google Cloud creates a unique project ID behind it.
 After you create a project, the Console shows progress in the **notification pane**.
 
 One thing to remember:
+
 - A newly created project may not have every service ready immediately
 - Some services can take a little time to become available
 
@@ -72,6 +77,7 @@ One thing to remember:
 You can switch project context from the top of the Console.
 
 Once you select a different project:
+
 - The Console changes focus to that project
 - Any resources you view or create will belong to that project
 
@@ -84,6 +90,7 @@ This is important because Google Cloud actions always happen **in the currently 
 In the Console, deleting a project is usually shown as **shutting it down**.
 
 When you shut down a project:
+
 - Resource activity stops
 - Billing for active usage stops over time
 - The project is scheduled for deletion
@@ -120,10 +127,12 @@ This is a quick way to see which project Cloud Shell is currently using.
 ## Console Project vs Cloud Shell Project
 
 A useful thing to know:
+
 - Changing the active project in the **Console** does not always automatically change Cloud Shell's current project
 - Cloud Shell uses its own `gcloud` configuration
 
 So it is possible for:
+
 - The Console to be focused on one project
 - Cloud Shell to still be focused on another project
 
@@ -183,6 +192,7 @@ This is useful when you move back and forth between multiple projects.
 ## What This Demo Shows
 
 This walkthrough demonstrates that you can:
+
 - Create projects
 - Delete (shut down) projects
 - Switch between projects in the Console
@@ -196,6 +206,7 @@ This walkthrough demonstrates that you can:
 Projects are the **core organizer** in Google Cloud.
 
 They control:
+
 - Where resources live
 - How resources are isolated
 - Which billing account pays for usage

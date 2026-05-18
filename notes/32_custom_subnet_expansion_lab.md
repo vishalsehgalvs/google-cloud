@@ -5,6 +5,7 @@
 This lab shows how to expand a **custom subnet** when you run out of internal IP addresses.
 
 Key outcome:
+
 - You can increase subnet IP range size **without shutting down running workloads**.
 
 ---
@@ -14,6 +15,7 @@ Key outcome:
 You begin with a custom subnet using a **/29** CIDR range.
 
 ### What /29 means
+
 A `/29` subnet has **8 total IP addresses**.
 
 In Google Cloud, **4 addresses are reserved**, so only **4 usable addresses** are left for VM instances.
@@ -29,6 +31,7 @@ That means once 4 VMs are running, the subnet has no free internal IPs left.
 3. Start creating a 5th VM in the same subnet
 
 Expected result:
+
 - VM creation fails
 - Error indicates subnet IP space is exhausted
 
@@ -41,10 +44,12 @@ You can also watch this in the notification panel during creation.
 After the failure, expand the subnet range.
 
 Two ways to navigate there:
+
 - Through VPC Network settings
 - Or from VM network interface details (for example, by clicking NIC/subnet links)
 
 Then:
+
 1. Open the subnet
 2. Click Edit
 3. Change subnet mask from `/29` to `/23`
@@ -57,11 +62,13 @@ A `/23` subnet supports far more addresses (enough for hundreds of instances).
 ## Step 3: Retry VM Creation
 
 Once subnet update is complete:
+
 1. Use Retry from the failed VM creation flow (or create the VM again)
 2. Wait for staging and provisioning
 3. Confirm the new VM gets an internal IP
 
 Expected result:
+
 - VM 5 is created successfully
 - Internal IP allocation works because subnet now has enough free space
 

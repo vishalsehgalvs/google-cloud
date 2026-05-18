@@ -33,9 +33,11 @@ After deployment, you get back a unique **HTTPS URL**. Cloud Run handles incomin
 ## Two Ways to Deploy
 
 ### Container-based workflow
+
 You build and manage the container image yourself — more control and transparency.
 
 ### Source-based workflow
+
 You push your **source code directly** — Cloud Run builds it into a container for you using **Buildpacks** (an open-source project). Good when you just want an HTTPS endpoint without worrying about containers.
 
 ---
@@ -63,9 +65,11 @@ No over-provisioning, no idle costs.
 Cloud Run can run **any binary compiled for Linux 64-bit**, which means:
 
 **Popular languages:**
+
 - Java, Python, Node.js, PHP, Go, C++
 
 **Less common languages (also work fine):**
+
 - Cobol, Haskell, Perl
 
 As long as your app can handle web requests, Cloud Run can run it.
@@ -75,6 +79,7 @@ As long as your app can handle web requests, Cloud Run can run it.
 ## Key Takeaway
 
 Cloud Run is ideal when you want to:
+
 - **Deploy containers without managing servers**
 - **Scale automatically** — including down to zero
 - **Pay only for actual usage**

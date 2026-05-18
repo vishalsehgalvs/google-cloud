@@ -7,37 +7,44 @@ You learned how to make a VM that is private (no public IP), connect to it safel
 ---
 
 ## 1. Create a Private VM (No External IP)
+
 - Made a new VPC network called `privatenet` with a custom subnet.
 - Created a firewall rule to allow SSH, but only from Cloud IAP (not from anywhere on the internet).
 - Made a VM called `vm-internal` in this network, with **no external IP**.
 
 **Result:**
+
 - You can’t SSH to this VM directly from the internet.
 - The VM is private and safe from outside attacks.
 
 ---
 
 ## 2. Connect to the Private VM Using Cloud IAP
+
 - Used Cloud IAP (Identity-Aware Proxy) to open a secure tunnel and SSH into the VM from Cloud Shell.
 - No need for a “bastion” host or public IP.
 
 **Result:**
+
 - You can manage your private VM safely, even though it has no public IP.
 
 ---
 
 ## 3. Test Access to Google APIs (Private Google Access)
+
 - Tried to use the VM to access Google Cloud Storage (copy a file to a bucket).
 - At first, it didn’t work because “Private Google Access” was OFF for the subnet.
 - Turned ON Private Google Access for the subnet.
 - Now the VM could reach Google APIs and services, even with no public IP.
 
 **Result:**
+
 - Private VMs can use Google services if Private Google Access is enabled.
 
 ---
 
 ## 4. Test Internet Access (Cloud NAT)
+
 - Tried to update the VM (e.g., `apt-get update`).
 - Didn’t work, because the VM had no public IP and no Cloud NAT.
 - Set up a Cloud NAT gateway for the network.
@@ -45,11 +52,13 @@ You learned how to make a VM that is private (no public IP), connect to it safel
 - Tried again, and now the VM could reach the internet for updates and downloads.
 
 **Result:**
+
 - Cloud NAT lets private VMs reach the internet for outbound connections (updates, patches, etc.), but nobody can reach in from the outside.
 
 ---
 
 ## 5. Key Points
+
 - **Private VMs** (no external IP) are safer from attacks.
 - **Cloud IAP** lets you connect to private VMs without a public IP.
 - **Private Google Access** lets private VMs use Google APIs/services.

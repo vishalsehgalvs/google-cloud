@@ -1,6 +1,7 @@
 # 🌍 Spanner
 
 ## What is Spanner?
+
 - Fully managed **relational database** service
 - Scales **horizontally** (unlike traditional relational DBs that only scale vertically)
 - **Strongly consistent** globally
@@ -12,6 +13,7 @@
 ## When to Use Spanner
 
 Best for applications that need:
+
 - SQL + joins + secondary indexes
 - Built-in **high availability**
 - **Strong global consistency**
@@ -21,9 +23,9 @@ Best for applications that need:
 
 ## Spanner vs Cloud SQL
 
-| Feature              | Cloud SQL          | Spanner                    |
-| -------------------- | ------------------ | -------------------------- |
-| Scale                | Vertical           | Horizontal (global)        |
-| Consistency          | Regional           | Strong, global             |
-| Use case             | Standard apps      | Mission-critical, high I/O |
-| Throughput           | Moderate           | Tens of thousands+ ops/sec |
+| Feature     | Cloud SQL     | Spanner                    |
+| ----------- | ------------- | -------------------------- |
+| Scale       | Vertical      | Horizontal (global)        |
+| Consistency | Regional      | Strong, global             |
+| Use case    | Standard apps | Mission-critical, high I/O |
+| Throughput  | Moderate      | Tens of thousands+ ops/sec |

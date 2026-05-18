@@ -15,14 +15,17 @@ Think of it as a supervisor for your containers — it decides where to run them
 ## Key Concepts
 
 ### Cluster
+
 A **cluster** is the whole system — a group of machines (nodes) that Kubernetes manages together.
 
 ### Node
+
 A **node** is a single machine in the cluster. It's where your containers actually run.
 
 > Note: In Google Cloud, nodes are virtual machines running in Compute Engine — but in Kubernetes, "node" just means any computing instance.
 
 ### Pod
+
 A **Pod** is the smallest unit you can deploy in Kubernetes. It wraps one or more containers together.
 
 - Usually **one container per Pod**
@@ -31,6 +34,7 @@ A **Pod** is the smallest unit you can deploy in Kubernetes. It wraps one or mor
 - A Pod represents a running process on your cluster
 
 ### Deployment
+
 A **Deployment** is a group of identical Pods (called replicas).
 
 - Keeps your Pods running even if a node crashes
@@ -38,6 +42,7 @@ A **Deployment** is a group of identical Pods (called replicas).
 - You tell it how many copies (replicas) to run
 
 ### Service
+
 A **Service** gives your Pods a **stable, fixed IP address** so other parts of the app (or outside users) can reach them reliably.
 
 - Pods can come and go, but the Service IP stays the same
@@ -54,22 +59,23 @@ The **control plane** is the brain of the cluster. It runs the primary Kubernete
 
 ## Common Commands
 
-| Command | What it does |
-|---|---|
-| `kubectl run` | Start a Deployment with a container in a Pod |
-| `kubectl get pods` | List all running Pods |
-| `kubectl get deployments` | List all Deployments |
-| `kubectl describe deployments` | Show details about your Deployments |
-| `kubectl scale` | Change the number of Pod replicas |
-| `kubectl get services` | List Services and their external IPs |
-| `kubectl apply` | Apply a config file to create/update resources |
-| `kubectl rollout` | Roll out a new version of your app |
+| Command                        | What it does                                   |
+| ------------------------------ | ---------------------------------------------- |
+| `kubectl run`                  | Start a Deployment with a container in a Pod   |
+| `kubectl get pods`             | List all running Pods                          |
+| `kubectl get deployments`      | List all Deployments                           |
+| `kubectl describe deployments` | Show details about your Deployments            |
+| `kubectl scale`                | Change the number of Pod replicas              |
+| `kubectl get services`         | List Services and their external IPs           |
+| `kubectl apply`                | Apply a config file to create/update resources |
+| `kubectl rollout`              | Roll out a new version of your app             |
 
 ---
 
 ## Imperative vs Declarative
 
 ### Imperative (command by command)
+
 You tell Kubernetes what to do step by step — good for learning and testing.
 
 ```bash
@@ -77,6 +83,7 @@ kubectl scale deployment my-app --replicas=3
 ```
 
 ### Declarative (config file)
+
 You write a file describing what you **want** the final state to look like, and Kubernetes figures out how to get there. This is the recommended approach for real apps.
 
 ```bash
@@ -120,6 +127,7 @@ Running Kubernetes yourself is complex. **GKE (Google Kubernetes Engine)** is Go
 ## Key Takeaway
 
 Kubernetes lets you:
+
 - **Run containers at scale** across many machines
 - **Keep apps running** even when individual machines fail
 - **Deploy updates safely** without downtime

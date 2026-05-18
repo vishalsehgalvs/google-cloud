@@ -25,12 +25,12 @@ Think of a container as an **invisible box around your code and everything it ne
 
 ## Why Containers Are Better for Scaling
 
-| | Virtual Machines | Containers |
-|---|---|---|
-| Startup time | Minutes | Seconds |
-| Size | Gigabytes (full OS) | Megabytes |
-| Portability | Hard to move | Works anywhere |
-| Scaling speed | Slow | Very fast |
+|               | Virtual Machines    | Containers     |
+| ------------- | ------------------- | -------------- |
+| Startup time  | Minutes             | Seconds        |
+| Size          | Gigabytes (full OS) | Megabytes      |
+| Portability   | Hard to move        | Works anywhere |
+| Scaling speed | Slow                | Very fast      |
 
 - You can run **dozens or hundreds of containers on a single host**
 - They scale up and down in **seconds**
@@ -50,11 +50,11 @@ No rebuilding, no reconfiguring. Just move and run.
 
 ## Containers vs IaaS vs PaaS
 
-| | IaaS | PaaS | Containers |
-|---|---|---|---|
-| Flexibility | High | Low | High |
-| Scalability | Slow | Fast | Fast |
-| Control over OS | Yes | No | Yes (via image) |
+|                 | IaaS | PaaS | Containers      |
+| --------------- | ---- | ---- | --------------- |
+| Flexibility     | High | Low  | High            |
+| Scalability     | Slow | Fast | Fast            |
+| Control over OS | Yes  | No   | Yes (via image) |
 
 Containers give you the **scalability of PaaS** with the **flexibility of IaaS** — best of both worlds.
 
@@ -75,6 +75,7 @@ If one container fails, the rest keep running. If one part gets more traffic, on
 ## Key Takeaway
 
 Containers make your code:
+
 - **Portable** — run anywhere without changes
 - **Lightweight** — no bloated OS per instance
 - **Fast to scale** — spin up in seconds

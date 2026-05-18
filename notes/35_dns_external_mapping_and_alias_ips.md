@@ -7,6 +7,7 @@ Even if a VM has an external IP, the guest operating system does not directly kn
 If you run a command like `ifconfig` inside the VM, you typically only see the internal IP.
 
 Why:
+
 - VPC transparently maps external IPs to internal IPs
 - The VM communicates using its internal network identity
 - External reachability is handled by Google Cloud networking, not by a second OS-level interface in the VM
@@ -16,6 +17,7 @@ Why:
 ## Internal DNS in Google Cloud
 
 Google Cloud provides two internal DNS name styles:
+
 - Zonal DNS
 - Global (project-wide) DNS
 
@@ -26,12 +28,14 @@ Google generally recommends zonal DNS because it improves reliability by isolati
 ## Internal Hostname and FQDN Behavior
 
 Each instance has:
+
 - A hostname (same as instance name)
 - An internal FQDN
 
 Internal DNS names resolve to internal IP addresses.
 
 Important behavior:
+
 - If an instance is deleted and recreated, its internal IP might change
 - DNS name still tracks the instance identity
 - Other resources should use DNS names when possible instead of hardcoded internal IPs
@@ -43,6 +47,7 @@ Important behavior:
 Each instance has a metadata server that also acts as its DNS resolver.
 
 It handles:
+
 - DNS queries for local network resources
 - Forwarding of other queries to Google public DNS for internet name resolution
 
@@ -55,6 +60,7 @@ Instances with external IPs can accept connections from outside the project.
 Users can connect directly using the external IP.
 
 However:
+
 - Public DNS records are not automatically created for instance external IPs
 - Admins must publish those DNS records themselves
 
@@ -67,12 +73,14 @@ You can host DNS zones on Google Cloud using Cloud DNS.
 Cloud DNS is Google Cloud's managed authoritative DNS service.
 
 What it provides:
+
 - Scalable and reliable DNS zone hosting
 - Domain-to-IP resolution (for example, mapping names to external IPs)
 - API/CLI/UI management for records
 - No need to run your own DNS server software
 
 Cloud DNS uses Google's global Anycast name server network, which helps with:
+
 - Low latency
 - High availability
 - Global redundancy
@@ -94,11 +102,13 @@ That is why managed, highly available DNS is a key part of production infrastruc
 Alias IP ranges let you assign additional internal IP ranges to a VM network interface.
 
 Use case:
+
 - Multiple services on one VM
 - Each service can use a different internal IP
 - No need to create multiple NICs just to assign extra service IPs
 
 Alias ranges are drawn from:
+
 - The subnet's primary CIDR range
 - Or secondary CIDR ranges
 

@@ -3,6 +3,7 @@
 ## Why These Three Matter
 
 To understand Google Cloud networking, you need to understand the relationship between:
+
 - **Projects**
 - **Networks**
 - **Subnetworks**
@@ -16,6 +17,7 @@ These are some of the most important VPC building blocks.
 A **project** is the main organizer of infrastructure resources in Google Cloud.
 
 A project does several things:
+
 - Groups related resources together
 - Connects those resources to **billing**
 - Controls quotas and limits
@@ -24,12 +26,15 @@ A project does several things:
 One unusual but important detail in Google Cloud is that **projects contain entire networks**.
 
 ### Network quota per project
+
 By default, each project can have **15 networks**.
 
 If you need more, you can request additional quota in the Google Cloud Console.
 
 ### Networks across projects
+
 Networks can also work across project boundaries in two important ways:
+
 - They can be **shared** with other projects
 - They can be **peered** with networks in other projects
 
@@ -42,15 +47,18 @@ These are more advanced topics, but they matter when you design larger environme
 A **network** is the overall private network space for your Google Cloud resources.
 
 Important characteristics:
+
 - A network belongs to a **project**
 - Networks are **global**
 - A network itself does **not** have a single IP range
 - Instead, it is the overall construct that contains subnets, IP addresses, routes, firewall rules, and connected resources
 
 ### Global by design
+
 Google Cloud VPC networks are **global**, which means one network can span:
+
 - Asia
-n- Europe
+  n- Europe
 - The Americas
 - Any other Google Cloud region
 
@@ -65,11 +73,13 @@ This is different from many traditional networking models where networks are lim
 A **subnetwork** (or subnet) is how you divide a VPC network into smaller, regional sections.
 
 Subnetworks let you:
+
 - Separate environments
 - Organize workloads
 - Assign IP ranges to different parts of your architecture
 
 ### Key idea
+
 - **VPC network** = global
 - **Subnet** = regional
 
@@ -80,6 +90,7 @@ So the large network spans the world, but each subnet belongs to a specific regi
 ## Three Types of Networks
 
 Google Cloud has three main network types:
+
 - **Default**
 - **Auto mode**
 - **Custom mode**
@@ -91,11 +102,14 @@ Google Cloud has three main network types:
 Every new project is usually given a **default VPC network**.
 
 The default network includes:
+
 - Pre-created subnets
 - Pre-created firewall rules
 
 ### What it sets up automatically
+
 It creates:
+
 - One subnet for each region
 - Non-overlapping CIDR blocks
 - Firewall rules that allow:
@@ -107,6 +121,7 @@ It creates:
 This makes it easy to get started quickly.
 
 ### Downside
+
 The default setup is convenient, but it is often too open or too automatic for production environments.
 
 ---
@@ -116,17 +131,22 @@ The default setup is convenient, but it is often too open or too automatic for p
 An **auto mode network** automatically creates one subnet in each region.
 
 In fact:
+
 - The **default network is an auto mode network**
 
 ### IP range behavior
+
 These auto-created subnets:
+
 - Use predefined IP ranges
 - Start with a **/20** subnet mask
 - Can be expanded up to **/16**
 - Fit inside the overall **10.128.0.0/9** CIDR block
 
 ### Important behavior
+
 When Google Cloud adds a new region in the future:
+
 - Auto mode networks automatically get a new subnet for that region
 
 This is convenient, but it also means subnet creation is not fully under your control.
@@ -138,18 +158,22 @@ This is convenient, but it also means subnet creation is not fully under your co
 A **custom mode network** does **not** create subnets automatically.
 
 You decide:
+
 - Which regions to use
 - Which subnets to create
 - Which IP ranges each subnet gets
 
 ### Why teams prefer custom mode
+
 Custom mode gives you:
+
 - Better control
 - Better planning
 - Cleaner production design
 - Flexibility for future growth
 
 ### Important rule
+
 Subnet IP ranges in the same VPC network **cannot overlap**.
 
 ---
@@ -157,11 +181,13 @@ Subnet IP ranges in the same VPC network **cannot overlap**.
 ## Auto Mode to Custom Mode
 
 You can convert:
+
 - **Auto mode network → Custom mode network**
 
 But this conversion is **one-way**.
 
 You cannot convert:
+
 - **Custom mode network → Auto mode network**
 
 So you should think carefully before choosing auto mode for long-term use.
@@ -173,6 +199,7 @@ So you should think carefully before choosing auto mode for long-term use.
 Google Cloud supports **IPv6** in **custom VPC network mode**.
 
 For example, you can configure **dual-stack** VM instances that run with:
+
 - IPv4
 - IPv6
 
@@ -185,7 +212,9 @@ This is useful when you need modern IP addressing support.
 Because VPC networks are global, VM instances in the **same VPC network** can communicate using **internal IP addresses**, even if they are in different regions.
 
 ### Example
+
 If:
+
 - VM A is in Asia
 - VM B is in Europe
 - Both are in **Network 1**
@@ -203,6 +232,7 @@ In practice, it can feel as if the VMs are sitting very close together from a ne
 If two VMs are **not** in the same VPC network, then by default they usually need to communicate using **external IP addresses**.
 
 Example:
+
 - VM C in Network 2
 - VM D in Network 3
 - Same region, but different networks
@@ -210,6 +240,7 @@ Example:
 Even though they are geographically close, they are not in the same private network.
 
 ### Important detail
+
 That traffic still may not go out to the open public internet. It can stay within Google's infrastructure and go through Google's edge routers.
 
 But the billing and security behavior is different than private internal communication inside one VPC.
@@ -221,12 +252,14 @@ But the billing and security behavior is different than private internal communi
 Because a VPC network is global, a **single VPN** can connect your on-premises environment to VM instances in multiple regions.
 
 Example:
+
 - One on-premises network
 - One VPN gateway
 - VMs in `us-west1` and `us-east1`
 - All connected through the same global VPC
 
 This can reduce:
+
 - Cost
 - Complexity
 - Network management effort
@@ -238,6 +271,7 @@ This can reduce:
 A subnet belongs to **one region**, but it can span **multiple zones inside that region**.
 
 That means:
+
 - VM 1 in Zone A
 - VM 2 in Zone B
 - Same region
@@ -246,6 +280,7 @@ That means:
 Both VMs can still use the same subnet IP range.
 
 This is useful because:
+
 - They can communicate privately
 - One firewall rule can apply to both
 - You get resilience across zones without needing separate subnets
@@ -257,6 +292,7 @@ This is useful because:
 Every subnet reserves **four IP addresses** in its primary IP range.
 
 These are:
+
 - The **first address** for the network
 - The **second address** for the subnet gateway
 - The **second-to-last address** reserved by Google Cloud
@@ -273,12 +309,14 @@ Google Cloud lets you **expand a subnet's IP range** without shutting down workl
 That means you can grow the subnet while your VMs keep running.
 
 ### Rules to remember
+
 - The expanded range must **not overlap** with any other subnet in the same VPC
 - Every subnet range must be a unique valid CIDR block
 - The new range must be **larger** than the old one
 - You **cannot undo** a subnet expansion
 
 In other words:
+
 - Expansion is possible
 - Shrinking back is not
 
@@ -287,6 +325,7 @@ In other words:
 ## Auto Mode Subnet Expansion Limits
 
 Auto mode subnets:
+
 - Start at **/20**
 - Can grow to **/16**
 - Cannot grow larger unless you move to a custom-mode approach
@@ -300,6 +339,7 @@ If you need more flexibility, converting the network to **custom mode** gives yo
 Do not make subnets bigger than you really need.
 
 Overly large subnets increase the chance of **CIDR conflicts** when using:
+
 - Multiple network interfaces
 - VPC Network Peering
 - VPN connections
@@ -312,11 +352,13 @@ A good subnet design leaves room to grow without wasting address space.
 ## Key Takeaway
 
 Projects, networks, and subnets work together like this:
+
 - **Project** owns the network and ties it to billing
 - **Network** is a global private communication space
 - **Subnet** is a regional IP range inside that network
 
 The biggest ideas to remember are:
+
 - VPC networks are **global**
 - Subnets are **regional**
 - VMs in the same VPC can communicate privately across regions

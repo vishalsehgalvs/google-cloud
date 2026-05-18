@@ -13,6 +13,7 @@ This lab shows three practical ideas:
 ## Part 1: Explore and remove the default network
 
 ### What you saw
+
 - Most projects start with a default VPC network (unless org policy blocks it).
 - That default network already has:
   - subnets in many regions
@@ -20,11 +21,13 @@ This lab shows three practical ideas:
   - firewall rules (ICMP, SSH, RDP, and internal allow rules)
 
 ### What you did
+
 - Deleted default firewall rules.
 - Deleted the default VPC network.
 - Confirmed related routes disappeared.
 
 ### Important result
+
 After removing all VPC networks, VM creation fails because VM instances must attach to a network.
 
 ---
@@ -32,24 +35,29 @@ After removing all VPC networks, VM creation fails because VM instances must att
 ## Part 2: Create an auto mode VPC and test same-network connectivity
 
 ### Network created
+
 - VPC name: mynetwork
 - Subnet mode: Auto
 
 Auto mode automatically creates regional subnets and assigns preset IP ranges.
 
 ### VM instances created
+
 - mynet-us-vm (us-central1-c)
 - mynet-eu-vm (europe-west1-c)
 
 ### What you validated
+
 - Both VMs received internal IPs from their subnet ranges.
 - Internal ping between these two VMs worked, even though they are in different regions.
 
 Why it worked:
+
 - They are in the same VPC network.
 - Firewall rules allowed internal communication.
 
 ### DNS takeaway
+
 You can use VM names (internal DNS) instead of internal IPs. This is useful because internal IPs can change.
 
 ---
@@ -57,9 +65,11 @@ You can use VM names (internal DNS) instead of internal IPs. This is useful beca
 ## Part 3: Convert auto mode to custom mode
 
 ### What you changed
+
 - Edited mynetwork and changed subnet mode from Auto to Custom.
 
 ### Why this matters
+
 - Auto mode is convenient but broad.
 - Custom mode gives better control of subnet design, IP planning, and production architecture.
 
@@ -81,6 +91,7 @@ For custom mode networks, you must define subnets manually (name, region, CIDR r
 You created ingress firewall rules (for ICMP, SSH, RDP) for the new networks.
 
 ### Main idea
+
 Firewall rules are network-specific. A rule in one VPC does not automatically apply to another VPC.
 
 ---
@@ -94,16 +105,20 @@ After creating new VM instances in the added VPCs, you tested network behavior u
 ## Connectivity results explained
 
 ### External IP ping across different VPCs
+
 - Worked.
 
 Reason:
+
 - You allowed needed traffic with firewall rules.
 - External IP traffic goes through public routing, not private same-VPC routing.
 
 ### Internal IP ping across different VPCs
+
 - Failed.
 
 Reason:
+
 - VPC networks are isolated private domains by default.
 - Internal addresses are reachable only within the same VPC unless you configure a connection.
 
@@ -112,6 +127,7 @@ Reason:
 ## How to connect internal IPs across VPCs
 
 You need an explicit inter-network setup, such as:
+
 - VPC Peering
 - Cloud VPN
 - Other private connectivity designs
@@ -123,11 +139,13 @@ Without that, internal traffic between different VPC networks is blocked by arch
 ## Useful command patterns seen in this lab
 
 ### Create a custom VPC
+
 ```bash
 gcloud compute networks create NETWORK_NAME --subnet-mode=custom
 ```
 
 ### Create a subnet
+
 ```bash
 gcloud compute networks subnets create SUBNET_NAME \
   --network=NETWORK_NAME \
@@ -136,6 +154,7 @@ gcloud compute networks subnets create SUBNET_NAME \
 ```
 
 ### Create firewall rule
+
 ```bash
 gcloud compute firewall-rules create RULE_NAME \
   --network=NETWORK_NAME \
@@ -146,6 +165,7 @@ gcloud compute firewall-rules create RULE_NAME \
 ```
 
 ### Create VM with minimum required inputs
+
 ```bash
 gcloud compute instances create VM_NAME \
   --zone=ZONE \

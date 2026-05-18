@@ -17,6 +17,7 @@ A useful mindset in Google Cloud is this:
 **Think of resources as services, not as physical hardware.**
 
 That makes it easier to understand:
+
 - What networking options exist
 - How they behave
 - Why they are flexible and scalable
@@ -28,6 +29,7 @@ That makes it easier to understand:
 **VPC (Virtual Private Cloud)** is Google's managed networking service for your cloud resources.
 
 It is the main way you connect resources like:
+
 - Virtual machines
 - Databases
 - Load balancers
@@ -56,6 +58,7 @@ These are the basic pieces of Google Cloud networking.
 ## Hands-On Network Lab
 
 In the lab for this module, you will:
+
 - Create different types of networks
 - Explore how those networks relate to one another
 - See how Google Cloud networking is structured in practice
@@ -75,6 +78,7 @@ That means you will not just learn what each piece does, but also how they are c
 ## Google Cloud's Global Network Structure
 
 At a high level, Google Cloud consists of:
+
 - **Regions**
 - **Points of Presence (PoPs)**
 - **A global private network**
@@ -89,6 +93,7 @@ All of these work together to deliver Google Cloud networking worldwide.
 A **region** is a specific geographic location where you run resources.
 
 Examples:
+
 - `us-central1`
 - `europe-west1`
 - `asia-south1`
@@ -96,9 +101,11 @@ Examples:
 Regions usually contain multiple **zones**.
 
 ### Zones
+
 A **zone** is an isolated location inside a region.
 
 For example, the `us-central1` region includes zones such as:
+
 - `us-central1-a`
 - `us-central1-b`
 - `us-central1-c`
@@ -115,6 +122,7 @@ Most regions have three zones, but some regions can differ.
 You can think of them as Google's edge connection points.
 
 Why they matter:
+
 - They bring Google traffic closer to internet users and peers
 - They reduce latency
 - They can reduce costs
@@ -127,6 +135,7 @@ Why they matter:
 Google Cloud regions and PoPs are connected by Google's **global private fiber network**.
 
 This network includes:
+
 - High-speed fiber optic cables
 - Long-distance backbone connections
 - Submarine cable investments
@@ -138,6 +147,7 @@ This is one reason Google Cloud networking is fast and globally scalable.
 ## Why This Matters
 
 Because Google Cloud has a global private network:
+
 - Services can communicate efficiently across regions
 - Google can control traffic more directly
 - Performance is often better than relying only on the public internet
@@ -151,6 +161,7 @@ This network is a major part of what makes Google Cloud different from a traditi
 Google Cloud networking starts with **VPC** and is built on top of Google's global software-defined network.
 
 To understand networking in Google Cloud, you need to understand:
+
 - Projects
 - Networks
 - Subnets

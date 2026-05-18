@@ -5,11 +5,13 @@
 In this lab, you launched a full **continuous integration (CI)** solution in just a few minutes using **Google Cloud Marketplace**.
 
 You also proved that:
+
 - You could access **Jenkins through its web UI**
 - You had **admin-level control** by connecting to the VM over SSH
 - You could **stop and restart** the Jenkins service manually
 
 This lab also quietly used several Google Cloud concepts that the course covers later, such as:
+
 - Creating and assigning a network IP address
 - Provisioning a virtual machine
 - Installing software automatically on that VM
@@ -22,6 +24,7 @@ This lab also quietly used several Google Cloud concepts that the course covers 
 Google Cloud Marketplace lets you deploy complex software quickly without manually doing all the setup yourself.
 
 Instead of manually:
+
 - Creating a VM
 - Installing Jenkins
 - Opening firewall ports
@@ -39,6 +42,7 @@ You pick a ready-made solution and Google Cloud handles most of the setup for yo
 4. Open the listing
 
 Before deploying, you can review:
+
 - What software is included
 - Which operating system it uses
 - Pricing details
@@ -52,10 +56,12 @@ In this example, the main cost comes from the VM itself.
 
 1. Click **Launch on Compute Engine**
 2. Review or change deployment settings such as:
+
 - Deployment name
 - Zone
 - Machine type
 - Other VM-related settings
+
 3. Accept the **Terms of Service**
 4. Click **Deploy**
 
@@ -68,6 +74,7 @@ At this point, Google Cloud starts building the environment for you.
 Once deployment starts, you move into the deployment view.
 
 Here you can see that Google Cloud is creating:
+
 - A **VM instance**
 - **Firewall rules** for ports **80** and **443**
 - Software configuration steps
@@ -82,6 +89,7 @@ This is useful because it shows that Marketplace is not "magic". It is automatin
 Even after the VM is running, Jenkins itself may still need a little time to finish starting.
 
 Once ready, the deployment page shows useful details such as:
+
 - Admin username
 - Temporary password
 - A **Visit the site** link
@@ -110,6 +118,7 @@ After that, Jenkins is ready to use.
 Marketplace also suggests some follow-up improvements.
 
 Examples:
+
 - Change the **temporary password**
 - Assign a **static external IP address**
 
@@ -137,11 +146,13 @@ This proves that even though Marketplace automates the setup, you still have low
 In the lab, you stopped the Jenkins services from the SSH session.
 
 After stopping them:
+
 - Refreshing the Jenkins page shows that the service is down
 
 Then you restarted the service from the terminal.
 
 After a few refreshes:
+
 - Jenkins comes back online
 - The UI becomes available again
 
@@ -155,6 +166,7 @@ This lab is not just about Jenkins.
 It demonstrates how Google Cloud can quickly provision and configure a working solution using multiple services together.
 
 You used:
+
 - **Marketplace** to deploy the solution
 - **Compute Engine** to host Jenkins
 - **Firewall rules** to allow web traffic
@@ -168,6 +180,7 @@ You used:
 Google Cloud Marketplace helps you launch complete solutions very quickly, but you still keep administrative control.
 
 In this lab, you:
+
 - Deployed Jenkins in minutes
 - Logged into the Jenkins UI
 - Used SSH to manage the VM

@@ -3,6 +3,7 @@
 ## Lab Goal
 
 This lab demonstrates three key behaviors in Google Cloud:
+
 - Every VM needs an internal IP address
 - External IP addresses are optional
 - Ephemeral external IPs can change after stop/start
@@ -12,6 +13,7 @@ This lab demonstrates three key behaviors in Google Cloud:
 ## Step 1: Create a VM and Open Networking Options
 
 From **Compute Engine > VM instances**:
+
 1. Click **Create Instance**
 2. Expand **Management, security, networking, sole tenancy**
 3. Open the **Networking** section
@@ -24,18 +26,23 @@ This is where you choose internal and external IP behavior.
 ## Step 2: Choose Internal and External IP Settings
 
 Inside the network interface settings, you can select:
+
 - VPC network/subnet
 - Internal IP option
 - External IP option
 
 ### Internal IP options
+
 You can use:
+
 - **Ephemeral internal IP** (auto-assigned)
 - **Custom internal IP** (manually choose within subnet range)
 - **Reserved static internal IP** (keep the same internal IP long-term)
 
 ### External IP options
+
 You can use:
+
 - **Ephemeral external IP**
 - **Reserved static external IP**
 - **None** (no external access)
@@ -49,6 +56,7 @@ Important: External IP is optional. Internal IP is not.
 In the walkthrough example, subnet size is **/20**, which gives a large address pool (roughly 4096 addresses).
 
 But address range size is not the only limit. Also consider:
+
 - Project/network quotas
 - VM-per-network limits (example mentioned around 15,000 at recording time)
 - Actual regional/zonal hardware capacity
@@ -60,10 +68,12 @@ So having IP space does not always guarantee unlimited VM creation.
 ## Step 4: Create the VM and Observe IPs
 
 After creation, note both values in the VM list/details:
+
 - Internal IP
 - External IP
 
 Expected behavior:
+
 - Internal IP is from your subnet range
 - External ephemeral IP is from Google's public pool
 
@@ -76,10 +86,12 @@ Expected behavior:
 3. Confirm stop action
 
 During stop:
+
 - Google Cloud allows time for graceful shutdown (for example, shutdown scripts)
 - If scripts exceed timeout, a forced stop can occur
 
 After VM is stopped:
+
 - External ephemeral IP is released
 - Internal IP usually remains associated with the VM
 
@@ -92,6 +104,7 @@ After VM is stopped:
 3. Compare old vs new IP values
 
 Typical result in this scenario:
+
 - Internal IP stayed the same
 - External IP changed (because it was ephemeral)
 
@@ -109,6 +122,7 @@ Typical result in this scenario:
 ## Key Takeaway
 
 When designing VM connectivity:
+
 - Use internal IPs for private communication
 - Add external IP only when required
 - Use static external IP for stable DNS/integration endpoints

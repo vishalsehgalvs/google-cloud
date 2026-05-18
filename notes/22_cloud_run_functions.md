@@ -4,13 +4,14 @@
 
 **Cloud Run Functions** is a lightweight, serverless compute solution where you write small, focused functions that run automatically in response to events — no server or runtime to manage.
 
-Think of it as: *"something happens → your code runs → it stops."*
+Think of it as: _"something happens → your code runs → it stops."_
 
 ---
 
 ## Real-World Example: Image Upload
 
 Say users can upload images to your app. When an image is uploaded, you might need to:
+
 - Convert it to a standard format
 - Resize it into different thumbnail sizes
 - Save each version to a storage bucket
@@ -33,11 +34,11 @@ With Cloud Run Functions, you write one small function to handle the image proce
 
 ## What Can Trigger a Function?
 
-| Trigger Type | How it works |
-|---|---|
-| **Cloud Storage** | Fires when a file is uploaded, deleted, or changed |
-| **Pub/Sub** | Fires when a message is published to a topic (asynchronous) |
-| **HTTP** | Fires when someone calls a URL directly (synchronous) |
+| Trigger Type      | How it works                                                |
+| ----------------- | ----------------------------------------------------------- |
+| **Cloud Storage** | Fires when a file is uploaded, deleted, or changed          |
+| **Pub/Sub**       | Fires when a message is published to a topic (asynchronous) |
+| **HTTP**          | Fires when someone calls a URL directly (synchronous)       |
 
 ---
 
@@ -67,6 +68,7 @@ With Cloud Run Functions, you write one small function to handle the image proce
 ## Key Takeaway
 
 Cloud Run Functions is the right tool when:
+
 - You have **event-driven work** that doesn't need to run constantly
 - You want **zero infrastructure management**
 - You need small, **single-purpose pieces of logic**

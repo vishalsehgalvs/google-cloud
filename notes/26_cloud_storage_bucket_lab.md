@@ -9,12 +9,14 @@ This lab walks through creating Cloud Storage buckets using both the Console and
 ## Console vs Cloud Shell — They're Complementary
 
 **Google Cloud Console:**
+
 - Keeps track of your configuration context
 - Uses APIs to determine what options are valid
 - Great for repetitive, guided tasks
 - Good for visual learners
 
 **Cloud Shell:**
+
 - Offers precise, detailed control
 - Lets you script and automate activities
 - Good for power users and automation
@@ -157,15 +159,15 @@ Now your configuration loads automatically every time!
 
 ## Key Commands Reference
 
-| Command | What it does |
-|---|---|
-| `gsutil mb gs://BUCKET-NAME` | Make (create) a bucket |
-| `gsutil cp FILE gs://BUCKET/` | Copy file to bucket |
-| `gcloud compute regions list` | List available regions |
-| `echo $VARIABLE` | Display a variable's value |
-| `mkdir FOLDER` | Create a directory |
-| `cat FILE` | View file contents |
-| `nano FILE` | Edit a file |
+| Command                       | What it does               |
+| ----------------------------- | -------------------------- |
+| `gsutil mb gs://BUCKET-NAME`  | Make (create) a bucket     |
+| `gsutil cp FILE gs://BUCKET/` | Copy file to bucket        |
+| `gcloud compute regions list` | List available regions     |
+| `echo $VARIABLE`              | Display a variable's value |
+| `mkdir FOLDER`                | Create a directory         |
+| `cat FILE`                    | View file contents         |
+| `nano FILE`                   | Edit a file                |
 
 ---
 

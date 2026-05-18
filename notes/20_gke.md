@@ -12,12 +12,12 @@
 
 ## GKE vs Kubernetes (Self-managed)
 
-| | Self-managed Kubernetes | GKE |
-|---|---|---|
-| Control plane setup | You do it | Google handles it |
-| Node management | You do it | Depends on mode |
-| Upgrades & patching | Manual | Automatic (Autopilot) |
-| Complexity | High | Much simpler |
+|                     | Self-managed Kubernetes | GKE                   |
+| ------------------- | ----------------------- | --------------------- |
+| Control plane setup | You do it               | Google handles it     |
+| Node management     | You do it               | Depends on mode       |
+| Upgrades & patching | Manual                  | Automatic (Autopilot) |
+| Complexity          | High                    | Much simpler          |
 
 With GKE, you still get a single IP address to send all your Kubernetes API requests to — but Google manages everything behind that address for you.
 
@@ -26,7 +26,9 @@ With GKE, you still get a single IP address to send all your Kubernetes API requ
 ## Two Modes: Autopilot vs Standard
 
 ### Autopilot Mode (Recommended)
+
 Google manages almost everything for you:
+
 - Node configuration
 - Autoscaling
 - Auto-upgrades
@@ -36,7 +38,9 @@ Google manages almost everything for you:
 Best for: **most production workloads** where you want simplicity and reliability.
 
 ### Standard Mode
+
 You manage the underlying infrastructure:
+
 - Configure individual nodes yourself
 - More control, but more work
 
@@ -60,6 +64,7 @@ Best for: teams that need **very specific configuration control** that Autopilot
 ## How to Create a GKE Cluster
 
 ### Option 1 — Google Cloud Console
+
 Use the web UI to point and click your way to a cluster.
 
 ### Option 2 — gcloud command
@@ -75,6 +80,7 @@ That single command spins up a full Kubernetes cluster on GKE named `k1`.
 ## Customizing Your Cluster
 
 GKE clusters are flexible — you can configure:
+
 - **Machine types** (how powerful each node is)
 - **Number of nodes**
 - **Network settings**
@@ -86,6 +92,7 @@ Once the cluster is running, you use standard Kubernetes commands (`kubectl`) to
 ## Key Takeaway
 
 GKE lets you use Kubernetes without the pain of managing it yourself:
+
 - **Autopilot mode** = Google manages everything
 - **Standard mode** = you manage the nodes
 - Built-in scaling, upgrades, load balancing, and monitoring
