@@ -44,7 +44,11 @@ This repository contains concise, structured notes for Google Cloud Platform (GC
 - **38_vpc_network_lab_connectivity.md** — Lab walkthrough covering VPC creation, firewall rules, and connectivity between VMs
 - **39_common_network_designs.md** — Common network design patterns: availability, security, global deployment, and Cloud NAT
 - **40_private_vm_cloud_nat_lab.md** — Lab walkthrough for private VMs, Cloud IAP, Private Google Access, and Cloud NAT
-- **41_compute_engine_vm_overview.md** — Compute Engine VM fundamentals: IaaS model, TPUs, disk/CPU/network options, and console walkthrough
+- **41_compute_engine_vm_overview.md** — Compute Engine overview: IaaS model, TPUs, disk types, CPU/network throughput, and compute options
+- **42_compute_engine_vm_creation_console.md** — Step-by-step VM creation walkthrough in the GCP Console: region, machine type, disk, networking, and CLI export
+- **43_compute_engine_vm_access_and_lifecycle.md** — VM access (SSH/RDP), full lifecycle states, availability policies, and OS patch management
+- **44_compute_engine_machine_families.md** — All four machine families: general-purpose, compute-optimized, memory-optimized, accelerator-optimized, and custom types
+- **45_compute_engine_pricing.md** — Compute Engine pricing: billing model, sustained use discounts, committed use, preemptible vs Spot VMs, and rightsizing
 
 Each file is self-contained and designed for quick reference.
 
@@ -58,7 +62,7 @@ The notes currently span:
 - Hands-on lab walkthroughs
 - Virtual networking foundations and deep dives
 - Network design: VPC, subnets, IPs, DNS, routes, firewall, pricing
-- Compute Engine: VM types, disks, TPUs, and console configuration
+- Compute Engine: VM overview, console creation, lifecycle, machine families, and pricing
 
 ---
 
