@@ -129,5 +129,3 @@ Three types of disk storage are available:
 - Load balancers in Google Cloud **do not require pre-warming** — they are not hardware devices.
 - A load balancer is essentially a **set of traffic engineering rules** applied at the Google network level.
   - VPC applies your rules to traffic destined for your IP address and subnet range.
-
-
