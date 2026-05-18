@@ -12,11 +12,11 @@
 
 ## Discount Types (cannot be combined)
 
-| Discount | How It Works | Max Savings |
-|---|---|---|
-| **Sustained use discount** | Automatic; applies when you run a resource >25% of the billing month | Up to 30% |
-| **Committed use discount** | Commit to 1 or 3 years of specific vCPUs/memory | Up to 57% (most types), up to 70% (memory-optimized) |
-| **Preemptible / Spot VMs** | Use excess capacity at a much lower price; may be terminated by GCP | Varies |
+| Discount                   | How It Works                                                         | Max Savings                                          |
+| -------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------- |
+| **Sustained use discount** | Automatic; applies when you run a resource >25% of the billing month | Up to 30%                                            |
+| **Committed use discount** | Commit to 1 or 3 years of specific vCPUs/memory                      | Up to 57% (most types), up to 70% (memory-optimized) |
+| **Preemptible / Spot VMs** | Use excess capacity at a much lower price; may be terminated by GCP  | Varies                                               |
 
 ---
 
@@ -28,11 +28,11 @@
 - Maximum discount: **30%** for resources running the full month.
 
 | Usage in Month | Effective Discount |
-|---|---|
-| 25% | Discount starts |
-| 50% | ~10% |
-| 75% | ~20% |
-| 100% | 30% |
+| -------------- | ------------------ |
+| 25%            | Discount starts    |
+| 50%            | ~10%               |
+| 75%            | ~20%               |
+| 100%           | 30%                |
 
 - Discounts **reset at the start of each month** — create VMs on the **1st of the month** to maximize the discount.
 - Calculated per **region**, separately for **predefined** and **custom** machine types.
@@ -40,10 +40,10 @@
 
 ### Example: Two Instances in the Same Region
 
-| Period | Instance | vCPUs | Memory |
-|---|---|---|---|
-| First half of month | n1-standard-4 | 4 | 15 GB |
-| Second half of month | n1-standard-16 | 16 | 60 GB |
+| Period               | Instance       | vCPUs | Memory |
+| -------------------- | -------------- | ----- | ------ |
+| First half of month  | n1-standard-4  | 4     | 15 GB  |
+| Second half of month | n1-standard-16 | 16    | 60 GB  |
 
 Compute Engine combines and reorganizes these into:
 
@@ -56,11 +56,11 @@ Compute Engine combines and reorganizes these into:
 
 Both use excess Compute Engine capacity and can be **terminated by GCP** at any time if those resources are needed elsewhere.
 
-| | Preemptible VM | Spot VM |
-|---|---|---|
-| Max runtime | **24 hours** | No maximum |
-| Pricing | Much lower than standard | Much lower than standard |
-| Availability | Varies with demand | Varies with demand |
+|              | Preemptible VM           | Spot VM                  |
+| ------------ | ------------------------ | ------------------------ |
+| Max runtime  | **24 hours**             | No maximum               |
+| Pricing      | Much lower than standard | Much lower than standard |
+| Availability | Varies with demand       | Varies with demand       |
 
 ---
 
