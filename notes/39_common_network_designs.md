@@ -56,3 +56,27 @@ VMs with public IPs can always use Google APIs.
 - Turn on Private Google Access so private VMs can use Google services.
 - Use global load balancers to send users to the closest, working region.
 - Simple designs = easier to manage and safer!
+
+---
+
+## gcloud Commands
+
+```bash
+# Create a regional managed instance group (spread across zones)
+gcloud compute instance-groups managed create my-group \
+  --base-instance-name=my-vm --size=2 \
+  --template=my-template --region=us-central1
+
+# Create a Cloud Router (needed for Cloud NAT)
+gcloud compute routers create my-router \
+  --network=my-vpc --region=us-central1
+
+# Create a Cloud NAT gateway
+gcloud compute routers nats create my-nat \
+  --router=my-router --region=us-central1 \
+  --auto-allocate-nat-external-ips --nat-all-subnet-ip-ranges
+
+# Enable Private Google Access on a subnet
+gcloud compute networks subnets update my-subnet \
+  --region=us-central1 --enable-private-ip-google-access
+```

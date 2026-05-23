@@ -70,3 +70,25 @@ You learned how to make a VM that is private (no public IP), connect to it safel
 ## 🗝️ Takeaway
 
 You can build secure, private cloud servers that are still easy to manage and keep up-to-date—no need to expose them to the public internet!
+
+---
+
+## gcloud Commands
+
+```bash
+# SSH into a private VM via Cloud IAP (no external IP needed)
+gcloud compute ssh my-vm --zone=us-central1-a --tunnel-through-iap
+
+# Enable Private Google Access on a subnet
+gcloud compute networks subnets update my-subnet \
+  --region=us-central1 --enable-private-ip-google-access
+
+# Create a Cloud Router
+gcloud compute routers create my-router \
+  --network=my-vpc --region=us-central1
+
+# Create a Cloud NAT gateway
+gcloud compute routers nats create my-nat \
+  --router=my-router --region=us-central1 \
+  --auto-allocate-nat-external-ips --nat-all-subnet-ip-ranges
+```

@@ -244,3 +244,26 @@ Routes and firewall rules work together:
 Both are required for traffic to flow successfully.
 
 Understanding this two-layer approach helps you design secure, controlled networks in Google Cloud.
+
+---
+
+## gcloud Commands
+
+```bash
+# List routes in a network
+gcloud compute routes list --filter="network=my-vpc"
+
+# Create a custom route
+gcloud compute routes create my-route --network=my-vpc \
+  --destination-range=10.1.0.0/24 --next-hop-gateway=default-internet-gateway
+
+# List firewall rules
+gcloud compute firewall-rules list --filter="network=my-vpc"
+
+# Create a firewall rule
+gcloud compute firewall-rules create allow-ssh \
+  --network=my-vpc --allow=tcp:22 --source-ranges=0.0.0.0/0
+
+# Delete a firewall rule
+gcloud compute firewall-rules delete allow-ssh
+```

@@ -364,3 +364,22 @@ The biggest ideas to remember are:
 - VMs in the same VPC can communicate privately across regions
 - Custom mode gives the most control
 - Subnet planning matters for scaling, security, and future connectivity
+
+---
+
+## gcloud Commands
+
+```bash
+# Create an auto-mode network
+gcloud compute networks create my-auto-net --subnet-mode=auto
+
+# Create a custom-mode network
+gcloud compute networks create my-custom-net --subnet-mode=custom
+
+# Create a subnet in a custom network
+gcloud compute networks subnets create my-subnet \
+  --network=my-custom-net --region=us-central1 --range=10.0.0.0/24
+
+# Delete a network
+gcloud compute networks delete my-network
+```

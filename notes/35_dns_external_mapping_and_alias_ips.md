@@ -122,3 +122,20 @@ This is commonly useful for containerized workloads or multi-service VM patterns
 - Internal DNS should be used for stable in-network addressing
 - Cloud DNS is the managed way to publish and manage external DNS records
 - Alias IP ranges let one VM represent multiple internal service endpoints cleanly
+
+---
+
+## gcloud Commands
+
+```bash
+# Add alias IP ranges to a VM
+gcloud compute instances network-interfaces update my-vm \
+  --zone=us-central1-a --aliases="10.0.0.128/25"
+
+# Create a Cloud DNS zone
+gcloud dns managed-zones create my-zone \
+  --dns-name=example.com --description="My zone"
+
+# List DNS records
+gcloud dns record-sets list --zone=my-zone
+```

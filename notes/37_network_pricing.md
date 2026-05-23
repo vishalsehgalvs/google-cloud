@@ -79,3 +79,18 @@ Specify `n1-standard-2` instance in `us-central1` with 100 GB monthly egress to 
 - 💡 **Release unused static IPs** to avoid overpaying
 - 🧮 **Use the pricing calculator** before deploying to estimate costs
 - ⚠️ **Pricing changes** — Always check official Google Cloud pricing documentation for current rates
+
+---
+
+## gcloud Commands
+
+```bash
+# List reserved IP addresses (unused ones still cost money)
+gcloud compute addresses list
+
+# Describe a project's billing account
+gcloud billing projects describe PROJECT_ID
+
+# List billing accounts
+gcloud billing accounts list
+```

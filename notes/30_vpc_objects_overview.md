@@ -210,3 +210,21 @@ At a high level, the main objects are:
 - Firewall rules
 
 These are the core pieces you need to understand before going deeper into Google Cloud networking.
+
+---
+
+## gcloud Commands
+
+```bash
+# List VPC networks
+gcloud compute networks list
+
+# Describe a specific network
+gcloud compute networks describe NETWORK_NAME
+
+# List subnets filtered by region
+gcloud compute networks subnets list --filter="region:us-central1"
+
+# List firewall rules
+gcloud compute firewall-rules list
+```

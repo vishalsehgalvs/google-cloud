@@ -110,3 +110,16 @@ If you already have 4 VMs, a 5th VM in the same subnet fails until the subnet is
 Subnet IP exhaustion is common in small test ranges.
 
 Google Cloud lets you fix it quickly by expanding the custom subnet range, and you can do this **without stopping existing VM workloads**.
+
+---
+
+## gcloud Commands
+
+```bash
+# Expand a subnet's IP range (e.g. /29 → /23)
+gcloud compute networks subnets expand-ip-range my-subnet \
+  --region=us-central1 --prefix-length=23
+
+# Verify the new range
+gcloud compute networks subnets describe my-subnet --region=us-central1
+```

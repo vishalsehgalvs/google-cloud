@@ -127,3 +127,21 @@ When designing VM connectivity:
 - Add external IP only when required
 - Use static external IP for stable DNS/integration endpoints
 - Expect ephemeral external IP to change after VM lifecycle events like stop/start
+
+---
+
+## gcloud Commands
+
+```bash
+# Create a VM with no external IP
+gcloud compute instances create my-vm --zone=us-central1-a \
+  --network-interface=no-address
+
+# Assign a static external IP to a running VM
+gcloud compute instances add-access-config my-vm --zone=us-central1-a \
+  --access-config-name="External NAT" --address=STATIC_IP
+
+# View a VM's IP addresses
+gcloud compute instances describe my-vm --zone=us-central1-a \
+  --format="get(networkInterfaces)"
+```

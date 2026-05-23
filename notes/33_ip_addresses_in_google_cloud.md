@@ -128,3 +128,22 @@ In Google Cloud:
 - Internal DNS resolves names within the same network
 - Static IPs are best for stable endpoints, but unused reserved static IPs cost more
 - You can even bring your own /24+ public prefix when needed
+
+---
+
+## gcloud Commands
+
+```bash
+# List all IP addresses (static and ephemeral)
+gcloud compute addresses list
+
+# Reserve a static external IP
+gcloud compute addresses create my-static-ip --region=us-central1
+
+# Reserve a static internal IP in a subnet
+gcloud compute addresses create my-internal-ip \
+  --region=us-central1 --subnet=my-subnet --addresses=10.0.0.5
+
+# Release a static IP
+gcloud compute addresses delete my-static-ip --region=us-central1
+```
