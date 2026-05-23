@@ -297,3 +297,22 @@ Quotas prevent over-consumption — whether from a bug or a malicious attack. Bo
 
 - All projects start with the same default quotas.
 - You can request an increase from **Google Cloud Support** if needed.
+
+---
+
+## gcloud Commands
+
+```bash
+# Authenticate and set up gcloud
+gcloud auth login
+gcloud config set project PROJECT_ID
+
+# View current configuration
+gcloud config list
+
+# List all projects
+gcloud projects list
+
+# View project quota info
+gcloud compute project-info describe --project=PROJECT_ID
+```

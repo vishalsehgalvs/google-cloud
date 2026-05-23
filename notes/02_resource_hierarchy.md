@@ -221,3 +221,24 @@ Cloud Identity lets organizations **centrally manage users and groups** via the 
 ### Already a Google Workspace customer?
 
 This is all already built into the **Google Admin Console** for you — no extra setup needed.
+
+---
+
+## gcloud Commands
+
+```bash
+# List all projects
+gcloud projects list
+
+# Create a project
+gcloud projects create PROJECT_ID --name="My Project"
+
+# Delete a project
+gcloud projects delete PROJECT_ID
+
+# List folders under an org
+gcloud resource-manager folders list --organization=ORG_ID
+
+# Describe a folder
+gcloud resource-manager folders describe FOLDER_ID
+```
