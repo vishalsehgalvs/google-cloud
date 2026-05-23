@@ -45,3 +45,23 @@ When creating a VM, you choose a **boot disk image**. It includes:
   - **Disk backups**
   - **Instance cloning and replication**
   - System maintenance scenarios (creation, backup and recovery)
+
+---
+
+## gcloud Commands
+
+```bash
+# List available public images
+gcloud compute images list
+
+# Create a custom image from a disk
+gcloud compute images create my-image \
+  --source-disk=my-disk --source-disk-zone=us-central1-a
+
+# Create a machine image from a running VM
+gcloud compute machine-images create my-machine-image \
+  --source-instance=my-vm --source-instance-zone=us-central1-a
+
+# Delete a custom image
+gcloud compute images delete my-image
+```

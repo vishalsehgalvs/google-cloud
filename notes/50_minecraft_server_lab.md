@@ -134,3 +134,26 @@ sudo crontab -e
 - Using a **static IP** prevents the address from changing on restart.
 - **Headless JRE** reduces resource overhead for server workloads.
 - **Cloud Storage Object Lifecycle Management** helps manage backup retention costs automatically.
+
+---
+
+## gcloud Commands
+
+```bash
+# Create the Minecraft server VM
+gcloud compute instances create mc-server --zone=us-central1-a \
+  --machine-type=e2-medium --tags=minecraft-server \
+  --image-family=debian-11 --image-project=debian-cloud \
+  --boot-disk-size=50GB
+
+# Reserve a static external IP
+gcloud compute addresses create mc-server-ip --region=us-central1
+
+# Create a firewall rule for Minecraft (TCP 25565)
+gcloud compute firewall-rules create allow-minecraft \
+  --direction=INGRESS --action=ALLOW \
+  --rules=tcp:25565 --target-tags=minecraft-server
+
+# SSH into the VM
+gcloud compute ssh mc-server --zone=us-central1-a
+```

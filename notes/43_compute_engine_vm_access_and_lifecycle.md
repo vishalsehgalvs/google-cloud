@@ -87,3 +87,27 @@ A VM moves through several states from creation to deletion:
 - Set up **flexible scheduling** — one-time or recurring patch schedules.
 - Apply **advanced configurations** — add pre/post patching scripts.
 - Manage all patch jobs from a **centralized location**.
+
+---
+
+## gcloud Commands
+
+```bash
+# SSH into a Linux VM
+gcloud compute ssh my-vm --zone=us-central1-a
+
+# Start a stopped VM
+gcloud compute instances start my-vm --zone=us-central1-a
+
+# Stop a running VM
+gcloud compute instances stop my-vm --zone=us-central1-a
+
+# Reset a VM (wipes memory, restarts)
+gcloud compute instances reset my-vm --zone=us-central1-a
+
+# Suspend a VM
+gcloud compute instances suspend my-vm --zone=us-central1-a
+
+# Resume a suspended VM
+gcloud compute instances resume my-vm --zone=us-central1-a
+```

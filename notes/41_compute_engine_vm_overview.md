@@ -129,3 +129,20 @@ Three types of disk storage are available:
 - Load balancers in Google Cloud **do not require pre-warming** — they are not hardware devices.
 - A load balancer is essentially a **set of traffic engineering rules** applied at the Google network level.
   - VPC applies your rules to traffic destined for your IP address and subnet range.
+
+---
+
+## gcloud Commands
+
+```bash
+# List all VM instances
+gcloud compute instances list
+
+# Describe a VM
+gcloud compute instances describe my-vm --zone=us-central1-a
+
+# Create a VM
+gcloud compute instances create my-vm --zone=us-central1-a \
+  --machine-type=e2-medium \
+  --image-family=debian-11 --image-project=debian-cloud
+```

@@ -74,3 +74,19 @@ Both use excess Compute Engine capacity and can be **terminated by GCP** at any 
 ## Free Usage Limits
 
 - Compute Engine includes a **free usage tier** — refer to current GCP documentation for limits.
+
+---
+
+## gcloud Commands
+
+```bash
+# List instances with machine type (useful for cost review)
+gcloud compute instances list \
+  --format="table(name,machineType,zone,status)"
+
+# List available machine types in a zone
+gcloud compute machine-types list --filter="zone=us-central1-a"
+
+# List committed use commitments
+gcloud compute commitments list --region=us-central1
+```

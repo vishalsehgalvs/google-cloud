@@ -64,3 +64,25 @@ Snapshots apply only to **persistent disks** — not local SSDs.
 - You can **increase** the size of a persistent disk while it is attached to a running VM — no snapshot needed, no downtime.
 - Benefit: larger disk size also **improves I/O performance**.
 - **You can never shrink a disk** — only grow it. Keep this in mind before resizing.
+
+---
+
+## gcloud Commands
+
+```bash
+# Create a snapshot of a disk
+gcloud compute disks snapshot my-disk \
+  --zone=us-central1-a --snapshot-names=my-snapshot
+
+# Create a snapshot schedule
+gcloud compute resource-policies create snapshot-schedule my-schedule \
+  --region=us-central1 --daily-schedule --start-time=04:00 \
+  --max-retention-days=7
+
+# Move a VM to a different zone
+gcloud compute instances move my-vm \
+  --zone=us-central1-a --destination-zone=us-west1-b
+
+# Resize a disk (online, no downtime)
+gcloud compute disks resize my-disk --zone=us-central1-a --size=200GB
+```

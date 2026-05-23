@@ -107,3 +107,27 @@
 | Resizing requires repartitioning or reformatting | Resize dynamically at any time                               |
 | Redundancy requires a RAID setup                 | Redundancy built in (data distributed across physical disks) |
 | Encryption must be set up manually               | Automatically encrypted; can use your own keys               |
+
+---
+
+## gcloud Commands
+
+```bash
+# List persistent disks
+gcloud compute disks list
+
+# Create a persistent SSD disk
+gcloud compute disks create my-disk \
+  --zone=us-central1-a --size=100GB --type=pd-ssd
+
+# Attach a disk to a VM
+gcloud compute instances attach-disk my-vm \
+  --disk=my-disk --zone=us-central1-a
+
+# Resize a disk (no downtime needed)
+gcloud compute disks resize my-disk \
+  --zone=us-central1-a --size=200GB
+
+# List snapshots
+gcloud compute snapshots list
+```
