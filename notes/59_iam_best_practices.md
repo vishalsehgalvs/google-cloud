@@ -22,11 +22,11 @@ You can create groups that exist purely for role assignment, not just job roles.
 
 **Example:**
 
-| Group | Role |
-| ----- | ---- |
-| `network-admins` | Network Admin |
+| Group                       | Role                     |
+| --------------------------- | ------------------------ |
+| `network-admins`            | Network Admin            |
 | `network-admins-storage-rw` | Cloud Storage read/write |
-| `network-admins-storage-ro` | Cloud Storage read-only |
+| `network-admins-storage-ro` | Cloud Storage read-only  |
 
 Adding/removing users from these groups controls their total access across all resources.
 

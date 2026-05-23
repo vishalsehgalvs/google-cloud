@@ -10,9 +10,9 @@
 
 Two admins collaborate to set it up:
 
-| Role | Responsibility |
-| ---- | -------------- |
-| **Google Cloud Admin** | Configures which organizations are authorized |
+| Role                   | Responsibility                                                                                                |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------- |
+| **Google Cloud Admin** | Configures which organizations are authorized                                                                 |
 | **Egress Proxy Admin** | Configures the proxy to inject organization restriction headers on all outbound requests from managed devices |
 
 The egress proxy adds headers to every request from a managed device. Google Cloud inspects those headers and **allows or denies** the request based on whether the target organization is authorized.
