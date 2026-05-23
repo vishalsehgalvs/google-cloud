@@ -132,3 +132,22 @@ Kubernetes lets you:
 - **Keep apps running** even when individual machines fail
 - **Deploy updates safely** without downtime
 - **Scale automatically** based on real traffic or resource usage
+
+---
+
+## gcloud Commands (GKE)
+
+```bash
+# Create a GKE cluster
+gcloud container clusters create my-cluster \
+  --zone=us-central1-a --num-nodes=3
+
+# Get credentials (sets up kubectl access)
+gcloud container clusters get-credentials my-cluster --zone=us-central1-a
+
+# List GKE clusters
+gcloud container clusters list
+
+# Delete a cluster
+gcloud container clusters delete my-cluster --zone=us-central1-a
+```

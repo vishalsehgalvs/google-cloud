@@ -73,3 +73,26 @@ Cloud Run Functions is the right tool when:
 - You want **zero infrastructure management**
 - You need small, **single-purpose pieces of logic**
 - You only want to **pay when your code actually runs**
+
+---
+
+## gcloud Commands
+
+```bash
+# Deploy a function (HTTP trigger)
+gcloud functions deploy my-function \
+  --runtime=python310 --trigger-http --allow-unauthenticated
+
+# Deploy with a Pub/Sub trigger
+gcloud functions deploy my-function \
+  --runtime=python310 --trigger-topic=my-topic
+
+# List all functions
+gcloud functions list
+
+# View function logs
+gcloud functions logs read my-function
+
+# Delete a function
+gcloud functions delete my-function
+```

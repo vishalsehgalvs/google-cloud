@@ -80,3 +80,20 @@ Containers make your code:
 - **Lightweight** — no bloated OS per instance
 - **Fast to scale** — spin up in seconds
 - **Easy to manage** — break your app into focused, independent services
+
+---
+
+## gcloud Commands
+
+```bash
+# Build and push a container image using Cloud Build
+gcloud builds submit --tag gcr.io/PROJECT_ID/my-image .
+
+# Create an Artifact Registry repository
+gcloud artifacts repositories create my-repo \
+  --repository-format=docker --location=us-central1
+
+# List images in Artifact Registry
+gcloud artifacts docker images list \
+  us-central1-docker.pkg.dev/PROJECT_ID/my-repo
+```

@@ -84,3 +84,22 @@ Cloud Run is ideal when you want to:
 - **Scale automatically** — including down to zero
 - **Pay only for actual usage**
 - **Go from code to a live HTTPS endpoint** as quickly as possible
+
+---
+
+## gcloud Commands
+
+```bash
+# Deploy a container to Cloud Run
+gcloud run deploy my-service \
+  --image=gcr.io/PROJECT_ID/my-image --platform=managed --region=us-central1
+
+# Deploy directly from source code
+gcloud run deploy my-service --source . --region=us-central1
+
+# List Cloud Run services
+gcloud run services list --region=us-central1
+
+# Delete a service
+gcloud run services delete my-service --region=us-central1
+```
