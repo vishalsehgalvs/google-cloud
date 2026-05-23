@@ -124,3 +124,22 @@ By the end of this series, you should be able to:
 ## Hands-On Labs
 
 All courses include labs through the **Google Skills platform**, which gives you a real Google Cloud account with no cost to practice directly in the console.
+
+---
+
+## gcloud Commands
+
+```bash
+# Authenticate with Google Cloud
+gcloud auth login
+
+# Set default project
+gcloud config set project PROJECT_ID
+
+# Set default region and zone
+gcloud config set compute/region us-central1
+gcloud config set compute/zone us-central1-a
+
+# View current configuration
+gcloud config list
+```

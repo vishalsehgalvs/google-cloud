@@ -186,3 +186,18 @@ In this lab, you:
 - Used SSH to manage the VM
 - Stopped and restarted the Jenkins service
 - Saw how Google Cloud automates infrastructure setup behind the scenes
+
+---
+
+## gcloud Commands
+
+```bash
+# List Deployment Manager deployments
+gcloud deployment-manager deployments list
+
+# Describe a deployment
+gcloud deployment-manager deployments describe DEPLOYMENT_NAME
+
+# SSH into the Marketplace-deployed VM
+gcloud compute ssh INSTANCE_NAME --zone=ZONE
+```

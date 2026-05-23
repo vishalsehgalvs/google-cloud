@@ -171,3 +171,21 @@ To understand networking in Google Cloud, you need to understand:
 - Regions, zones, and PoPs
 
 Once you understand those pieces, the rest of Google Cloud networking becomes much easier to follow.
+
+---
+
+## gcloud Commands
+
+```bash
+# List VPC networks
+gcloud compute networks list
+
+# List subnets
+gcloud compute networks subnets list
+
+# List all regions
+gcloud compute regions list
+
+# List all zones
+gcloud compute zones list
+```
