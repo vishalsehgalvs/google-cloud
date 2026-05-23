@@ -23,3 +23,18 @@ IAM (Identity and Access Management) is a sophisticated system built on three fa
 3. **Organization Restrictions** feature
 4. **Best practices** for day-to-day IAM use
 5. **Hands-on lab** for first-hand IAM experience
+
+---
+
+## gcloud Commands
+
+```bash
+# View IAM policy for a project
+gcloud projects get-iam-policy PROJECT_ID
+
+# List all IAM roles
+gcloud iam roles list
+
+# Describe a specific role
+gcloud iam roles describe roles/viewer
+```

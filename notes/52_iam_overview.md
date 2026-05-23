@@ -55,3 +55,18 @@ Organization  (root — represents your company)
 | **Folder**       | A department       | Roles here apply to all resources in the folder  |
 | **Project**      | A trust boundary   | Services in the same project share default trust |
 | **Resource**     | Individual service | Most granular level                              |
+
+---
+
+## gcloud Commands
+
+```bash
+# View IAM policy on a project
+gcloud projects get-iam-policy PROJECT_ID
+
+# View IAM policy on an organization
+gcloud organizations get-iam-policy ORG_ID
+
+# View IAM policy on a folder
+gcloud resource-manager folders get-iam-policy FOLDER_ID
+```

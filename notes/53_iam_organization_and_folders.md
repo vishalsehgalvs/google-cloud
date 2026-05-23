@@ -91,3 +91,32 @@ Organization
 ## Key Inheritance Rule
 
 > Policies are inherited **top to bottom** — roles granted at the organization level flow down to folders, projects, and individual resources.
+
+---
+
+## gcloud Commands
+
+```bash
+# List organizations
+gcloud organizations list
+
+# Grant a role at the org level
+gcloud organizations add-iam-policy-binding ORG_ID \
+  --member=user:admin@example.com --role=roles/resourcemanager.organizationAdmin
+
+# Create a folder
+gcloud resource-manager folders create \
+  --display-name=FOLDER_NAME --organization=ORG_ID
+
+# List folders under an org
+gcloud resource-manager folders list --organization=ORG_ID
+
+# Delete a folder
+gcloud resource-manager folders delete FOLDER_ID
+
+# Create a project
+gcloud projects create PROJECT_ID --folder=FOLDER_ID
+
+# Delete a project
+gcloud projects delete PROJECT_ID
+```
