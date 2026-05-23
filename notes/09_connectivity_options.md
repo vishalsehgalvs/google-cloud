@@ -63,3 +63,21 @@ Ask yourself:
 | Private, high-perf, no equipment       | Partner Interconnect     |
 | Private, high-perf, can install equip. | Dedicated Interconnect   |
 | Multicloud, high bandwidth             | Cross-Cloud Interconnect |
+
+---
+
+## gcloud Commands
+
+```bash
+# List VPN tunnels
+gcloud compute vpn-tunnels list
+
+# List Cloud Routers
+gcloud compute routers list
+
+# List Dedicated/Partner Interconnect attachments
+gcloud compute interconnects attachments list
+
+# List Cloud VPN gateways
+gcloud compute vpn-gateways list
+```

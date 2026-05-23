@@ -39,3 +39,23 @@ VPCs belong to a Google Cloud project — but sometimes VPCs in different projec
 
 - Uses full **IAM controls** to manage who and what in one project can interact with a VPC in another.
 - More control than peering — lets you define fine-grained access policies.
+
+---
+
+## gcloud Commands
+
+```bash
+# List firewall rules
+gcloud compute firewall-rules list
+
+# Create a firewall rule targeting a network tag
+gcloud compute firewall-rules create allow-http \
+  --network=my-vpc --allow=tcp:80 --target-tags=web-server
+
+# Delete a firewall rule
+gcloud compute firewall-rules delete allow-http
+
+# Create VPC peering
+gcloud compute networks peerings create my-peering \
+  --network=my-vpc --peer-project=OTHER_PROJECT --peer-network=other-vpc
+```

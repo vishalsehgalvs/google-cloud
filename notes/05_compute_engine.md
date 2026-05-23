@@ -94,3 +94,22 @@ You're not locked into predefined sizes. Choose exactly what you need:
 - Set your own number of **virtual CPUs**
 - Set your own amount of **memory**
 - Pay only for what you actually use
+
+---
+
+## gcloud Commands
+
+```bash
+# List all VM instances
+gcloud compute instances list
+
+# Create a VM
+gcloud compute instances create my-vm --zone=us-central1-a \
+  --machine-type=e2-medium --image-family=debian-11 --image-project=debian-cloud
+
+# SSH into a VM
+gcloud compute ssh my-vm --zone=us-central1-a
+
+# Delete a VM
+gcloud compute instances delete my-vm --zone=us-central1-a
+```

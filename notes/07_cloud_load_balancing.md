@@ -51,3 +51,21 @@ Google Cloud load balancers are classified by which **OSI layer** they operate a
 | **Passthrough Network Load Balancer** | Does NOT modify or terminate connections — forwards traffic directly to backend    | Apps needing direct server return or a wider range of IP protocols |
 
 > Key difference: Passthrough preserves the **original source IP address**; Proxy does not.
+
+---
+
+## gcloud Commands
+
+```bash
+# List forwarding rules (entry point for load balancers)
+gcloud compute forwarding-rules list
+
+# List backend services
+gcloud compute backend-services list --global
+
+# List health checks
+gcloud compute health-checks list
+
+# List URL maps (for Application Load Balancers)
+gcloud compute url-maps list
+```

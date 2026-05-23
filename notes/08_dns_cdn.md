@@ -29,3 +29,26 @@
   - Can save money
 - Enable Cloud CDN with a single checkbox after setting up an Application Load Balancer
 - Google Cloud supports other CDNs via the **CDN Interconnect partner program**
+
+---
+
+## gcloud Commands
+
+```bash
+# List DNS managed zones
+gcloud dns managed-zones list
+
+# Create a DNS zone
+gcloud dns managed-zones create my-zone \
+  --dns-name=example.com --description="My DNS zone"
+
+# List DNS record sets in a zone
+gcloud dns record-sets list --zone=my-zone
+
+# Add an A record
+gcloud dns record-sets create www.example.com \
+  --zone=my-zone --type=A --ttl=300 --rrdatas=1.2.3.4
+
+# Delete a zone
+gcloud dns managed-zones delete my-zone
+```

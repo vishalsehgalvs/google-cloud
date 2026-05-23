@@ -52,3 +52,25 @@ This design makes it easy to build layouts that are:
 
 - **Resilient** — spread across zones, so one zone failing doesn't take everything down
 - **Simple** — still one clean network layout, no complex cross-network routing needed
+
+---
+
+## gcloud Commands
+
+```bash
+# List all VPC networks
+gcloud compute networks list
+
+# Create a VPC network (custom mode)
+gcloud compute networks create my-vpc --subnet-mode=custom
+
+# List subnets
+gcloud compute networks subnets list
+
+# Create a subnet
+gcloud compute networks subnets create my-subnet \
+  --network=my-vpc --region=us-central1 --range=10.0.0.0/24
+
+# Delete a network
+gcloud compute networks delete my-vpc
+```
