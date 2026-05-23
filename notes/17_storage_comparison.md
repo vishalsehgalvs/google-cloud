@@ -27,3 +27,17 @@
 - BigQuery sits on the edge between **data storage and data processing**
 - Not purely a storage product — main value is **big data analysis and interactive querying**
 - Store data in BigQuery when you want to run large-scale analytics on it
+
+---
+
+## gcloud Commands
+
+```bash
+# Quick reference — list resources for each product
+gcloud storage ls                   # Cloud Storage buckets
+gcloud sql instances list           # Cloud SQL
+gcloud spanner instances list       # Spanner
+gcloud firestore databases list     # Firestore
+gcloud bigtable instances list      # Bigtable
+bq ls                               # BigQuery datasets (uses bq CLI, not gcloud)
+```

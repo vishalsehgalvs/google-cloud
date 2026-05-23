@@ -22,3 +22,16 @@ Every application needs to store data — from media files to sensor data. Googl
 | **Bigtable**      | NoSQL, wide-column, large-scale analytics                 |
 
 Depending on your application, you might use one or several of these services together.
+
+---
+
+## gcloud Commands
+
+```bash
+# Quick overview — list resources for each storage product
+gcloud storage ls                   # Cloud Storage buckets
+gcloud sql instances list           # Cloud SQL
+gcloud spanner instances list       # Spanner
+gcloud firestore databases list     # Firestore
+gcloud bigtable instances list      # Bigtable
+```

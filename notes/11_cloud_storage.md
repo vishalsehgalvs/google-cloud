@@ -48,3 +48,27 @@
 
 - Set policies to automatically delete or manage objects (e.g. delete after 365 days, keep only 3 most recent versions)
 - Helps control costs by removing unneeded data
+
+---
+
+## gcloud Commands
+
+```bash
+# List all buckets
+gcloud storage ls
+
+# Create a bucket
+gcloud storage buckets create gs://my-bucket --location=us-central1
+
+# Upload a file
+gcloud storage cp local-file.txt gs://my-bucket/
+
+# Download a file
+gcloud storage cp gs://my-bucket/file.txt .
+
+# Set a lifecycle policy from a JSON file
+gcloud storage buckets update gs://my-bucket --lifecycle-file=lifecycle.json
+
+# Delete a bucket and all its contents
+gcloud storage rm -r gs://my-bucket
+```

@@ -29,3 +29,22 @@ Best for applications that need:
 | Consistency | Regional      | Strong, global             |
 | Use case    | Standard apps | Mission-critical, high I/O |
 | Throughput  | Moderate      | Tens of thousands+ ops/sec |
+
+---
+
+## gcloud Commands
+
+```bash
+# List Spanner instances
+gcloud spanner instances list
+
+# Create a Spanner instance
+gcloud spanner instances create my-instance \
+  --config=regional-us-central1 --description="My Spanner" --nodes=1
+
+# List databases in an instance
+gcloud spanner databases list --instance=my-instance
+
+# Delete an instance
+gcloud spanner instances delete my-instance
+```

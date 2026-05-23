@@ -38,3 +38,21 @@
 - **Strong consistency** guarantees
 - **Atomic batch operations**
 - **Real transaction support**
+
+---
+
+## gcloud Commands
+
+```bash
+# List Firestore databases
+gcloud firestore databases list
+
+# Create a Firestore database
+gcloud firestore databases create --location=us-central1
+
+# Export data to Cloud Storage
+gcloud firestore export gs://my-bucket/firestore-backup
+
+# Import data from Cloud Storage
+gcloud firestore import gs://my-bucket/firestore-backup
+```

@@ -40,3 +40,25 @@
 - **App Engine** — via standard drivers (Connector/J for Java, MySQLdb for Python)
 - **Compute Engine** — authorize VMs to access Cloud SQL; can place in the same zone
 - **External tools** — SQL Workbench, Toad, and other apps using standard MySQL drivers
+
+---
+
+## gcloud Commands
+
+```bash
+# List Cloud SQL instances
+gcloud sql instances list
+
+# Create a Cloud SQL instance
+gcloud sql instances create my-instance \
+  --database-version=MYSQL_8_0 --tier=db-n1-standard-2 --region=us-central1
+
+# Connect to an instance
+gcloud sql connect my-instance --user=root
+
+# Create a database
+gcloud sql databases create my-db --instance=my-instance
+
+# Delete an instance
+gcloud sql instances delete my-instance
+```

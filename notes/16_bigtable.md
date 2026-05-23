@@ -47,3 +47,23 @@ Use cases: IoT, user analytics, financial data analysis
 - **Spark**
 
 > Summarized or newly calculated data is often written back to Bigtable or to a downstream database.
+
+---
+
+## gcloud Commands
+
+```bash
+# List Bigtable instances
+gcloud bigtable instances list
+
+# Create a Bigtable instance
+gcloud bigtable instances create my-instance \
+  --display-name="My Bigtable" \
+  --cluster-config=id=my-cluster,zone=us-central1-a,nodes=3
+
+# List clusters in an instance
+gcloud bigtable clusters list --instances=my-instance
+
+# Delete a Bigtable instance
+gcloud bigtable instances delete my-instance
+```
