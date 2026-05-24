@@ -10,16 +10,16 @@
 
 ## Key Features
 
-| Feature | Detail |
-|---|---|
-| Managed tasks | High availability, failover, patching, monitoring — all automated |
-| Latency | Sub-millisecond |
-| Max instance size | 300 GB |
-| Max network throughput | 12 Gbps |
-| HA replication | Replicated across **two zones** |
-| Availability SLA | **99.9%** (HA instances) |
-| Migration | Import/export from open source Redis — no code changes needed |
-| Client libraries | All existing Redis tools and client libraries work as-is |
+| Feature                | Detail                                                            |
+| ---------------------- | ----------------------------------------------------------------- |
+| Managed tasks          | High availability, failover, patching, monitoring — all automated |
+| Latency                | Sub-millisecond                                                   |
+| Max instance size      | 300 GB                                                            |
+| Max network throughput | 12 Gbps                                                           |
+| HA replication         | Replicated across **two zones**                                   |
+| Availability SLA       | **99.9%** (HA instances)                                          |
+| Migration              | Import/export from open source Redis — no code changes needed     |
+| Client libraries       | All existing Redis tools and client libraries work as-is          |
 
 ---
 
