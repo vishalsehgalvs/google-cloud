@@ -30,10 +30,29 @@ A convenient way to apply firewall rules without tracking IP addresses:
 
 VPCs belong to a Google Cloud project — but sometimes VPCs in different projects need to talk to each other.
 
-### Option 1: VPC Peering
+### Option 1: VPC Network Peering
 
-- Establishes a **relationship between two VPCs** to exchange traffic.
-- Works across projects.
+Allows **private connectivity** between two VPC networks regardless of whether they belong to the same project or the same organization. Traffic stays on Google's private network — no public IPs or VPNs needed.
+
+#### When to use it
+
+- Your organization has **multiple network administrative domains**
+- You want to **peer with another organization** (e.g. offer SaaS services privately, or connect networks after a merger/acquisition)
+
+#### Advantages over external IPs / VPNs
+
+| Benefit             | Detail                                                                            |
+| ------------------- | --------------------------------------------------------------------------------- |
+| **Lower latency**   | Private networking is faster than routing over public IPs                         |
+| **Better security** | Services are never exposed to the public internet                                 |
+| **Lower cost**      | Peered networks use internal IPs, saving on Google Cloud egress bandwidth charges |
+
+> Regular network pricing still applies to all traffic — only the egress bandwidth savings are specific to peering.
+
+#### How it works
+
+- Both sides must **each create a peering connection** pointing at the other network — it is not one-sided
+- Works across projects and across organizations
 
 ### Option 2: Shared VPC
 
