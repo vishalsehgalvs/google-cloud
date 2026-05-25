@@ -1,16 +1,22 @@
 # IAM — Roles
 
+## Why Roles Matter
+
+When an identity calls a Google Cloud API, IAM checks that the identity has the appropriate permissions for that resource. You grant permissions by assigning roles to a user, group, or service account.
+
+---
+
 ## What Roles Define
 
 Roles define the **"can do what on which resource"** part of IAM.
 
-There are three types: **Basic**, **Predefined**, and **Custom**.
+There are three types: **Basic** (also called **Primitive**), **Predefined**, and **Custom**.
 
 ---
 
-## 1. Basic Roles
+## 1. Basic Roles (Primitive Roles)
 
-The original roles from the Google Cloud console. They are **broad and coarse-grained** — applied to an entire project and affect all resources in it.
+The original roles from before Cloud IAM was introduced — sometimes still called **Primitive roles**. They are **broad and coarse-grained** — applied to an entire project and affect all resources in it.
 
 | Role                      | Access Level                                                                 |
 | ------------------------- | ---------------------------------------------------------------------------- |

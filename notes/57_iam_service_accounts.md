@@ -8,6 +8,11 @@ A service account is an account that belongs to an **application**, not an indiv
 
 Service accounts are identified by an **email address** (e.g. `PROJECT_NUMBER-compute@developer.gserviceaccount.com`).
 
+### Service Account Limits
+
+- Each new project automatically gets **1 Compute Engine** and **1 App Engine** service account
+- You can create up to **98 additional** service accounts per project (100 total)
+
 ---
 
 ## Three Types of Service Accounts
@@ -19,6 +24,31 @@ Service accounts are identified by an **email address** (e.g. `PROJECT_NUMBER-co
 | **Google APIs service account**       | Runs internal Google processes; email: `PROJECT_NUMBER@cloudservices.gserviceaccount.com`; auto-granted Editor role |
 
 > When you start a new instance with `gcloud`, the default service account is enabled automatically. You can override this with a custom service account or disable it entirely.
+
+---
+
+## User-Managed vs Google-Managed Service Accounts
+
+### User-Managed Service Accounts
+
+These are accounts you create and manage. Two are also auto-created by Google but still fall under your project:
+
+- **Compute Engine default service account** — created automatically when Compute Engine API is enabled
+  - Email: `PROJECT_NUMBER-compute@developer.gserviceaccount.com`
+- **App Engine default service account** — created automatically if your project has an App Engine app
+  - Email: `PROJECT_ID@appspot.gserviceaccount.com`
+
+### Google-Managed Service Accounts
+
+Created and owned by Google to run internal Google processes on your behalf.
+
+- **Google APIs service account**
+  - Email: `PROJECT_NUMBER@cloudservices.gserviceaccount.com`
+  - Not listed in the **Service Accounts** section of the console — only visible under **IAM**
+  - Automatically granted the **project Editor** role
+  - Only deleted when the project itself is deleted
+
+> Do not remove or change the Google APIs service account's role — Google services depend on it having access to your project.
 
 ---
 
@@ -46,11 +76,26 @@ Service accounts are identified by an **email address** (e.g. `PROJECT_NUMBER-co
 
 ---
 
-## Service Account as a Resource
+## Service Account: Identity vs Resource
 
-A service account can itself be a **resource** that users are granted access to.
+A service account plays **two roles** in IAM:
 
-**Example flow:**
+### As an Identity
+
+The service account authenticates to Google Cloud services on behalf of your app or VM.
+
+**Example:** A Compute Engine VM runs as a service account → you grant that service account the `editor` role on a project → the VM can act as an editor.
+
+### As a Resource
+
+A service account can itself be a resource that you grant other users access to.
+
+**Example:** You want to control who can start a VM that runs as a service account:
+
+- Grant the user the **`serviceAccountUser`** role on the service account (the resource)
+- This lets the user start/use the VM, but only with the service account's permissions
+
+**Full example flow:**
 
 1. Create a service account with the `InstanceAdmin` role (create/modify/delete VMs)
 2. Grant specific users the **Service Account User** role on that service account
