@@ -51,6 +51,55 @@ This repository contains concise, structured notes for Google Cloud Platform (GC
 - **45_compute_engine_pricing.md** — Compute Engine pricing: billing model, sustained use discounts, committed use, preemptible vs Spot VMs, and rightsizing
 - **46_compute_engine_special_vm_types.md** — Preemptible VMs, Spot VMs, sole-tenant nodes, shielded VMs, and confidential VMs
 - **47_compute_engine_images.md** — Boot disk images: public vs custom, premium image billing, importing images, and machine images
+- **48_compute_engine_disk_options.md** — Compute Engine disk options: persistent disk types, local SSDs, RAM disks, and how to choose
+- **49_compute_engine_common_actions.md** — Common VM actions: instance metadata, startup/shutdown scripts, moving VMs, and snapshots
+- **50_minecraft_server_lab.md** — Lab walkthrough for setting up a Minecraft server on Compute Engine with persistent disk
+- **51_iam_intro.md** — IAM module introduction: what IAM is and why access control matters in GCP
+- **52_iam_overview.md** — IAM overview: the who, what, and can-do model for controlling access to GCP resources
+- **53_iam_organization_and_folders.md** — IAM organization node and folders: hierarchy-based access control and inheritance
+- **54_iam_roles.md** — IAM roles: basic, predefined, and custom roles and how they grant permissions
+- **55_iam_custom_role_demo.md** — Demo walkthrough for creating a custom IAM role in the GCP Console
+- **56_iam_members_and_policies.md** — IAM members, policies, and identity types: users, groups, service accounts, and policy bindings
+- **57_iam_service_accounts.md** — Service accounts: what they are, how they work, and best practices for use
+- **58_iam_organization_restrictions.md** — Organization restrictions: limiting access to only approved GCP organizations
+- **59_iam_best_practices.md** — IAM best practices: least privilege, resource hierarchy, service account hygiene, and auditing
+- **60_iam_lab_access_control.md** — Lab overview for IAM access control: roles, bindings, and permission testing
+- **61_iam_lab_walkthrough.md** — Step-by-step walkthrough of the IAM access control lab
+- **62_iam_module_summary.md** — IAM module summary: key concepts, roles, service accounts, and best practices recap
+- **63_storage_module_intro.md** — Storage and database module introduction: overview of services covered
+- **64_cloud_storage_deep_dive.md** — Cloud Storage deep dive: key characteristics, object storage model, and data access
+- **65_cloud_storage_features.md** — Cloud Storage features: versioning, lifecycle policies, retention, encryption, and data management
+- **66_cloud_storage_class_selection.md** — Choosing a Cloud Storage class: decision tree, Autoclass, and cost trade-offs
+- **67_filestore.md** — Filestore: managed NFS-based network file storage for GCP workloads
+- **68_cloud_storage_lab_overview.md** — Cloud Storage lab overview: what the lab covers and goals
+- **69_cloud_storage_lab_walkthrough.md** — Step-by-step walkthrough of the Cloud Storage lab
+- **70_cloud_sql.md** — Cloud SQL deep dive: managed relational databases, features, replicas, and use cases
+- **71_cloud_sql_lab_walkthrough.md** — Lab walkthrough for Cloud SQL: setup, connection, and basic operations
+- **72_spanner.md** — Cloud Spanner deep dive: globally distributed relational database, scaling, and architecture
+- **73_alloydb.md** — AlloyDB for PostgreSQL: high-performance managed Postgres with Google-built storage engine
+- **74_firestore.md** — Firestore deep dive: document-based NoSQL database, data model, queries, and consistency
+- **75_bigtable.md** — Bigtable deep dive: wide-column NoSQL for analytics and high-throughput workloads
+- **76_memorystore.md** — Memorystore: fully managed in-memory data store for Redis and Memcached
+- **77_storage_database_module_summary.md** — Storage and database module summary: comparison and service selection recap
+- **78_resource_management_intro.md** — Resource management module introduction: what the module covers
+- **79_resource_manager_overview.md** — Resource Manager overview: managing GCP resources through the hierarchy
+- **80_quotas.md** — Quotas in Google Cloud: rate quotas, allocation quotas, and how to request increases
+- **81_labels.md** — Labels in Google Cloud: key-value metadata for organizing and filtering resources
+- **82_billing_and_cost_management.md** — Billing, budgets, and cost management: budgets, alerts, exports, and cost controls
+- **83_billing_admin_demo.md** — Billing administration demo: exploring the billing console, reports, and cost tools
+- **84_bigquery_billing_lab_walkthrough.md** — Lab walkthrough for analyzing billing data with BigQuery
+- **85_observability_overview.md** — Google Cloud Observability overview: monitoring, logging, tracing, and profiling tools
+- **86_cloud_monitoring.md** — Cloud Monitoring: metrics, dashboards, alerting policies, and uptime checks
+- **87_cloud_monitoring_lab_walkthrough.md** — Lab walkthrough for Cloud Monitoring: setting up dashboards and alerts
+- **88_cloud_logging.md** — Cloud Logging: log collection, log buckets, log sinks, and log-based metrics
+- **89_error_reporting.md** — Error Reporting: automatic error grouping, alerting, and stack trace analysis
+- **90_cloud_trace.md** — Cloud Trace: distributed tracing for latency analysis across services
+- **91_cloud_profiler.md** — Cloud Profiler: continuous CPU and memory profiling for production applications
+- **92_observability_integrations.md** — Cloud Observability third-party integrations: partner ecosystem and OpenTelemetry support
+- **93_observability_module_summary.md** — Observability module summary: recap of all monitoring and logging services
+- **94_course_series_intro.md** — Architecting with Google Compute Engine course series introduction
+- **95_cloud_vpn.md** — Cloud VPN: IPsec tunnels, HA VPN, Classic VPN, and when to use VPN
+- **96_identity_aware_proxy.md** — Identity-Aware Proxy (IAP): zero-trust access control for applications and VMs
 
 Each file is self-contained and designed for quick reference.
 
@@ -64,7 +113,12 @@ The notes currently span:
 - Hands-on lab walkthroughs
 - Virtual networking foundations and deep dives
 - Network design: VPC, subnets, IPs, DNS, routes, firewall, pricing
-- Compute Engine: VM overview, console creation, lifecycle, machine families, and pricing
+- Compute Engine: VM overview, console creation, lifecycle, machine families, pricing, disk options, and common actions
+- IAM: overview, roles, service accounts, policies, best practices, and labs
+- Storage and databases: Cloud Storage, Filestore, Cloud SQL, Spanner, AlloyDB, Firestore, Bigtable, Memorystore
+- Resource management: Resource Manager, quotas, labels, billing, and cost management
+- Google Cloud Observability: monitoring, logging, error reporting, tracing, and profiling
+- Hybrid connectivity: Cloud VPN and Identity-Aware Proxy
 
 ---
 
