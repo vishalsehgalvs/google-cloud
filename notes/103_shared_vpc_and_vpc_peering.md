@@ -14,12 +14,12 @@ Two configurations for sharing VPC networks across GCP projects.
 
 ### Terminology
 
-| Term | Meaning |
-|---|---|
-| Host project | Project that owns the shared VPC network |
-| Service project | Project attached to the host project; uses host's subnets |
-| Standalone project | Project that does not participate in Shared VPC at all |
-| Standalone VPC | An unshared VPC in a standalone or service project |
+| Term               | Meaning                                                   |
+| ------------------ | --------------------------------------------------------- |
+| Host project       | Project that owns the shared VPC network                  |
+| Service project    | Project attached to the host project; uses host's subnets |
+| Standalone project | Project that does not participate in Shared VPC at all    |
+| Standalone VPC     | An unshared VPC in a standalone or service project        |
 
 ---
 
@@ -36,10 +36,10 @@ Two configurations for sharing VPC networks across GCP projects.
 
 ## Shared VPC vs. VPC Network Peering
 
-| Scenario | Use |
-|---|---|
-| Private communication between VPCs in **different organizations** | VPC Network Peering (Shared VPC is org-only) |
-| Private communication between VPCs in the **same project** | VPC Network Peering (Shared VPC requires multiple projects) |
-| Private communication between VPCs **across projects in the same org** | Either — depends on admin model |
-| **Centralized** network administration (single network policy) | Shared VPC |
-| **Decentralized** network administration (each team controls their own VPC) | VPC Network Peering |
+| Scenario                                                                    | Use                                                         |
+| --------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| Private communication between VPCs in **different organizations**           | VPC Network Peering (Shared VPC is org-only)                |
+| Private communication between VPCs in the **same project**                  | VPC Network Peering (Shared VPC requires multiple projects) |
+| Private communication between VPCs **across projects in the same org**      | Either — depends on admin model                             |
+| **Centralized** network administration (single network policy)              | Shared VPC                                                  |
+| **Decentralized** network administration (each team controls their own VPC) | VPC Network Peering                                         |

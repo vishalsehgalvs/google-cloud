@@ -10,12 +10,12 @@
 
 ## Deployment Modes
 
-| Mode | Description |
-|---|---|
-| **Global external** | Uses Google Front Ends (GFEs) distributed globally; multi-region load balancing in Premium tier; directs traffic to closest healthy backend |
-| **Regional external** | Uses open-source Envoy proxy; advanced traffic management |
-| **Classic** | Uses GFEs; older generation |
-| **Internal** | For internal traffic within a VPC (covered separately) |
+| Mode                  | Description                                                                                                                                 |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Global external**   | Uses Google Front Ends (GFEs) distributed globally; multi-region load balancing in Premium tier; directs traffic to closest healthy backend |
+| **Regional external** | Uses open-source Envoy proxy; advanced traffic management                                                                                   |
+| **Classic**           | Uses GFEs; older generation                                                                                                                 |
+| **Internal**          | For internal traffic within a VPC (covered separately)                                                                                      |
 
 - Global external and classic ALBs use **Google Front Ends (GFEs)**
 - Global and regional external ALBs use **Envoy proxy** for advanced traffic management
@@ -55,22 +55,22 @@ VM Instances
 
 ## Backend Service Details
 
-| Setting | Description |
-|---|---|
-| **Health check** | Polls instances at configured intervals; unhealthy instances stop receiving traffic until they recover |
-| **Routing algorithm** | Round-robin by default |
-| **Session affinity** | Override round-robin to send all requests from the same client to the same VM |
-| **Timeout** | Fixed timeout (not idle) for the backend to respond; default **30 seconds** — increase for long-lived connections |
+| Setting               | Description                                                                                                       |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **Health check**      | Polls instances at configured intervals; unhealthy instances stop receiving traffic until they recover            |
+| **Routing algorithm** | Round-robin by default                                                                                            |
+| **Session affinity**  | Override round-robin to send all requests from the same client to the same VM                                     |
+| **Timeout**           | Fixed timeout (not idle) for the backend to respond; default **30 seconds** — increase for long-lived connections |
 
 ---
 
 ## Backend Details
 
-| Component | Description |
-|---|---|
-| **Instance group** | Managed (with or without autoscaling) or unmanaged |
-| **Balancing mode** | Determines when a backend is at full usage — based on **CPU utilization** or **requests per second (RPS)** |
-| **Capacity scaler** | Additional multiplier on the balancing mode threshold |
+| Component           | Description                                                                                                |
+| ------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Instance group**  | Managed (with or without autoscaling) or unmanaged                                                         |
+| **Balancing mode**  | Determines when a backend is at full usage — based on **CPU utilization** or **requests per second (RPS)** |
+| **Capacity scaler** | Additional multiplier on the balancing mode threshold                                                      |
 
 ### Balancing Mode + Capacity Example
 

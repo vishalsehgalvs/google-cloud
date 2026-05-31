@@ -12,10 +12,10 @@
 
 ## Two Primary Load Balancer Types
 
-| Type | OSI Layer | Best For | Key Features |
-|---|---|---|---|
-| **Application Load Balancer** | Layer 7 (Application) | HTTP(S) traffic requiring content-based routing | SSL/TLS termination, session affinity, routing by headers/cookies/URL paths |
-| **Network Load Balancer** | Layer 4 (Network) | TCP/UDP traffic requiring low latency and high throughput | TCP/UDP load balancing, health checks, IP/port-based routing |
+| Type                          | OSI Layer             | Best For                                                  | Key Features                                                                |
+| ----------------------------- | --------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------- |
+| **Application Load Balancer** | Layer 7 (Application) | HTTP(S) traffic requiring content-based routing           | SSL/TLS termination, session affinity, routing by headers/cookies/URL paths |
+| **Network Load Balancer**     | Layer 4 (Network)     | TCP/UDP traffic requiring low latency and high throughput | TCP/UDP load balancing, health checks, IP/port-based routing                |
 
 ---
 

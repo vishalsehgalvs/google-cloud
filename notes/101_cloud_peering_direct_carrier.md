@@ -16,6 +16,7 @@ Peering services are used when you need access to **Google and Google Cloud prop
 - **Requirement:** connection at a Google Cloud Edge PoP
 
 ### Google Edge PoPs
+
 - Present on **90+ Internet exchanges** and **100+ interconnection facilities** worldwide
 - Details available via Google's PeeringDB entries
 
@@ -33,9 +34,9 @@ Peering services are used when you need access to **Google and Google Cloud prop
 
 ## Peering Options Comparison
 
-| Option | Access | Capacity | SLA | Requirement |
-|---|---|---|---|---|
-| Direct Peering | All Google services (public IP) | 10 Gbps per link | None | Connection at a Google Edge PoP |
-| Carrier Peering | All Google services (public IP) | Varies by provider | None | Depends on service provider |
+| Option          | Access                          | Capacity           | SLA  | Requirement                     |
+| --------------- | ------------------------------- | ------------------ | ---- | ------------------------------- |
+| Direct Peering  | All Google services (public IP) | 10 Gbps per link   | None | Connection at a Google Edge PoP |
+| Carrier Peering | All Google services (public IP) | Varies by provider | None | Depends on service provider     |
 
 > Both peering options provide **public IP address** access only. For internal IP access, use Cloud VPN or Cloud Interconnect instead.

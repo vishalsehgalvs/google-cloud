@@ -36,12 +36,12 @@
 
 ## Interconnect Options Comparison
 
-| Option | Capacity | Requirement | Best For |
-|---|---|---|---|
-| Cloud VPN | 1.5–3 Gbps per tunnel (scalable with multiple tunnels) | VPN device on-premises | Low cost, lower bandwidth, experimentation/migration |
-| Dedicated Interconnect | 10 Gbps or 100 Gbps per link (up to 8×10 Gbps or 2×100 Gbps links) | Connection at Google colocation facility | Enterprise-grade, high throughput |
-| Partner Interconnect | 50 Mbps – 50 Gbps per connection | Depends on service provider | No nearby colocation facility; moderate bandwidth |
-| Cross-Cloud Interconnect | 10 Gbps or 100 Gbps | Supported multi-cloud location | Connecting to another cloud provider |
+| Option                   | Capacity                                                           | Requirement                              | Best For                                             |
+| ------------------------ | ------------------------------------------------------------------ | ---------------------------------------- | ---------------------------------------------------- |
+| Cloud VPN                | 1.5–3 Gbps per tunnel (scalable with multiple tunnels)             | VPN device on-premises                   | Low cost, lower bandwidth, experimentation/migration |
+| Dedicated Interconnect   | 10 Gbps or 100 Gbps per link (up to 8×10 Gbps or 2×100 Gbps links) | Connection at Google colocation facility | Enterprise-grade, high throughput                    |
+| Partner Interconnect     | 50 Mbps – 50 Gbps per connection                                   | Depends on service provider              | No nearby colocation facility; moderate bandwidth    |
+| Cross-Cloud Interconnect | 10 Gbps or 100 Gbps                                                | Supported multi-cloud location           | Connecting to another cloud provider                 |
 
 > **Note on Cloud VPN capacity:** 1.5 Gbps applies to traffic over the public internet; 3 Gbps applies to traffic over a direct peering link.
 

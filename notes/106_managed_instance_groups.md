@@ -18,10 +18,10 @@ A **Managed Instance Group** is a collection of identical VM instances controlle
 
 ## Regional vs. Zonal MIGs
 
-| Type | Description |
-|---|---|
+| Type                           | Description                                                                          |
+| ------------------------------ | ------------------------------------------------------------------------------------ |
 | **Regional MIG** (recommended) | Spreads instances across multiple zones in a region; protects against zonal failures |
-| **Zonal MIG** | All instances in a single zone; simpler but no cross-zone redundancy |
+| **Zonal MIG**                  | All instances in a single zone; simpler but no cross-zone redundancy                 |
 
 > If all instances in a single zone malfunction, a regional MIG continues serving traffic from instances in another zone within the same region.
 
@@ -30,6 +30,7 @@ A **Managed Instance Group** is a collection of identical VM instances controlle
 ## Creating a MIG
 
 ### Step 1 — Create an Instance Template
+
 - Works like creating a regular VM instance, but the choices are saved and reused
 - Can be created via Cloud Console, gcloud, or API
 
