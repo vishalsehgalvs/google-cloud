@@ -100,6 +100,18 @@ This repository contains concise, structured notes for Google Cloud Platform (GC
 - **94_course_series_intro.md** — Architecting with Google Compute Engine course series introduction
 - **95_cloud_vpn.md** — Cloud VPN: IPsec tunnels, HA VPN, Classic VPN, and when to use VPN
 - **96_identity_aware_proxy.md** — Identity-Aware Proxy (IAP): zero-trust access control for applications and VMs
+- **97_private_gke_cluster_iam_lab.md** — Lab walkthrough for deploying a private GKE cluster with a custom IAM role and jumphost access
+- **98_ha_vpn_lab.md** — Lab overview for building HA VPN between two VPCs to simulate GCP-to-on-premises connectivity
+- **99_cloud_interconnect_peering_overview.md** — Overview of Cloud Interconnect and Peering services: dedicated vs shared, Layer 2 vs Layer 3
+- **100_cloud_interconnect_dedicated_partner_crosscloud.md** — Dedicated Interconnect, Partner Interconnect, and Cross-Cloud Interconnect: details and comparison
+- **101_cloud_peering_direct_carrier.md** — Direct Peering and Carrier Peering: public IP access to Google services without an SLA
+- **102_choosing_hybrid_connectivity.md** — Decision guide for choosing the right hybrid connectivity option
+- **103_shared_vpc_and_vpc_peering.md** — Shared VPC and VPC Network Peering: cross-project and cross-org network sharing
+- **104_hybrid_connectivity_module_summary.md** — Hybrid connectivity module summary: all five connection services and VPC sharing recap
+- **105_load_balancing_autoscaling_intro.md** — Load Balancing and Autoscaling module intro: ALB vs NLB, anycast IP, and module overview
+- **106_managed_instance_groups.md** — Managed Instance Groups: instance templates, autoscaling, auto-healing, and regional vs zonal MIGs
+- **107_mig_autoscaling_health_checks.md** — MIG autoscaling policies, health check configuration, and stateful IP addresses
+- **108_application_load_balancing.md** — Application Load Balancing: Layer 7 architecture, backend services, session affinity, and balancing modes
 
 Each file is self-contained and designed for quick reference.
 
@@ -118,7 +130,9 @@ The notes currently span:
 - Storage and databases: Cloud Storage, Filestore, Cloud SQL, Spanner, AlloyDB, Firestore, Bigtable, Memorystore
 - Resource management: Resource Manager, quotas, labels, billing, and cost management
 - Google Cloud Observability: monitoring, logging, error reporting, tracing, and profiling
-- Hybrid connectivity: Cloud VPN and Identity-Aware Proxy
+- Hybrid connectivity: Cloud VPN, Identity-Aware Proxy, Dedicated/Partner/Cross-Cloud Interconnect, Direct/Carrier Peering, and connectivity decision guide
+- VPC sharing: Shared VPC and VPC Network Peering
+- Load balancing and autoscaling: Managed Instance Groups, Application Load Balancing
 
 ---
 
