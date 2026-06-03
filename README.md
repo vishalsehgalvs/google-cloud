@@ -112,6 +112,41 @@ This repository contains concise, structured notes for Google Cloud Platform (GC
 - **106_managed_instance_groups.md** — Managed Instance Groups: instance templates, autoscaling, auto-healing, and regional vs zonal MIGs
 - **107_mig_autoscaling_health_checks.md** — MIG autoscaling policies, health check configuration, and stateful IP addresses
 - **108_application_load_balancing.md** — Application Load Balancing: Layer 7 architecture, backend services, session affinity, and balancing modes
+- **109_alb_examples_cross_region_content_based.md** — ALB examples: cross-region load balancing and content-based routing
+- **110_alb_https_backend_buckets_negs.md** — ALB with HTTPS, backend buckets, and Network Endpoint Groups (NEGs)
+- **111_cloud_cdn.md** — Cloud CDN: edge caching, cache modes, cache keys, and invalidation
+- **112_network_load_balancing.md** — Network Load Balancing: Layer 4 passthrough, backend service NLB, and proxy NLB
+- **113_internal_load_balancing.md** — Internal Load Balancing: internal ALB and internal passthrough NLB
+- **114_internal_load_balancer_lab.md** — Lab walkthrough for configuring an internal load balancer
+- **115_choosing_load_balancer.md** — Decision guide for choosing the right load balancer
+- **116_load_balancing_module_summary.md** — Load balancing module summary
+- **117_infrastructure_automation_intro.md** — Infrastructure automation module intro: Terraform and Cloud Marketplace
+- **118_terraform.md** — Terraform on Google Cloud: IaC, providers, resources, state, and modules
+- **119_cloud_marketplace.md** — Cloud Marketplace: deploying third-party solutions quickly
+- **120_managed_services_intro.md** — Managed services module intro: BigQuery, Dataflow, Dataprep, Dataproc
+- **121_bigquery.md** — BigQuery: fully managed data warehouse, serverless analytics, and key features
+- **122_dataflow.md** — Dataflow: managed Apache Beam pipelines for stream and batch processing
+- **123_dataprep.md** — Dataprep: visual data wrangling and intelligent transformation suggestions
+- **124_dataproc.md** — Dataproc: managed Spark and Hadoop clusters on Google Cloud
+- **125_dataproc_lab_walkthrough.md** — Lab walkthrough for running a Spark job on Dataproc
+- **126_managed_services_module_summary.md** — Managed services module summary
+- **127_gemini_enterprise_demo.md** — Gemini for Google Cloud demo: Duet AI and enterprise AI assistant features
+- **128_gke_course_intro.md** — GKE course introduction: architecture, workload management, and course overview
+- **129_gke_course_cloud_intro.md** — Cloud fundamentals recap for the GKE course
+- **130_reliable_cloud_infra_course_intro.md** — Reliable Cloud Infrastructure course introduction
+- **131_cloud_computing_overview_gke_course.md** — Cloud computing overview as covered in the GKE course
+- **132_compute_services_overview.md** — Google Cloud compute services overview: Compute Engine, GKE, App Engine, Cloud Run, Cloud Run Functions
+- **133_google_cloud_network_and_infrastructure.md** — Google Cloud network and infrastructure overview
+- **134_resource_hierarchy_projects_iam.md** — Resource hierarchy, projects, and IAM recap for the GKE course
+- **135_billing_and_cost_controls.md** — Billing and cost controls: budgets, alerts, quotas, and cost optimization
+- **136_interacting_with_google_cloud.md** — Four ways to interact with Google Cloud: Console, SDK/Cloud Shell, APIs, and Mobile App
+- **137_container_images_and_cloud_build.md** — Container images, Dockerfile layers, multi-stage builds, Artifact Registry, and Cloud Build
+- **138_what_is_a_container.md** — What a container is: evolution from physical servers to VMs to containers, user space isolation, and developer benefits
+- **139_kubernetes_intro.md** — Kubernetes introduction: what it is, cluster architecture, declarative vs imperative config, and key features
+- **140_gke_overview.md** — GKE overview: fully managed Kubernetes, Autopilot mode, auto-upgrade, node auto-repair, and integrations
+- **141_gke_kubernetes_concepts_module_intro.md** — GKE Kubernetes concepts module intro: topics covered in the module
+- **142_kubernetes_object_model_declarative_management.md** — Kubernetes object model, declarative management, Pods, and the watch loop
+- **143_kubernetes_components_control_plane_nodes.md** — Kubernetes control plane components (kube-APIserver, etcd, kube-scheduler, kube-controller-manager) and node components (kubelet, containerd, kube-proxy)
 
 Each file is self-contained and designed for quick reference.
 
@@ -132,7 +167,10 @@ The notes currently span:
 - Google Cloud Observability: monitoring, logging, error reporting, tracing, and profiling
 - Hybrid connectivity: Cloud VPN, Identity-Aware Proxy, Dedicated/Partner/Cross-Cloud Interconnect, Direct/Carrier Peering, and connectivity decision guide
 - VPC sharing: Shared VPC and VPC Network Peering
-- Load balancing and autoscaling: Managed Instance Groups, Application Load Balancing
+- Load balancing and autoscaling: Managed Instance Groups, Application Load Balancing, Network Load Balancing, Internal Load Balancing, Cloud CDN
+- Infrastructure automation: Terraform and Cloud Marketplace
+- Managed data services: BigQuery, Dataflow, Dataprep, Dataproc
+- GKE course: containers, Kubernetes architecture, GKE overview, object model, control plane components
 
 ---
 
