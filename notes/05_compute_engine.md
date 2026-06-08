@@ -113,3 +113,151 @@ gcloud compute ssh my-vm --zone=us-central1-a
 # Delete a VM
 gcloud compute instances delete my-vm --zone=us-central1-a
 ```
+
+---
+
+## Machine Families
+
+| Family | Purpose | Examples |
+|---|---|---|
+| **E2** | Cost-optimised, general purpose | e2-micro, e2-standard-2 |
+| **N2 / N2D** | Balanced price-performance | n2-standard-4 |
+| **C2 / C2D** | Compute-optimised (high CPU) | c2-standard-8 |
+| **M1 / M2** | Memory-optimised (SAP HANA, large in-memory DBs) | m1-ultramem-40 |
+| **A2** | Accelerator-optimised (GPU/ML workloads) | a2-highgpu-1g |
+| **T2D** | Scale-out workloads (AMD, cost-efficient) | t2d-standard-1 |
+
+- **Custom machine types** — set exact vCPU and memory; charged per vCPU-hour and per GB-hour
+- **Extended memory** — add more RAM beyond standard ratio for memory-heavy workloads
+
+---
+
+## Disk Options
+
+| Type | Speed | Use case |
+|---|---|---|
+| **Zonal Standard PD** | HDD — low cost | Sequential read/write, cold data |
+| **Zonal Balanced PD** | SSD — balanced | Most workloads |
+| **Zonal SSD PD** | SSD — high IOPS | Databases, latency-sensitive apps |
+| **Extreme PD** | Highest IOPS | Large DBs (Oracle, SAP) |
+| **Local SSD** | Fastest (ephemeral) | Scratch space, caches — data lost on stop |
+| **Hyperdisk** | Next-gen (scalable IOPS/throughput) | Enterprise workloads |
+
+- Persistent disks can be **resized** without stopping the VM
+- **Boot disk** defaults to the OS image; data disks are attached separately
+- Max 128 persistent disks per VM
+
+### Snapshots
+
+```bash
+# Create a snapshot of a disk
+gcloud compute disks snapshot my-disk --zone=us-central1-a \
+  --snapshot-names=my-disk-snap
+
+# Create a disk from a snapshot
+gcloud compute disks create my-disk-restored \
+  --source-snapshot=my-disk-snap --zone=us-central1-a
+```
+
+---
+
+## Instance Templates and Managed Instance Groups (MIGs)
+
+### Instance Template
+
+A reusable VM configuration — machine type, boot disk, labels, metadata, network settings. Required for MIGs.
+
+```bash
+gcloud compute instance-templates create my-template \
+  --machine-type=e2-medium \
+  --image-family=debian-11 --image-project=debian-cloud
+```
+
+### Managed Instance Group (MIG)
+
+A group of **identical VMs** created from an instance template. Used for autoscaling and high availability.
+
+| Feature | Detail |
+|---|---|
+| **Autoscaling** | Scale out/in based on CPU, load balancing, custom metrics |
+| **Autohealing** | Replaces unhealthy VMs automatically using health checks |
+| **Rolling updates** | Update VMs progressively with zero downtime |
+| **Multi-zone** | Spread VMs across zones for resilience |
+| **Stateless** | Best for stateless apps (web, API servers) |
+
+```bash
+# Create a MIG
+gcloud compute instance-groups managed create my-mig \
+  --template=my-template --size=3 --zone=us-central1-a
+
+# Set autoscaling
+gcloud compute instance-groups managed set-autoscaling my-mig \
+  --zone=us-central1-a --min-num-replicas=1 --max-num-replicas=10 \
+  --target-cpu-utilization=0.6
+```
+
+---
+
+## Startup and Shutdown Scripts
+
+Run scripts automatically when a VM starts or stops:
+
+```bash
+# Pass a startup script at VM creation
+gcloud compute instances create my-vm \
+  --metadata=startup-script='#!/bin/bash
+apt-get update
+apt-get install -y nginx'
+
+# Or reference a script file in GCS
+gcloud compute instances create my-vm \
+  --metadata=startup-script-url=gs://my-bucket/startup.sh
+```
+
+- Shutdown scripts run when the VM is stopped/preempted — useful for saving state or draining connections
+
+---
+
+## VM Images
+
+| Type | Description |
+|---|---|
+| **Public images** | Provided by Google, Canonical, Debian, etc. |
+| **Custom images** | Built from existing disk or snapshot; reusable across projects |
+| **Machine images** | Full VM capture (disk + config + metadata) for backup/cloning |
+
+```bash
+# Create a custom image from a disk
+gcloud compute images create my-image --source-disk=my-disk \
+  --source-disk-zone=us-central1-a
+```
+
+---
+
+## OS Login
+
+**OS Login** ties SSH access to Google accounts and IAM — replaces project-wide SSH key management.
+
+- Enable per VM: `--metadata=enable-oslogin=TRUE`
+- Grant SSH access: `roles/compute.osLogin` (non-sudo) or `roles/compute.osAdminLogin` (sudo)
+- Keys are managed via your Google account — no manual key rotation
+
+---
+
+## Sole-Tenant Nodes
+
+Physical servers dedicated exclusively to your project — useful for:
+- Compliance requirements (no co-tenancy with other customers)
+- Bring-your-own-license (BYOL) workloads (Windows Server, SQL Server)
+- Performance isolation
+
+---
+
+## Key Takeaways
+
+- Use **preemptible/spot VMs** for batch jobs to save up to 90%
+- Use **committed-use discounts** for stable workloads (1 or 3 year)
+- Use **instance templates + MIGs** for scalable, self-healing fleets
+- Use **OS Login** instead of SSH keys for secure, auditable access
+- Choose **machine family** based on workload: E2 (general), C2 (compute), M1/M2 (memory), A2 (GPU)
+
