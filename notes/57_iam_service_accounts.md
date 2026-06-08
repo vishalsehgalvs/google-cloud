@@ -161,3 +161,75 @@ gcloud iam service-accounts keys create key.json \
 # Delete a service account
 gcloud iam service-accounts delete my-sa@PROJECT_ID.iam.gserviceaccount.com
 ```
+
+---
+
+## Service Account Impersonation
+
+Allows a user or another service account to **act as** a service account temporarily — generating short-lived tokens without downloading a key file:
+
+```bash
+# Generate a short-lived token for a service account
+gcloud auth print-access-token \
+  --impersonate-service-account=my-sa@PROJECT_ID.iam.gserviceaccount.com
+
+# Run gcloud commands as a service account
+gcloud storage ls --impersonate-service-account=my-sa@PROJECT_ID.iam.gserviceaccount.com
+```
+
+- Requires `roles/iam.serviceAccountTokenCreator` on the target service account
+- Tokens expire after 1 hour by default (max 12 hours)
+- **Preferred over key files** — no long-lived credentials to leak or rotate
+
+---
+
+## Workload Identity Federation
+
+Allows **external workloads** (AWS, Azure, GitHub Actions, on-premises) to authenticate to GCP without a service account key:
+
+- External identity (e.g. AWS IAM role, GitHub Actions OIDC token) is exchanged for a short-lived GCP token
+- Works by configuring a **Workload Identity Pool** and **Provider**
+- Eliminates the need for downloaded key files entirely for external systems
+
+```bash
+# Create a Workload Identity Pool
+gcloud iam workload-identity-pools create my-pool \
+  --location=global \
+  --display-name="My Pool"
+
+# Add a GitHub Actions OIDC provider
+gcloud iam workload-identity-pools providers create-oidc github-provider \
+  --workload-identity-pool=my-pool \
+  --location=global \
+  --issuer-uri=https://token.actions.githubusercontent.com \
+  --attribute-mapping="google.subject=assertion.sub"
+```
+
+---
+
+## Key Management Best Practices
+
+| Practice | Reason |
+|---|---|
+| **Prefer no keys** | Use Workload Identity, impersonation, or ADC instead |
+| **Rotate regularly** | If you must use keys, rotate at least every 90 days |
+| **Never commit keys to source control** | Use `.gitignore`; scan repos with Secret Manager |
+| **Delete unused keys** | Each SA can have max 10 keys — clean up old ones |
+| **Use short-lived tokens** | `gcloud auth print-access-token` for automation |
+
+---
+
+## Application Default Credentials (ADC)
+
+The GCP client libraries automatically find credentials in this priority order:
+
+1. `GOOGLE_APPLICATION_CREDENTIALS` environment variable (path to key file)
+2. `gcloud auth application-default login` credentials (local dev)
+3. Attached service account (on GCE/GKE/Cloud Run — no config needed)
+
+```bash
+# Set up ADC for local development
+gcloud auth application-default login
+```
+
+- In production (VMs, GKE, Cloud Run): the **attached service account** is used automatically — no key file needed
