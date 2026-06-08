@@ -146,3 +146,114 @@ gcloud monitoring dashboards list
 # Create a dashboard from a JSON file
 gcloud monitoring dashboards create --config-from-file=dashboard.json
 ```
+
+---
+
+## Metric Types
+
+| Type | Description | Example |
+|---|---|---|
+| **Gauge** | Point-in-time value (no aggregation needed) | CPU utilisation at a moment |
+| **Delta** | Change over a time interval | Request count in the last minute |
+| **Cumulative** | Monotonically increasing total since reset | Total bytes sent since VM started |
+
+- Delta and cumulative metrics need an **alignment function** (rate, delta) before charting
+
+---
+
+## SLOs and Error Budgets
+
+**Service Level Objective (SLO):** a target reliability goal (e.g. 99.9% availability).
+
+**Error budget:** the allowed downtime/failures before the SLO is breached.
+
+```
+Error budget = 1 - SLO
+99.9% SLO → 0.1% budget = ~43.8 min/month of allowed downtime
+```
+
+Cloud Monitoring supports SLO monitoring via the **Service Monitoring** section:
+- Define a service and its SLI (request-based or window-based)
+- Set the SLO percentage and rolling window
+- Alert when error budget burn rate is too high
+
+---
+
+## Alerting Policy Details
+
+### Notification Channels
+
+| Channel | Setup |
+|---|---|
+| **Email** | Add directly in Console |
+| **PagerDuty** | Provide integration key |
+| **Slack** | OAuth integration; choose channel |
+| **Webhook** | HTTPS endpoint; payload is JSON |
+| **SMS** | Via phone number |
+| **Pub/Sub** | Route to any downstream system |
+
+### Alert Conditions
+
+- **Metric threshold** — value crosses a threshold for N consecutive minutes
+- **Metric absence** — no data received (e.g. dead VM or broken agent)
+- **Log-based metric** — alert when a log pattern exceeds a count
+- **Uptime check failure** — HTTP/TCP health check fails from multiple regions
+
+### Maintenance Windows
+
+Suppress alerts during planned maintenance so on-call teams aren't paged:
+
+```bash
+gcloud alpha monitoring policies update POLICY_ID \
+  --add-notification-channel=CHANNEL_ID
+# Maintenance windows configured in Console (Cloud Monitoring > Alerting > Maintenance windows)
+```
+
+---
+
+## Monitoring Query Language (MQL)
+
+MQL is a text-based query language for writing complex metric queries in Cloud Monitoring:
+
+```
+fetch gce_instance
+| metric 'compute.googleapis.com/instance/cpu/utilization'
+| filter resource.zone = 'us-central1-a'
+| align mean_aligner()
+| every 1m
+| mean
+```
+
+- More powerful than the GUI-based chart builder
+- Supports joins, ratios, and multi-resource aggregations
+- Used in both dashboards and alerting policies
+
+---
+
+## Ops Agent
+
+The **Ops Agent** is the recommended agent for Compute Engine VMs (replaces the old Stackdriver Logging and Monitoring agents):
+
+- Collects **system metrics** (CPU, memory, disk, network) and **logs** in one agent
+- Configured via `/etc/google-cloud-ops-agent/config.yaml`
+- Supports log parsing (syslog, Apache, Nginx, custom)
+
+```bash
+# Install Ops Agent
+curl -sSO https://dl.google.com/cloudagents/add-google-cloud-ops-agent-repo.sh
+sudo bash add-google-cloud-ops-agent-repo.sh --also-install
+sudo systemctl status google-cloud-ops-agent
+```
+
+---
+
+## Key Takeaways — Cloud Monitoring
+
+| Topic | Key Point |
+|---|---|
+| **Gauge/Delta/Cumulative** | Choose correct alignment before aggregating metrics |
+| **SLOs** | Define SLI → SLO → alert on error budget burn rate |
+| **Notification channels** | PagerDuty/Slack/Webhook all supported natively |
+| **MQL** | Use for complex multi-resource queries or ratio metrics |
+| **Ops Agent** | Replaces legacy agents; collects metrics + logs in one |
+| **Maintenance windows** | Suppress noisy alerts during planned downtime |
