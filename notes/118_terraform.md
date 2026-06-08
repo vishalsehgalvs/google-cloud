@@ -273,3 +273,241 @@ ping -c 3 <internal-or-external-IP-of-other-VM>
 - **Self-link references** enforce dependency ordering — Terraform knows to create dependent resources first
 - Resources with no dependencies are created **in parallel**, making deployments faster
 - The configuration you build can serve as a **starting point for future deployments**
+
+---
+
+## Variables and Outputs
+
+### `variables.tf` — Input Variables
+
+```hcl
+variable "project_id" {
+  description = "The GCP project ID"
+  type        = string
+  default     = "my-project-id"
+}
+
+variable "region" {
+  default = "us-central1"
+}
+
+variable "zone" {
+  default = "us-central1-a"
+}
+```
+
+- Variables **without a default** are required — Terraform will prompt for them at apply time
+- Variables **with a default** are optional — the default is used unless overridden
+- Reference variables anywhere with `var.<name>` e.g. `var.project_id`
+- Every module (root and child) should have its own `variables.tf`
+
+### `outputs.tf` — Output Values
+
+```hcl
+output "bucket_name" {
+  description = "The name of the created bucket"
+  value       = google_storage_bucket.my_bucket.name
+}
+```
+
+- Outputs are printed after `terraform apply` completes
+- Child module outputs are accessed in the parent as `module.<module_name>.<output_name>`
+- Useful for passing resource IDs/names between modules
+
+---
+
+## Terraform State
+
+### What State Is
+
+- Terraform stores a mapping between your config and the real-world resources it manages in a **state file** (`terraform.tfstate`)
+- State tracks: resource IDs, metadata, dependency order, and cached attribute values
+- Without state, Terraform cannot know what already exists and would try to recreate everything
+
+### Why State Matters
+
+| Purpose         | Detail                                                                                 |
+| --------------- | -------------------------------------------------------------------------------------- |
+| **Mapping**     | Links `resource "google_compute_instance" "foo"` → actual VM `i-abcd1234` in GCP       |
+| **Metadata**    | Stores dependency order so resources are destroyed in the right sequence               |
+| **Performance** | Caches attribute values — avoids querying every resource on every `plan`               |
+| **Sync**        | Remote state ensures everyone on a team works from the same source of truth            |
+
+### Key State Commands
+
+```bash
+terraform show          # Print current state in human-readable form
+terraform refresh       # Sync state with real-world infrastructure (no changes made)
+terraform state list    # List all resources tracked in state
+```
+
+---
+
+## Backends
+
+A **backend** defines where Terraform stores its state and how operations are executed.
+
+### Local Backend (default)
+
+```hcl
+terraform {
+  backend "local" {
+    path = "terraform/state/terraform.tfstate"
+  }
+}
+```
+
+- State stored on the local filesystem
+- Fine for individual use; not suitable for teams
+
+### GCS Backend (recommended for GCP teams)
+
+```hcl
+terraform {
+  backend "gcs" {
+    bucket = "my-tf-state-bucket"
+    prefix = "terraform/state"
+  }
+}
+```
+
+- State stored as an object in a Cloud Storage bucket
+- Supports **state locking** — prevents two users running `apply` at the same time
+- State file path in bucket: `terraform/state/default.tfstate`
+
+### Switching Backends
+
+```bash
+# After changing the backend block in main.tf, re-initialize:
+terraform init -migrate-state
+# Type "yes" to copy existing state to the new backend
+```
+
+- `terraform init` must be re-run any time the backend config changes
+- Terraform will offer to migrate (copy) your existing state automatically
+
+---
+
+## Terraform Import
+
+Use `terraform import` to bring **existing infrastructure** (created outside Terraform) under Terraform's management.
+
+### Import Workflow (5 steps)
+
+1. Identify the existing resource to import
+2. Write an empty (or minimal) resource block in your `.tf` file
+3. Run `terraform import` to load it into state
+4. Run `terraform show` to see what was imported, then update your config to match
+5. Run `terraform plan` to confirm no unexpected changes remain, then `terraform apply`
+
+### Example — Import a VM
+
+```bash
+# 1. Add an empty resource block to your .tf file:
+resource "google_compute_instance" "my_vm" {}
+
+# 2. Import the existing VM into state:
+terraform import google_compute_instance.my_vm \
+  projects/PROJECT_ID/zones/ZONE/instances/INSTANCE_NAME
+
+# 3. View what was imported:
+terraform show
+
+# 4. Seed your config from state (then manually trim to required args only):
+terraform show -no-color > my_vm.tf
+
+# 5. Verify plan is clean:
+terraform plan
+```
+
+### Import Into a Module
+
+```bash
+terraform import module.instances.google_compute_instance.tf-instance-1 \
+  projects/PROJECT_ID/zones/ZONE/instances/tf-instance-1
+```
+
+### Important Limitations
+
+- Import only knows the **current state** — not whether the resource is healthy or why it was created
+- Import does **not** generate configuration — you must write (or copy from `terraform show`) the HCL yourself
+- Not all resources support import — check the provider documentation
+
+---
+
+## Modules from the Terraform Registry
+
+The [Terraform Registry](https://registry.terraform.io) hosts community and official modules you can use directly.
+
+### Using a Registry Module
+
+```hcl
+module "vpc" {
+  source  = "terraform-google-modules/network/google"
+  version = "10.0.0"
+
+  project_id   = var.project_id
+  network_name = "my-vpc"
+  routing_mode = "GLOBAL"
+
+  subnets = [
+    {
+      subnet_name   = "subnet-01"
+      subnet_ip     = "10.10.10.0/24"
+      subnet_region = "us-east1"
+    }
+  ]
+}
+```
+
+- `source` — registry path in format `<namespace>/<module>/<provider>`
+- `version` — always pin to a specific version to avoid breaking changes
+- Run `terraform init` after adding a new module to download it
+- Module outputs are accessed as `module.vpc.<output_name>`
+
+### Recommended Module Structure
+
+```
+main.tf         # Main resources
+variables.tf    # Input variable definitions
+outputs.tf      # Output value definitions
+README.md       # Documentation (not used by Terraform)
+LICENSE         # License (not used by Terraform)
+```
+
+Files **not** to distribute with a module:
+- `terraform.tfstate` / `terraform.tfstate.backup` — instance-specific state
+- `.terraform/` — downloaded plugins and modules
+- `*.tfvars` — variable value files
+
+---
+
+## Destroying Infrastructure
+
+```bash
+# Destroy all resources managed by the current configuration
+terraform destroy
+```
+
+- Terraform reads state and destroys resources **in reverse dependency order**
+- Prompts for confirmation — type `yes`
+- Use `force_destroy = true` on storage buckets to allow destroying non-empty buckets:
+
+```hcl
+resource "google_storage_bucket" "my_bucket" {
+  name          = "my-bucket"
+  force_destroy = true
+}
+```
+
+### Targeted Destroy / Apply
+
+```bash
+# Apply or destroy a single resource only
+terraform apply  -target=module.instances.google_compute_instance.tf-instance-1 -auto-approve
+terraform destroy -target=google_compute_firewall.tf-firewall -auto-approve
+```
+
+- `-target` is for **emergency/recovery use only** — not normal workflow
+- Always run a plain `terraform apply` afterward to ensure state is fully in sync
+
