@@ -151,3 +151,197 @@ gcloud container clusters list
 # Delete a cluster
 gcloud container clusters delete my-cluster --zone=us-central1-a
 ```
+
+---
+
+## Additional Workload Types
+
+Beyond Deployments, Kubernetes has specialised controllers:
+
+| Type | Purpose |
+|---|---|
+| **Deployment** | Stateless apps — web servers, APIs |
+| **StatefulSet** | Stateful apps — databases, Kafka; stable network identity and persistent storage |
+| **DaemonSet** | Run one Pod per node — log collectors, monitoring agents |
+| **Job** | Run to completion — batch processing |
+| **CronJob** | Run on a schedule — nightly reports, cleanup tasks |
+
+---
+
+## Namespaces
+
+Namespaces partition a cluster into virtual sub-clusters — useful for multi-team environments.
+
+```bash
+kubectl get namespaces
+kubectl create namespace my-team
+kubectl get pods --namespace=my-team
+```
+
+- Default namespaces: `default`, `kube-system`, `kube-public`
+- Resource quotas can be set per namespace to limit CPU/memory usage
+
+---
+
+## ConfigMaps and Secrets
+
+### ConfigMap — non-sensitive configuration
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  DB_HOST: "db.example.com"
+  DB_PORT: "5432"
+```
+
+### Secret — sensitive data (base64-encoded at rest)
+
+```bash
+kubectl create secret generic db-secret \
+  --from-literal=password=mysecretpassword
+```
+
+- Secrets should be stored in a secret manager (e.g. Secret Manager) for production; K8s Secrets are only base64, not encrypted by default unless ETCD encryption is enabled
+
+---
+
+## Persistent Volumes (Storage)
+
+For stateful apps that need data to survive Pod restarts:
+
+| Object | Role |
+|---|---|
+| **PersistentVolume (PV)** | A piece of storage provisioned in the cluster |
+| **PersistentVolumeClaim (PVC)** | A request for storage by a Pod |
+| **StorageClass** | Defines the type of storage (SSD, HDD) and provisioner |
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-pvc
+spec:
+  accessModes: [ReadWriteOnce]
+  resources:
+    requests:
+      storage: 10Gi
+```
+
+- In GKE, the default StorageClass provisions **Google Persistent Disks** automatically
+
+---
+
+## Resource Requests and Limits
+
+```yaml
+resources:
+  requests:
+    cpu: "250m"      # 0.25 vCPU guaranteed
+    memory: "128Mi"
+  limits:
+    cpu: "500m"      # Max 0.5 vCPU
+    memory: "256Mi"
+```
+
+- **Request** = minimum guaranteed; used for scheduling decisions
+- **Limit** = hard cap; container is throttled (CPU) or killed (memory) if exceeded
+- `m` = millicores (1000m = 1 vCPU)
+
+---
+
+## Horizontal Pod Autoscaler (HPA)
+
+Automatically scales the number of Pods based on metrics:
+
+```bash
+kubectl autoscale deployment my-app \
+  --cpu-percent=70 --min=2 --max=10
+```
+
+- Scales based on CPU, memory, or custom metrics
+- Works alongside MIG autoscaling in GKE (node-level)
+
+---
+
+## Network Policies
+
+Control which Pods can talk to which other Pods:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-all
+spec:
+  podSelector: {}
+  policyTypes: [Ingress, Egress]
+```
+
+- Default: all Pods can talk to all other Pods
+- Network policies require a CNI plugin that supports them (e.g. Calico, used in GKE)
+
+---
+
+## Ingress
+
+An **Ingress** routes external HTTP/HTTPS traffic to Services based on path or hostname — a single IP for multiple services:
+
+```
+example.com/api  → api-service
+example.com/web  → web-service
+```
+
+- In GKE, an Ingress creates a **Google Cloud HTTP(S) Load Balancer** automatically
+- Supports SSL termination, path-based routing, host-based routing
+
+---
+
+## RBAC (Role-Based Access Control)
+
+Controls who can do what inside the cluster:
+
+| Object | Scope |
+|---|---|
+| **Role** | Permissions within a single namespace |
+| **ClusterRole** | Permissions across the whole cluster |
+| **RoleBinding** | Grants a Role to a user/service account in a namespace |
+| **ClusterRoleBinding** | Grants a ClusterRole cluster-wide |
+
+```bash
+# View current permissions
+kubectl auth can-i list pods --namespace=default
+```
+
+---
+
+## Labels and Selectors
+
+Labels are key-value pairs attached to any object — used by Services and Deployments to find their Pods:
+
+```yaml
+metadata:
+  labels:
+    app: web
+    env: production
+```
+
+```bash
+# Filter resources by label
+kubectl get pods -l app=web,env=production
+```
+
+---
+
+## Key Takeaways
+
+- **Deployment** for stateless; **StatefulSet** for stateful; **DaemonSet** for per-node agents
+- **ConfigMaps** for config; **Secrets** for sensitive data
+- **PVCs** request persistent storage; GKE provisions Persistent Disks automatically
+- Set **resource requests/limits** to prevent noisy-neighbour issues and enable scheduling
+- **HPA** scales Pods horizontally; configure alongside node autoscaling in GKE
+- **Ingress** replaces multiple LoadBalancer Services with a single HTTP(S) LB
+- **RBAC** restricts access inside the cluster — always follow least-privilege
+

@@ -97,3 +97,114 @@ GKE lets you use Kubernetes without the pain of managing it yourself:
 - **Standard mode** = you manage the nodes
 - Built-in scaling, upgrades, load balancing, and monitoring
 - Get a cluster running with a single `gcloud` command
+
+---
+
+## GKE Networking
+
+- **VPC-native clusters** (recommended) — Pods get IPs from a subnet secondary range; enables VPC firewall rules and VPC peering for Pods
+- **Network policies** — control Pod-to-Pod traffic (requires enabling at cluster creation)
+- **GKE Ingress** — automatically creates a Google Cloud HTTP(S) Load Balancer for external traffic
+- **Internal Ingress** — creates an Internal Load Balancer for traffic inside your VPC
+
+```bash
+# Create cluster with network policy support
+gcloud container clusters create my-cluster \
+  --zone=us-central1-a \
+  --enable-network-policy
+```
+
+---
+
+## Workload Identity
+
+The recommended way to let GKE workloads access Google Cloud APIs **without service account key files**:
+
+- Maps a Kubernetes ServiceAccount → GCP Service Account
+- Pods automatically receive short-lived credentials
+- No key file to rotate, store, or leak
+
+```bash
+# Enable Workload Identity on a cluster
+gcloud container clusters update my-cluster \
+  --zone=us-central1-a \
+  --workload-pool=PROJECT_ID.svc.id.goog
+
+# Bind K8s SA to GCP SA
+gcloud iam service-accounts add-iam-policy-binding gcp-sa@PROJECT_ID.iam.gserviceaccount.com \
+  --role=roles/iam.workloadIdentityUser \
+  --member="serviceAccount:PROJECT_ID.svc.id.goog[NAMESPACE/KSA_NAME]"
+```
+
+---
+
+## Node Pools
+
+A **node pool** is a group of nodes within a cluster that all have the same configuration:
+
+- Different pools can have different machine types, disk sizes, labels, taints
+- Useful for separating GPU nodes from CPU nodes, or spot from regular nodes
+
+```bash
+# Add a node pool
+gcloud container node-pools create gpu-pool \
+  --cluster=my-cluster --zone=us-central1-a \
+  --machine-type=n1-standard-4 --accelerator=type=nvidia-tesla-t4,count=1
+```
+
+---
+
+## Cluster Upgrades
+
+| Setting | Detail |
+|---|---|
+| **Auto-upgrade** | Enabled by default; keeps nodes on a supported version |
+| **Release channels** | `rapid`, `regular` (default), `stable` — controls upgrade cadence |
+| **Surge upgrades** | Controls how many extra nodes are created during rolling upgrade |
+| **Maintenance windows** | Restrict upgrade times to off-peak hours |
+
+```bash
+# Set release channel
+gcloud container clusters update my-cluster \
+  --zone=us-central1-a \
+  --release-channel=regular
+```
+
+---
+
+## Cluster Autoscaler
+
+Automatically adds/removes **nodes** (not Pods) based on pending Pod resource requests:
+
+```bash
+gcloud container clusters update my-cluster \
+  --zone=us-central1-a \
+  --enable-autoscaling \
+  --min-nodes=1 --max-nodes=10 \
+  --node-pool=default-pool
+```
+
+- Works alongside HPA (which scales Pods) — cluster autoscaler adds nodes when Pods can't be scheduled
+
+---
+
+## Binary Authorization
+
+Enforces that only **trusted container images** are deployed to GKE:
+
+- Requires images to have an attestation (cryptographic signature) from a trusted authority
+- Blocks unverified images at deploy time
+- Integrates with Cloud Build and Artifact Registry
+
+---
+
+## Key Takeaways — GKE
+
+| Topic | Key Point |
+|---|---|
+| **Autopilot** | Google manages nodes, scaling, security — best for most workloads |
+| **Workload Identity** | Always use instead of service account key files |
+| **VPC-native** | Use alias IP clusters for full VPC integration |
+| **Node pools** | Separate workloads by hardware requirements |
+| **Release channels** | Use `regular` for production stability |
+| **Cluster autoscaler** | Scales nodes; HPA scales Pods — use both together |
