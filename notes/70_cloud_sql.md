@@ -142,6 +142,123 @@ gcloud sql import csv my-instance gs://my-bucket/data.csv \
 gcloud sql export csv my-instance gs://my-bucket/export.csv \
   --database=my-database \
   --query="SELECT * FROM my-table"
+```
+
+---
+
+## Backups and Point-in-Time Recovery (PITR)
+
+| Feature | Details |
+|---|---|
+| **Automated backups** | Daily snapshots; retained for 7 days by default (up to 365) |
+| **On-demand backups** | Triggered manually; kept until you delete them |
+| **PITR** | Restore to any second within the retention window; uses binary logs |
+| **PITR retention** | 7 days by default; configurable |
+
+```bash
+# Restore to a point in time
+gcloud sql instances restore-backup my-restored-instance \
+  --restore-instance=my-instance \
+  --backup-instance=my-instance \
+  --restore-time=2024-06-15T14:30:00Z
+
+# Enable PITR (enabled by default; verify it's on)
+gcloud sql instances patch my-instance --enable-point-in-time-recovery
+```
+
+---
+
+## SSL/TLS and Connection Options
+
+| Option | Description |
+|---|---|
+| **Cloud SQL Auth Proxy** | Recommended; handles mTLS and IAM auth automatically |
+| **Private IP** | Connect via VPC; no public internet exposure |
+| **Public IP + SSL** | Allow external connections with client cert requirement |
+| **Public IP + Authorized Networks** | Whitelist specific IP ranges (less preferred) |
+
+```bash
+# Require SSL for all connections
+gcloud sql instances patch my-instance --require-ssl
+
+# Create a client certificate
+gcloud sql ssl client-certs create my-cert cert.pem --instance=my-instance
+```
+
+- Auth Proxy uses IAM for authentication — no IP whitelisting needed
+- Download the proxy binary: `gcloud sql auth-proxy download`
+
+---
+
+## Database Flags
+
+Database flags let you tune engine-level parameters without restart (most flags require instance restart):
+
+```bash
+# Set MySQL max_connections flag
+gcloud sql instances patch my-instance \
+  --database-flags=max_connections=500
+
+# Set PostgreSQL log_min_duration_statement (log slow queries)
+gcloud sql instances patch my-instance \
+  --database-flags=log_min_duration_statement=1000
+```
+
+Common flags:
+
+| Engine | Flag | Purpose |
+|---|---|---|
+| MySQL | `max_connections` | Limit concurrent connections |
+| MySQL | `slow_query_log=on` | Enable slow query log |
+| PostgreSQL | `log_min_duration_statement` | Log queries slower than N ms |
+| PostgreSQL | `pg_stat_statements.track=all` | Enable query stats |
+
+---
+
+## Query Insights
+
+Built-in query performance tool for Cloud SQL (PostgreSQL and MySQL):
+
+- Shows **top queries** by latency, execution count, and rows affected
+- Identifies **slow queries** and **lock waits**
+- No extra setup for PostgreSQL; enabled via `enable-query-insights` flag
+
+```bash
+gcloud sql instances patch my-instance --insights-config-query-insights-enabled
+```
+
+---
+
+## Cross-Region Read Replicas
+
+Read replicas can be created in a **different region** from the primary:
+
+```bash
+gcloud sql instances create my-replica \
+  --master-instance-name=my-instance \
+  --region=europe-west1
+```
+
+- Useful for disaster recovery (can be promoted to standalone instance)
+- Replication is asynchronous — replica may lag behind primary
+- Can be promoted to a standalone instance during failover:
+
+```bash
+gcloud sql instances promote-replica my-replica
+```
+
+---
+
+## Key Takeaways — Cloud SQL
+
+| Topic | Key Point |
+|---|---|
+| **HA** | Regional (synchronous standby); automatic failover in ~60s |
+| **Backups** | Automated daily + PITR for any second in retention window |
+| **Connections** | Always prefer Auth Proxy or Private IP over public IP |
+| **Read replicas** | Offload reads; cross-region replicas support DR |
+| **Flags** | Engine-level tuning; most require restart |
+| **Query Insights** | Built-in slow query analysis; no extra cost |
 
 # Delete an instance
 gcloud sql instances delete my-instance
