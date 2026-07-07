@@ -178,4 +178,9 @@ The notes currently span:
 
 Browse the `notes/` directory for topic-based markdown files. Each note is formatted for clarity and easy review.
 
+For exam prep, use these curated folders first:
+
+- `high_probability/` - primary revision list for the most likely topics
+- `low_probability/` - secondary topics to skim after core coverage
+
 ---
