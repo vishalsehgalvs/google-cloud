@@ -94,6 +94,25 @@ Format: **signal word/phrase in the question** -> **answer it is pointing to** -
 - "Google-native IaC, no third-party tool" -> Deployment Manager
 - "need dedicated technical account manager / guaranteed fast response" -> Premium support tier
 
+## Practice Quiz Signals (See File 09 For Full Detail)
+
+- "multiple billing accounts, single visual cost view, near real-time" -> Billing Data Export to BigQuery + Looker Studio
+- "users query data project but billed on a separate project" -> `jobUser` on billing project + `dataViewer` on data project
+- "MIG fails to create new instances" -> check for colliding persistent disk name, enable `autoDelete`
+- "must record all read requests on Cloud Storage data" -> Data Access audit logs (not Admin Activity)
+- "container deploys are slow" -> smaller base image + copy source after installing dependencies (layer caching)
+- "VM script can't connect to a Google API" -> check the VM's attached service account roles/scopes first
+- "enable autoscaling on existing GKE cluster" -> `gcloud container clusters update --enable-autoscaling --min-nodes --max-nodes`
+- "replace VPN with zero-trust access using existing SSO" -> Identity-Aware Proxy (BeyondCorp model)
+- "vehicle/IoT security architecture" -> zero trust between components + TPM/verified boot
+- "auto-delete data after N months, data keeps arriving" -> BigQuery partition expiration + Cloud Storage lifecycle DELETE by age
+- "collect logs from a whole folder including future projects" -> aggregated sink at folder level
+- "partner needs access to your BigQuery dataset" -> partner creates their own service account, you grant it access
+- "restrict which regions resources can be created in, org-wide" -> Organization Policy (resource locations constraint)
+- "simulate one microservice being down for testing" -> Istio Fault Injection
+- "Spanner needs to autoscale automatically, predictable traffic" -> Monitoring alert + webhook + Cloud Function resize
+- "managed third-party database with SLA (e.g. MongoDB)" -> deploy from Cloud Marketplace (e.g. MongoDB Atlas)
+
 ## The One Rule That Covers Almost Everything
 
 When two answers are both technically possible, the correct one is usually:

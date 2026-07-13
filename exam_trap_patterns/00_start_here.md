@@ -30,6 +30,7 @@ Every file here is built the same way:
 - `06_data_pipeline_and_bigquery_traps.md`
 - `07_cost_and_billing_traps.md`
 - `08_gaps_not_in_original_notes.md` — topics that came up in practice questions but were missing or thin in your 150 notes
+- `09_official_practice_quiz_analysis.md` — question-by-question analysis of a full 38-question ACE-style practice quiz, with every new gap it revealed
 
 ## How To Use This Folder
 

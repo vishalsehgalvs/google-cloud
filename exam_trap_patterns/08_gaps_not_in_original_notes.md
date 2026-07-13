@@ -221,4 +221,3 @@ Two repeating themes explain why these specific gaps exist and why they matter:
 ## Suggested Action
 
 If you want, the Tier 1 gaps (13 topics) can also be added as short new notes inside your main `notes/` folder so your original 150-note set becomes fully complete. This trap file will still exist separately either way as the fast-recall version.
-
