@@ -31,6 +31,7 @@ Every file here is built the same way:
 - `07_cost_and_billing_traps.md`
 - `08_gaps_not_in_original_notes.md` — topics that came up in practice questions but were missing or thin in your 150 notes
 - `09_official_practice_quiz_analysis.md` — question-by-question analysis of a full 38-question ACE-style practice quiz, with every new gap it revealed
+- `10_official_practice_quiz_2_analysis.md` — analysis of a second ACE-style practice quiz, with additional new gaps (GKE node pools, App Engine versions, service account isolation, Monitoring Workspaces, and more)
 
 ## How To Use This Folder
 

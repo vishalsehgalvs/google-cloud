@@ -113,6 +113,19 @@ Format: **signal word/phrase in the question** -> **answer it is pointing to** -
 - "Spanner needs to autoscale automatically, predictable traffic" -> Monitoring alert + webhook + Cloud Function resize
 - "managed third-party database with SLA (e.g. MongoDB)" -> deploy from Cloud Marketplace (e.g. MongoDB Atlas)
 
+## Practice Quiz 2 Signals (See File 10 For Full Detail)
+
+- "different workloads, one needs lots of CPU vs memory, same GKE cluster" -> separate node pools matched to machine type family (compute-optimized vs general-purpose)
+- "team needs resources organized independently from another team" -> new project with its own unique ID, not shared access; Project Lien only prevents deletion, it does not separate teams
+- "test update on small percent of real traffic, rest stay stable" -> App Engine new version of same service + traffic splitting
+- "deploy update safely, roll back fast if it fails" -> App Engine new version + migrate traffic (never overwrite or delete the current version first)
+- "one VM needs Cloud Storage access, other VMs must not" -> dedicated service account for that VM only (default service account is shared across all VMs)
+- "single pane of glass CPU/memory/disk across multiple projects" -> Cloud Monitoring Workspace, add other projects to it
+- "keep a database copy for years for audit, independent of DB's own retention" -> Cloud SQL export job into Cloud Storage (Archive class), not relying on automatic/on-demand backups
+- "entire database held in memory, needs fast access" -> M1/M2 memory-optimized machine type
+- "team needs to run custom SQL queries in a single project" -> `bigquery.user` role on a Google Group (contrast with jobUser+dataViewer split when billing is on a separate project)
+- "set default region for gcloud commands" -> `gcloud config set compute/region`, not `compute/zone`
+
 ## The One Rule That Covers Almost Everything
 
 When two answers are both technically possible, the correct one is usually:
