@@ -73,12 +73,16 @@ Network Service Tier and load balancer type are both decided by scope (single-re
 | Trap | Rule |
 |---|---|
 | Standard vs Premium network tier | All traffic stays in one region + cost-sensitive → Standard Tier. Multi-region/global performance over Google's backbone → Premium Tier. |
+| Shared VPC vs observability tooling | Shared VPC centralizes networking only. Cross-project monitoring/log aggregation uses Monitoring Workspace / Logging sinks, not Shared VPC. |
 | Choosing the frontend LB for a web app | Web-facing, needs SSL + content-based routing → External HTTPS (Application) Load Balancer. Internal-only between tiers in the same VPC → Internal Load Balancer. A plain TCP/UDP Network LB is usually the wrong pick for a secure web frontend — it lacks Layer 7 features. |
 | URL-based routing with HTTP(S) LB | Configure **URL maps** to route requests to different backend services by host/path. Firewall rules and traces do not define Layer 7 routing behavior. |
 | ALB vs Proxy NLB vs Passthrough NLB | HTTP(S) + flexible routing → Application LB (Layer 7). TLS offload for raw TCP across regions, no HTTP awareness needed → Proxy/SSL Proxy LB. Must preserve client source IP or need UDP/ESP/ICMP → Passthrough Network LB. |
+| HA hybrid connectivity choice | For highly available dynamic-routing hybrid connectivity, choose **HA VPN + Cloud Router (BGP)** over static-route-only options. |
+| Interconnect vs VPN | Very high-throughput dedicated private link → Cloud Interconnect. Standard encrypted site-to-site with lower throughput → Cloud VPN. |
 | Global vs Regional LB | Backends spread across regions, route to closest → Global. Compliance/"must stay in this region" language → Regional, even if Global is technically available. |
 | Egress cost | Internal IP, same zone → free. External IP, same zone → charged (treated as inter-zone). Between zones/regions → charged. To Google products (YouTube, Gmail, Drive) → free. |
 | Cloud NAT vs external IP | Private VMs need outbound-only internet, no inbound → Cloud NAT (never allows unsolicited inbound). Must be reachable directly from the internet → external IP. |
+| Private Google Access misunderstanding | Private Google Access is for private-VM access to Google APIs/services; it does **not** provide on-prem reachability or private ingress to your app. |
 | Largest custom subnet CIDR | `10.0.0.0/8` is correct — bigger than `/12`/`/16`, and `0.0.0.0/0` is not a valid subnet range at all. |
 | Root domain vs subdomain DNS | Root domain → A record only (CNAME is illegal at the zone apex). Subdomain → CNAME is fine. |
 
@@ -99,6 +103,7 @@ The recurring theme: broad roles (Owner/Editor/Admin) "would technically work" f
 | Signed URL vs granting IAM/ACL | Recipient has no Google account + access should expire → Signed URL. Granting `allUsers`/`allAuthenticatedUsers` is a red flag the exam wants you to avoid. |
 | BigQuery role split across projects | Billing in Project B, data in Project A → `bigquery.jobUser` on Project B (who pays) + `bigquery.dataViewer` on Project A (who can only view). Contrast with a normal single-project team, which just needs `bigquery.user` on a Group. |
 | APIs never auto-enable themselves | An API (e.g. Pub/Sub) must be **explicitly enabled** per project — via API Library in Console, `gcloud services enable`, or Terraform's `google_project_service` — before any code can call it. Granting a service account a role, having it "access" the API, or deploying via Deployment Manager does **not** auto-enable the API. If the API is disabled, the fix is always to enable it directly, never to rely on some "automatic enablement on first use" behavior — that doesn't exist. |
+| Public bucket read command family | Use `gsutil iam ch allUsers:objectViewer gs://BUCKET` (or ACL equivalent where explicitly asked). `gcloud` options here are common distractors in exam command questions. |
 
 ## 5. DATA PIPELINE & BIGQUERY TRAPS
 
@@ -107,10 +112,12 @@ The recurring trap: a fully-managed, no-code, scheduled service beats a custom-c
 | Trap | Rule |
 |---|---|
 | Scheduled/hourly/slowly-changing load into BigQuery | BigQuery Data Transfer Service — zero custom code, no separate compute cost, schedules down to ~15 minutes. Beats a standalone Cloud Function (still requires writing/maintaining code) and definitely beats Cloud Function + Dataflow (spins up worker VMs even for simple batch, contradicts "minimize cost"). |
+| Pub/Sub topic-only setup | A topic by itself doesn't deliver messages to consumers. Create a **subscription** (push for HTTP endpoints like Cloud Run, or pull for workers). |
 | Real-time/immediate per-file reaction | Cloud Function triggered on `google.storage.object.finalize` — this is the one case event-driven genuinely wins over the scheduled transfer service. |
 | Dataflow vs Dataproc vs Data Transfer Service | Real transform logic, streaming+batch → Dataflow. Lift-and-shift existing Spark/Hadoop jobs → Dataproc. Simple scheduled movement into BigQuery, no transform → BigQuery Data Transfer Service. |
 | Dataprep vs Dataflow | Visual/no-code cleaning before analysis → Dataprep. Code-based transformation pipeline at scale → Dataflow. |
 | BigQuery cost estimation | `bq query --dry_run` estimates **bytes scanned**, not bytes returned — this is what you're billed for, which is why partitioning/clustering cuts cost even if the result size doesn't change. |
+| BigQuery performance/cost tuning for repeated filters | Partition tables by time and add clustering on common filter columns to reduce scanned bytes and improve query pruning. |
 | Compliance auto-delete with ongoing ingestion | Time-partitioned table + **partition expiration** (not flat table expiration) for BigQuery. Lifecycle DELETE by Age for Cloud Storage. A flat table-level expiration can't let old partitions age out independently while new data keeps arriving. |
 
 ## 6. COST & BILLING TRAPS
@@ -132,6 +139,7 @@ Budgets and alerts only **notify** — they never automatically stop spend. Quot
 |---|---|
 | HPA vs VPA vs Cluster Autoscaler | HPA = pod **count**. VPA (recommendation mode) = pod CPU/mem **size**, suggests only, doesn't apply. Cluster Autoscaler = **node** count. These are three separate answers to three separate questions, not interchangeable. |
 | Enable autoscaling on an existing GKE cluster | `gcloud container clusters update --enable-autoscaling --min-nodes --max-nodes` — not a fixed resize, not tagging instances, not recreating the cluster. |
+| Deploy app from Kubernetes manifest file | Use `kubectl apply -f my-app.yaml` (or your manifest path). `gcloud deployment apply` / `kubectl deployment apply` distractors are invalid for applying manifests. |
 | Heterogeneous CPU:memory needs, same cluster | Separate **node pools** matched to machine type family (compute-optimized vs general-purpose) — not pod priority, not resource requests alone. |
 | Node Auto-Upgrade vs Auto-Repair | Upgrade = keeps Kubernetes version current/supported. Repair = only recreates nodes that fail health checks. Neither substitutes for the other. |
 | Simulate one microservice being unavailable | Istio Fault Injection — not deleting a node (too blunt) and not taints (affects scheduling, not live traffic). |
@@ -181,6 +189,7 @@ A fast-scan cheat list for the highest-frequency signal phrases:
 - "HTTP(S) + content-based routing" → Application Load Balancer
 - "HTTP(S) LB route by URL/path to different backends" → URL maps
 - "preserve client IP / UDP / ICMP" → Passthrough Network Load Balancer
+- "high-availability hybrid with dynamic route exchange" → HA VPN + Cloud Router (BGP)
 - "single region + cost-sensitive" → Standard network tier
 - "automatic failover, Cloud SQL, zone outage" → `--availability-type=REGIONAL`
 - "reliable retryable task execution, decoupled" → Cloud Tasks
@@ -188,8 +197,10 @@ A fast-scan cheat list for the highest-frequency signal phrases:
 - "per-developer/per-team spend alert" → one budget per project
 - "hourly/scheduled/minimize cost load into BigQuery" → BigQuery Data Transfer Service
 - "react instantly to each new file" → Cloud Function on `google.storage.object.finalize`
+- "deploy to GKE using manifest file" → kubectl apply -f <file.yaml>
 - "rename files/objects in Cloud Storage bucket" → gsutil mv
 - "change bucket/object access in Cloud Storage" → gsutil iam ch (`iam` = IAM policy ops, `ch` = change)
+- "Pub/Sub topic exists but service still gets no messages" → create subscription (push/pull)
 - "block a specific user no matter what role they get later" → IAM Deny Policy
 - "restrict where resources can be created, org-wide" → Organization Policy (resource location constraint)
 - "collect logs from a folder including future projects" → aggregated sink at folder level
