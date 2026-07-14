@@ -294,6 +294,7 @@ kubectl config use-context CONTEXT           # switch GKE context (inactive clus
 kubectl config view                          # view current kubeconfig
 kubectl apply -f file.yaml                   # deploy manifest
 kubectl autoscale deployment NAME --min=X --max=Y --cpu-percent=Z
+gcloud datastore indexes create index.yaml   # deploy Datastore indexes from config
 bq query --dry_run 'SQL'                     # estimate cost, no execution
 gsutil mb -c coldline gs://BUCKET            # create bucket with storage class
 gsutil cp LOCAL_FILE gs://BUCKET             # upload/copy objects
@@ -337,6 +338,7 @@ These are the patterns that cause the most wrong answers because both options so
 25. BigQuery `--dry_run` measures BYTES SCANNED, not bytes returned → this is what query cost is actually based on, which is why partitioning/clustering reduce cost even when the result set size is unchanged.
 26. Windows VM password reset → use `gcloud compute reset-windows-password`, not your own Google Account credentials and not a manually uploaded service account key — this is the documented, secure path for regaining RDP access.
 27. `gsutil` is not only for upload/copy → it is the Cloud Storage operations tool family (copy/move/list/delete/IAM/ACL). If the task is changing bucket/object access, `gsutil iam ch` is still the right command family (`iam` = IAM policy operations, `ch` = change).
+28. Missing App Engine Datastore indexes → deploy `index.yaml` with `gcloud datastore indexes create`; do not rely on uploading the file to a bucket or deleting/recreating indexes manually in Console.
 
 ## 12. FINAL SANITY CHECKS BEFORE THE EXAM
 

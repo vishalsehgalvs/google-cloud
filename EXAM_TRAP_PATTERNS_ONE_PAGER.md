@@ -142,6 +142,7 @@ Budgets and alerts only **notify** — they never automatically stop spend. Quot
 | Enable autoscaling on an existing GKE cluster | `gcloud container clusters update --enable-autoscaling --min-nodes --max-nodes` — not a fixed resize, not tagging instances, not recreating the cluster.                                                                     |
 | Deploy app from Kubernetes manifest file      | Use `kubectl apply -f my-app.yaml` (or your manifest path). `gcloud deployment apply` / `kubectl deployment apply` distractors are invalid for applying manifests.                                                           |
 | Update Deployment with minimal downtime       | Use `kubectl set image deployment/NAME CONTAINER=NEW_IMAGE` to trigger a rolling update. Do not delete/recreate the Deployment or Service for normal version updates.                                                        |
+| App Engine Datastore missing index error      | Deploy index config with `gcloud datastore indexes create index.yaml` (or create-indexes wording in older materials). Do not use bucket-upload/manual-delete workflows.                                                     |
 | Heterogeneous CPU:memory needs, same cluster  | Separate **node pools** matched to machine type family (compute-optimized vs general-purpose) — not pod priority, not resource requests alone.                                                                               |
 | Node Auto-Upgrade vs Auto-Repair              | Upgrade = keeps Kubernetes version current/supported. Repair = only recreates nodes that fail health checks. Neither substitutes for the other.                                                                              |
 | Simulate one microservice being unavailable   | Istio Fault Injection — not deleting a node (too blunt) and not taints (affects scheduling, not live traffic).                                                                                                               |
@@ -202,6 +203,7 @@ A fast-scan cheat list for the highest-frequency signal phrases:
 - "react instantly to each new file" → Cloud Function on `google.storage.object.finalize`
 - "deploy to GKE using manifest file" → kubectl apply -f <file.yaml>
 - "update GKE Deployment image with minimal downtime" → kubectl set image deployment/NAME CONTAINER=NEW_IMAGE
+- "App Engine/Datastore missing indexes" → gcloud datastore indexes create index.yaml
 - "rename files/objects in Cloud Storage bucket" → gsutil mv
 - "change bucket/object access in Cloud Storage" → gsutil iam ch (`iam` = IAM policy ops, `ch` = change)
 - "Pub/Sub topic exists but service still gets no messages" → create subscription (push/pull)
