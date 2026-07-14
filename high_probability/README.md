@@ -4,6 +4,12 @@ Use this folder as the primary exam revision list.
 
 These topics are the most likely to matter for an entry-level Google Cloud exam because they cover service selection, IAM, billing, core infrastructure, and operations.
 
+## Start Here
+
+Read [00_ultra_crisp_essentials.md](00_ultra_crisp_essentials.md) first. It is a single, self-contained, telegraphic-style file — one fact per line, no prose — covering only the essential exam-relevant facts. You do not need to open any other note to use it.
+
+The rest of this folder below is a curated index into the full `notes/` files, useful when you want the fuller explanation behind any single line in the crisp file.
+
 ## Focus First
 
 ### 1. Cloud basics and Google Cloud value
