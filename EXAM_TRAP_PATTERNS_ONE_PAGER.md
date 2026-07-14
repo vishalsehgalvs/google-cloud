@@ -45,6 +45,7 @@ Storage class questions are decided by ONE access-frequency word, not by durabil
 | Cloud SQL vs AlloyDB | Standard managed relational → Cloud SQL. PostgreSQL-compatible + HTAP (transactions+analytics together) + ML integration → AlloyDB. |
 | Object lifecycle age math | Age always counts from **object creation**, never from a prior lifecycle action. "Archive at 90d, delete at 1yr total" = Delete at 365d, not 275d. |
 | Lifecycle actions available | Only **SetStorageClass** and **Delete** exist. There is no "move to another bucket" or "copy" lifecycle action — any such answer is automatically wrong. |
+| Rename objects in Cloud Storage | Use **gsutil mv**. Cloud Storage has no separate `gsutil rename` or `gsutil rn` command; rename is implemented as move to a new object name/path. |
 | Uniform bucket-level access | Silently breaks anyone who had ACL-based (not IAM-based) access — only IAM survives. |
 
 ## 2. COMPUTE ENGINE & MIG TRAPS
@@ -72,6 +73,7 @@ Network Service Tier and load balancer type are both decided by scope (single-re
 |---|---|
 | Standard vs Premium network tier | All traffic stays in one region + cost-sensitive → Standard Tier. Multi-region/global performance over Google's backbone → Premium Tier. |
 | Choosing the frontend LB for a web app | Web-facing, needs SSL + content-based routing → External HTTPS (Application) Load Balancer. Internal-only between tiers in the same VPC → Internal Load Balancer. A plain TCP/UDP Network LB is usually the wrong pick for a secure web frontend — it lacks Layer 7 features. |
+| URL-based routing with HTTP(S) LB | Configure **URL maps** to route requests to different backend services by host/path. Firewall rules and traces do not define Layer 7 routing behavior. |
 | ALB vs Proxy NLB vs Passthrough NLB | HTTP(S) + flexible routing → Application LB (Layer 7). TLS offload for raw TCP across regions, no HTTP awareness needed → Proxy/SSL Proxy LB. Must preserve client source IP or need UDP/ESP/ICMP → Passthrough Network LB. |
 | Global vs Regional LB | Backends spread across regions, route to closest → Global. Compliance/"must stay in this region" language → Regional, even if Global is technically available. |
 | Egress cost | Internal IP, same zone → free. External IP, same zone → charged (treated as inter-zone). Between zones/regions → charged. To Google products (YouTube, Gmail, Drive) → free. |
@@ -176,6 +178,7 @@ A fast-scan cheat list for the highest-frequency signal phrases:
 - "immediate/fast rollout" (MIG update) → Proactive
 - "preserve IP across recreation" → Stateful IPs on the MIG
 - "HTTP(S) + content-based routing" → Application Load Balancer
+- "HTTP(S) LB route by URL/path to different backends" → URL maps
 - "preserve client IP / UDP / ICMP" → Passthrough Network Load Balancer
 - "single region + cost-sensitive" → Standard network tier
 - "automatic failover, Cloud SQL, zone outage" → `--availability-type=REGIONAL`
@@ -184,6 +187,7 @@ A fast-scan cheat list for the highest-frequency signal phrases:
 - "per-developer/per-team spend alert" → one budget per project
 - "hourly/scheduled/minimize cost load into BigQuery" → BigQuery Data Transfer Service
 - "react instantly to each new file" → Cloud Function on `google.storage.object.finalize`
+- "rename files/objects in Cloud Storage bucket" → gsutil mv
 - "block a specific user no matter what role they get later" → IAM Deny Policy
 - "restrict where resources can be created, org-wide" → Organization Policy (resource location constraint)
 - "collect logs from a folder including future projects" → aggregated sink at folder level
