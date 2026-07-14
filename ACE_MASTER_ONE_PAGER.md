@@ -96,6 +96,19 @@ Managed Instance Groups have three separate self-healing/scaling concepts that g
 | Prevent accidental instance deletion from console                    | Enable Delete Protection on the instance                                                           |
 | VM memory needs a precise custom amount (not a predefined size)      | Stop VM, set a custom machine type with the exact vCPU/memory, restart                             |
 
+Regional DR failover pattern (Compute Engine):
+
+1. Regional DR needs cross-region backends.
+2. For production traffic and failover, use instance groups (scalable/manageable), not single instances.
+3. HTTP(S) Load Balancing can direct traffic and fail over between regional backends.
+4. Separate projects are not required for this DR goal and usually add unnecessary complexity.
+
+Quick elimination:
+
+1. Single instances are weaker for production failover.
+2. On-prem failover is usually not the simplest recommended GCP DR design for this pattern.
+3. Separate-project designs are unnecessary unless explicitly required.
+
 One-line rule: health check = who gets traffic now, autohealing = replace it when it breaks, autoscaling = how many exist right now. Regional PD beats zonal+snapshot whenever "instant" zone recovery is required.
 
 ## 5. IAM AND SECURITY PATTERNS
