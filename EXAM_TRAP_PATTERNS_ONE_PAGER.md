@@ -192,3 +192,4 @@ A fast-scan cheat list for the highest-frequency signal phrases:
 - "entire database must live in memory" → M1/M2 memory-optimized machine type
 - "isolate access to one VM only" → dedicated service account for that VM (default SA is shared by all)
 - "keep a DB copy for years, independent of DB's own retention" → scheduled export job into Archive-class Cloud Storage
+- "app can't call a Google API, API looks disabled" → APIs must be explicitly enabled per project before use; nothing auto-enables them
