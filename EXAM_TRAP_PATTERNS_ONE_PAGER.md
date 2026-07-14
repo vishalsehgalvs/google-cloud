@@ -46,6 +46,7 @@ Storage class questions are decided by ONE access-frequency word, not by durabil
 | Object lifecycle age math | Age always counts from **object creation**, never from a prior lifecycle action. "Archive at 90d, delete at 1yr total" = Delete at 365d, not 275d. |
 | Lifecycle actions available | Only **SetStorageClass** and **Delete** exist. There is no "move to another bucket" or "copy" lifecycle action — any such answer is automatically wrong. |
 | Rename objects in Cloud Storage | Use **gsutil mv**. Cloud Storage has no separate `gsutil rename` or `gsutil rn` command; rename is implemented as move to a new object name/path. |
+| What `gsutil` is for | `gsutil` is the Cloud Storage command family, not just upload/copy: `cp` (copy/upload), `mv` (move/rename), `ls` (list), `rm` (delete), `iam ch` / `acl ch` (change access). In `gsutil iam ch`, `iam` = IAM policy operations, `ch` = change. |
 | Uniform bucket-level access | Silently breaks anyone who had ACL-based (not IAM-based) access — only IAM survives. |
 
 ## 2. COMPUTE ENGINE & MIG TRAPS
@@ -188,6 +189,7 @@ A fast-scan cheat list for the highest-frequency signal phrases:
 - "hourly/scheduled/minimize cost load into BigQuery" → BigQuery Data Transfer Service
 - "react instantly to each new file" → Cloud Function on `google.storage.object.finalize`
 - "rename files/objects in Cloud Storage bucket" → gsutil mv
+- "change bucket/object access in Cloud Storage" → gsutil iam ch (`iam` = IAM policy ops, `ch` = change)
 - "block a specific user no matter what role they get later" → IAM Deny Policy
 - "restrict where resources can be created, org-wide" → Organization Policy (resource location constraint)
 - "collect logs from a folder including future projects" → aggregated sink at folder level
