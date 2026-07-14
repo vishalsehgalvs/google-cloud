@@ -95,6 +95,7 @@ The recurring theme: broad roles (Owner/Editor/Admin) "would technically work" f
 | Access Approval / sensitive approval roles | Always assigned to a **Group**, never to individuals, so the workflow survives staff turnover. |
 | Signed URL vs granting IAM/ACL | Recipient has no Google account + access should expire → Signed URL. Granting `allUsers`/`allAuthenticatedUsers` is a red flag the exam wants you to avoid. |
 | BigQuery role split across projects | Billing in Project B, data in Project A → `bigquery.jobUser` on Project B (who pays) + `bigquery.dataViewer` on Project A (who can only view). Contrast with a normal single-project team, which just needs `bigquery.user` on a Group. |
+| APIs never auto-enable themselves | An API (e.g. Pub/Sub) must be **explicitly enabled** per project — via API Library in Console, `gcloud services enable`, or Terraform's `google_project_service` — before any code can call it. Granting a service account a role, having it "access" the API, or deploying via Deployment Manager does **not** auto-enable the API. If the API is disabled, the fix is always to enable it directly, never to rely on some "automatic enablement on first use" behavior — that doesn't exist. |
 
 ## 5. DATA PIPELINE & BIGQUERY TRAPS
 
