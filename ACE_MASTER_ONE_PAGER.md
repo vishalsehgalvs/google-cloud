@@ -41,6 +41,7 @@ First classify the data shape (relational vs document vs wide-column vs analytic
 | Managed MongoDB with SLA                                                        | MongoDB Atlas via Cloud Marketplace                                                                        |
 | Existing Postgres app, single-site, ACID, minimal code change                   | Cloud SQL                                                                                                  |
 | Cloud Spanner query performance issue, single region, fast fix                  | Identify high-CPU queries via query statistics and rewrite them (not just adding nodes at a low threshold) |
+| Cloud Spanner predictable traffic, automatic up/down scaling                    | Monitoring alert (upper/lower CPU) -> webhook -> Cloud Function -> resize Spanner nodes                    |
 
 One-line rule: "analyze" + "SQL" almost always means BigQuery. "Global" + "unpredictable scale" + relational almost always means Spanner. Everything else relational defaults to Cloud SQL unless told otherwise.
 
@@ -63,6 +64,8 @@ Storage class questions are almost always decided by ONE word describing access 
 | Share sensitive object externally, no Google account, time-limited | Signed URL with expiration                                                                                             |
 | Compliance: record every read request                              | Enable Data Access audit logs for Cloud Storage API                                                                    |
 | Serve PDF inline instead of forcing download                       | Set Content-Type metadata to application/pdf on the object                                                             |
+| Low-risk cloud trial: archive huge logs + test analytics           | Store logs in Cloud Storage (archive/DR) + analyze in BigQuery                                                         |
+| Remove backup files older than 90 days                             | Cloud Storage lifecycle JSON rule: Delete with Age=90 (apply via gsutil)                                               |
 
 One-line rule: match the exact frequency word to the class, remember lifecycle only does SetStorageClass/Delete, and remember age is always measured from object creation.
 
@@ -93,21 +96,11 @@ Managed Instance Groups have three separate self-healing/scaling concepts that g
 | VM needs to reach licensing server at fixed IP, no app config change | Reserve that exact IP as static internal IP                                                        |
 | Regional resilience, zero downtime, minimize cost                    | Multiple regional MIGs + external Global HTTP(S) LB across regions                                 |
 | Zone failure = instant recovery of disk data (no restore step)       | Regional Persistent Disk (NOT zonal + snapshot — snapshot needs a restore step)                    |
+| MIG CPU saturated and autoscaling already at max                     | Increase autoscaling upper limit immediately, then optimize app/instance sizing                    |
 | Prevent accidental instance deletion from console                    | Enable Delete Protection on the instance                                                           |
 | VM memory needs a precise custom amount (not a predefined size)      | Stop VM, set a custom machine type with the exact vCPU/memory, restart                             |
 
-Regional DR failover pattern (Compute Engine):
-
-1. Regional DR needs cross-region backends.
-2. For production traffic and failover, use instance groups (scalable/manageable), not single instances.
-3. HTTP(S) Load Balancing can direct traffic and fail over between regional backends.
-4. Separate projects are not required for this DR goal and usually add unnecessary complexity.
-
-Quick elimination:
-
-1. Single instances are weaker for production failover.
-2. On-prem failover is usually not the simplest recommended GCP DR design for this pattern.
-3. Separate-project designs are unnecessary unless explicitly required.
+Regional DR failover (crisp): cross-region MIG backends + Global HTTP(S) LB; avoid single-instance/on-prem/separate-project designs unless explicitly required.
 
 One-line rule: health check = who gets traffic now, autohealing = replace it when it breaks, autoscaling = how many exist right now. Regional PD beats zonal+snapshot whenever "instant" zone recovery is required.
 
@@ -126,7 +119,9 @@ IAM is principal + role + resource. The single biggest recurring trap: broad rol
 | Auditor needs to view IAM but not modify                             | `roles/browser` or `roles/iam.roleViewer`, assigned via GROUP                                                                                                                                                           |
 | Auditor needs BigQuery + logs read-only                              | `logging.viewer` + `bigquery.dataViewer` predefined roles on a GROUP                                                                                                                                                    |
 | Manager needs team-wise resource and cost visibility across projects | Use Labels (for example `team`, `cost_center`, `env`) and analyze billing by label; Audit/Trace/IAM are not cost-attribution tools                                                                                      |
+| Many microservices need DB credentials stored securely               | Secret Manager (never source code/plain config/env var secrets)                                                                                                                                                         |
 | Team needs to run custom SQL in single project                       | `roles/bigquery.user` on a GROUP                                                                                                                                                                                        |
+| GCE VM script cannot query BigQuery                                  | Grant required BigQuery role(s) to that VM's service account (least privilege)                                                                                                                                          |
 | Billing project separate from data project                           | `bigquery.jobUser` on billing project + `bigquery.dataViewer` on data project                                                                                                                                           |
 | Approve Google Support access requests                               | `roles/accessapproval.approver` assigned to a GROUP (never individuals directly)                                                                                                                                        |
 | Remove users with mismatched email domain                            | Org Policy constraint (limits future) + MANUAL retroactive removal (org policy is not retroactive)                                                                                                                      |
@@ -194,33 +189,34 @@ One-line rule: firewall rules are stateful, `10.0.0.0/8` is the largest usable c
 
 Three autoscalers get conflated constantly. Horizontal Pod Autoscaler (HPA) changes the NUMBER of pod replicas based on load. Vertical Pod Autoscaler (VPA) changes the CPU/memory REQUESTS of existing pods, and in recommendation mode it only suggests values without applying them — this is the answer whenever a question wants cost-effective sizing suggestions without forcing changes. Cluster/Node Autoscaler changes the NUMBER of nodes in the cluster. Node Auto-Upgrade and Node Auto-Repair are also frequently confused: Auto-Upgrade keeps the cluster on a supported, current Kubernetes version automatically; Auto-Repair only recreates nodes that fail health checks. Node pools let you mix machine types in one cluster — this is the standard answer whenever different workloads in the same cluster have very different CPU:memory ratios, or whenever you want cheap Spot node pools for fault-tolerant work alongside standard node pools for critical work.
 
-| Signal                                                           | Answer                                                                                                         |
-| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| Monitoring pod must run on every node                            | DaemonSet (not Deployment/StatefulSet)                                                                         |
-| Different CPU:memory needs, same cluster                         | Separate node pools by machine type (compute-optimized vs general-purpose)                                     |
-| Autoscale nodes on existing cluster                              | `gcloud container clusters update --enable-autoscaling --min-nodes --max-nodes`                                |
-| Enable Cloud Operations for GKE at creation                      | `--logging` and `--monitoring` flags                                                                           |
-| GKE default log destinations                                     | STDOUT and STDERR                                                                                              |
-| Node identity verifiable + no public access + minimal ops        | Private Autopilot cluster (Shielded Nodes on by default)                                                       |
-| Keep cluster on supported/stable K8s version automatically       | Enable Node Auto-Upgrade (not Auto-Repair — that's for crashed nodes)                                          |
-| Production reliability release channel                           | Stable channel (not Rapid)                                                                                     |
-| Deploy Dockerfile-based app to GKE                               | Build image → push to Artifact Registry → Deployment YAML → `kubectl apply -f`                                 |
+| Signal                                                           | Answer                                                                                                                 |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Monitoring pod must run on every node                            | DaemonSet (not Deployment/StatefulSet)                                                                                 |
+| Different CPU:memory needs, same cluster                         | Separate node pools by machine type (compute-optimized vs general-purpose)                                             |
+| Autoscale nodes on existing cluster                              | `gcloud container clusters update --enable-autoscaling --min-nodes --max-nodes`                                        |
+| Enable Cloud Operations for GKE at creation                      | `--logging` and `--monitoring` flags                                                                                   |
+| GKE default log destinations                                     | STDOUT and STDERR                                                                                                      |
+| Node identity verifiable + no public access + minimal ops        | Private Autopilot cluster (Shielded Nodes on by default)                                                               |
+| Keep cluster on supported/stable K8s version automatically       | Enable Node Auto-Upgrade (not Auto-Repair — that's for crashed nodes)                                                  |
+| Production reliability release channel                           | Stable channel (not Rapid)                                                                                             |
+| Deploy Dockerfile-based app to GKE                               | Build image → push to Artifact Registry → Deployment YAML → `kubectl apply -f`                                         |
 | Update GKE app with minimal downtime                             | `kubectl set image deployment/NAME CONTAINER=NEW_IMAGE` (rolling update); do NOT delete/recreate Deployment or Service |
-| Each microservice independently scalable                         | One Deployment per microservice (not Job/CustomResourceDefinition/DocsCompose)                                 |
-| Stable internal IP for backend service                           | Kubernetes Service of type ClusterIP                                                                           |
-| Expose app publicly via HTTPS                                    | Service type NodePort + Ingress + Cloud Load Balancer (not ClusterIP, not manual HAProxy)                      |
-| Persistent data across pod reschedules + stable identity         | StatefulSet (not Deployment+PVC, not DaemonSet)                                                                |
-| GPU workload, occasional/non-restartable                         | Node auto-provisioning (NOT fixed min-1 GPU pool — wastes cost when idle)                                      |
-| Cost-efficient mixed critical/non-critical workloads             | Standard VM node pool for critical, Spot VM node pool for fault-tolerant                                       |
-| VPA vs HPA vs Cluster Autoscaler                                 | VPA = right-size CPU/mem recommendations; HPA = scale pod count by load; Cluster Autoscaler = scale node count |
-| Unknown resource needs, cost-effective suggestions               | HPA for availability + VPA (recommendation mode) for suggestions                                               |
-| Pod stuck Pending                                                | Check pod events/warnings first (`kubectl describe pod`), often insufficient cluster resources                 |
-| GKE pulling images from Artifact Registry in another project     | Grant `artifactregistry.reader` to the node service account in the OTHER project                               |
-| Isolate untrusted client code in shared cluster pods             | gVisor sandbox node pool (`runtimeClassName: gvisor`)                                                          |
-| Change node machine type, zero downtime                          | Create NEW node pool with desired machine type, migrate pods, delete old pool                                  |
-| Test how the app behaves if one microservice becomes unavailable | Istio Fault Injection (not manually deleting a node)                                                           |
-| GKE cluster autoscaler feature name at creation                  | `--enable-autoscaling` with `--min-nodes` / `--max-nodes`                                                      |
-| Persist frontend-to-backend pod communication across restarts    | Kubernetes Service grouping backend pods, frontend talks to the Service, not pod IPs                           |
+| Dockerfile-based rollout too slow                                | Use slim base image and copy source after dependency install to maximize layer-cache reuse                             |
+| Each microservice independently scalable                         | One Deployment per microservice (not Job/CustomResourceDefinition/DocsCompose)                                         |
+| Stable internal IP for backend service                           | Kubernetes Service of type ClusterIP                                                                                   |
+| Expose app publicly via HTTPS                                    | Service type NodePort + Ingress + Cloud Load Balancer (not ClusterIP, not manual HAProxy)                              |
+| Persistent data across pod reschedules + stable identity         | StatefulSet (not Deployment+PVC, not DaemonSet)                                                                        |
+| GPU workload, occasional/non-restartable                         | Node auto-provisioning (NOT fixed min-1 GPU pool — wastes cost when idle)                                              |
+| Cost-efficient mixed critical/non-critical workloads             | Standard VM node pool for critical, Spot VM node pool for fault-tolerant                                               |
+| VPA vs HPA vs Cluster Autoscaler                                 | VPA = right-size CPU/mem recommendations; HPA = scale pod count by load; Cluster Autoscaler = scale node count         |
+| Unknown resource needs, cost-effective suggestions               | HPA for availability + VPA (recommendation mode) for suggestions                                                       |
+| Pod stuck Pending                                                | Check pod events/warnings first (`kubectl describe pod`), often insufficient cluster resources                         |
+| GKE pulling images from Artifact Registry in another project     | Grant `artifactregistry.reader` to the node service account in the OTHER project                                       |
+| Isolate untrusted client code in shared cluster pods             | gVisor sandbox node pool (`runtimeClassName: gvisor`)                                                                  |
+| Change node machine type, zero downtime                          | Create NEW node pool with desired machine type, migrate pods, delete old pool                                          |
+| Test how the app behaves if one microservice becomes unavailable | Istio Fault Injection (not manually deleting a node)                                                                   |
+| GKE cluster autoscaler feature name at creation                  | `--enable-autoscaling` with `--min-nodes` / `--max-nodes`                                                              |
+| Persist frontend-to-backend pod communication across restarts    | Kubernetes Service grouping backend pods, frontend talks to the Service, not pod IPs                                   |
 
 One-line rule: HPA = pod count, VPA = pod size (recommendation mode = suggest only), Cluster Autoscaler = node count. Auto-Upgrade = version currency, Auto-Repair = crash recovery.
 
@@ -246,6 +242,7 @@ The recurring theme here is "the boring, fully-managed, no-code option beats the
 | Batch load hourly, minimize cost, fewest steps                                        | BigQuery Data Transfer Service (no custom code)                                                                                  |
 | React to each new file in Cloud Storage immediately                                   | Cloud Function triggered on `google.storage.object.finalize`                                                                     |
 | Copy Redshift analytics data + S3 assets + large video files into GCP, no custom code | Transfer Appliance (huge one-time video move) + BigQuery Data Transfer Service (Redshift) + Storage Transfer Service (S3 assets) |
+| GDPR delete-after-36-months across BigQuery and Cloud Storage                         | BigQuery time-partitioned tables + partition expiration; Cloud Storage lifecycle Delete at 36 months                             |
 
 One-line rule: scheduled/batch/no-transform → managed transfer service. Real-time per-file reaction → Cloud Function. Real transform logic at scale → Dataflow. Lift-and-shift Spark/Hadoop → Dataproc.
 
@@ -295,6 +292,7 @@ kubectl config view                          # view current kubeconfig
 kubectl apply -f file.yaml                   # deploy manifest
 kubectl autoscale deployment NAME --min=X --max=Y --cpu-percent=Z
 gcloud datastore indexes create index.yaml   # deploy Datastore indexes from config
+gcloud spanner instances update INSTANCE --nodes=N   # resize Cloud Spanner nodes
 bq query --dry_run 'SQL'                     # estimate cost, no execution
 gsutil mb -c coldline gs://BUCKET            # create bucket with storage class
 gsutil cp LOCAL_FILE gs://BUCKET             # upload/copy objects
@@ -302,6 +300,7 @@ gsutil mv gs://BUCKET/old gs://BUCKET/new    # move/rename object path/name
 gsutil ls gs://BUCKET                        # list buckets/objects
 gsutil rm gs://BUCKET/OBJECT                 # delete object
 gsutil rewrite -s coldline gs://OBJECT       # change existing object's storage class
+gsutil lifecycle set lifecycle.json gs://BUCKET   # apply lifecycle policy JSON
 gsutil iam ch allUsers:objectViewer gs://BUCKET   # public read (iam = IAM policy ops, ch = change)
 gsutil acl ch -u AllUsers:R gs://BUCKET/OBJECT    # ACL change form (legacy style in some labs/questions)
 gsutil stat gs://BUCKET/OBJECT               # object metadata (creation time, content-type)
@@ -355,6 +354,7 @@ These didn't have dedicated space above but recur often enough in the source set
 | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Cloud Scheduler                         | Anything described as "runs on a schedule / daily / hourly / cron-like" that then triggers a Cloud Function, Cloud Run job, or Dataflow batch job. Cloud Scheduler is the trigger, not the worker — pair it with a Function/Run/Dataflow job that does the actual work.                                                                 |
 | Cloud Tasks                             | Decoupling a slow/long-running operation from the main request path with per-task retry, rate-limiting, and delay control. Different from Pub/Sub (pure pub/sub messaging, no per-task scheduling) and from Cloud Scheduler (fixed recurring schedule, not per-request queuing).                                                        |
+| Deployment Manager                      | If choices are Deployment Manager vs scripts/curl/console for Google-native IaC automation, Deployment Manager is the intended answer.                                                                                                                                                                                                  |
 | Terraform                               | The default correct IaC answer whenever a question emphasizes "consistent, repeatable, version-controlled infrastructure across environments," "industry standard," or "avoid bash/curl scripts." One Terraform configuration parameterized per environment beats writing a separate template per environment when reuse is emphasized. |
 | Container Registry / Artifact Registry  | Where a built Docker image goes before Cloud Run / GKE / Compute Engine can pull it. Standard flow: build image → push to (Artifact) Registry → deploy referencing that image. A Cloud Storage bucket is never the right place to store container images.                                                                               |
 | Cloud DNS (private zone)                | Whenever an app currently hardcodes a database or service IP and that IP might change, or multiple internal services need name-based (not IP-based) discovery within a VPC — a private Cloud DNS zone removes the need to reconfigure the app on every IP change.                                                                       |
@@ -363,6 +363,7 @@ These didn't have dedicated space above but recur often enough in the source set
 | Workload Identity                       | GKE pods needing to call Google APIs securely without using a downloaded node/service-account JSON key — Workload Identity binds a Kubernetes service account to a GCP service account, which is the modern, more secure replacement for baking keys into pods.                                                                         |
 | Binary Authorization                    | "Only allow approved/signed container images to run in the cluster" — this is a Binary Authorization policy question, not an IAM or Artifact Registry permissions question.                                                                                                                                                             |
 | App Engine traffic splitting / versions | Canary release, gradual rollout, or instant rollback for an App Engine app — done via deploying a new version and splitting traffic by percentage (or routing 100% back to the previous version for instant rollback), all from the App Engine Versions page/`gcloud app services set-traffic`.                                         |
+| App Engine release regression response  | Roll back to last known-good version first, then diagnose with Cloud Trace/Logging in non-prod.                                                                                                                                                                                                                                         |
 | Anthos Service Mesh                     | Traffic splitting / canary specifically for microservices running on GKE (not App Engine or Cloud Run) — when the question is GKE-specific and mentions gradual/canary rollout between service versions.                                                                                                                                |
 | VPC Service Controls                    | Restricting which APIs (e.g., `storage.googleapis.com`) can be reached from inside a security perimeter, to prevent data exfiltration — different from a firewall rule (which controls network paths) and from IAM (which controls identity permissions); this controls API-level data boundaries.                                      |
 
