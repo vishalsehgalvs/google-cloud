@@ -95,6 +95,7 @@ The recurring theme: broad roles (Owner/Editor/Admin) "would technically work" f
 | Owner/Editor vs Predefined vs Custom role | If a narrower predefined or custom role satisfies the need, the broad role is wrong even though it "would work." |
 | Cloud SQL HA/replica flags | Automatic failover on zone outage → `--availability-type=REGIONAL`. Read replica config → `--replica-type` / `--master-instance-name`. Choosing the standby's zone → `--secondary-zone` (only meaningful once REGIONAL is already set — it does NOT enable HA by itself). |
 | Service account vs user account | App/automated workload calling an API → service account. Human logging in → user account via IAM, ideally through a group. |
+| Team-wise resource and cost tracking | Use **Labels** (for example `team`, `cost_center`, `env`) and report by label. Audit logs track activity, Trace tracks latency, IAM controls access. |
 | Org Policy vs IAM | "Block this action entirely, regardless of role held" → Organization Policy constraint. "Control who can do it" → IAM role/binding. Org Policy is also **not retroactive** — existing violations need manual cleanup. |
 | Deny policy vs removing a role | A hard block that can't be bypassed by any future granted role → IAM Deny Policy, not just un-assigning a role. |
 | `add-iam-policy-binding` vs `set-iam-policy` | Binding **adds** one role to one member. set-iam-policy **replaces the entire policy document** — destructive if it omits existing grantees. |
@@ -194,6 +195,7 @@ A fast-scan cheat list for the highest-frequency signal phrases:
 - "automatic failover, Cloud SQL, zone outage" → `--availability-type=REGIONAL`
 - "reliable retryable task execution, decoupled" → Cloud Tasks
 - "prevent overspend automatically" → Quotas, not budgets
+- "which team created/owns resources and how costs split by team" → Labels
 - "per-developer/per-team spend alert" → one budget per project
 - "hourly/scheduled/minimize cost load into BigQuery" → BigQuery Data Transfer Service
 - "react instantly to each new file" → Cloud Function on `google.storage.object.finalize`
