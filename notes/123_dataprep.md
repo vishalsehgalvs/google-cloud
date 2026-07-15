@@ -56,3 +56,27 @@ Raw Data Sources
 - **Input**: raw data from BigQuery, Cloud Storage, or direct file uploads
 - **Processing**: Dataprep cleans and prepares the data, then feeds it into a Dataflow pipeline
 - **Output**: refined data exported to BigQuery or Cloud Storage for analysis and machine learning
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Dataprep use case, analysts need visual data cleaning with minimal coding. Which service is best?
+
+A. Dataprep
+B. Dataproc
+C. Cloud SQL
+D. Memorystore
+
+Answer: A
+Trap: Dataprep is designed for visual wrangling, not cluster management.
+
+### Q2
+You need repeatable transformation steps for Dataprep before loading into analytics. What is best?
+
+A. Save and schedule transformation recipes
+B. Copy and paste ad-hoc SQL each day
+C. Recreate datasets manually
+D. Disable version history
+
+Answer: A
+Trap: Repeatability and lineage are key for reliable prep workflows.

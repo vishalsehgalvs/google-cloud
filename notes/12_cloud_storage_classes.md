@@ -36,3 +36,27 @@
 - **Storage Transfer Service** — schedule/manage large online transfers (from other clouds, regions, HTTP(S))
 - **Transfer Appliance** — lease a physical device, load data, ship to Google for upload (up to 1 PB per appliance)
 - **Tight integration** with other Google Cloud products (BigQuery, Cloud SQL, App Engine, Firestore, Compute Engine, etc.)
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Cloud Storage Classes scenario, files are used continually by an analytics pipeline in one region. Which storage class is best for minimal cost and performance fit?
+
+A. Standard in closest region
+B. Nearline in closest region
+C. Archive in dual-region
+D. Coldline in dual-region
+
+Answer: A
+Trap: Continual access generally means Standard, while colder classes penalize frequent retrieval.
+
+### Q2
+Backup files older than 90 days must be removed automatically in a Cloud Storage Classes bucket. What should you do?
+
+A. Manual deletion script only
+B. Lifecycle rule in JSON with Delete action and Age condition 90
+C. Rename old files to another prefix only
+D. Disable object versioning
+
+Answer: B
+Trap: Lifecycle rules are the managed and auditable approach for retention cleanup.

@@ -91,3 +91,27 @@ gcloud redis instances export my-redis \
 # Delete a Redis instance
 gcloud redis instances delete my-redis --region=us-central1
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Memorystore workload needs low-latency cache for sessions and frequent reads. Which service is best?
+
+A. Memorystore
+B. BigQuery
+C. Cloud Spanner
+D. Cloud Storage
+
+Answer: A
+Trap: Caching and in-memory access patterns are not a warehouse or relational primary-store use case.
+
+### Q2
+In a Memorystore architecture, what is a common role for this service?
+
+A. Long-term immutable archive
+B. Primary petabyte analytics warehouse
+C. Cache layer in front of databases or APIs
+D. Global DNS authority
+
+Answer: C
+Trap: Memorystore complements primary databases, it does not replace them for durable analytics storage.

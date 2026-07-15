@@ -92,17 +92,17 @@ gcloud logging logs list
 
 Cloud Logging uses the following severity levels (ascending order):
 
-| Severity | Numeric | Use case |
-|---|---|---|
-| `DEFAULT` | 0 | Unspecified / uncategorised |
-| `DEBUG` | 100 | Detailed diagnostic info |
-| `INFO` | 200 | Routine operational events |
-| `NOTICE` | 300 | Normal but significant events |
-| `WARNING` | 400 | Events that might cause problems |
-| `ERROR` | 500 | Error conditions that require attention |
-| `CRITICAL` | 600 | Critical failures |
-| `ALERT` | 700 | Action must be taken immediately |
-| `EMERGENCY` | 800 | System is unusable |
+| Severity    | Numeric | Use case                                |
+| ----------- | ------- | --------------------------------------- |
+| `DEFAULT`   | 0       | Unspecified / uncategorised             |
+| `DEBUG`     | 100     | Detailed diagnostic info                |
+| `INFO`      | 200     | Routine operational events              |
+| `NOTICE`    | 300     | Normal but significant events           |
+| `WARNING`   | 400     | Events that might cause problems        |
+| `ERROR`     | 500     | Error conditions that require attention |
+| `CRITICAL`  | 600     | Critical failures                       |
+| `ALERT`     | 700     | Action must be taken immediately        |
+| `EMERGENCY` | 800     | System is unusable                      |
 
 ---
 
@@ -134,11 +134,11 @@ Write structured logs so Cloud Logging can parse and query fields automatically:
 
 ## Ops Agent vs Legacy Logging Agent
 
-| Agent | VM support | Collects |
-|---|---|---|
-| **Ops Agent** (recommended) | GCE (gen2+) | Logs + metrics in one agent |
-| **Cloud Logging agent** (legacy) | GCE | Logs only (fluentd-based) |
-| **Cloud Monitoring agent** (legacy) | GCE | Metrics only |
+| Agent                               | VM support  | Collects                    |
+| ----------------------------------- | ----------- | --------------------------- |
+| **Ops Agent** (recommended)         | GCE (gen2+) | Logs + metrics in one agent |
+| **Cloud Logging agent** (legacy)    | GCE         | Logs only (fluentd-based)   |
+| **Cloud Monitoring agent** (legacy) | GCE         | Metrics only                |
 
 - For new VMs: always install the **Ops Agent**
 - Cloud Run, GKE, App Engine: automatic log collection, no agent needed
@@ -147,12 +147,12 @@ Write structured logs so Cloud Logging can parse and query fields automatically:
 
 ## Audit Logs (Detail)
 
-| Type | What it captures | Always on? |
-|---|---|---|
-| **Admin Activity** | API calls that modify config/metadata (e.g. create VM, grant IAM role) | Yes (free) |
-| **Data Access** | API calls that read/write user data (e.g. read GCS object, query BigQuery) | No (enable per service; billed) |
-| **System Event** | Automated GCP system events (e.g. Live Migration) | Yes (free) |
-| **Policy Denied** | Requests denied by VPC Service Controls | Yes (free) |
+| Type               | What it captures                                                           | Always on?                      |
+| ------------------ | -------------------------------------------------------------------------- | ------------------------------- |
+| **Admin Activity** | API calls that modify config/metadata (e.g. create VM, grant IAM role)     | Yes (free)                      |
+| **Data Access**    | API calls that read/write user data (e.g. read GCS object, query BigQuery) | No (enable per service; billed) |
+| **System Event**   | Automated GCP system events (e.g. Live Migration)                          | Yes (free)                      |
+| **Policy Denied**  | Requests denied by VPC Service Controls                                    | Yes (free)                      |
 
 ```bash
 # Query admin activity logs
@@ -189,12 +189,12 @@ gcloud logging metrics create request-latency \
 
 When you create a log sink, Cloud Logging creates a **service account** for the sink. You must grant it write access to the destination:
 
-| Destination | Required role |
-|---|---|
+| Destination          | Required role                 |
+| -------------------- | ----------------------------- |
 | Cloud Storage bucket | `roles/storage.objectCreator` |
-| BigQuery dataset | `roles/bigquery.dataEditor` |
-| Pub/Sub topic | `roles/pubsub.publisher` |
-| Cloud Logging bucket | No extra grant needed |
+| BigQuery dataset     | `roles/bigquery.dataEditor`   |
+| Pub/Sub topic        | `roles/pubsub.publisher`      |
+| Cloud Logging bucket | No extra grant needed         |
 
 ```bash
 # Get the sink's writer identity
@@ -208,13 +208,13 @@ bq add-iam-policy-binding --member=SERVICE_ACCOUNT --role=roles/bigquery.dataEdi
 
 ## Log Pricing
 
-| Log type | Cost |
-|---|---|
-| **Admin Activity audit logs** | Free |
-| **System Event audit logs** | Free |
-| **First 50 GiB/project/month** of other logs | Free |
-| **Above 50 GiB** | ~$0.01/GiB |
-| **Data Access audit logs** | Billed as regular logs |
+| Log type                                     | Cost                   |
+| -------------------------------------------- | ---------------------- |
+| **Admin Activity audit logs**                | Free                   |
+| **System Event audit logs**                  | Free                   |
+| **First 50 GiB/project/month** of other logs | Free                   |
+| **Above 50 GiB**                             | ~$0.01/GiB             |
+| **Data Access audit logs**                   | Billed as regular logs |
 
 - Reduce costs: use **exclusion filters** to drop verbose/noisy logs before ingestion
 - Route high-volume logs directly to BigQuery or Cloud Storage via sinks instead of storing in Cloud Logging
@@ -223,11 +223,35 @@ bq add-iam-policy-binding --member=SERVICE_ACCOUNT --role=roles/bigquery.dataEdi
 
 ## Key Takeaways — Cloud Logging
 
-| Topic | Key Point |
-|---|---|
+| Topic                  | Key Point                                                               |
+| ---------------------- | ----------------------------------------------------------------------- |
 | **Structured logging** | Write JSON to stdout; `severity` and `httpRequest` parsed automatically |
-| **Audit logs** | Admin Activity is always on and free; Data Access must be enabled |
-| **Log-based metrics** | Bridge logs to Cloud Monitoring alerts |
-| **Sink permissions** | Always grant sink's writer identity write access to destination |
-| **Ops Agent** | Recommended for GCE; replaces both legacy agents |
-| **Cost control** | Use exclusion filters; export high-volume logs via sinks |
+| **Audit logs**         | Admin Activity is always on and free; Data Access must be enabled       |
+| **Log-based metrics**  | Bridge logs to Cloud Monitoring alerts                                  |
+| **Sink permissions**   | Always grant sink's writer identity write access to destination         |
+| **Ops Agent**          | Recommended for GCE; replaces both legacy agents                        |
+| **Cost control**       | Use exclusion filters; export high-volume logs via sinks                |
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Cloud Logging requirement asks to collect logs from all current and future production projects only. What should you do?
+
+A. Configure manual exports in each project every month
+B. Configure aggregated log sink at production folder level
+C. Disable Cloud Logging and use VM files
+D. Send logs to Cloud DNS
+
+Answer: B
+Trap: Folder-level aggregated sinks capture both existing and future child projects.
+
+### Q2
+In a Cloud Logging incident, only a few requests are slow across many microservices. Which tool is best to identify the slow hop?
+
+A. Cloud Trace
+B. Cloud Storage lifecycle
+C. Cloud Build trigger
+D. Cloud Armor policy
+
+Answer: A
+Trap: Distributed tracing is designed for per-hop latency diagnosis.

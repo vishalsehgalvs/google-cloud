@@ -81,3 +81,27 @@ Two export options:
 - Billing administrators set up accounts, create budgets, and run reports as routine tasks
 - Billing data can be exported as **JSON or CSV** to Cloud Storage, or to **BigQuery** for advanced querying
 - More sophisticated filtering and analysis happens **after** export (explored in the upcoming BigQuery billing lab)
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+For Billing Admin Demo, you need to be notified at 50%, 90%, and 100% spend and also prevent runaway usage. What is best?
+
+A. Budgets only
+B. Quotas only
+C. Budget alerts plus quotas
+D. Cloud Trace only
+
+Answer: C
+Trap: Budgets notify while quotas enforce hard limits.
+
+### Q2
+You manage many sandbox projects in a Billing Admin Demo scenario and need owner-specific overspend alerts. What is best?
+
+A. One shared budget for all projects
+B. Budget per project with alert thresholds
+C. CSV export once per quarter
+D. Single alert at billing account only
+
+Answer: B
+Trap: Per-project budgets improve accountability and alert precision.

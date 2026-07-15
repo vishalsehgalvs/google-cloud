@@ -96,3 +96,27 @@ gcloud projects add-iam-policy-binding PROJECT_ID \
 gcloud projects remove-iam-policy-binding PROJECT_ID \
   --member=user:alice@example.com --role=roles/editor
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+For Iam Roles, a team needs only permission to read logs and datasets without modification rights. What is best?
+
+A. roles/editor
+B. roles/owner
+C. Predefined read-only roles assigned to a Google Group
+D. Shared admin account
+
+Answer: C
+Trap: Broad primitive roles are common distractors when least privilege is explicit.
+
+### Q2
+In a Iam Roles question, two options work technically but one grants extra permissions. Which should you choose?
+
+A. Broad role for future convenience
+B. Narrow role that satisfies exact requirement
+C. Owner to avoid access errors
+D. Service account key in source code
+
+Answer: B
+Trap: Exam scoring favors least privilege and operational safety.

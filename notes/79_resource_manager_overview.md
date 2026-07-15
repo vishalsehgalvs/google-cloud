@@ -103,3 +103,27 @@ gcloud resource-manager folders list --organization=ORG_ID
 # Describe an organization
 gcloud organizations describe ORG_ID
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Resource Manager Overview requirement, resources must be restricted to approved regions only. What should you use?
+
+A. Budget alerts
+B. Organization Policy for resource location restrictions
+C. Cloud Scheduler
+D. Labels only
+
+Answer: B
+Trap: IAM controls who can act; Org Policy controls what can be created under governance constraints.
+
+### Q2
+A new team needs isolated IAM, APIs, quotas, and billing in a Resource Manager Overview setup. What is best first step?
+
+A. Create new project for the team
+B. Add team as Editor to existing project
+C. Create only a folder
+D. Use one service account for all teams
+
+Answer: A
+Trap: Project is the operational boundary for billing, IAM bindings, API enablement, and quotas.

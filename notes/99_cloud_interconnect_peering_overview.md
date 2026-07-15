@@ -31,3 +31,27 @@ Google Cloud offers four Cloud Interconnect and Peering services, categorized by
 
 - Cloud VPN uses the **public internet** but encrypts traffic and provides access to **internal IP addresses**
 - This makes it a useful complement to **Direct Peering** and **Carrier Peering**, which are Layer 3 (public IP) only
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+For Cloud Interconnect Peering Overview, you need highly available hybrid connectivity with dynamic route exchange. What should you choose?
+
+A. HA VPN with Cloud Router
+B. Static routes only over one tunnel
+C. Cloud NAT only
+D. Cloud CDN
+
+Answer: A
+Trap: Dynamic routing and high availability requirements usually indicate HA VPN plus BGP.
+
+### Q2
+In a Cloud Interconnect Peering Overview design, multiple projects in one org need centralized networking administration. What is best?
+
+A. Shared VPC
+B. Separate isolated VPCs with no governance
+C. One service account for every project owner
+D. DNS forwarding only
+
+Answer: A
+Trap: Shared VPC centralizes subnet and firewall control across service projects.

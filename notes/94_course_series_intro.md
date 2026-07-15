@@ -67,3 +67,27 @@
 - **Create** your own services
 
 > Labs are provided via **Google Skills** platform — includes a real Google Cloud account at no cost.
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Course Series Intro scenario, two answers seem technically possible. What tie-breaker should you apply first?
+
+A. Pick the option with most manual steps
+B. Pick the option with least privilege and least operational overhead that still meets requirements
+C. Pick highest-cost option
+D. Pick the oldest product
+
+Answer: B
+Trap: ACE-style scenarios reward secure, managed, requirement-fit decisions.
+
+### Q2
+For Course Series Intro, what is the best way to reduce wrong answers in multi-choice questions?
+
+A. Ignore scaling and security words
+B. Identify trigger words, eliminate over-privileged choices, then choose the managed fit
+C. Always pick Compute Engine
+D. Always pick the shortest option
+
+Answer: B
+Trap: Structured elimination is more reliable than memorization alone.

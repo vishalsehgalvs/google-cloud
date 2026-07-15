@@ -95,3 +95,27 @@ gcloud alloydb backups create my-backup \
 # Delete a cluster
 gcloud alloydb clusters delete my-cluster --region=us-central1
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Alloydb scenario, the team wants PostgreSQL compatibility with strong performance for transactional and analytical mixed workloads. Which service fits best?
+
+A. AlloyDB
+B. Cloud SQL for SQL Server
+C. Memorystore
+D. Cloud Storage
+
+Answer: A
+Trap: AlloyDB targets PostgreSQL compatibility with high-performance managed architecture.
+
+### Q2
+When comparing Alloydb to self-managed Postgres on VMs, what is a key benefit?
+
+A. More manual patching
+B. Reduced operational overhead with managed reliability features
+C. No IAM integration
+D. Requires custom networking stack
+
+Answer: B
+Trap: Managed data services are typically preferred when low operations burden is explicit.

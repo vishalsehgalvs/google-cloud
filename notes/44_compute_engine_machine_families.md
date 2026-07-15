@@ -90,3 +90,27 @@ Use when no predefined type fits your workload exactly.
 - Memory must be between **1 GB and 8 GB per vCPU**.
 - Total memory must be a **multiple of 256 MB**.
 - Need more than 8 GB/vCPU? Use **extended memory** (available at additional cost).
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Compute Engine Machine Families workload requires full OS control and custom runtime with strict policy against managed platforms. Which compute option is best?
+
+A. Compute Engine
+B. Cloud Run Functions
+C. App Engine Standard
+D. Dataflow
+
+Answer: A
+Trap: Full host-level control is a strong Compute Engine signal.
+
+### Q2
+In a Compute Engine Machine Families scenario, a fault-tolerant nightly batch workload is too expensive. What should you test and then use?
+
+A. Spot or preemptible VMs after simulated interruption testing
+B. Owner role on all instances
+C. Single large sole-tenant node
+D. Cloud DNS autoscaling
+
+Answer: A
+Trap: Interruptible workloads are classic candidates for discounted VM pricing models.

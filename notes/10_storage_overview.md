@@ -35,3 +35,27 @@ gcloud spanner instances list       # Spanner
 gcloud firestore databases list     # Firestore
 gcloud bigtable instances list      # Bigtable
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Storage Overview scenario, files are used continually by an analytics pipeline in one region. Which storage class is best for minimal cost and performance fit?
+
+A. Standard in closest region
+B. Nearline in closest region
+C. Archive in dual-region
+D. Coldline in dual-region
+
+Answer: A
+Trap: Continual access generally means Standard, while colder classes penalize frequent retrieval.
+
+### Q2
+Backup files older than 90 days must be removed automatically in a Storage Overview bucket. What should you do?
+
+A. Manual deletion script only
+B. Lifecycle rule in JSON with Delete action and Age condition 90
+C. Rename old files to another prefix only
+D. Disable object versioning
+
+Answer: B
+Trap: Lifecycle rules are the managed and auditable approach for retention cleanup.

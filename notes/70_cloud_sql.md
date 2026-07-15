@@ -148,12 +148,12 @@ gcloud sql export csv my-instance gs://my-bucket/export.csv \
 
 ## Backups and Point-in-Time Recovery (PITR)
 
-| Feature | Details |
-|---|---|
-| **Automated backups** | Daily snapshots; retained for 7 days by default (up to 365) |
-| **On-demand backups** | Triggered manually; kept until you delete them |
-| **PITR** | Restore to any second within the retention window; uses binary logs |
-| **PITR retention** | 7 days by default; configurable |
+| Feature               | Details                                                             |
+| --------------------- | ------------------------------------------------------------------- |
+| **Automated backups** | Daily snapshots; retained for 7 days by default (up to 365)         |
+| **On-demand backups** | Triggered manually; kept until you delete them                      |
+| **PITR**              | Restore to any second within the retention window; uses binary logs |
+| **PITR retention**    | 7 days by default; configurable                                     |
 
 ```bash
 # Restore to a point in time
@@ -170,12 +170,12 @@ gcloud sql instances patch my-instance --enable-point-in-time-recovery
 
 ## SSL/TLS and Connection Options
 
-| Option | Description |
-|---|---|
-| **Cloud SQL Auth Proxy** | Recommended; handles mTLS and IAM auth automatically |
-| **Private IP** | Connect via VPC; no public internet exposure |
-| **Public IP + SSL** | Allow external connections with client cert requirement |
-| **Public IP + Authorized Networks** | Whitelist specific IP ranges (less preferred) |
+| Option                              | Description                                             |
+| ----------------------------------- | ------------------------------------------------------- |
+| **Cloud SQL Auth Proxy**            | Recommended; handles mTLS and IAM auth automatically    |
+| **Private IP**                      | Connect via VPC; no public internet exposure            |
+| **Public IP + SSL**                 | Allow external connections with client cert requirement |
+| **Public IP + Authorized Networks** | Whitelist specific IP ranges (less preferred)           |
 
 ```bash
 # Require SSL for all connections
@@ -206,12 +206,12 @@ gcloud sql instances patch my-instance \
 
 Common flags:
 
-| Engine | Flag | Purpose |
-|---|---|---|
-| MySQL | `max_connections` | Limit concurrent connections |
-| MySQL | `slow_query_log=on` | Enable slow query log |
-| PostgreSQL | `log_min_duration_statement` | Log queries slower than N ms |
-| PostgreSQL | `pg_stat_statements.track=all` | Enable query stats |
+| Engine     | Flag                           | Purpose                      |
+| ---------- | ------------------------------ | ---------------------------- |
+| MySQL      | `max_connections`              | Limit concurrent connections |
+| MySQL      | `slow_query_log=on`            | Enable slow query log        |
+| PostgreSQL | `log_min_duration_statement`   | Log queries slower than N ms |
+| PostgreSQL | `pg_stat_statements.track=all` | Enable query stats           |
 
 ---
 
@@ -251,15 +251,43 @@ gcloud sql instances promote-replica my-replica
 
 ## Key Takeaways — Cloud SQL
 
-| Topic | Key Point |
-|---|---|
-| **HA** | Regional (synchronous standby); automatic failover in ~60s |
-| **Backups** | Automated daily + PITR for any second in retention window |
-| **Connections** | Always prefer Auth Proxy or Private IP over public IP |
-| **Read replicas** | Offload reads; cross-region replicas support DR |
-| **Flags** | Engine-level tuning; most require restart |
-| **Query Insights** | Built-in slow query analysis; no extra cost |
+| Topic              | Key Point                                                  |
+| ------------------ | ---------------------------------------------------------- |
+| **HA**             | Regional (synchronous standby); automatic failover in ~60s |
+| **Backups**        | Automated daily + PITR for any second in retention window  |
+| **Connections**    | Always prefer Auth Proxy or Private IP over public IP      |
+| **Read replicas**  | Offload reads; cross-region replicas support DR            |
+| **Flags**          | Engine-level tuning; most require restart                  |
+| **Query Insights** | Built-in slow query analysis; no extra cost                |
 
 # Delete an instance
+
 gcloud sql instances delete my-instance
+
 ```
+
+```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Cloud Sql scenario, production MySQL must survive zonal failure with minimal manual intervention. What is the best setup?
+
+A. Single-zone instance with snapshots only
+B. Cloud SQL with availability type set to REGIONAL
+C. Cloud SQL read replica in same zone only
+D. Self-managed MySQL on one VM
+
+Answer: B
+Trap: Read replicas improve read scale but are not the same as HA failover configuration.
+
+### Q2
+For Cloud Sql audit requirements, month-end data must be retained for three years in low-cost storage. What should you do?
+
+A. Rely only on automatic backup retention
+B. Create scheduled Cloud SQL export jobs to Archive class Cloud Storage
+C. Keep data only in local SSD snapshots
+D. Use Cloud NAT logging only
+
+Answer: B
+Trap: Long-term audit retention is an export and archive policy problem, not only operational backup.

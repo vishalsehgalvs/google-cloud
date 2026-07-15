@@ -51,6 +51,17 @@ Adding/removing users from these groups controls their total access across all r
 
 ---
 
+## 5. Store Credentials Securely
+
+- For database passwords, API keys, and service secrets, use **Secret Manager**
+- Do **not** store credentials in source code, plain config files, or long-lived env vars
+
+### Exam Pattern
+
+- "Many microservices need DB credentials securely" -> **Secret Manager (secret management system)**
+
+---
+
 ## gcloud Commands
 
 ```bash
@@ -74,3 +85,27 @@ gcloud compute backend-services update my-backend \
 gcloud projects add-iam-policy-binding PROJECT_ID \
   --member=user:alice@example.com --role=roles/iap.httpsResourceAccessor
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Iam Best Practices scenario, two answers seem technically possible. What tie-breaker should you apply first?
+
+A. Pick the option with most manual steps
+B. Pick the option with least privilege and least operational overhead that still meets requirements
+C. Pick highest-cost option
+D. Pick the oldest product
+
+Answer: B
+Trap: ACE-style scenarios reward secure, managed, requirement-fit decisions.
+
+### Q2
+For Iam Best Practices, what is the best way to reduce wrong answers in multi-choice questions?
+
+A. Ignore scaling and security words
+B. Identify trigger words, eliminate over-privileged choices, then choose the managed fit
+C. Always pick Compute Engine
+D. Always pick the shortest option
+
+Answer: B
+Trap: Structured elimination is more reliable than memorization alone.

@@ -74,3 +74,27 @@
   - Parallel workloads
 - **Google does not have access to the encryption keys**.
 - Can be enabled when creating a VM via the GCP Console, Compute Engine API, or `gcloud` CLI.
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Compute Engine Special Vm Types workload requires full OS control and custom runtime with strict policy against managed platforms. Which compute option is best?
+
+A. Compute Engine
+B. Cloud Run Functions
+C. App Engine Standard
+D. Dataflow
+
+Answer: A
+Trap: Full host-level control is a strong Compute Engine signal.
+
+### Q2
+In a Compute Engine Special Vm Types scenario, a fault-tolerant nightly batch workload is too expensive. What should you test and then use?
+
+A. Spot or preemptible VMs after simulated interruption testing
+B. Owner role on all instances
+C. Single large sole-tenant node
+D. Cloud DNS autoscaling
+
+Answer: A
+Trap: Interruptible workloads are classic candidates for discounted VM pricing models.

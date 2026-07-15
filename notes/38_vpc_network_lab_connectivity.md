@@ -182,3 +182,27 @@ gcloud compute instances create VM_NAME \
 - Different VPCs are isolated by default for internal traffic.
 - External ping can still work across VPCs if firewall rules allow it.
 - For production, custom mode VPCs are preferred because they give you tighter control.
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Vpc Network Lab Connectivity architecture with autoscaling tiers, traffic must flow web to API to database only. How should you enforce this?
+
+A. Separate projects without firewall policy
+B. Tags or service-account-based firewall rules between tiers
+C. DNS records only
+D. Disable internal communication
+
+Answer: B
+Trap: Layered firewall policy with identity or tags is robust against autoscaling IP changes.
+
+### Q2
+A private VM in Vpc Network Lab Connectivity needs outbound internet updates but no inbound internet. What should you configure?
+
+A. External IP on each VM
+B. Cloud NAT
+C. Cloud Armor only
+D. Internal TCP load balancer
+
+Answer: B
+Trap: Cloud NAT handles outbound internet for private instances without exposing inbound services.

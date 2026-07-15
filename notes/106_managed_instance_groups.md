@@ -47,3 +47,27 @@ When creating a MIG, define the following:
 7. **Health check** — define which instances are healthy and should receive traffic
 
 > The instance group manager automatically populates the group based on the chosen template.
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Managed Instance Groups alert says new instances fail to create and desired capacity is not maintained. What should you check first?
+
+A. Validate template configuration and resolve persistent disk name collisions; ensure autoDelete is set correctly
+B. Disable health checks
+C. Delete VPC routes
+D. Recreate billing account
+
+Answer: A
+Trap: Template and disk naming collisions are frequent MIG creation failure causes.
+
+### Q2
+In a Managed Instance Groups issue, CPU is at 100% and MIG already reached max replicas. What is the fastest mitigation?
+
+A. Change metric to memory immediately
+B. Increase autoscaler upper limit while investigating application bottleneck
+C. Restart all VMs manually
+D. Disable autoscaling
+
+Answer: B
+Trap: If ceiling is reached, immediate capacity headroom is the quickest stabilization action.

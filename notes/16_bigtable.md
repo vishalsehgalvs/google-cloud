@@ -67,3 +67,27 @@ gcloud bigtable clusters list --instances=my-instance
 # Delete a Bigtable instance
 gcloud bigtable instances delete my-instance
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Bigtable use case ingests timestamped sensor data at very high write rates with low-latency reads. Which service is best?
+
+A. Cloud SQL
+B. Bigtable
+C. Cloud Storage
+D. Firestore
+
+Answer: B
+Trap: High-ingest time-series workloads are a classic Bigtable pattern.
+
+### Q2
+For Bigtable schema design, what is a key performance practice?
+
+A. Use random keys that break query patterns
+B. Design row keys to match primary access pattern and avoid hotspots
+C. Store only in one giant JSON column
+D. Disable column families
+
+Answer: B
+Trap: Row-key design directly influences distribution and query performance.

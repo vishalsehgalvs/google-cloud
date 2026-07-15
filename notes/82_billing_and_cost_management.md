@@ -94,3 +94,27 @@ gcloud billing projects list --billing-account=BILLING_ACCOUNT_ID
 # Export billing data to BigQuery (done via Console or Billing API — no direct gcloud command)
 # Recommended: Billing → Billing Export → BigQuery Export in Cloud Console
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+For Billing And Cost Management, you need to be notified at 50%, 90%, and 100% spend and also prevent runaway usage. What is best?
+
+A. Budgets only
+B. Quotas only
+C. Budget alerts plus quotas
+D. Cloud Trace only
+
+Answer: C
+Trap: Budgets notify while quotas enforce hard limits.
+
+### Q2
+You manage many sandbox projects in a Billing And Cost Management scenario and need owner-specific overspend alerts. What is best?
+
+A. One shared budget for all projects
+B. Budget per project with alert thresholds
+C. CSV export once per quarter
+D. Single alert at billing account only
+
+Answer: B
+Trap: Per-project budgets improve accountability and alert precision.

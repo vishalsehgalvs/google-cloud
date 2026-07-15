@@ -61,3 +61,27 @@ Common use cases:
 | **Internet NEG**            | Single endpoint **hosted outside Google Cloud**; specified by FQDN:port or IP:port                           |
 | **Hybrid connectivity NEG** | Points to Traffic Director services running **outside Google Cloud**                                         |
 | **Serverless NEG**          | Points to **Cloud Run, App Engine, or Cloud Run Functions** in the same region; contains no actual endpoints |
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Alb Https Backend Buckets Negs requirement needs host and path-based routing for internet users with managed TLS. Which option is best?
+
+A. External Application Load Balancer
+B. Internal passthrough load balancer
+C. Cloud NAT
+D. Direct VM IP without load balancing
+
+Answer: A
+Trap: URL map and host routing are Layer 7 capabilities.
+
+### Q2
+In a Alb Https Backend Buckets Negs case, you must preserve original client IP and handle UDP. Which option should you pick?
+
+A. Application Load Balancer
+B. Passthrough Network Load Balancer
+C. Cloud CDN only
+D. Cloud DNS private zone
+
+Answer: B
+Trap: Client-IP preservation and UDP are Layer 4 passthrough patterns.

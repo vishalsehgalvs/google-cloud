@@ -92,3 +92,29 @@ gcloud compute routers nats create my-nat \
   --router=my-router --region=us-central1 \
   --auto-allocate-nat-external-ips --nat-all-subnet-ip-ranges
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+
+You have a private VM with no external IP in this lab setup and need secure SSH access. What is the best method?
+
+A. Assign a public IP and open SSH from 0.0.0.0/0
+B. Use Cloud IAP TCP tunneling for SSH
+C. Disable firewall rules
+D. Use Cloud CDN
+
+Answer: B
+Trap: Cloud IAP is the secure pattern for administrative access to private VMs.
+
+### Q2
+
+Your private VM must access Google APIs and also download operating system updates from the internet. Which combination is correct?
+
+A. Private Google Access only
+B. Cloud NAT only
+C. Private Google Access plus Cloud NAT
+D. Public IP only
+
+Answer: C
+Trap: Private Google Access is for Google APIs; Cloud NAT is for general outbound internet access.

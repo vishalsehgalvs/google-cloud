@@ -22,3 +22,27 @@
 - How to use **Terraform** to automate infrastructure deployment
 - How to use **Google Cloud Marketplace** to launch infrastructure solutions
 - Lab: use Terraform to deploy a **VPC network, firewall rule, and VM instances**
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+For Infrastructure Automation Intro, the company wants repeatable multi-environment provisioning with minimal repetitive code. What should you use?
+
+A. IaC templates and modules
+B. Manual console steps each time
+C. Ad-hoc scripts without version control
+D. Spreadsheet-only process
+
+Answer: A
+Trap: Declarative IaC improves consistency, auditability, and reuse.
+
+### Q2
+In a Infrastructure Automation Intro scenario, you must deploy supported third-party software quickly with managed packaging. Which option is best?
+
+A. Google Cloud Marketplace solution deployment
+B. Build everything from source on one VM manually
+C. Use Cloud Trace to install software
+D. Export billing CSV first
+
+Answer: A
+Trap: Marketplace is designed for rapid deployment of curated solutions.

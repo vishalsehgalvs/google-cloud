@@ -140,11 +140,11 @@ CREATE TABLE Albums (
 
 Sequential keys (auto-increment integers, timestamps) cause **write hotspots** because all new rows land on the same split:
 
-| Bad (hotspot) | Good (distributed) |
-|---|---|
+| Bad (hotspot)             | Good (distributed)                        |
+| ------------------------- | ----------------------------------------- |
 | `id INT64 AUTO_INCREMENT` | `id STRING(36) DEFAULT (GENERATE_UUID())` |
-| `created_at TIMESTAMP` | Hash prefix + timestamp |
-| Sequential user IDs | UUID or bit-reversed keys |
+| `created_at TIMESTAMP`    | Hash prefix + timestamp                   |
+| Sequential user IDs       | UUID or bit-reversed keys                 |
 
 ### Secondary Indexes
 
@@ -164,18 +164,18 @@ CREATE INDEX AlbumsByTitle ON Albums(Title);
 
 ### Instance Types
 
-| Type | Use |
-|---|---|
-| **Provisioned** | Fixed node count; predictable cost |
+| Type                    | Use                                           |
+| ----------------------- | --------------------------------------------- |
+| **Provisioned**         | Fixed node count; predictable cost            |
 | **Spanner Autoscaling** | Scales node count automatically based on load |
 
 ### Pricing Components
 
-| Component | Cost driver |
-|---|---|
+| Component           | Cost driver                                              |
+| ------------------- | -------------------------------------------------------- |
 | **Compute (nodes)** | Per node per hour (regional cheaper than multi-regional) |
-| **Storage** | Per GB per month |
-| **Network egress** | Charged for cross-region reads |
+| **Storage**         | Per GB per month                                         |
+| **Network egress**  | Charged for cross-region reads                           |
 
 - Regional instance: ~1/3 the cost of multi-regional
 - Rule of thumb: start with 1 node per 2 TB of data or 2000 QPS writes
@@ -229,3 +229,26 @@ gcloud spanner databases restore my-database-restored \
 - Use **UUID or hash-prefixed keys** to distribute writes evenly across splits
 - Spanner is expensive — only use when Cloud SQL is no longer sufficient (global scale, horizontal sharding, >64 TB)
 
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Spanner workload is global, relational, and requires strong consistency with unpredictable growth. Which service is best?
+
+A. Cloud SQL
+B. Cloud Spanner
+C. Firestore
+D. Memorystore
+
+Answer: B
+Trap: Global consistency plus horizontal relational scale strongly signals Spanner.
+
+### Q2
+You need automatic up and down scaling for a predictable Spanner traffic pattern. What is best?
+
+A. Manual weekly node changes only
+B. Monitoring alert to webhook plus Cloud Function that resizes Spanner nodes
+C. Ask Google support to resize when alerted
+D. Restart application servers nightly
+
+Answer: B
+Trap: Automation should be policy-driven and integrated with monitoring, not manual email workflows.

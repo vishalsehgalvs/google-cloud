@@ -48,3 +48,27 @@
 | **Allocation quotas** | Govern the number of resources you can have | Default: max 5 VPC networks per project          |
 
 > All projects start with the same default quotas. Some quotas can be increased by requesting a limit increase from Google Cloud Support.
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+For Billing And Cost Controls, you need to be notified at 50%, 90%, and 100% spend and also prevent runaway usage. What is best?
+
+A. Budgets only
+B. Quotas only
+C. Budget alerts plus quotas
+D. Cloud Trace only
+
+Answer: C
+Trap: Budgets notify while quotas enforce hard limits.
+
+### Q2
+You manage many sandbox projects in a Billing And Cost Controls scenario and need owner-specific overspend alerts. What is best?
+
+A. One shared budget for all projects
+B. Budget per project with alert thresholds
+C. CSV export once per quarter
+D. Single alert at billing account only
+
+Answer: B
+Trap: Per-project budgets improve accountability and alert precision.

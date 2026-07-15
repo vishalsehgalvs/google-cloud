@@ -56,3 +56,27 @@ gcloud firestore export gs://my-bucket/firestore-backup
 # Import data from Cloud Storage
 gcloud firestore import gs://my-bucket/firestore-backup
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A mobile app in a Firestore workload needs flexible schema and offline-friendly sync behavior. Which database is best?
+
+A. Cloud SQL
+B. Firestore
+C. Bigtable
+D. Cloud Spanner
+
+Answer: B
+Trap: Firestore is optimized for app-centric document data and flexible schemas.
+
+### Q2
+In a Firestore comparison, when should you avoid Firestore and choose Bigtable?
+
+A. Need huge write throughput and simple key-based access at scale
+B. Need offline mobile sync
+C. Need ad-hoc relational joins
+D. Need single-table SQL warehouse
+
+Answer: A
+Trap: Bigtable is stronger for high-throughput key and time-series patterns.

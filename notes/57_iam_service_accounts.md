@@ -209,13 +209,13 @@ gcloud iam workload-identity-pools providers create-oidc github-provider \
 
 ## Key Management Best Practices
 
-| Practice | Reason |
-|---|---|
-| **Prefer no keys** | Use Workload Identity, impersonation, or ADC instead |
-| **Rotate regularly** | If you must use keys, rotate at least every 90 days |
-| **Never commit keys to source control** | Use `.gitignore`; scan repos with Secret Manager |
-| **Delete unused keys** | Each SA can have max 10 keys — clean up old ones |
-| **Use short-lived tokens** | `gcloud auth print-access-token` for automation |
+| Practice                                | Reason                                               |
+| --------------------------------------- | ---------------------------------------------------- |
+| **Prefer no keys**                      | Use Workload Identity, impersonation, or ADC instead |
+| **Rotate regularly**                    | If you must use keys, rotate at least every 90 days  |
+| **Never commit keys to source control** | Use `.gitignore`; scan repos with Secret Manager     |
+| **Delete unused keys**                  | Each SA can have max 10 keys — clean up old ones     |
+| **Use short-lived tokens**              | `gcloud auth print-access-token` for automation      |
 
 ---
 
@@ -233,3 +233,27 @@ gcloud auth application-default login
 ```
 
 - In production (VMs, GKE, Cloud Run): the **attached service account** is used automatically — no key file needed
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Iam Service Accounts workload on one VM must access one Cloud Storage bucket, but other VMs must not. What is best?
+
+A. Use default Compute Engine service account for all VMs
+B. Create dedicated service account for that VM and grant bucket-level role
+C. Grant project Editor to all VMs
+D. Use one shared user password
+
+Answer: B
+Trap: Default Compute Engine service account is often shared across instances in a project.
+
+### Q2
+A partner project needs access to your BigQuery dataset in a Iam Service Accounts scenario. What should you do?
+
+A. Create partner identity in your project and grant Owner
+B. Ask partner to create service account in their project and grant that SA access to your dataset
+C. Share personal account credential
+D. Disable IAM and use ACL only
+
+Answer: B
+Trap: Cross-project workload identity should remain owned by the consuming project.

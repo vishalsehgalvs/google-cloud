@@ -70,3 +70,27 @@ Preserves an instance's IP address across **autohealing, updates, and recreation
 
 - Configure IPs as stateful for **all existing and future instances** — promotes ephemeral IPs to static
 - Update existing stateful IP configuration at any time
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Mig Autoscaling Health Checks alert says new instances fail to create and desired capacity is not maintained. What should you check first?
+
+A. Validate template configuration and resolve persistent disk name collisions; ensure autoDelete is set correctly
+B. Disable health checks
+C. Delete VPC routes
+D. Recreate billing account
+
+Answer: A
+Trap: Template and disk naming collisions are frequent MIG creation failure causes.
+
+### Q2
+In a Mig Autoscaling Health Checks issue, CPU is at 100% and MIG already reached max replicas. What is the fastest mitigation?
+
+A. Change metric to memory immediately
+B. Increase autoscaler upper limit while investigating application bottleneck
+C. Restart all VMs manually
+D. Disable autoscaling
+
+Answer: B
+Trap: If ceiling is reached, immediate capacity headroom is the quickest stabilization action.

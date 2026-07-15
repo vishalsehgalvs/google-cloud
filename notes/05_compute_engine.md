@@ -118,14 +118,14 @@ gcloud compute instances delete my-vm --zone=us-central1-a
 
 ## Machine Families
 
-| Family | Purpose | Examples |
-|---|---|---|
-| **E2** | Cost-optimised, general purpose | e2-micro, e2-standard-2 |
-| **N2 / N2D** | Balanced price-performance | n2-standard-4 |
-| **C2 / C2D** | Compute-optimised (high CPU) | c2-standard-8 |
-| **M1 / M2** | Memory-optimised (SAP HANA, large in-memory DBs) | m1-ultramem-40 |
-| **A2** | Accelerator-optimised (GPU/ML workloads) | a2-highgpu-1g |
-| **T2D** | Scale-out workloads (AMD, cost-efficient) | t2d-standard-1 |
+| Family       | Purpose                                          | Examples                |
+| ------------ | ------------------------------------------------ | ----------------------- |
+| **E2**       | Cost-optimised, general purpose                  | e2-micro, e2-standard-2 |
+| **N2 / N2D** | Balanced price-performance                       | n2-standard-4           |
+| **C2 / C2D** | Compute-optimised (high CPU)                     | c2-standard-8           |
+| **M1 / M2**  | Memory-optimised (SAP HANA, large in-memory DBs) | m1-ultramem-40          |
+| **A2**       | Accelerator-optimised (GPU/ML workloads)         | a2-highgpu-1g           |
+| **T2D**      | Scale-out workloads (AMD, cost-efficient)        | t2d-standard-1          |
 
 - **Custom machine types** — set exact vCPU and memory; charged per vCPU-hour and per GB-hour
 - **Extended memory** — add more RAM beyond standard ratio for memory-heavy workloads
@@ -134,14 +134,14 @@ gcloud compute instances delete my-vm --zone=us-central1-a
 
 ## Disk Options
 
-| Type | Speed | Use case |
-|---|---|---|
-| **Zonal Standard PD** | HDD — low cost | Sequential read/write, cold data |
-| **Zonal Balanced PD** | SSD — balanced | Most workloads |
-| **Zonal SSD PD** | SSD — high IOPS | Databases, latency-sensitive apps |
-| **Extreme PD** | Highest IOPS | Large DBs (Oracle, SAP) |
-| **Local SSD** | Fastest (ephemeral) | Scratch space, caches — data lost on stop |
-| **Hyperdisk** | Next-gen (scalable IOPS/throughput) | Enterprise workloads |
+| Type                  | Speed                               | Use case                                  |
+| --------------------- | ----------------------------------- | ----------------------------------------- |
+| **Zonal Standard PD** | HDD — low cost                      | Sequential read/write, cold data          |
+| **Zonal Balanced PD** | SSD — balanced                      | Most workloads                            |
+| **Zonal SSD PD**      | SSD — high IOPS                     | Databases, latency-sensitive apps         |
+| **Extreme PD**        | Highest IOPS                        | Large DBs (Oracle, SAP)                   |
+| **Local SSD**         | Fastest (ephemeral)                 | Scratch space, caches — data lost on stop |
+| **Hyperdisk**         | Next-gen (scalable IOPS/throughput) | Enterprise workloads                      |
 
 - Persistent disks can be **resized** without stopping the VM
 - **Boot disk** defaults to the OS image; data disks are attached separately
@@ -177,13 +177,13 @@ gcloud compute instance-templates create my-template \
 
 A group of **identical VMs** created from an instance template. Used for autoscaling and high availability.
 
-| Feature | Detail |
-|---|---|
-| **Autoscaling** | Scale out/in based on CPU, load balancing, custom metrics |
-| **Autohealing** | Replaces unhealthy VMs automatically using health checks |
-| **Rolling updates** | Update VMs progressively with zero downtime |
-| **Multi-zone** | Spread VMs across zones for resilience |
-| **Stateless** | Best for stateless apps (web, API servers) |
+| Feature             | Detail                                                    |
+| ------------------- | --------------------------------------------------------- |
+| **Autoscaling**     | Scale out/in based on CPU, load balancing, custom metrics |
+| **Autohealing**     | Replaces unhealthy VMs automatically using health checks  |
+| **Rolling updates** | Update VMs progressively with zero downtime               |
+| **Multi-zone**      | Spread VMs across zones for resilience                    |
+| **Stateless**       | Best for stateless apps (web, API servers)                |
 
 ```bash
 # Create a MIG
@@ -220,11 +220,11 @@ gcloud compute instances create my-vm \
 
 ## VM Images
 
-| Type | Description |
-|---|---|
-| **Public images** | Provided by Google, Canonical, Debian, etc. |
-| **Custom images** | Built from existing disk or snapshot; reusable across projects |
-| **Machine images** | Full VM capture (disk + config + metadata) for backup/cloning |
+| Type               | Description                                                    |
+| ------------------ | -------------------------------------------------------------- |
+| **Public images**  | Provided by Google, Canonical, Debian, etc.                    |
+| **Custom images**  | Built from existing disk or snapshot; reusable across projects |
+| **Machine images** | Full VM capture (disk + config + metadata) for backup/cloning  |
 
 ```bash
 # Create a custom image from a disk
@@ -247,6 +247,7 @@ gcloud compute images create my-image --source-disk=my-disk \
 ## Sole-Tenant Nodes
 
 Physical servers dedicated exclusively to your project — useful for:
+
 - Compliance requirements (no co-tenancy with other customers)
 - Bring-your-own-license (BYOL) workloads (Windows Server, SQL Server)
 - Performance isolation
@@ -261,3 +262,26 @@ Physical servers dedicated exclusively to your project — useful for:
 - Use **OS Login** instead of SSH keys for secure, auditable access
 - Choose **machine family** based on workload: E2 (general), C2 (compute), M1/M2 (memory), A2 (GPU)
 
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Compute Engine workload requires full OS control and custom runtime with strict policy against managed platforms. Which compute option is best?
+
+A. Compute Engine
+B. Cloud Run Functions
+C. App Engine Standard
+D. Dataflow
+
+Answer: A
+Trap: Full host-level control is a strong Compute Engine signal.
+
+### Q2
+In a Compute Engine scenario, a fault-tolerant nightly batch workload is too expensive. What should you test and then use?
+
+A. Spot or preemptible VMs after simulated interruption testing
+B. Owner role on all instances
+C. Single large sole-tenant node
+D. Cloud DNS autoscaling
+
+Answer: A
+Trap: Interruptible workloads are classic candidates for discounted VM pricing models.

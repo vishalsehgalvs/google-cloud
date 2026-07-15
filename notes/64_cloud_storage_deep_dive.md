@@ -126,11 +126,11 @@ gcloud storage rm gs://my-bucket/my-file.txt#GENERATION_NUMBER
 
 ## Retention Policies and Legal Holds
 
-| Feature | Description |
-|---|---|
-| **Retention policy** | Objects cannot be deleted or replaced until the retention period expires |
-| **Retention lock** | Makes the policy permanent (cannot be shortened or removed) |
-| **Legal hold** | Temporarily blocks deletion regardless of retention period; released manually |
+| Feature              | Description                                                                   |
+| -------------------- | ----------------------------------------------------------------------------- |
+| **Retention policy** | Objects cannot be deleted or replaced until the retention period expires      |
+| **Retention lock**   | Makes the policy permanent (cannot be shortened or removed)                   |
+| **Legal hold**       | Temporarily blocks deletion regardless of retention period; released manually |
 
 ```bash
 # Set a 30-day retention policy
@@ -155,21 +155,21 @@ gcloud storage buckets notifications create gs://my-bucket \
   --event-types=OBJECT_FINALIZE
 ```
 
-| Event type | Trigger |
-|---|---|
-| `OBJECT_FINALIZE` | Object successfully created or overwritten |
-| `OBJECT_DELETE` | Object permanently deleted |
-| `OBJECT_ARCHIVE` | Non-current version created (versioning enabled) |
-| `OBJECT_METADATA_UPDATE` | Object metadata changed |
+| Event type               | Trigger                                          |
+| ------------------------ | ------------------------------------------------ |
+| `OBJECT_FINALIZE`        | Object successfully created or overwritten       |
+| `OBJECT_DELETE`          | Object permanently deleted                       |
+| `OBJECT_ARCHIVE`         | Non-current version created (versioning enabled) |
+| `OBJECT_METADATA_UPDATE` | Object metadata changed                          |
 
 ---
 
 ## Encryption Options
 
-| Type | Who manages keys | Use case |
-|---|---|---|
-| **Google-managed** (default) | Google | Zero effort; suitable for most workloads |
-| **Customer-managed (CMEK)** | You (via Cloud KMS) | Compliance requiring key control; key rotation audit |
+| Type                         | Who manages keys           | Use case                                               |
+| ---------------------------- | -------------------------- | ------------------------------------------------------ |
+| **Google-managed** (default) | Google                     | Zero effort; suitable for most workloads               |
+| **Customer-managed (CMEK)**  | You (via Cloud KMS)        | Compliance requiring key control; key rotation audit   |
 | **Customer-supplied (CSEK)** | You (supplied per request) | Maximum key control; you hold key material, not Google |
 
 ```bash
@@ -208,12 +208,12 @@ gcloud storage buckets update gs://my-bucket --cors-file=cors.json
 
 Managed service for large-scale data transfers **into** Cloud Storage:
 
-| Source | Use case |
-|---|---|
-| Another GCS bucket | Cross-region/project copy |
-| AWS S3 | Cloud migration |
-| HTTP/HTTPS URLs | Public dataset ingestion |
-| On-premises (Transfer Service for On Premises Data) | Local file servers |
+| Source                                              | Use case                  |
+| --------------------------------------------------- | ------------------------- |
+| Another GCS bucket                                  | Cross-region/project copy |
+| AWS S3                                              | Cloud migration           |
+| HTTP/HTTPS URLs                                     | Public dataset ingestion  |
+| On-premises (Transfer Service for On Premises Data) | Local file servers        |
 
 - Supports filters (by prefix, creation time), scheduling, and deletions after transfer
 - For one-off transfers < 1TB, `gsutil rsync` or `gcloud storage rsync` is simpler
@@ -238,11 +238,35 @@ gcloud storage buckets update gs://my-bucket \
 
 ## Key Takeaways — Cloud Storage Deep Dive
 
-| Topic | Key Point |
-|---|---|
-| **Versioning** | Keeps old copies; add lifecycle rules to control costs |
-| **Retention policy** | WORM compliance; lock to make permanent |
-| **Legal hold** | Blocks deletion independently of retention period |
-| **CMEK vs CSEK** | CMEK = Cloud KMS; CSEK = you supply key bytes per request |
+| Topic                     | Key Point                                                  |
+| ------------------------- | ---------------------------------------------------------- |
+| **Versioning**            | Keeps old copies; add lifecycle rules to control costs     |
+| **Retention policy**      | WORM compliance; lock to make permanent                    |
+| **Legal hold**            | Blocks deletion independently of retention period          |
+| **CMEK vs CSEK**          | CMEK = Cloud KMS; CSEK = you supply key bytes per request  |
 | **Pub/Sub notifications** | Use to trigger Cloud Functions/Cloud Run on object changes |
-| **Transfer Service** | Best for large migrations from S3 or on-premises |
+| **Transfer Service**      | Best for large migrations from S3 or on-premises           |
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Cloud Storage Deep Dive scenario, files are used continually by an analytics pipeline in one region. Which storage class is best for minimal cost and performance fit?
+
+A. Standard in closest region
+B. Nearline in closest region
+C. Archive in dual-region
+D. Coldline in dual-region
+
+Answer: A
+Trap: Continual access generally means Standard, while colder classes penalize frequent retrieval.
+
+### Q2
+Backup files older than 90 days must be removed automatically in a Cloud Storage Deep Dive bucket. What should you do?
+
+A. Manual deletion script only
+B. Lifecycle rule in JSON with Delete action and Age condition 90
+C. Rename old files to another prefix only
+D. Disable object versioning
+
+Answer: B
+Trap: Lifecycle rules are the managed and auditable approach for retention cleanup.

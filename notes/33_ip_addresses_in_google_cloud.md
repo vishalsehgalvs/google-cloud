@@ -147,3 +147,27 @@ gcloud compute addresses create my-internal-ip \
 # Release a static IP
 gcloud compute addresses delete my-static-ip --region=us-central1
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Ip Addresses In Google Cloud architecture with autoscaling tiers, traffic must flow web to API to database only. How should you enforce this?
+
+A. Separate projects without firewall policy
+B. Tags or service-account-based firewall rules between tiers
+C. DNS records only
+D. Disable internal communication
+
+Answer: B
+Trap: Layered firewall policy with identity or tags is robust against autoscaling IP changes.
+
+### Q2
+A private VM in Ip Addresses In Google Cloud needs outbound internet updates but no inbound internet. What should you configure?
+
+A. External IP on each VM
+B. Cloud NAT
+C. Cloud Armor only
+D. Internal TCP load balancer
+
+Answer: B
+Trap: Cloud NAT handles outbound internet for private instances without exposing inbound services.

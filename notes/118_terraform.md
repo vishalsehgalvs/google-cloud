@@ -326,12 +326,12 @@ output "bucket_name" {
 
 ### Why State Matters
 
-| Purpose         | Detail                                                                                 |
-| --------------- | -------------------------------------------------------------------------------------- |
-| **Mapping**     | Links `resource "google_compute_instance" "foo"` → actual VM `i-abcd1234` in GCP       |
-| **Metadata**    | Stores dependency order so resources are destroyed in the right sequence               |
-| **Performance** | Caches attribute values — avoids querying every resource on every `plan`               |
-| **Sync**        | Remote state ensures everyone on a team works from the same source of truth            |
+| Purpose         | Detail                                                                           |
+| --------------- | -------------------------------------------------------------------------------- |
+| **Mapping**     | Links `resource "google_compute_instance" "foo"` → actual VM `i-abcd1234` in GCP |
+| **Metadata**    | Stores dependency order so resources are destroyed in the right sequence         |
+| **Performance** | Caches attribute values — avoids querying every resource on every `plan`         |
+| **Sync**        | Remote state ensures everyone on a team works from the same source of truth      |
 
 ### Key State Commands
 
@@ -476,6 +476,7 @@ LICENSE         # License (not used by Terraform)
 ```
 
 Files **not** to distribute with a module:
+
 - `terraform.tfstate` / `terraform.tfstate.backup` — instance-specific state
 - `.terraform/` — downloaded plugins and modules
 - `*.tfvars` — variable value files
@@ -511,3 +512,26 @@ terraform destroy -target=google_compute_firewall.tf-firewall -auto-approve
 - `-target` is for **emergency/recovery use only** — not normal workflow
 - Always run a plain `terraform apply` afterward to ensure state is fully in sync
 
+## ACE Exam-Style Practice Questions
+
+### Q1
+For Terraform, the company wants repeatable multi-environment provisioning with minimal repetitive code. What should you use?
+
+A. IaC templates and modules
+B. Manual console steps each time
+C. Ad-hoc scripts without version control
+D. Spreadsheet-only process
+
+Answer: A
+Trap: Declarative IaC improves consistency, auditability, and reuse.
+
+### Q2
+In a Terraform scenario, you must deploy supported third-party software quickly with managed packaging. Which option is best?
+
+A. Google Cloud Marketplace solution deployment
+B. Build everything from source on one VM manually
+C. Use Cloud Trace to install software
+D. Export billing CSV first
+
+Answer: A
+Trap: Marketplace is designed for rapid deployment of curated solutions.

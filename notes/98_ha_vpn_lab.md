@@ -20,3 +20,27 @@ Two VPCs connected via HA VPN to simulate a GCP-to-on-premises setup:
 5. Create an **HA VPN gateway** and a **Cloud Router** in each VPC
 6. Run **two tunnels** from each HA VPN gateway (required for 99.99% SLA)
 7. Test the configuration to verify connectivity and the 99.99% SLA behavior
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Ha Vpn Lab scenario, two answers seem technically possible. What tie-breaker should you apply first?
+
+A. Pick the option with most manual steps
+B. Pick the option with least privilege and least operational overhead that still meets requirements
+C. Pick highest-cost option
+D. Pick the oldest product
+
+Answer: B
+Trap: ACE-style scenarios reward secure, managed, requirement-fit decisions.
+
+### Q2
+For Ha Vpn Lab, what is the best way to reduce wrong answers in multi-choice questions?
+
+A. Ignore scaling and security words
+B. Identify trigger words, eliminate over-privileged choices, then choose the managed fit
+C. Always pick Compute Engine
+D. Always pick the shortest option
+
+Answer: B
+Trap: Structured elimination is more reliable than memorization alone.

@@ -101,3 +101,27 @@ Run the command multiple times — you should see responses alternating between 
 # Example output pattern across multiple curls:
 # group 2, group 2, group 2, group 1, group 2, group 1 ...
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Internal Load Balancer Lab scenario, two answers seem technically possible. What tie-breaker should you apply first?
+
+A. Pick the option with most manual steps
+B. Pick the option with least privilege and least operational overhead that still meets requirements
+C. Pick highest-cost option
+D. Pick the oldest product
+
+Answer: B
+Trap: ACE-style scenarios reward secure, managed, requirement-fit decisions.
+
+### Q2
+For Internal Load Balancer Lab, what is the best way to reduce wrong answers in multi-choice questions?
+
+A. Ignore scaling and security words
+B. Identify trigger words, eliminate over-privileged choices, then choose the managed fit
+C. Always pick Compute Engine
+D. Always pick the shortest option
+
+Answer: B
+Trap: Structured elimination is more reliable than memorization alone.

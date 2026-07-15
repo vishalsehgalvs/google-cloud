@@ -80,3 +80,27 @@ VM Instances
 If all backends in a region are at full usage, requests are **automatically routed to the nearest region** that still has capacity.
 
 > Changes to backend services take **several minutes** to propagate across the network.
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Application Load Balancing requirement needs host and path-based routing for internet users with managed TLS. Which option is best?
+
+A. External Application Load Balancer
+B. Internal passthrough load balancer
+C. Cloud NAT
+D. Direct VM IP without load balancing
+
+Answer: A
+Trap: URL map and host routing are Layer 7 capabilities.
+
+### Q2
+In a Application Load Balancing case, you must preserve original client IP and handle UDP. Which option should you pick?
+
+A. Application Load Balancer
+B. Passthrough Network Load Balancer
+C. Cloud CDN only
+D. Cloud DNS private zone
+
+Answer: B
+Trap: Client-IP preservation and UDP are Layer 4 passthrough patterns.

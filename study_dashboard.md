@@ -6,6 +6,15 @@ Use this as your single control panel.
 
 - Super Crisp Track: `practitioner_super_crisp/`
 - Deep Dive Track: `practitioner_deep_dive_path/`
+- Refactor Track: `ace_exam_refactor/`
+
+## Refactor Track (Recommended For Retake)
+
+1. Read `ace_exam_refactor/00_READ_ME_FIRST.md`
+2. Read one domain from `ace_exam_refactor/01` to `ace_exam_refactor/07`
+3. Review `ace_exam_refactor/08_pinpoint_traps.md`
+4. Solve scenarios in `ace_exam_refactor/09_real_world_scenarios.md`
+5. Rehearse commands from `ace_exam_refactor/10_command_playbook.md`
 
 ## How To Decide Which Track Today
 

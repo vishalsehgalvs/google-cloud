@@ -72,3 +72,27 @@ Database tier (per zone)
 - **Internal NLB** connects the web tier to the app tier — not exposed externally
 - **Database tier** is also never exposed externally
 - Benefits: simplified security, reduced network pricing
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Internal Load Balancing requirement needs host and path-based routing for internet users with managed TLS. Which option is best?
+
+A. External Application Load Balancer
+B. Internal passthrough load balancer
+C. Cloud NAT
+D. Direct VM IP without load balancing
+
+Answer: A
+Trap: URL map and host routing are Layer 7 capabilities.
+
+### Q2
+In a Internal Load Balancing case, you must preserve original client IP and handle UDP. Which option should you pick?
+
+A. Application Load Balancer
+B. Passthrough Network Load Balancer
+C. Cloud CDN only
+D. Cloud DNS private zone
+
+Answer: B
+Trap: Client-IP preservation and UDP are Layer 4 passthrough patterns.

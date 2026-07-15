@@ -145,3 +145,27 @@ gcloud compute routers add-bgp-peer my-router \
 # List VPN tunnels
 gcloud compute vpn-tunnels list
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+For Cloud Vpn, you need highly available hybrid connectivity with dynamic route exchange. What should you choose?
+
+A. HA VPN with Cloud Router
+B. Static routes only over one tunnel
+C. Cloud NAT only
+D. Cloud CDN
+
+Answer: A
+Trap: Dynamic routing and high availability requirements usually indicate HA VPN plus BGP.
+
+### Q2
+In a Cloud Vpn design, multiple projects in one org need centralized networking administration. What is best?
+
+A. Shared VPC
+B. Separate isolated VPCs with no governance
+C. One service account for every project owner
+D. DNS forwarding only
+
+Answer: A
+Trap: Shared VPC centralizes subnet and firewall control across service projects.

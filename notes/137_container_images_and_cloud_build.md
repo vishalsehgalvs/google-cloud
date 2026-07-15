@@ -127,3 +127,27 @@ Define a series of steps — each step runs in a Docker container:
 | **Google Kubernetes Engine** | Managed containers |
 | **App Engine**               | PaaS               |
 | **Cloud Run functions**      | Serverless         |
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Container Images And Cloud Build workload requires full OS control and custom runtime with strict policy against managed platforms. Which compute option is best?
+
+A. Compute Engine
+B. Cloud Run Functions
+C. App Engine Standard
+D. Dataflow
+
+Answer: A
+Trap: Full host-level control is a strong Compute Engine signal.
+
+### Q2
+In a Container Images And Cloud Build scenario, a fault-tolerant nightly batch workload is too expensive. What should you test and then use?
+
+A. Spot or preemptible VMs after simulated interruption testing
+B. Owner role on all instances
+C. Single large sole-tenant node
+D. Cloud DNS autoscaling
+
+Answer: A
+Trap: Interruptible workloads are classic candidates for discounted VM pricing models.

@@ -43,3 +43,29 @@ Two configurations for sharing VPC networks across GCP projects.
 | Private communication between VPCs **across projects in the same org**      | Either — depends on admin model                             |
 | **Centralized** network administration (single network policy)              | Shared VPC                                                  |
 | **Decentralized** network administration (each team controls their own VPC) | VPC Network Peering                                         |
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+
+You need private connectivity between two VPCs owned by different organizations in a Shared VPC and peering design. Which option is correct?
+
+A. Shared VPC
+B. VPC Network Peering
+C. Cloud NAT
+D. Internal passthrough load balancer
+
+Answer: B
+Trap: Shared VPC is for projects within the same organization and centralized administration model.
+
+### Q2
+
+Your platform team wants centralized control of subnets, routes, and firewall policies for multiple projects in one organization. What should you use?
+
+A. Shared VPC with host and service projects
+B. Separate stand-alone VPC per project with no sharing
+C. Public IP routing only
+D. Cloud DNS private zones only
+
+Answer: A
+Trap: VPC peering enables connectivity, but does not provide centralized network administration.

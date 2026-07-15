@@ -128,3 +128,27 @@ gcloud iam policies list \
 # List organization policies on a project
 gcloud resource-manager org-policies list --project=PROJECT_ID
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+For Iam Members And Policies, a team needs only permission to read logs and datasets without modification rights. What is best?
+
+A. roles/editor
+B. roles/owner
+C. Predefined read-only roles assigned to a Google Group
+D. Shared admin account
+
+Answer: C
+Trap: Broad primitive roles are common distractors when least privilege is explicit.
+
+### Q2
+In a Iam Members And Policies question, two options work technically but one grants extra permissions. Which should you choose?
+
+A. Broad role for future convenience
+B. Narrow role that satisfies exact requirement
+C. Owner to avoid access errors
+D. Service account key in source code
+
+Answer: B
+Trap: Exam scoring favors least privilege and operational safety.

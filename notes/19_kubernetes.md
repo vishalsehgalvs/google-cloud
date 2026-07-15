@@ -158,13 +158,13 @@ gcloud container clusters delete my-cluster --zone=us-central1-a
 
 Beyond Deployments, Kubernetes has specialised controllers:
 
-| Type | Purpose |
-|---|---|
-| **Deployment** | Stateless apps — web servers, APIs |
+| Type            | Purpose                                                                          |
+| --------------- | -------------------------------------------------------------------------------- |
+| **Deployment**  | Stateless apps — web servers, APIs                                               |
 | **StatefulSet** | Stateful apps — databases, Kafka; stable network identity and persistent storage |
-| **DaemonSet** | Run one Pod per node — log collectors, monitoring agents |
-| **Job** | Run to completion — batch processing |
-| **CronJob** | Run on a schedule — nightly reports, cleanup tasks |
+| **DaemonSet**   | Run one Pod per node — log collectors, monitoring agents                         |
+| **Job**         | Run to completion — batch processing                                             |
+| **CronJob**     | Run on a schedule — nightly reports, cleanup tasks                               |
 
 ---
 
@@ -212,11 +212,11 @@ kubectl create secret generic db-secret \
 
 For stateful apps that need data to survive Pod restarts:
 
-| Object | Role |
-|---|---|
-| **PersistentVolume (PV)** | A piece of storage provisioned in the cluster |
-| **PersistentVolumeClaim (PVC)** | A request for storage by a Pod |
-| **StorageClass** | Defines the type of storage (SSD, HDD) and provisioner |
+| Object                          | Role                                                   |
+| ------------------------------- | ------------------------------------------------------ |
+| **PersistentVolume (PV)**       | A piece of storage provisioned in the cluster          |
+| **PersistentVolumeClaim (PVC)** | A request for storage by a Pod                         |
+| **StorageClass**                | Defines the type of storage (SSD, HDD) and provisioner |
 
 ```yaml
 apiVersion: v1
@@ -239,10 +239,10 @@ spec:
 ```yaml
 resources:
   requests:
-    cpu: "250m"      # 0.25 vCPU guaranteed
+    cpu: "250m" # 0.25 vCPU guaranteed
     memory: "128Mi"
   limits:
-    cpu: "500m"      # Max 0.5 vCPU
+    cpu: "500m" # Max 0.5 vCPU
     memory: "256Mi"
 ```
 
@@ -303,12 +303,12 @@ example.com/web  → web-service
 
 Controls who can do what inside the cluster:
 
-| Object | Scope |
-|---|---|
-| **Role** | Permissions within a single namespace |
-| **ClusterRole** | Permissions across the whole cluster |
-| **RoleBinding** | Grants a Role to a user/service account in a namespace |
-| **ClusterRoleBinding** | Grants a ClusterRole cluster-wide |
+| Object                 | Scope                                                  |
+| ---------------------- | ------------------------------------------------------ |
+| **Role**               | Permissions within a single namespace                  |
+| **ClusterRole**        | Permissions across the whole cluster                   |
+| **RoleBinding**        | Grants a Role to a user/service account in a namespace |
+| **ClusterRoleBinding** | Grants a ClusterRole cluster-wide                      |
 
 ```bash
 # View current permissions
@@ -345,3 +345,26 @@ kubectl get pods -l app=web,env=production
 - **Ingress** replaces multiple LoadBalancer Services with a single HTTP(S) LB
 - **RBAC** restricts access inside the cluster — always follow least-privilege
 
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Kubernetes cluster, one microservice is CPU-heavy while others are general purpose. How should you optimize?
+
+A. Keep one node pool and only increase pod priority
+B. Create dedicated compute-optimized node pool for CPU-heavy workload and keep general-purpose pool for others
+C. Disable autoscaling
+D. Move workload to Cloud Storage
+
+Answer: B
+Trap: Node pools allow workload-specific machine-family optimization.
+
+### Q2
+A Kubernetes deployment must be updated with minimal downtime. Which command pattern is best?
+
+A. Delete and recreate service and deployment
+B. kubectl set image deployment/NAME CONTAINER=NEW_IMAGE
+C. Restart all cluster nodes
+D. Create a new project for each version
+
+Answer: B
+Trap: Rolling image update is safer and faster than destructive redeploy patterns.

@@ -25,3 +25,29 @@
 - **Managed Instance Groups (MIGs)** and their autoscaling configurations
 - How to choose the right load balancer for a given use case
 - Two hands-on labs covering the features
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+
+Your internet-facing app needs URL path-based routing with managed TLS in a load balancing and autoscaling design. Which option is best?
+
+A. External Application Load Balancer
+B. Internal passthrough load balancer
+C. Cloud NAT
+D. Direct VM IP without load balancing
+
+Answer: A
+Trap: Host and path routing are Layer 7 capabilities provided by Application Load Balancing.
+
+### Q2
+
+Your managed instance group is at max replicas and each instance shows sustained 100% CPU during a traffic surge. What is the fastest first mitigation?
+
+A. Change autoscaling metric to memory immediately
+B. Increase the autoscaler upper limit, then investigate bottlenecks
+C. Disable health checks
+D. Restart all VMs manually
+
+Answer: B
+Trap: If autoscaling has hit the ceiling, raising max replicas is the quickest way to regain headroom.

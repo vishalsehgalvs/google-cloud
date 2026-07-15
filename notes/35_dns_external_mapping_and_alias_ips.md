@@ -139,3 +139,27 @@ gcloud dns managed-zones create my-zone \
 # List DNS records
 gcloud dns record-sets list --zone=my-zone
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Dns External Mapping And Alias Ips setup, you need low-latency global delivery of static assets. What should you use?
+
+A. Cloud CDN
+B. Cloud SQL read replica
+C. Cloud VPN
+D. Internal DNS only
+
+Answer: A
+Trap: Edge caching is the primary mechanism for global static content acceleration.
+
+### Q2
+For Dns External Mapping And Alias Ips DNS design, what record type is valid for zone apex root domain mapping to a load balancer IP?
+
+A. CNAME only
+B. A record
+C. TXT only
+D. PTR only
+
+Answer: B
+Trap: Root domains cannot use CNAME in standard DNS setups.

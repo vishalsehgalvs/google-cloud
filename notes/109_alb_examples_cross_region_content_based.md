@@ -43,3 +43,27 @@ If a region has **no healthy instances or no available capacity**, the load bala
 | Everything else | web-service backend   |
 
 The URL map inspects the request URL header and routes accordingly — all behind a single global IP.
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Alb Examples Cross Region Content Based requirement needs host and path-based routing for internet users with managed TLS. Which option is best?
+
+A. External Application Load Balancer
+B. Internal passthrough load balancer
+C. Cloud NAT
+D. Direct VM IP without load balancing
+
+Answer: A
+Trap: URL map and host routing are Layer 7 capabilities.
+
+### Q2
+In a Alb Examples Cross Region Content Based case, you must preserve original client IP and handle UDP. Which option should you pick?
+
+A. Application Load Balancer
+B. Passthrough Network Load Balancer
+C. Cloud CDN only
+D. Cloud DNS private zone
+
+Answer: B
+Trap: Client-IP preservation and UDP are Layer 4 passthrough patterns.

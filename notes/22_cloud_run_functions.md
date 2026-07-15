@@ -96,3 +96,27 @@ gcloud functions logs read my-function
 # Delete a function
 gcloud functions delete my-function
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Cloud Run Functions service is event-driven and should scale automatically with minimal infrastructure management. Which option is usually best?
+
+A. Cloud Run or Cloud Run Functions depending on trigger pattern
+B. Unmanaged VMs only
+C. Self-managed Kubernetes on Compute Engine
+D. Dedicated interconnect
+
+Answer: A
+Trap: Event-driven and minimal-ops requirements typically map to serverless services.
+
+### Q2
+In a Cloud Run Functions release, you need safe rollout and quick rollback using real traffic testing. What should you do?
+
+A. Overwrite current version in place
+B. Deploy new version and use traffic splitting or gradual migration
+C. Delete old version before testing
+D. Disable logging during rollout
+
+Answer: B
+Trap: Versioned deployments plus traffic control provide safer rollback paths.

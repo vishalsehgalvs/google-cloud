@@ -42,3 +42,27 @@ Control how Cloud CDN caches content and whether it respects cache directives fr
 | `FORCE_CACHE_ALL` | Unconditionally caches all responses, overriding any cache directives set by the origin |
 
 > **Warning:** Do not use `FORCE_CACHE_ALL` with a shared backend that serves private, per-user content (e.g., dynamic HTML or API responses) — it will cache and serve that content to other users.
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Cloud Cdn setup, you need low-latency global delivery of static assets. What should you use?
+
+A. Cloud CDN
+B. Cloud SQL read replica
+C. Cloud VPN
+D. Internal DNS only
+
+Answer: A
+Trap: Edge caching is the primary mechanism for global static content acceleration.
+
+### Q2
+For Cloud Cdn DNS design, what record type is valid for zone apex root domain mapping to a load balancer IP?
+
+A. CNAME only
+B. A record
+C. TXT only
+D. PTR only
+
+Answer: B
+Trap: Root domains cannot use CNAME in standard DNS setups.

@@ -45,3 +45,27 @@
 
 - Open-source Kubernetes provides a dashboard, but it requires **significant effort to set up securely**
 - The **Google Cloud Console** offers a more powerful, managed dashboard for GKE clusters and workloads — no setup or management required
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Gke Overview cluster, one microservice is CPU-heavy while others are general purpose. How should you optimize?
+
+A. Keep one node pool and only increase pod priority
+B. Create dedicated compute-optimized node pool for CPU-heavy workload and keep general-purpose pool for others
+C. Disable autoscaling
+D. Move workload to Cloud Storage
+
+Answer: B
+Trap: Node pools allow workload-specific machine-family optimization.
+
+### Q2
+A Gke Overview deployment must be updated with minimal downtime. Which command pattern is best?
+
+A. Delete and recreate service and deployment
+B. kubectl set image deployment/NAME CONTAINER=NEW_IMAGE
+C. Restart all cluster nodes
+D. Create a new project for each version
+
+Answer: B
+Trap: Rolling image update is safer and faster than destructive redeploy patterns.

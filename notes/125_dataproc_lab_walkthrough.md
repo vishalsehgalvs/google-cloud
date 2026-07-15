@@ -93,3 +93,27 @@ When you no longer need the cluster:
 - **Resize clusters on demand** — add or remove workers at any time
 - **Delete clusters when idle** to avoid paying for unused compute
 - Submit standard Spark, Hadoop, Pig, or Hive jobs without changing your existing code
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Dataproc Lab Walkthrough migration requires moving existing Spark jobs with minimal code changes. What should you choose?
+
+A. Dataproc
+B. Cloud Run Functions
+C. App Engine Standard
+D. Compute Engine single VM only
+
+Answer: A
+Trap: Existing Spark and Hadoop workloads map directly to Dataproc.
+
+### Q2
+For Dataproc Lab Walkthrough cost optimization on intermittent jobs, what is best?
+
+A. Keep a large cluster running 24x7
+B. Create ephemeral clusters per job and delete after completion
+C. Disable autoscaling and logging
+D. Move all jobs to Cloud DNS
+
+Answer: B
+Trap: Ephemeral clusters reduce idle cost while preserving Spark compatibility.

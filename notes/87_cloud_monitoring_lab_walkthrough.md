@@ -97,3 +97,27 @@
 | Alerting policy   | Two conditions (CPU usage + reserved cores); email notification |
 | Resource group    | Grouped all nginx VMs by name filter                            |
 | Uptime check      | HTTP check on VM group every 1 minute                           |
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Cloud Monitoring Lab Walkthrough requirement asks to collect logs from all current and future production projects only. What should you do?
+
+A. Configure manual exports in each project every month
+B. Configure aggregated log sink at production folder level
+C. Disable Cloud Logging and use VM files
+D. Send logs to Cloud DNS
+
+Answer: B
+Trap: Folder-level aggregated sinks capture both existing and future child projects.
+
+### Q2
+In a Cloud Monitoring Lab Walkthrough incident, only a few requests are slow across many microservices. Which tool is best to identify the slow hop?
+
+A. Cloud Trace
+B. Cloud Storage lifecycle
+C. Cloud Build trigger
+D. Cloud Armor policy
+
+Answer: A
+Trap: Distributed tracing is designed for per-hop latency diagnosis.

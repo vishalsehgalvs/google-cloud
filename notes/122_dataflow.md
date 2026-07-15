@@ -53,3 +53,27 @@
 - Batch ETL (extract, transform, load) pipelines
 - Data enrichment and quality monitoring
 - Building real-time dashboards from live data streams
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Dataflow pipeline must ingest events continuously and transform data before analytics. Which architecture is best?
+
+A. Pub/Sub plus Dataflow plus BigQuery
+B. Cloud Storage plus weekly script
+C. Cloud SQL plus cron job
+D. VM logs only
+
+Answer: A
+Trap: Near real-time transformation at scale typically needs managed streaming components.
+
+### Q2
+For Dataflow operations, how should you inspect failed transformations quickly?
+
+A. Disable logging to reduce cost
+B. Use Dataflow job metrics and Cloud Logging for worker errors
+C. Increase DNS TTL
+D. Recreate project each run
+
+Answer: B
+Trap: Observability of managed pipelines depends on metrics and logs, not infrastructure rebuilds.

@@ -156,12 +156,12 @@ gcloud container node-pools create gpu-pool \
 
 ## Cluster Upgrades
 
-| Setting | Detail |
-|---|---|
-| **Auto-upgrade** | Enabled by default; keeps nodes on a supported version |
-| **Release channels** | `rapid`, `regular` (default), `stable` — controls upgrade cadence |
-| **Surge upgrades** | Controls how many extra nodes are created during rolling upgrade |
-| **Maintenance windows** | Restrict upgrade times to off-peak hours |
+| Setting                 | Detail                                                            |
+| ----------------------- | ----------------------------------------------------------------- |
+| **Auto-upgrade**        | Enabled by default; keeps nodes on a supported version            |
+| **Release channels**    | `rapid`, `regular` (default), `stable` — controls upgrade cadence |
+| **Surge upgrades**      | Controls how many extra nodes are created during rolling upgrade  |
+| **Maintenance windows** | Restrict upgrade times to off-peak hours                          |
 
 ```bash
 # Set release channel
@@ -200,11 +200,35 @@ Enforces that only **trusted container images** are deployed to GKE:
 
 ## Key Takeaways — GKE
 
-| Topic | Key Point |
-|---|---|
-| **Autopilot** | Google manages nodes, scaling, security — best for most workloads |
-| **Workload Identity** | Always use instead of service account key files |
-| **VPC-native** | Use alias IP clusters for full VPC integration |
-| **Node pools** | Separate workloads by hardware requirements |
-| **Release channels** | Use `regular` for production stability |
-| **Cluster autoscaler** | Scales nodes; HPA scales Pods — use both together |
+| Topic                  | Key Point                                                         |
+| ---------------------- | ----------------------------------------------------------------- |
+| **Autopilot**          | Google manages nodes, scaling, security — best for most workloads |
+| **Workload Identity**  | Always use instead of service account key files                   |
+| **VPC-native**         | Use alias IP clusters for full VPC integration                    |
+| **Node pools**         | Separate workloads by hardware requirements                       |
+| **Release channels**   | Use `regular` for production stability                            |
+| **Cluster autoscaler** | Scales nodes; HPA scales Pods — use both together                 |
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Gke cluster, one microservice is CPU-heavy while others are general purpose. How should you optimize?
+
+A. Keep one node pool and only increase pod priority
+B. Create dedicated compute-optimized node pool for CPU-heavy workload and keep general-purpose pool for others
+C. Disable autoscaling
+D. Move workload to Cloud Storage
+
+Answer: B
+Trap: Node pools allow workload-specific machine-family optimization.
+
+### Q2
+A Gke deployment must be updated with minimal downtime. Which command pattern is best?
+
+A. Delete and recreate service and deployment
+B. kubectl set image deployment/NAME CONTAINER=NEW_IMAGE
+C. Restart all cluster nodes
+D. Create a new project for each version
+
+Answer: B
+Trap: Rolling image update is safer and faster than destructive redeploy patterns.

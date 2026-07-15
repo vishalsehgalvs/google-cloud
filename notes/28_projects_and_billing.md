@@ -213,3 +213,29 @@ They control:
 - What context your Console and Cloud Shell commands operate in
 
 If you understand projects, you understand the foundation of how Google Cloud stays organized.
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+
+You need a separate environment with isolated IAM, API enablement, quotas, and billing for a new team. What should you do first?
+
+A. Add the team as Editor on an existing project
+B. Create a new project and link it to the correct billing account
+C. Create only a folder and keep one shared project
+D. Use one service account for every team
+
+Answer: B
+Trap: The project is the core isolation boundary for billing, IAM, APIs, and quotas.
+
+### Q2
+
+You want automatic notifications at 50%, 90%, and 100% spend and also want to prevent runaway usage in sandbox projects. What is best?
+
+A. Budgets only
+B. Quotas only
+C. Budget alerts plus quotas
+D. Billing export only
+
+Answer: C
+Trap: Budgets provide alerts, while quotas enforce hard usage limits.

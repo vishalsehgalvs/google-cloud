@@ -151,11 +151,11 @@ gcloud monitoring dashboards create --config-from-file=dashboard.json
 
 ## Metric Types
 
-| Type | Description | Example |
-|---|---|---|
-| **Gauge** | Point-in-time value (no aggregation needed) | CPU utilisation at a moment |
-| **Delta** | Change over a time interval | Request count in the last minute |
-| **Cumulative** | Monotonically increasing total since reset | Total bytes sent since VM started |
+| Type           | Description                                 | Example                           |
+| -------------- | ------------------------------------------- | --------------------------------- |
+| **Gauge**      | Point-in-time value (no aggregation needed) | CPU utilisation at a moment       |
+| **Delta**      | Change over a time interval                 | Request count in the last minute  |
+| **Cumulative** | Monotonically increasing total since reset  | Total bytes sent since VM started |
 
 - Delta and cumulative metrics need an **alignment function** (rate, delta) before charting
 
@@ -173,6 +173,7 @@ Error budget = 1 - SLO
 ```
 
 Cloud Monitoring supports SLO monitoring via the **Service Monitoring** section:
+
 - Define a service and its SLI (request-based or window-based)
 - Set the SLO percentage and rolling window
 - Alert when error budget burn rate is too high
@@ -183,14 +184,14 @@ Cloud Monitoring supports SLO monitoring via the **Service Monitoring** section:
 
 ### Notification Channels
 
-| Channel | Setup |
-|---|---|
-| **Email** | Add directly in Console |
-| **PagerDuty** | Provide integration key |
-| **Slack** | OAuth integration; choose channel |
-| **Webhook** | HTTPS endpoint; payload is JSON |
-| **SMS** | Via phone number |
-| **Pub/Sub** | Route to any downstream system |
+| Channel       | Setup                             |
+| ------------- | --------------------------------- |
+| **Email**     | Add directly in Console           |
+| **PagerDuty** | Provide integration key           |
+| **Slack**     | OAuth integration; choose channel |
+| **Webhook**   | HTTPS endpoint; payload is JSON   |
+| **SMS**       | Via phone number                  |
+| **Pub/Sub**   | Route to any downstream system    |
 
 ### Alert Conditions
 
@@ -249,11 +250,35 @@ sudo systemctl status google-cloud-ops-agent
 
 ## Key Takeaways — Cloud Monitoring
 
-| Topic | Key Point |
-|---|---|
-| **Gauge/Delta/Cumulative** | Choose correct alignment before aggregating metrics |
-| **SLOs** | Define SLI → SLO → alert on error budget burn rate |
-| **Notification channels** | PagerDuty/Slack/Webhook all supported natively |
-| **MQL** | Use for complex multi-resource queries or ratio metrics |
-| **Ops Agent** | Replaces legacy agents; collects metrics + logs in one |
-| **Maintenance windows** | Suppress noisy alerts during planned downtime |
+| Topic                      | Key Point                                               |
+| -------------------------- | ------------------------------------------------------- |
+| **Gauge/Delta/Cumulative** | Choose correct alignment before aggregating metrics     |
+| **SLOs**                   | Define SLI → SLO → alert on error budget burn rate      |
+| **Notification channels**  | PagerDuty/Slack/Webhook all supported natively          |
+| **MQL**                    | Use for complex multi-resource queries or ratio metrics |
+| **Ops Agent**              | Replaces legacy agents; collects metrics + logs in one  |
+| **Maintenance windows**    | Suppress noisy alerts during planned downtime           |
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Cloud Monitoring requirement asks to collect logs from all current and future production projects only. What should you do?
+
+A. Configure manual exports in each project every month
+B. Configure aggregated log sink at production folder level
+C. Disable Cloud Logging and use VM files
+D. Send logs to Cloud DNS
+
+Answer: B
+Trap: Folder-level aggregated sinks capture both existing and future child projects.
+
+### Q2
+In a Cloud Monitoring incident, only a few requests are slow across many microservices. Which tool is best to identify the slow hop?
+
+A. Cloud Trace
+B. Cloud Storage lifecycle
+C. Cloud Build trigger
+D. Cloud Armor policy
+
+Answer: A
+Trap: Distributed tracing is designed for per-hop latency diagnosis.

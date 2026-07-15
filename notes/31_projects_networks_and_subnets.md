@@ -383,3 +383,29 @@ gcloud compute networks subnets create my-subnet \
 # Delete a network
 gcloud compute networks delete my-network
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+
+In a projects, networks, and subnets design, autoscaling tiers must allow only web to API to database traffic without relying on static IP addresses. What is best?
+
+A. DNS records only
+B. Firewall rules based on network tags or service accounts
+C. Disable internal traffic by default and manage manually
+D. One flat subnet with no firewall policy
+
+Answer: B
+Trap: Autoscaling changes instance IPs, so identity or tag-based firewall controls are more stable.
+
+### Q2
+
+Your private VM in this network has no external IP but must still install patches from the internet. What should you configure?
+
+A. Public IP per VM
+B. Cloud NAT
+C. Internal passthrough load balancer
+D. Cloud Armor only
+
+Answer: B
+Trap: Cloud NAT provides outbound internet for private instances without opening inbound paths.

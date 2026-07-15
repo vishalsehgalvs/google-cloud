@@ -88,3 +88,27 @@ Once the instance is running, the Deployment Manager page shows:
   - Learn more about installed software
 
 The instance also appears in **Compute Engine → VM Instances** like any other VM.
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+For Cloud Marketplace, the company wants repeatable multi-environment provisioning with minimal repetitive code. What should you use?
+
+A. IaC templates and modules
+B. Manual console steps each time
+C. Ad-hoc scripts without version control
+D. Spreadsheet-only process
+
+Answer: A
+Trap: Declarative IaC improves consistency, auditability, and reuse.
+
+### Q2
+In a Cloud Marketplace scenario, you must deploy supported third-party software quickly with managed packaging. Which option is best?
+
+A. Google Cloud Marketplace solution deployment
+B. Build everything from source on one VM manually
+C. Use Cloud Trace to install software
+D. Export billing CSV first
+
+Answer: A
+Trap: Marketplace is designed for rapid deployment of curated solutions.

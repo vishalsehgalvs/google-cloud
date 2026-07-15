@@ -112,10 +112,10 @@ gcloud compute networks subnets update my-subnet \
 
 Allows resources in **multiple projects** to use a single VPC network:
 
-| Concept | Description |
-|---|---|
-| **Host project** | Owns the shared VPC network |
-| **Service projects** | Use the shared network; cannot modify it |
+| Concept              | Description                                                       |
+| -------------------- | ----------------------------------------------------------------- |
+| **Host project**     | Owns the shared VPC network                                       |
+| **Service projects** | Use the shared network; cannot modify it                          |
 | **Shared VPC Admin** | IAM role required to configure sharing (`roles/compute.xpnAdmin`) |
 
 - Centralises network management and firewall rules
@@ -151,12 +151,12 @@ gcloud compute networks peerings create peer-a-to-b \
 
 **Shared VPC vs VPC Peering:**
 
-| | Shared VPC | VPC Peering |
-|---|---|---|
-| Admin model | Centralised (host project) | Decentralised (each side manages own) |
-| Cross-org | No | Yes |
-| Transitive routing | N/A | No |
-| Use case | Internal multi-project workloads | Partner/separate org connectivity |
+|                    | Shared VPC                       | VPC Peering                           |
+| ------------------ | -------------------------------- | ------------------------------------- |
+| Admin model        | Centralised (host project)       | Decentralised (each side manages own) |
+| Cross-org          | No                               | Yes                                   |
+| Transitive routing | N/A                              | No                                    |
+| Use case           | Internal multi-project workloads | Partner/separate org connectivity     |
 
 ---
 
@@ -183,3 +183,27 @@ gcloud compute networks subnets update my-subnet \
 
 - Primary range: VM primary interface IPs
 - Secondary ranges: alias IPs for containers (GKE Pods) or additional interfaces
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Virtual Private Cloud scenario, two answers seem technically possible. What tie-breaker should you apply first?
+
+A. Pick the option with most manual steps
+B. Pick the option with least privilege and least operational overhead that still meets requirements
+C. Pick highest-cost option
+D. Pick the oldest product
+
+Answer: B
+Trap: ACE-style scenarios reward secure, managed, requirement-fit decisions.
+
+### Q2
+For Virtual Private Cloud, what is the best way to reduce wrong answers in multi-choice questions?
+
+A. Ignore scaling and security words
+B. Identify trigger words, eliminate over-privileged choices, then choose the managed fit
+C. Always pick Compute Engine
+D. Always pick the shortest option
+
+Answer: B
+Trap: Structured elimination is more reliable than memorization alone.

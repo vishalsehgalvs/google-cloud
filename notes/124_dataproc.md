@@ -44,3 +44,27 @@ Both services support batch and streaming data processing — here's how to choo
 | Do you prefer a hands-off / serverless approach?                             | **Yes → Dataflow** |
 
 > In short: **Dataproc** for Hadoop/Spark workloads and DevOps control; **Dataflow** for serverless, fully managed pipelines.
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Dataproc migration requires moving existing Spark jobs with minimal code changes. What should you choose?
+
+A. Dataproc
+B. Cloud Run Functions
+C. App Engine Standard
+D. Compute Engine single VM only
+
+Answer: A
+Trap: Existing Spark and Hadoop workloads map directly to Dataproc.
+
+### Q2
+For Dataproc cost optimization on intermittent jobs, what is best?
+
+A. Keep a large cluster running 24x7
+B. Create ephemeral clusters per job and delete after completion
+C. Disable autoscaling and logging
+D. Move all jobs to Cloud DNS
+
+Answer: B
+Trap: Ephemeral clusters reduce idle cost while preserving Spark compatibility.

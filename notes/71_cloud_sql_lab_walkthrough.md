@@ -97,3 +97,27 @@ Once the instance shows a green checkmark:
 | Cloud SQL Auth Proxy    | App in different region, VPC, or project | Encrypted tunnel over external IP              |
 | Private IP              | App in same region/VPC as Cloud SQL      | Internal Google network, never public internet |
 | Unencrypted external IP | Dev/test only                            | Public internet — not recommended              |
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Cloud Sql Lab Walkthrough scenario, production MySQL must survive zonal failure with minimal manual intervention. What is the best setup?
+
+A. Single-zone instance with snapshots only
+B. Cloud SQL with availability type set to REGIONAL
+C. Cloud SQL read replica in same zone only
+D. Self-managed MySQL on one VM
+
+Answer: B
+Trap: Read replicas improve read scale but are not the same as HA failover configuration.
+
+### Q2
+For Cloud Sql Lab Walkthrough audit requirements, month-end data must be retained for three years in low-cost storage. What should you do?
+
+A. Rely only on automatic backup retention
+B. Create scheduled Cloud SQL export jobs to Archive class Cloud Storage
+C. Keep data only in local SSD snapshots
+D. Use Cloud NAT logging only
+
+Answer: B
+Trap: Long-term audit retention is an export and archive policy problem, not only operational backup.

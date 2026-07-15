@@ -121,14 +121,14 @@ gcloud run deploy my-service \
   --service-account=my-sa@PROJECT_ID.iam.gserviceaccount.com
 ```
 
-| Setting | Default | Notes |
-|---|---|---|
-| `--memory` | 512Mi | Up to 32Gi |
-| `--cpu` | 1 | Up to 8 vCPUs; can set fractional (0.08–8) |
-| `--concurrency` | 80 | Max simultaneous requests per container instance |
-| `--timeout` | 300s | Max 3600s (1 hour) |
-| `--min-instances` | 0 | Set >0 to avoid cold starts |
-| `--max-instances` | 1000 | Caps autoscaling |
+| Setting           | Default | Notes                                            |
+| ----------------- | ------- | ------------------------------------------------ |
+| `--memory`        | 512Mi   | Up to 32Gi                                       |
+| `--cpu`           | 1       | Up to 8 vCPUs; can set fractional (0.08–8)       |
+| `--concurrency`   | 80      | Max simultaneous requests per container instance |
+| `--timeout`       | 300s    | Max 3600s (1 hour)                               |
+| `--min-instances` | 0       | Set >0 to avoid cold starts                      |
+| `--max-instances` | 1000    | Caps autoscaling                                 |
 
 ---
 
@@ -203,12 +203,12 @@ gcloud run services update my-service \
 
 Cloud Run can be triggered by events beyond HTTP:
 
-| Trigger | Example |
-|---|---|
-| **HTTP** | Direct web requests |
-| **Pub/Sub** | Message queue events |
-| **Eventarc** | Cloud Storage uploads, Audit Log events, Firestore changes |
-| **Cloud Scheduler** | Cron-style scheduled jobs |
+| Trigger             | Example                                                    |
+| ------------------- | ---------------------------------------------------------- |
+| **HTTP**            | Direct web requests                                        |
+| **Pub/Sub**         | Message queue events                                       |
+| **Eventarc**        | Cloud Storage uploads, Audit Log events, Firestore changes |
+| **Cloud Scheduler** | Cron-style scheduled jobs                                  |
 
 ```bash
 # Trigger Cloud Run from a Pub/Sub topic
@@ -229,3 +229,27 @@ gcloud eventarc triggers create my-trigger \
 - Default authentication is **private** — explicitly add `allUsers` for public services
 - Use **traffic splitting** for canary releases and safe rollbacks
 - Cloud Run scales to **zero** — ideal for event-driven, bursty, or infrequent workloads
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+A Cloud Run service is event-driven and should scale automatically with minimal infrastructure management. Which option is usually best?
+
+A. Cloud Run or Cloud Run Functions depending on trigger pattern
+B. Unmanaged VMs only
+C. Self-managed Kubernetes on Compute Engine
+D. Dedicated interconnect
+
+Answer: A
+Trap: Event-driven and minimal-ops requirements typically map to serverless services.
+
+### Q2
+In a Cloud Run release, you need safe rollout and quick rollback using real traffic testing. What should you do?
+
+A. Overwrite current version in place
+B. Deploy new version and use traffic splitting or gradual migration
+C. Delete old version before testing
+D. Disable logging during rollout
+
+Answer: B
+Trap: Versioned deployments plus traffic control provide safer rollback paths.

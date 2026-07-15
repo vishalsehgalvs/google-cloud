@@ -103,3 +103,29 @@ WHERE cost > 10
 
 - Billing data analysis is a key input to **capacity planning**
 - Helps determine when to **scale up** (growth) or **scale down** (efficiency)
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+
+You need to analyze spend across many projects with fresh data and flexible SQL reporting in this BigQuery billing workflow. What is best?
+
+A. Download CSV from reports once a month
+B. Enable Billing Data Export to BigQuery and build dashboards
+C. Use pricing calculator only
+D. Store billing data in Cloud DNS
+
+Answer: B
+Trap: BigQuery export provides near real-time analytical visibility; reports and calculators are less flexible.
+
+### Q2
+
+Users must run BigQuery queries but charges must always apply to a dedicated billing project while data remains read-only in data projects. Which role split is correct?
+
+A. bigquery.user everywhere
+B. bigquery.jobUser on billing project and bigquery.dataViewer on data project
+C. owner on billing project only
+D. editor on data project only
+
+Answer: B
+Trap: Separate query job execution permissions from data-read permissions to control cost and access.

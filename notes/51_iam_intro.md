@@ -87,12 +87,12 @@ An IAM policy is a collection of **bindings**:
 
 **Organization Policies** are constraints applied to an entire org, folder, or project — they control **what can be configured**, not who can access it.
 
-| Example Constraint | Effect |
-|---|---|
-| `constraints/compute.vmExternalIpAccess` | Prevent VMs from having external IPs |
-| `constraints/iam.disableServiceAccountCreation` | Block new service account creation |
-| `constraints/compute.restrictCloudArmor` | Require Cloud Armor on load balancers |
-| `constraints/storage.uniformBucketLevelAccess` | Enforce ULA on all new buckets |
+| Example Constraint                              | Effect                                |
+| ----------------------------------------------- | ------------------------------------- |
+| `constraints/compute.vmExternalIpAccess`        | Prevent VMs from having external IPs  |
+| `constraints/iam.disableServiceAccountCreation` | Block new service account creation    |
+| `constraints/compute.restrictCloudArmor`        | Require Cloud Armor on load balancers |
+| `constraints/storage.uniformBucketLevelAccess`  | Enforce ULA on all new buckets        |
 
 ```bash
 # List organisation policies on a project
@@ -124,6 +124,7 @@ Add **attribute-based conditions** to role bindings — restrict access based on
 ```
 
 Common condition attributes:
+
 - `request.time` — time-bounded access
 - `resource.name` — restrict to specific resource
 - `resource.type` — restrict to a resource type
@@ -134,11 +135,11 @@ Common condition attributes:
 
 IAM actions are captured in **Cloud Audit Logs**:
 
-| Log Type | What it captures |
-|---|---|
-| **Admin Activity** | IAM policy changes, role grants — always on, no cost |
-| **Data Access** | Reading/writing resource data — off by default, can be expensive |
-| **System Event** | GCP system actions — always on, no cost |
+| Log Type           | What it captures                                                 |
+| ------------------ | ---------------------------------------------------------------- |
+| **Admin Activity** | IAM policy changes, role grants — always on, no cost             |
+| **Data Access**    | Reading/writing resource data — off by default, can be expensive |
+| **System Event**   | GCP system actions — always on, no cost                          |
 
 ```bash
 # Query admin activity logs in Cloud Logging
@@ -151,13 +152,36 @@ gcloud logging read \
 
 ## IAM Best Practices
 
-| Practice | Why |
-|---|---|
-| **Least privilege** | Grant only the minimum role needed |
-| **Use groups, not individuals** | Easier to manage; add/remove group members instead of updating bindings |
-| **Avoid basic roles in production** | `Owner/Editor/Viewer` are too broad; use predefined or custom roles |
-| **Prefer service accounts over user credentials** | For applications and automation |
-| **Audit regularly** | Review who has what access; remove stale bindings |
-| **Use org policies** | Enforce guardrails at org/folder level independent of IAM |
-| **Enable VPC Service Controls** | Add a perimeter around sensitive APIs to prevent data exfiltration |
+| Practice                                          | Why                                                                     |
+| ------------------------------------------------- | ----------------------------------------------------------------------- |
+| **Least privilege**                               | Grant only the minimum role needed                                      |
+| **Use groups, not individuals**                   | Easier to manage; add/remove group members instead of updating bindings |
+| **Avoid basic roles in production**               | `Owner/Editor/Viewer` are too broad; use predefined or custom roles     |
+| **Prefer service accounts over user credentials** | For applications and automation                                         |
+| **Audit regularly**                               | Review who has what access; remove stale bindings                       |
+| **Use org policies**                              | Enforce guardrails at org/folder level independent of IAM               |
+| **Enable VPC Service Controls**                   | Add a perimeter around sensitive APIs to prevent data exfiltration      |
 
+## ACE Exam-Style Practice Questions
+
+### Q1
+For Iam Intro, a team needs only permission to read logs and datasets without modification rights. What is best?
+
+A. roles/editor
+B. roles/owner
+C. Predefined read-only roles assigned to a Google Group
+D. Shared admin account
+
+Answer: C
+Trap: Broad primitive roles are common distractors when least privilege is explicit.
+
+### Q2
+In a Iam Intro question, two options work technically but one grants extra permissions. Which should you choose?
+
+A. Broad role for future convenience
+B. Narrow role that satisfies exact requirement
+C. Owner to avoid access errors
+D. Service account key in source code
+
+Answer: B
+Trap: Exam scoring favors least privilege and operational safety.

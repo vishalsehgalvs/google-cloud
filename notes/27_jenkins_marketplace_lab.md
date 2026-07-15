@@ -201,3 +201,27 @@ gcloud deployment-manager deployments describe DEPLOYMENT_NAME
 # SSH into the Marketplace-deployed VM
 gcloud compute ssh INSTANCE_NAME --zone=ZONE
 ```
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+For Jenkins Marketplace Lab, the company wants repeatable multi-environment provisioning with minimal repetitive code. What should you use?
+
+A. IaC templates and modules
+B. Manual console steps each time
+C. Ad-hoc scripts without version control
+D. Spreadsheet-only process
+
+Answer: A
+Trap: Declarative IaC improves consistency, auditability, and reuse.
+
+### Q2
+In a Jenkins Marketplace Lab scenario, you must deploy supported third-party software quickly with managed packaging. Which option is best?
+
+A. Google Cloud Marketplace solution deployment
+B. Build everything from source on one VM manually
+C. Use Cloud Trace to install software
+D. Export billing CSV first
+
+Answer: A
+Trap: Marketplace is designed for rapid deployment of curated solutions.

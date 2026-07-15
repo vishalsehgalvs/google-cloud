@@ -183,4 +183,16 @@ For exam prep, use these curated folders first:
 - `high_probability/` - primary revision list for the most likely topics
 - `low_probability/` - secondary topics to skim after core coverage
 
+## New Refactor Pack
+
+Use `ace_exam_refactor/` for the latest concise, exam-focused structure built from the full notes base.
+
+- `ace_exam_refactor/00_READ_ME_FIRST.md` - study method and usage
+- `ace_exam_refactor/01-07` - domain notes with service-choice logic
+- `ace_exam_refactor/08_pinpoint_traps.md` - high-frequency trap matrix
+- `ace_exam_refactor/09_real_world_scenarios.md` - scenario drills with eliminations
+- `ace_exam_refactor/10_command_playbook.md` - command memory sheet
+- `ace_exam_refactor/11_full_coverage_map_00_148.md` - source coverage map
+- `ace_exam_refactor/12_14_day_retake_plan.md` - practical retake plan
+
 ---

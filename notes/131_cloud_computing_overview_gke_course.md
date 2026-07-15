@@ -20,3 +20,27 @@ Google Cloud offers a range of services to build solutions on:
 ### Common Starting Point: Running Code in the Cloud
 
 Organizations often begin by wanting to run code in the cloud. Google offers a range of **compute services** to fulfill that — covered in the next section.
+
+## ACE Exam-Style Practice Questions
+
+### Q1
+In a Cloud Computing Overview Gke Course cluster, one microservice is CPU-heavy while others are general purpose. How should you optimize?
+
+A. Keep one node pool and only increase pod priority
+B. Create dedicated compute-optimized node pool for CPU-heavy workload and keep general-purpose pool for others
+C. Disable autoscaling
+D. Move workload to Cloud Storage
+
+Answer: B
+Trap: Node pools allow workload-specific machine-family optimization.
+
+### Q2
+A Cloud Computing Overview Gke Course deployment must be updated with minimal downtime. Which command pattern is best?
+
+A. Delete and recreate service and deployment
+B. kubectl set image deployment/NAME CONTAINER=NEW_IMAGE
+C. Restart all cluster nodes
+D. Create a new project for each version
+
+Answer: B
+Trap: Rolling image update is safer and faster than destructive redeploy patterns.
