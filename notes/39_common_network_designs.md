@@ -188,198 +188,228 @@ sequenceDiagram
 
 ### Extra Exam Practice (15 Questions)
 #### Q1
+
 Scenario Focus: 🏗️ Easy Guide: Common Google Cloud Network Designs
+
 A service must be reachable only from internal VMs. Which design is best?
 
-A. Use an internal load balancer with private backend endpoints and private DNS.
-B. Expose the service publicly and rely on app-level passwords.
-C. Use one VM with a static external IP to simplify architecture.
+A. Use an internal load balancer with private backend endpoints and private DNS.  
+B. Expose the service publicly and rely on app-level passwords.  
+C. Use one VM with a static external IP to simplify architecture.  
 D. Allow 0.0.0.0/0 ingress to speed up troubleshooting.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q2
+
 Scenario Focus: 🏗️ Easy Guide: Common Google Cloud Network Designs
+
 You need to reduce global web latency for static assets. What should you choose?
 
-A. Use one VM with a static external IP to simplify architecture.
-B. Use an external application load balancer with Cloud CDN and cacheable content rules.
-C. Allow 0.0.0.0/0 ingress to speed up troubleshooting.
+A. Use one VM with a static external IP to simplify architecture.  
+B. Use an external application load balancer with Cloud CDN and cacheable content rules.  
+C. Allow 0.0.0.0/0 ingress to speed up troubleshooting.  
 D. Disable health checks to avoid accidental failover.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q3
+
 Scenario Focus: 🏗️ Easy Guide: Common Google Cloud Network Designs
+
 Which firewall strategy best matches zero-trust network design?
 
-A. Allow 0.0.0.0/0 ingress to speed up troubleshooting.
-B. Disable health checks to avoid accidental failover.
-C. Use least-privilege firewall policies scoped by service accounts or tags.
+A. Allow 0.0.0.0/0 ingress to speed up troubleshooting.  
+B. Disable health checks to avoid accidental failover.  
+C. Use least-privilege firewall policies scoped by service accounts or tags.  
 D. Route all traffic through manual bastion hops in production.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q4
+
 Scenario Focus: 🏗️ Easy Guide: Common Google Cloud Network Designs
+
 A backend fails health checks in one zone. What architecture is best practice?
 
-A. Disable health checks to avoid accidental failover.
-B. Route all traffic through manual bastion hops in production.
-C. Expose the service publicly and rely on app-level passwords.
+A. Disable health checks to avoid accidental failover.  
+B. Route all traffic through manual bastion hops in production.  
+C. Expose the service publicly and rely on app-level passwords.  
 D. Run multi-zone backends with health checks and automatic failover.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q5
+
 Scenario Focus: 🏗️ Easy Guide: Common Google Cloud Network Designs
+
 You need private hybrid connectivity between on-prem and GCP. Which path is preferred?
 
-A. Use HA VPN or Interconnect based on throughput and SLA requirements.
-B. Route all traffic through manual bastion hops in production.
-C. Expose the service publicly and rely on app-level passwords.
+A. Use HA VPN or Interconnect based on throughput and SLA requirements.  
+B. Route all traffic through manual bastion hops in production.  
+C. Expose the service publicly and rely on app-level passwords.  
 D. Use one VM with a static external IP to simplify architecture.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q6
+
 Scenario Focus: 🏗️ Easy Guide: Common Google Cloud Network Designs
+
 Two designs both satisfy the happy path for 🏗️ Easy Guide: Common Google Cloud Network Designs. Which choice is most correct?
 
-A. Expose the service publicly and rely on app-level passwords.
-B. Choose the option that preserves reliability and security while reducing operational burden.
-C. Use one VM with a static external IP to simplify architecture.
+A. Expose the service publicly and rely on app-level passwords.  
+B. Choose the option that preserves reliability and security while reducing operational burden.  
+C. Use one VM with a static external IP to simplify architecture.  
 D. Allow 0.0.0.0/0 ingress to speed up troubleshooting.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q7
+
 Scenario Focus: 🏗️ Easy Guide: Common Google Cloud Network Designs
+
 What should you validate first before choosing an architecture for 🏗️ Easy Guide: Common Google Cloud Network Designs?
 
-A. Use one VM with a static external IP to simplify architecture.
-B. Allow 0.0.0.0/0 ingress to speed up troubleshooting.
-C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.
+A. Use one VM with a static external IP to simplify architecture.  
+B. Allow 0.0.0.0/0 ingress to speed up troubleshooting.  
+C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.  
 D. Disable health checks to avoid accidental failover.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q8
+
 Scenario Focus: 🏗️ Easy Guide: Common Google Cloud Network Designs
+
 A proposal lowers cost but increases failure risk. What is the best decision?
 
-A. Allow 0.0.0.0/0 ingress to speed up troubleshooting.
-B. Disable health checks to avoid accidental failover.
-C. Route all traffic through manual bastion hops in production.
+A. Allow 0.0.0.0/0 ingress to speed up troubleshooting.  
+B. Disable health checks to avoid accidental failover.  
+C. Route all traffic through manual bastion hops in production.  
 D. Reject it unless reliability and recovery objectives remain within required targets.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q9
+
 Scenario Focus: 🏗️ Easy Guide: Common Google Cloud Network Designs
+
 Which option best reflects optimization for Latency-resilience balance with private-by-default connectivity?
 
-A. Select the design that best meets Latency-resilience balance with private-by-default connectivity while keeping constraints balanced.
-B. Disable health checks to avoid accidental failover.
-C. Route all traffic through manual bastion hops in production.
+A. Select the design that best meets Latency-resilience balance with private-by-default connectivity while keeping constraints balanced.  
+B. Disable health checks to avoid accidental failover.  
+C. Route all traffic through manual bastion hops in production.  
 D. Expose the service publicly and rely on app-level passwords.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q10
+
 Scenario Focus: 🏗️ Easy Guide: Common Google Cloud Network Designs
+
 How should you evaluate a design that needs frequent manual interventions?
 
-A. Route all traffic through manual bastion hops in production.
-B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.
-C. Expose the service publicly and rely on app-level passwords.
+A. Route all traffic through manual bastion hops in production.  
+B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.  
+C. Expose the service publicly and rely on app-level passwords.  
 D. Use one VM with a static external IP to simplify architecture.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q11
+
 Scenario Focus: 🏗️ Easy Guide: Common Google Cloud Network Designs
+
 Two options have similar latency. Which tie-breaker is best?
 
-A. Expose the service publicly and rely on app-level passwords.
-B. Use one VM with a static external IP to simplify architecture.
-C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+A. Expose the service publicly and rely on app-level passwords.  
+B. Use one VM with a static external IP to simplify architecture.  
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.  
 D. Allow 0.0.0.0/0 ingress to speed up troubleshooting.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q12
+
 Scenario Focus: 🏗️ Easy Guide: Common Google Cloud Network Designs
+
 What is the best way to choose between a custom stack and a managed service?
 
-A. Use one VM with a static external IP to simplify architecture.
-B. Allow 0.0.0.0/0 ingress to speed up troubleshooting.
-C. Disable health checks to avoid accidental failover.
+A. Use one VM with a static external IP to simplify architecture.  
+B. Allow 0.0.0.0/0 ingress to speed up troubleshooting.  
+C. Disable health checks to avoid accidental failover.  
 D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q13
+
 Scenario Focus: 🏗️ Easy Guide: Common Google Cloud Network Designs
+
 How do you confirm a solution is production-ready for 
 
-A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
-B. Allow 0.0.0.0/0 ingress to speed up troubleshooting.
-C. Disable health checks to avoid accidental failover.
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.  
+B. Allow 0.0.0.0/0 ingress to speed up troubleshooting.  
+C. Disable health checks to avoid accidental failover.  
 D. Route all traffic through manual bastion hops in production.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q14
+
 Scenario Focus: 🏗️ Easy Guide: Common Google Cloud Network Designs
+
 Which pattern usually wins in ACE scenario tie-breakers?
 
-A. Disable health checks to avoid accidental failover.
-B. Managed-service-first plus least-privilege access plus clear observability usually wins.
-C. Route all traffic through manual bastion hops in production.
+A. Disable health checks to avoid accidental failover.  
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.  
+C. Route all traffic through manual bastion hops in production.  
 D. Expose the service publicly and rely on app-level passwords.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q15
+
 Scenario Focus: 🏗️ Easy Guide: Common Google Cloud Network Designs
+
 What is the best final check before locking the answer?
 
-A. Route all traffic through manual bastion hops in production.
-B. Expose the service publicly and rely on app-level passwords.
-C. Run a weighted check across security, reliability, cost, performance, and operability.
+A. Route all traffic through manual bastion hops in production.  
+B. Expose the service publicly and rely on app-level passwords.  
+C. Run a weighted check across security, reliability, cost, performance, and operability.  
 D. Use one VM with a static external IP to simplify architecture.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 ### Quick Commands

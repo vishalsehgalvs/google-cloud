@@ -789,16 +789,18 @@ function Build-Questions {
         }
 
         [void]$sb.AppendLine("#### Q$($i + 1)")
+        [void]$sb.AppendLine('')
         [void]$sb.AppendLine("Scenario Focus: $TopicTitle")
+        [void]$sb.AppendLine('')
         [void]$sb.AppendLine($prompt)
         [void]$sb.AppendLine('')
-        [void]$sb.AppendLine("A. $optA")
-        [void]$sb.AppendLine("B. $optB")
-        [void]$sb.AppendLine("C. $optC")
+        [void]$sb.AppendLine("A. $optA  ")
+        [void]$sb.AppendLine("B. $optB  ")
+        [void]$sb.AppendLine("C. $optC  ")
         [void]$sb.AppendLine("D. $optD")
         [void]$sb.AppendLine('')
-        [void]$sb.AppendLine("Answer: $answer")
-        [void]$sb.AppendLine('Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.')
+        [void]$sb.AppendLine("Answer: $answer  ")
+        [void]$sb.AppendLine('Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  ')
         [void]$sb.AppendLine('Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.')
         [void]$sb.AppendLine('')
     }

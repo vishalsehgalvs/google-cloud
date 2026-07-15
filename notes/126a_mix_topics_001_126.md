@@ -137,198 +137,228 @@ sequenceDiagram
 
 ### Extra Exam Practice (15 Questions)
 #### Q1
+
 Scenario Focus: Cross-Topic Mix Set 126
+
 A mixed-topic scenario has one option that is fast but insecure. What should you do?
 
-A. Reject it and choose the option that balances security with reliability and operations.
-B. Pick the shortest option because it saves reading time.
-C. Optimize only for cost and ignore reliability requirements.
+A. Reject it and choose the option that balances security with reliability and operations.  
+B. Pick the shortest option because it saves reading time.  
+C. Optimize only for cost and ignore reliability requirements.  
 D. Assume manual fixes later are acceptable in production.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q2
+
 Scenario Focus: Cross-Topic Mix Set 126
+
 Which answer pattern is usually strongest in mixed scenarios?
 
-A. Optimize only for cost and ignore reliability requirements.
-B. Choose managed-service-first plus least-privilege IAM and observability controls.
-C. Assume manual fixes later are acceptable in production.
+A. Optimize only for cost and ignore reliability requirements.  
+B. Choose managed-service-first plus least-privilege IAM and observability controls.  
+C. Assume manual fixes later are acceptable in production.  
 D. Prefer options with broad admin access for simplicity.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q3
+
 Scenario Focus: Cross-Topic Mix Set 126
+
 A design is cheap but single-zone and unmonitored. How should you evaluate it?
 
-A. Assume manual fixes later are acceptable in production.
-B. Prefer options with broad admin access for simplicity.
-C. Mark it as a trap because it violates reliability and operational readiness.
+A. Assume manual fixes later are acceptable in production.  
+B. Prefer options with broad admin access for simplicity.  
+C. Mark it as a trap because it violates reliability and operational readiness.  
 D. Skip checking observability and backup strategy.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q4
+
 Scenario Focus: Cross-Topic Mix Set 126
+
 What is the best exam-time method when two options look correct?
 
-A. Prefer options with broad admin access for simplicity.
-B. Skip checking observability and backup strategy.
-C. Pick the shortest option because it saves reading time.
+A. Prefer options with broad admin access for simplicity.  
+B. Skip checking observability and backup strategy.  
+C. Pick the shortest option because it saves reading time.  
 D. Score both options against all constraints and pick the one with fewer tradeoff risks.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q5
+
 Scenario Focus: Cross-Topic Mix Set 126
+
 How do you avoid trap choices in cumulative questions?
 
-A. Eliminate options with broad access, single points of failure, or missing monitoring.
-B. Skip checking observability and backup strategy.
-C. Pick the shortest option because it saves reading time.
+A. Eliminate options with broad access, single points of failure, or missing monitoring.  
+B. Skip checking observability and backup strategy.  
+C. Pick the shortest option because it saves reading time.  
 D. Optimize only for cost and ignore reliability requirements.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q6
+
 Scenario Focus: Cross-Topic Mix Set 126
+
 Two designs both satisfy the happy path for Cross-Topic Mix Set 126. Which choice is most correct?
 
-A. Pick the shortest option because it saves reading time.
-B. Choose the option that preserves reliability and security while reducing operational burden.
-C. Optimize only for cost and ignore reliability requirements.
+A. Pick the shortest option because it saves reading time.  
+B. Choose the option that preserves reliability and security while reducing operational burden.  
+C. Optimize only for cost and ignore reliability requirements.  
 D. Assume manual fixes later are acceptable in production.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q7
+
 Scenario Focus: Cross-Topic Mix Set 126
+
 What should you validate first before choosing an architecture for Cross-Topic Mix Set 126?
 
-A. Optimize only for cost and ignore reliability requirements.
-B. Assume manual fixes later are acceptable in production.
-C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.
+A. Optimize only for cost and ignore reliability requirements.  
+B. Assume manual fixes later are acceptable in production.  
+C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.  
 D. Prefer options with broad admin access for simplicity.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q8
+
 Scenario Focus: Cross-Topic Mix Set 126
+
 A proposal lowers cost but increases failure risk. What is the best decision?
 
-A. Assume manual fixes later are acceptable in production.
-B. Prefer options with broad admin access for simplicity.
-C. Skip checking observability and backup strategy.
+A. Assume manual fixes later are acceptable in production.  
+B. Prefer options with broad admin access for simplicity.  
+C. Skip checking observability and backup strategy.  
 D. Reject it unless reliability and recovery objectives remain within required targets.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q9
+
 Scenario Focus: Cross-Topic Mix Set 126
+
 Which option best reflects optimization for Balanced trade-offs across security, reliability, cost, and operability?
 
-A. Select the design that best meets Balanced trade-offs across security, reliability, cost, and operability while keeping constraints balanced.
-B. Prefer options with broad admin access for simplicity.
-C. Skip checking observability and backup strategy.
+A. Select the design that best meets Balanced trade-offs across security, reliability, cost, and operability while keeping constraints balanced.  
+B. Prefer options with broad admin access for simplicity.  
+C. Skip checking observability and backup strategy.  
 D. Pick the shortest option because it saves reading time.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q10
+
 Scenario Focus: Cross-Topic Mix Set 126
+
 How should you evaluate a design that needs frequent manual interventions?
 
-A. Skip checking observability and backup strategy.
-B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.
-C. Pick the shortest option because it saves reading time.
+A. Skip checking observability and backup strategy.  
+B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.  
+C. Pick the shortest option because it saves reading time.  
 D. Optimize only for cost and ignore reliability requirements.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q11
+
 Scenario Focus: Cross-Topic Mix Set 126
+
 Two options have similar latency. Which tie-breaker is best?
 
-A. Pick the shortest option because it saves reading time.
-B. Optimize only for cost and ignore reliability requirements.
-C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+A. Pick the shortest option because it saves reading time.  
+B. Optimize only for cost and ignore reliability requirements.  
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.  
 D. Assume manual fixes later are acceptable in production.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q12
+
 Scenario Focus: Cross-Topic Mix Set 126
+
 What is the best way to choose between a custom stack and a managed service?
 
-A. Optimize only for cost and ignore reliability requirements.
-B. Assume manual fixes later are acceptable in production.
-C. Prefer options with broad admin access for simplicity.
+A. Optimize only for cost and ignore reliability requirements.  
+B. Assume manual fixes later are acceptable in production.  
+C. Prefer options with broad admin access for simplicity.  
 D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q13
+
 Scenario Focus: Cross-Topic Mix Set 126
+
 How do you confirm a solution is production-ready for 
 
-A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
-B. Assume manual fixes later are acceptable in production.
-C. Prefer options with broad admin access for simplicity.
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.  
+B. Assume manual fixes later are acceptable in production.  
+C. Prefer options with broad admin access for simplicity.  
 D. Skip checking observability and backup strategy.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q14
+
 Scenario Focus: Cross-Topic Mix Set 126
+
 Which pattern usually wins in ACE scenario tie-breakers?
 
-A. Prefer options with broad admin access for simplicity.
-B. Managed-service-first plus least-privilege access plus clear observability usually wins.
-C. Skip checking observability and backup strategy.
+A. Prefer options with broad admin access for simplicity.  
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.  
+C. Skip checking observability and backup strategy.  
 D. Pick the shortest option because it saves reading time.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q15
+
 Scenario Focus: Cross-Topic Mix Set 126
+
 What is the best final check before locking the answer?
 
-A. Skip checking observability and backup strategy.
-B. Pick the shortest option because it saves reading time.
-C. Run a weighted check across security, reliability, cost, performance, and operability.
+A. Skip checking observability and backup strategy.  
+B. Pick the shortest option because it saves reading time.  
+C. Run a weighted check across security, reliability, cost, performance, and operability.  
 D. Optimize only for cost and ignore reliability requirements.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 ### Quick Commands

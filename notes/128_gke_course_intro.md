@@ -135,198 +135,228 @@ sequenceDiagram
 
 ### Extra Exam Practice (15 Questions)
 #### Q1
+
 Scenario Focus: Getting Started with Google Kubernetes Engine — Course Introduction
+
 Traffic triples during business hours and falls overnight. Which compute pattern is best?
 
-A. Use autoscaling with target utilization and baseline minimum capacity.
-B. Pin capacity to peak traffic all day for safety.
-C. Restart failed instances manually as incidents occur.
+A. Use autoscaling with target utilization and baseline minimum capacity.  
+B. Pin capacity to peak traffic all day for safety.  
+C. Restart failed instances manually as incidents occur.  
 D. Use one large VM because horizontal scaling is complex.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q2
+
 Scenario Focus: Getting Started with Google Kubernetes Engine — Course Introduction
+
 A VM app must self-heal when instances fail health checks. What should you use?
 
-A. Restart failed instances manually as incidents occur.
-B. Use a managed instance group with health checks and autohealing enabled.
-C. Use one large VM because horizontal scaling is complex.
+A. Restart failed instances manually as incidents occur.  
+B. Use a managed instance group with health checks and autohealing enabled.  
+C. Use one large VM because horizontal scaling is complex.  
 D. Deploy all changes at once without canary checks.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q3
+
 Scenario Focus: Getting Started with Google Kubernetes Engine — Course Introduction
+
 A team wants to deploy containers without managing nodes. Which platform fits best?
 
-A. Use one large VM because horizontal scaling is complex.
-B. Deploy all changes at once without canary checks.
-C. Use Cloud Run for containerized services when node management is not required.
+A. Use one large VM because horizontal scaling is complex.  
+B. Deploy all changes at once without canary checks.  
+C. Use Cloud Run for containerized services when node management is not required.  
 D. Ignore utilization metrics and optimize only by guesswork.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q4
+
 Scenario Focus: Getting Started with Google Kubernetes Engine — Course Introduction
+
 Which update strategy minimizes user impact during releases?
 
-A. Deploy all changes at once without canary checks.
-B. Ignore utilization metrics and optimize only by guesswork.
-C. Pin capacity to peak traffic all day for safety.
+A. Deploy all changes at once without canary checks.  
+B. Ignore utilization metrics and optimize only by guesswork.  
+C. Pin capacity to peak traffic all day for safety.  
 D. Use rolling or blue-green deployment with health-based rollout checks.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q5
+
 Scenario Focus: Getting Started with Google Kubernetes Engine — Course Introduction
+
 How do you avoid overprovisioning while keeping performance stable?
 
-A. Right-size resources and monitor saturation, latency, and error rates continuously.
-B. Ignore utilization metrics and optimize only by guesswork.
-C. Pin capacity to peak traffic all day for safety.
+A. Right-size resources and monitor saturation, latency, and error rates continuously.  
+B. Ignore utilization metrics and optimize only by guesswork.  
+C. Pin capacity to peak traffic all day for safety.  
 D. Restart failed instances manually as incidents occur.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q6
+
 Scenario Focus: Getting Started with Google Kubernetes Engine — Course Introduction
+
 Two designs both satisfy the happy path for Getting Started with Google Kubernetes Engine — Course Introduction. Which choice is most correct?
 
-A. Pin capacity to peak traffic all day for safety.
-B. Choose the option that preserves reliability and security while reducing operational burden.
-C. Restart failed instances manually as incidents occur.
+A. Pin capacity to peak traffic all day for safety.  
+B. Choose the option that preserves reliability and security while reducing operational burden.  
+C. Restart failed instances manually as incidents occur.  
 D. Use one large VM because horizontal scaling is complex.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q7
+
 Scenario Focus: Getting Started with Google Kubernetes Engine — Course Introduction
+
 What should you validate first before choosing an architecture for Getting Started with Google Kubernetes Engine — Course Introduction?
 
-A. Restart failed instances manually as incidents occur.
-B. Use one large VM because horizontal scaling is complex.
-C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.
+A. Restart failed instances manually as incidents occur.  
+B. Use one large VM because horizontal scaling is complex.  
+C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.  
 D. Deploy all changes at once without canary checks.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q8
+
 Scenario Focus: Getting Started with Google Kubernetes Engine — Course Introduction
+
 A proposal lowers cost but increases failure risk. What is the best decision?
 
-A. Use one large VM because horizontal scaling is complex.
-B. Deploy all changes at once without canary checks.
-C. Ignore utilization metrics and optimize only by guesswork.
+A. Use one large VM because horizontal scaling is complex.  
+B. Deploy all changes at once without canary checks.  
+C. Ignore utilization metrics and optimize only by guesswork.  
 D. Reject it unless reliability and recovery objectives remain within required targets.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q9
+
 Scenario Focus: Getting Started with Google Kubernetes Engine — Course Introduction
+
 Which option best reflects optimization for Elastic performance with minimum operational toil?
 
-A. Select the design that best meets Elastic performance with minimum operational toil while keeping constraints balanced.
-B. Deploy all changes at once without canary checks.
-C. Ignore utilization metrics and optimize only by guesswork.
+A. Select the design that best meets Elastic performance with minimum operational toil while keeping constraints balanced.  
+B. Deploy all changes at once without canary checks.  
+C. Ignore utilization metrics and optimize only by guesswork.  
 D. Pin capacity to peak traffic all day for safety.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q10
+
 Scenario Focus: Getting Started with Google Kubernetes Engine — Course Introduction
+
 How should you evaluate a design that needs frequent manual interventions?
 
-A. Ignore utilization metrics and optimize only by guesswork.
-B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.
-C. Pin capacity to peak traffic all day for safety.
+A. Ignore utilization metrics and optimize only by guesswork.  
+B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.  
+C. Pin capacity to peak traffic all day for safety.  
 D. Restart failed instances manually as incidents occur.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q11
+
 Scenario Focus: Getting Started with Google Kubernetes Engine — Course Introduction
+
 Two options have similar latency. Which tie-breaker is best?
 
-A. Pin capacity to peak traffic all day for safety.
-B. Restart failed instances manually as incidents occur.
-C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+A. Pin capacity to peak traffic all day for safety.  
+B. Restart failed instances manually as incidents occur.  
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.  
 D. Use one large VM because horizontal scaling is complex.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q12
+
 Scenario Focus: Getting Started with Google Kubernetes Engine — Course Introduction
+
 What is the best way to choose between a custom stack and a managed service?
 
-A. Restart failed instances manually as incidents occur.
-B. Use one large VM because horizontal scaling is complex.
-C. Deploy all changes at once without canary checks.
+A. Restart failed instances manually as incidents occur.  
+B. Use one large VM because horizontal scaling is complex.  
+C. Deploy all changes at once without canary checks.  
 D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q13
+
 Scenario Focus: Getting Started with Google Kubernetes Engine — Course Introduction
+
 How do you confirm a solution is production-ready for 
 
-A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
-B. Use one large VM because horizontal scaling is complex.
-C. Deploy all changes at once without canary checks.
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.  
+B. Use one large VM because horizontal scaling is complex.  
+C. Deploy all changes at once without canary checks.  
 D. Ignore utilization metrics and optimize only by guesswork.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q14
+
 Scenario Focus: Getting Started with Google Kubernetes Engine — Course Introduction
+
 Which pattern usually wins in ACE scenario tie-breakers?
 
-A. Deploy all changes at once without canary checks.
-B. Managed-service-first plus least-privilege access plus clear observability usually wins.
-C. Ignore utilization metrics and optimize only by guesswork.
+A. Deploy all changes at once without canary checks.  
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.  
+C. Ignore utilization metrics and optimize only by guesswork.  
 D. Pin capacity to peak traffic all day for safety.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q15
+
 Scenario Focus: Getting Started with Google Kubernetes Engine — Course Introduction
+
 What is the best final check before locking the answer?
 
-A. Ignore utilization metrics and optimize only by guesswork.
-B. Pin capacity to peak traffic all day for safety.
-C. Run a weighted check across security, reliability, cost, performance, and operability.
+A. Ignore utilization metrics and optimize only by guesswork.  
+B. Pin capacity to peak traffic all day for safety.  
+C. Run a weighted check across security, reliability, cost, performance, and operability.  
 D. Restart failed instances manually as incidents occur.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 ### Quick Commands

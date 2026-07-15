@@ -190,198 +190,228 @@ sequenceDiagram
 
 ### Extra Exam Practice (15 Questions)
 #### Q1
+
 Scenario Focus: Reliable Cloud Infrastructure: Design and Process — Course Introduction
+
 Which design pattern is usually best for fast, safe cloud adoption?
 
-A. Use managed services with least-privilege IAM and clear observability controls.
-B. Start with manual scripts and unrestricted access, then harden later.
-C. Use one project for everything to reduce setup effort.
+A. Use managed services with least-privilege IAM and clear observability controls.  
+B. Start with manual scripts and unrestricted access, then harden later.  
+C. Use one project for everything to reduce setup effort.  
 D. Ignore telemetry until after first production incident.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q2
+
 Scenario Focus: Reliable Cloud Infrastructure: Design and Process — Course Introduction
+
 A team wants speed and low ops overhead. What should they prioritize?
 
-A. Use one project for everything to reduce setup effort.
-B. Prefer services that reduce operational toil while meeting reliability goals.
-C. Ignore telemetry until after first production incident.
+A. Use one project for everything to reduce setup effort.  
+B. Prefer services that reduce operational toil while meeting reliability goals.  
+C. Ignore telemetry until after first production incident.  
 D. Pick only the cheapest service regardless of reliability needs.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q3
+
 Scenario Focus: Reliable Cloud Infrastructure: Design and Process — Course Introduction
+
 What is a common architecture trap in early cloud projects?
 
-A. Ignore telemetry until after first production incident.
-B. Pick only the cheapest service regardless of reliability needs.
-C. Over-broad access and missing monitoring are high-risk trap patterns.
+A. Ignore telemetry until after first production incident.  
+B. Pick only the cheapest service regardless of reliability needs.  
+C. Over-broad access and missing monitoring are high-risk trap patterns.  
 D. Keep architecture opaque to avoid governance overhead.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q4
+
 Scenario Focus: Reliable Cloud Infrastructure: Design and Process — Course Introduction
+
 Which control set should be baseline for production?
 
-A. Pick only the cheapest service regardless of reliability needs.
-B. Keep architecture opaque to avoid governance overhead.
-C. Start with manual scripts and unrestricted access, then harden later.
+A. Pick only the cheapest service regardless of reliability needs.  
+B. Keep architecture opaque to avoid governance overhead.  
+C. Start with manual scripts and unrestricted access, then harden later.  
 D. Baseline should include IAM guardrails, logging, monitoring, and cost alerts.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q5
+
 Scenario Focus: Reliable Cloud Infrastructure: Design and Process — Course Introduction
+
 How should you evaluate conflicting requirements on the exam?
 
-A. Choose the option that balances security, reliability, cost, and operability.
-B. Keep architecture opaque to avoid governance overhead.
-C. Start with manual scripts and unrestricted access, then harden later.
+A. Choose the option that balances security, reliability, cost, and operability.  
+B. Keep architecture opaque to avoid governance overhead.  
+C. Start with manual scripts and unrestricted access, then harden later.  
 D. Use one project for everything to reduce setup effort.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q6
+
 Scenario Focus: Reliable Cloud Infrastructure: Design and Process — Course Introduction
+
 Two designs both satisfy the happy path for Reliable Cloud Infrastructure: Design and Process — Course Introduction. Which choice is most correct?
 
-A. Start with manual scripts and unrestricted access, then harden later.
-B. Choose the option that preserves reliability and security while reducing operational burden.
-C. Use one project for everything to reduce setup effort.
+A. Start with manual scripts and unrestricted access, then harden later.  
+B. Choose the option that preserves reliability and security while reducing operational burden.  
+C. Use one project for everything to reduce setup effort.  
 D. Ignore telemetry until after first production incident.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q7
+
 Scenario Focus: Reliable Cloud Infrastructure: Design and Process — Course Introduction
+
 What should you validate first before choosing an architecture for Reliable Cloud Infrastructure: Design and Process — Course Introduction?
 
-A. Use one project for everything to reduce setup effort.
-B. Ignore telemetry until after first production incident.
-C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.
+A. Use one project for everything to reduce setup effort.  
+B. Ignore telemetry until after first production incident.  
+C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.  
 D. Pick only the cheapest service regardless of reliability needs.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q8
+
 Scenario Focus: Reliable Cloud Infrastructure: Design and Process — Course Introduction
+
 A proposal lowers cost but increases failure risk. What is the best decision?
 
-A. Ignore telemetry until after first production incident.
-B. Pick only the cheapest service regardless of reliability needs.
-C. Keep architecture opaque to avoid governance overhead.
+A. Ignore telemetry until after first production incident.  
+B. Pick only the cheapest service regardless of reliability needs.  
+C. Keep architecture opaque to avoid governance overhead.  
 D. Reject it unless reliability and recovery objectives remain within required targets.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q9
+
 Scenario Focus: Reliable Cloud Infrastructure: Design and Process — Course Introduction
+
 Which option best reflects optimization for Managed-service-first design with reliability and security by default?
 
-A. Select the design that best meets Managed-service-first design with reliability and security by default while keeping constraints balanced.
-B. Pick only the cheapest service regardless of reliability needs.
-C. Keep architecture opaque to avoid governance overhead.
+A. Select the design that best meets Managed-service-first design with reliability and security by default while keeping constraints balanced.  
+B. Pick only the cheapest service regardless of reliability needs.  
+C. Keep architecture opaque to avoid governance overhead.  
 D. Start with manual scripts and unrestricted access, then harden later.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q10
+
 Scenario Focus: Reliable Cloud Infrastructure: Design and Process — Course Introduction
+
 How should you evaluate a design that needs frequent manual interventions?
 
-A. Keep architecture opaque to avoid governance overhead.
-B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.
-C. Start with manual scripts and unrestricted access, then harden later.
+A. Keep architecture opaque to avoid governance overhead.  
+B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.  
+C. Start with manual scripts and unrestricted access, then harden later.  
 D. Use one project for everything to reduce setup effort.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q11
+
 Scenario Focus: Reliable Cloud Infrastructure: Design and Process — Course Introduction
+
 Two options have similar latency. Which tie-breaker is best?
 
-A. Start with manual scripts and unrestricted access, then harden later.
-B. Use one project for everything to reduce setup effort.
-C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+A. Start with manual scripts and unrestricted access, then harden later.  
+B. Use one project for everything to reduce setup effort.  
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.  
 D. Ignore telemetry until after first production incident.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q12
+
 Scenario Focus: Reliable Cloud Infrastructure: Design and Process — Course Introduction
+
 What is the best way to choose between a custom stack and a managed service?
 
-A. Use one project for everything to reduce setup effort.
-B. Ignore telemetry until after first production incident.
-C. Pick only the cheapest service regardless of reliability needs.
+A. Use one project for everything to reduce setup effort.  
+B. Ignore telemetry until after first production incident.  
+C. Pick only the cheapest service regardless of reliability needs.  
 D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q13
+
 Scenario Focus: Reliable Cloud Infrastructure: Design and Process — Course Introduction
+
 How do you confirm a solution is production-ready for 
 
-A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
-B. Ignore telemetry until after first production incident.
-C. Pick only the cheapest service regardless of reliability needs.
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.  
+B. Ignore telemetry until after first production incident.  
+C. Pick only the cheapest service regardless of reliability needs.  
 D. Keep architecture opaque to avoid governance overhead.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q14
+
 Scenario Focus: Reliable Cloud Infrastructure: Design and Process — Course Introduction
+
 Which pattern usually wins in ACE scenario tie-breakers?
 
-A. Pick only the cheapest service regardless of reliability needs.
-B. Managed-service-first plus least-privilege access plus clear observability usually wins.
-C. Keep architecture opaque to avoid governance overhead.
+A. Pick only the cheapest service regardless of reliability needs.  
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.  
+C. Keep architecture opaque to avoid governance overhead.  
 D. Start with manual scripts and unrestricted access, then harden later.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q15
+
 Scenario Focus: Reliable Cloud Infrastructure: Design and Process — Course Introduction
+
 What is the best final check before locking the answer?
 
-A. Keep architecture opaque to avoid governance overhead.
-B. Start with manual scripts and unrestricted access, then harden later.
-C. Run a weighted check across security, reliability, cost, performance, and operability.
+A. Keep architecture opaque to avoid governance overhead.  
+B. Start with manual scripts and unrestricted access, then harden later.  
+C. Run a weighted check across security, reliability, cost, performance, and operability.  
 D. Use one project for everything to reduce setup effort.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 ### Quick Commands

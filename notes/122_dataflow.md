@@ -156,198 +156,228 @@ sequenceDiagram
 
 ### Extra Exam Practice (15 Questions)
 #### Q1
+
 Scenario Focus: Dataflow
+
 You need low-latency event processing with autoscaling transforms. Which service is best?
 
-A. Use Dataflow for managed autoscaling stream and batch processing.
-B. Run all ETL manually from local scripts on one VM.
-C. Store analytical aggregates only in flat files.
+A. Use Dataflow for managed autoscaling stream and batch processing.  
+B. Run all ETL manually from local scripts on one VM.  
+C. Store analytical aggregates only in flat files.  
 D. Disable job retry and ignore dead-letter handling.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q2
+
 Scenario Focus: Dataflow
+
 What is the best BigQuery table strategy for time-series analytics?
 
-A. Store analytical aggregates only in flat files.
-B. Use partitioned tables and clustering for common filter dimensions.
-C. Disable job retry and ignore dead-letter handling.
+A. Store analytical aggregates only in flat files.  
+B. Use partitioned tables and clustering for common filter dimensions.  
+C. Disable job retry and ignore dead-letter handling.  
 D. Use unpartitioned large tables for all query workloads.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q3
+
 Scenario Focus: Dataflow
+
 A pipeline keeps failing due to schema changes. What is the best first control?
 
-A. Disable job retry and ignore dead-letter handling.
-B. Use unpartitioned large tables for all query workloads.
-C. Add schema validation and contract checks before loading curated tables.
+A. Disable job retry and ignore dead-letter handling.  
+B. Use unpartitioned large tables for all query workloads.  
+C. Add schema validation and contract checks before loading curated tables.  
 D. Treat data quality checks as optional in production.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q4
+
 Scenario Focus: Dataflow
+
 Which architecture supports both nightly batch and near-real-time reporting?
 
-A. Use unpartitioned large tables for all query workloads.
-B. Treat data quality checks as optional in production.
-C. Run all ETL manually from local scripts on one VM.
+A. Use unpartitioned large tables for all query workloads.  
+B. Treat data quality checks as optional in production.  
+C. Run all ETL manually from local scripts on one VM.  
 D. Use a shared transform layer that handles both streaming and scheduled batch paths.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q5
+
 Scenario Focus: Dataflow
+
 What should teams monitor to catch pipeline regressions early?
 
-A. Monitor lag, failed jobs, data freshness, and quality rule violations.
-B. Treat data quality checks as optional in production.
-C. Run all ETL manually from local scripts on one VM.
+A. Monitor lag, failed jobs, data freshness, and quality rule violations.  
+B. Treat data quality checks as optional in production.  
+C. Run all ETL manually from local scripts on one VM.  
 D. Store analytical aggregates only in flat files.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q6
+
 Scenario Focus: Dataflow
+
 Two designs both satisfy the happy path for Dataflow. Which choice is most correct?
 
-A. Run all ETL manually from local scripts on one VM.
-B. Choose the option that preserves reliability and security while reducing operational burden.
-C. Store analytical aggregates only in flat files.
+A. Run all ETL manually from local scripts on one VM.  
+B. Choose the option that preserves reliability and security while reducing operational burden.  
+C. Store analytical aggregates only in flat files.  
 D. Disable job retry and ignore dead-letter handling.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q7
+
 Scenario Focus: Dataflow
+
 What should you validate first before choosing an architecture for Dataflow?
 
-A. Store analytical aggregates only in flat files.
-B. Disable job retry and ignore dead-letter handling.
-C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.
+A. Store analytical aggregates only in flat files.  
+B. Disable job retry and ignore dead-letter handling.  
+C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.  
 D. Use unpartitioned large tables for all query workloads.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q8
+
 Scenario Focus: Dataflow
+
 A proposal lowers cost but increases failure risk. What is the best decision?
 
-A. Disable job retry and ignore dead-letter handling.
-B. Use unpartitioned large tables for all query workloads.
-C. Treat data quality checks as optional in production.
+A. Disable job retry and ignore dead-letter handling.  
+B. Use unpartitioned large tables for all query workloads.  
+C. Treat data quality checks as optional in production.  
 D. Reject it unless reliability and recovery objectives remain within required targets.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q9
+
 Scenario Focus: Dataflow
+
 Which option best reflects optimization for Data freshness and correctness with scalable transformation?
 
-A. Select the design that best meets Data freshness and correctness with scalable transformation while keeping constraints balanced.
-B. Use unpartitioned large tables for all query workloads.
-C. Treat data quality checks as optional in production.
+A. Select the design that best meets Data freshness and correctness with scalable transformation while keeping constraints balanced.  
+B. Use unpartitioned large tables for all query workloads.  
+C. Treat data quality checks as optional in production.  
 D. Run all ETL manually from local scripts on one VM.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q10
+
 Scenario Focus: Dataflow
+
 How should you evaluate a design that needs frequent manual interventions?
 
-A. Treat data quality checks as optional in production.
-B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.
-C. Run all ETL manually from local scripts on one VM.
+A. Treat data quality checks as optional in production.  
+B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.  
+C. Run all ETL manually from local scripts on one VM.  
 D. Store analytical aggregates only in flat files.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q11
+
 Scenario Focus: Dataflow
+
 Two options have similar latency. Which tie-breaker is best?
 
-A. Run all ETL manually from local scripts on one VM.
-B. Store analytical aggregates only in flat files.
-C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+A. Run all ETL manually from local scripts on one VM.  
+B. Store analytical aggregates only in flat files.  
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.  
 D. Disable job retry and ignore dead-letter handling.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q12
+
 Scenario Focus: Dataflow
+
 What is the best way to choose between a custom stack and a managed service?
 
-A. Store analytical aggregates only in flat files.
-B. Disable job retry and ignore dead-letter handling.
-C. Use unpartitioned large tables for all query workloads.
+A. Store analytical aggregates only in flat files.  
+B. Disable job retry and ignore dead-letter handling.  
+C. Use unpartitioned large tables for all query workloads.  
 D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q13
+
 Scenario Focus: Dataflow
+
 How do you confirm a solution is production-ready for 
 
-A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
-B. Disable job retry and ignore dead-letter handling.
-C. Use unpartitioned large tables for all query workloads.
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.  
+B. Disable job retry and ignore dead-letter handling.  
+C. Use unpartitioned large tables for all query workloads.  
 D. Treat data quality checks as optional in production.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q14
+
 Scenario Focus: Dataflow
+
 Which pattern usually wins in ACE scenario tie-breakers?
 
-A. Use unpartitioned large tables for all query workloads.
-B. Managed-service-first plus least-privilege access plus clear observability usually wins.
-C. Treat data quality checks as optional in production.
+A. Use unpartitioned large tables for all query workloads.  
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.  
+C. Treat data quality checks as optional in production.  
 D. Run all ETL manually from local scripts on one VM.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q15
+
 Scenario Focus: Dataflow
+
 What is the best final check before locking the answer?
 
-A. Treat data quality checks as optional in production.
-B. Run all ETL manually from local scripts on one VM.
-C. Run a weighted check across security, reliability, cost, performance, and operability.
+A. Treat data quality checks as optional in production.  
+B. Run all ETL manually from local scripts on one VM.  
+C. Run a weighted check across security, reliability, cost, performance, and operability.  
 D. Store analytical aggregates only in flat files.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 ### Quick Commands

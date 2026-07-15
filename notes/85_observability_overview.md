@@ -128,198 +128,228 @@ sequenceDiagram
 
 ### Extra Exam Practice (15 Questions)
 #### Q1
+
 Scenario Focus: Google Cloud Observability — Overview
+
 Latency increases only for one endpoint. What is the best first triage action?
 
-A. Check endpoint-specific metrics and traces before broad scaling actions.
-B. Restart all services immediately without diagnosis.
-C. Rely only on CPU metrics and ignore user-facing latency.
+A. Check endpoint-specific metrics and traces before broad scaling actions.  
+B. Restart all services immediately without diagnosis.  
+C. Rely only on CPU metrics and ignore user-facing latency.  
 D. Disable alerts during busy periods to avoid noise.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q2
+
 Scenario Focus: Google Cloud Observability — Overview
+
 Which monitoring strategy best protects user experience?
 
-A. Rely only on CPU metrics and ignore user-facing latency.
-B. Track SLO-aligned latency and error burn-rate alerts.
-C. Disable alerts during busy periods to avoid noise.
+A. Rely only on CPU metrics and ignore user-facing latency.  
+B. Track SLO-aligned latency and error burn-rate alerts.  
+C. Disable alerts during busy periods to avoid noise.  
 D. Investigate incidents only from one log line sample.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q3
+
 Scenario Focus: Google Cloud Observability — Overview
+
 A team has logs but no trace correlation. What should they add?
 
-A. Disable alerts during busy periods to avoid noise.
-B. Investigate incidents only from one log line sample.
-C. Add request correlation IDs across logs and traces.
+A. Disable alerts during busy periods to avoid noise.  
+B. Investigate incidents only from one log line sample.  
+C. Add request correlation IDs across logs and traces.  
 D. Skip retrospectives once service is healthy again.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q4
+
 Scenario Focus: Google Cloud Observability — Overview
+
 How should alerting be tuned to reduce noisy pages?
 
-A. Investigate incidents only from one log line sample.
-B. Skip retrospectives once service is healthy again.
-C. Restart all services immediately without diagnosis.
+A. Investigate incidents only from one log line sample.  
+B. Skip retrospectives once service is healthy again.  
+C. Restart all services immediately without diagnosis.  
 D. Use severity-based alerts with actionable thresholds and runbooks.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q5
+
 Scenario Focus: Google Cloud Observability — Overview
+
 What should happen after mitigation is applied?
 
-A. Run a post-incident review and capture prevention tasks.
-B. Skip retrospectives once service is healthy again.
-C. Restart all services immediately without diagnosis.
+A. Run a post-incident review and capture prevention tasks.  
+B. Skip retrospectives once service is healthy again.  
+C. Restart all services immediately without diagnosis.  
 D. Rely only on CPU metrics and ignore user-facing latency.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q6
+
 Scenario Focus: Google Cloud Observability — Overview
+
 Two designs both satisfy the happy path for Google Cloud Observability — Overview. Which choice is most correct?
 
-A. Restart all services immediately without diagnosis.
-B. Choose the option that preserves reliability and security while reducing operational burden.
-C. Rely only on CPU metrics and ignore user-facing latency.
+A. Restart all services immediately without diagnosis.  
+B. Choose the option that preserves reliability and security while reducing operational burden.  
+C. Rely only on CPU metrics and ignore user-facing latency.  
 D. Disable alerts during busy periods to avoid noise.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q7
+
 Scenario Focus: Google Cloud Observability — Overview
+
 What should you validate first before choosing an architecture for Google Cloud Observability — Overview?
 
-A. Rely only on CPU metrics and ignore user-facing latency.
-B. Disable alerts during busy periods to avoid noise.
-C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.
+A. Rely only on CPU metrics and ignore user-facing latency.  
+B. Disable alerts during busy periods to avoid noise.  
+C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.  
 D. Investigate incidents only from one log line sample.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q8
+
 Scenario Focus: Google Cloud Observability — Overview
+
 A proposal lowers cost but increases failure risk. What is the best decision?
 
-A. Disable alerts during busy periods to avoid noise.
-B. Investigate incidents only from one log line sample.
-C. Skip retrospectives once service is healthy again.
+A. Disable alerts during busy periods to avoid noise.  
+B. Investigate incidents only from one log line sample.  
+C. Skip retrospectives once service is healthy again.  
 D. Reject it unless reliability and recovery objectives remain within required targets.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q9
+
 Scenario Focus: Google Cloud Observability — Overview
+
 Which option best reflects optimization for SLO-driven reliability and faster mean time to recovery?
 
-A. Select the design that best meets SLO-driven reliability and faster mean time to recovery while keeping constraints balanced.
-B. Investigate incidents only from one log line sample.
-C. Skip retrospectives once service is healthy again.
+A. Select the design that best meets SLO-driven reliability and faster mean time to recovery while keeping constraints balanced.  
+B. Investigate incidents only from one log line sample.  
+C. Skip retrospectives once service is healthy again.  
 D. Restart all services immediately without diagnosis.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q10
+
 Scenario Focus: Google Cloud Observability — Overview
+
 How should you evaluate a design that needs frequent manual interventions?
 
-A. Skip retrospectives once service is healthy again.
-B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.
-C. Restart all services immediately without diagnosis.
+A. Skip retrospectives once service is healthy again.  
+B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.  
+C. Restart all services immediately without diagnosis.  
 D. Rely only on CPU metrics and ignore user-facing latency.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q11
+
 Scenario Focus: Google Cloud Observability — Overview
+
 Two options have similar latency. Which tie-breaker is best?
 
-A. Restart all services immediately without diagnosis.
-B. Rely only on CPU metrics and ignore user-facing latency.
-C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+A. Restart all services immediately without diagnosis.  
+B. Rely only on CPU metrics and ignore user-facing latency.  
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.  
 D. Disable alerts during busy periods to avoid noise.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q12
+
 Scenario Focus: Google Cloud Observability — Overview
+
 What is the best way to choose between a custom stack and a managed service?
 
-A. Rely only on CPU metrics and ignore user-facing latency.
-B. Disable alerts during busy periods to avoid noise.
-C. Investigate incidents only from one log line sample.
+A. Rely only on CPU metrics and ignore user-facing latency.  
+B. Disable alerts during busy periods to avoid noise.  
+C. Investigate incidents only from one log line sample.  
 D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q13
+
 Scenario Focus: Google Cloud Observability — Overview
+
 How do you confirm a solution is production-ready for 
 
-A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
-B. Disable alerts during busy periods to avoid noise.
-C. Investigate incidents only from one log line sample.
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.  
+B. Disable alerts during busy periods to avoid noise.  
+C. Investigate incidents only from one log line sample.  
 D. Skip retrospectives once service is healthy again.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q14
+
 Scenario Focus: Google Cloud Observability — Overview
+
 Which pattern usually wins in ACE scenario tie-breakers?
 
-A. Investigate incidents only from one log line sample.
-B. Managed-service-first plus least-privilege access plus clear observability usually wins.
-C. Skip retrospectives once service is healthy again.
+A. Investigate incidents only from one log line sample.  
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.  
+C. Skip retrospectives once service is healthy again.  
 D. Restart all services immediately without diagnosis.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q15
+
 Scenario Focus: Google Cloud Observability — Overview
+
 What is the best final check before locking the answer?
 
-A. Skip retrospectives once service is healthy again.
-B. Restart all services immediately without diagnosis.
-C. Run a weighted check across security, reliability, cost, performance, and operability.
+A. Skip retrospectives once service is healthy again.  
+B. Restart all services immediately without diagnosis.  
+C. Run a weighted check across security, reliability, cost, performance, and operability.  
 D. Rely only on CPU metrics and ignore user-facing latency.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 ### Quick Commands

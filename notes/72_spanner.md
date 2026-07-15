@@ -334,198 +334,228 @@ sequenceDiagram
 
 ### Extra Exam Practice (15 Questions)
 #### Q1
+
 Scenario Focus: Cloud Spanner
+
 Your logs are rarely accessed after 90 days. What storage policy is best?
 
-A. Use lifecycle rules to transition objects to colder storage classes after 90 days.
-B. Keep everything in the most expensive hot class forever.
-C. Use local disk snapshots as the only backup strategy.
+A. Use lifecycle rules to transition objects to colder storage classes after 90 days.  
+B. Keep everything in the most expensive hot class forever.  
+C. Use local disk snapshots as the only backup strategy.  
 D. Pick a database only by familiarity and ignore access patterns.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q2
+
 Scenario Focus: Cloud Spanner
+
 A workload requires relational transactions and managed operations. Which database is best?
 
-A. Use local disk snapshots as the only backup strategy.
-B. Use Cloud SQL or AlloyDB for managed relational workloads with transaction support.
-C. Pick a database only by familiarity and ignore access patterns.
+A. Use local disk snapshots as the only backup strategy.  
+B. Use Cloud SQL or AlloyDB for managed relational workloads with transaction support.  
+C. Pick a database only by familiarity and ignore access patterns.  
 D. Store transactional records only in object storage.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q3
+
 Scenario Focus: Cloud Spanner
+
 Which practice improves durability and recovery posture most?
 
-A. Pick a database only by familiarity and ignore access patterns.
-B. Store transactional records only in object storage.
-C. Enable backups with tested restore procedures and clear recovery objectives.
+A. Pick a database only by familiarity and ignore access patterns.  
+B. Store transactional records only in object storage.  
+C. Enable backups with tested restore procedures and clear recovery objectives.  
 D. Skip restore drills because backups are assumed valid.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q4
+
 Scenario Focus: Cloud Spanner
+
 A key-value workload needs very high scale and low latency. Which service fits?
 
-A. Store transactional records only in object storage.
-B. Skip restore drills because backups are assumed valid.
-C. Keep everything in the most expensive hot class forever.
+A. Store transactional records only in object storage.  
+B. Skip restore drills because backups are assumed valid.  
+C. Keep everything in the most expensive hot class forever.  
 D. Use Bigtable for high-throughput low-latency wide-column workloads.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q5
+
 Scenario Focus: Cloud Spanner
+
 How should you choose a storage class on the exam?
 
-A. Choose based on access frequency, retention period, and retrieval latency requirements.
-B. Skip restore drills because backups are assumed valid.
-C. Keep everything in the most expensive hot class forever.
+A. Choose based on access frequency, retention period, and retrieval latency requirements.  
+B. Skip restore drills because backups are assumed valid.  
+C. Keep everything in the most expensive hot class forever.  
 D. Use local disk snapshots as the only backup strategy.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q6
+
 Scenario Focus: Cloud Spanner
+
 Two designs both satisfy the happy path for Cloud Spanner. Which choice is most correct?
 
-A. Keep everything in the most expensive hot class forever.
-B. Choose the option that preserves reliability and security while reducing operational burden.
-C. Use local disk snapshots as the only backup strategy.
+A. Keep everything in the most expensive hot class forever.  
+B. Choose the option that preserves reliability and security while reducing operational burden.  
+C. Use local disk snapshots as the only backup strategy.  
 D. Pick a database only by familiarity and ignore access patterns.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q7
+
 Scenario Focus: Cloud Spanner
+
 What should you validate first before choosing an architecture for Cloud Spanner?
 
-A. Use local disk snapshots as the only backup strategy.
-B. Pick a database only by familiarity and ignore access patterns.
-C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.
+A. Use local disk snapshots as the only backup strategy.  
+B. Pick a database only by familiarity and ignore access patterns.  
+C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.  
 D. Store transactional records only in object storage.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q8
+
 Scenario Focus: Cloud Spanner
+
 A proposal lowers cost but increases failure risk. What is the best decision?
 
-A. Pick a database only by familiarity and ignore access patterns.
-B. Store transactional records only in object storage.
-C. Skip restore drills because backups are assumed valid.
+A. Pick a database only by familiarity and ignore access patterns.  
+B. Store transactional records only in object storage.  
+C. Skip restore drills because backups are assumed valid.  
 D. Reject it unless reliability and recovery objectives remain within required targets.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q9
+
 Scenario Focus: Cloud Spanner
+
 Which option best reflects optimization for Durability and access-pattern fit at the lowest lifecycle cost?
 
-A. Select the design that best meets Durability and access-pattern fit at the lowest lifecycle cost while keeping constraints balanced.
-B. Store transactional records only in object storage.
-C. Skip restore drills because backups are assumed valid.
+A. Select the design that best meets Durability and access-pattern fit at the lowest lifecycle cost while keeping constraints balanced.  
+B. Store transactional records only in object storage.  
+C. Skip restore drills because backups are assumed valid.  
 D. Keep everything in the most expensive hot class forever.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q10
+
 Scenario Focus: Cloud Spanner
+
 How should you evaluate a design that needs frequent manual interventions?
 
-A. Skip restore drills because backups are assumed valid.
-B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.
-C. Keep everything in the most expensive hot class forever.
+A. Skip restore drills because backups are assumed valid.  
+B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.  
+C. Keep everything in the most expensive hot class forever.  
 D. Use local disk snapshots as the only backup strategy.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q11
+
 Scenario Focus: Cloud Spanner
+
 Two options have similar latency. Which tie-breaker is best?
 
-A. Keep everything in the most expensive hot class forever.
-B. Use local disk snapshots as the only backup strategy.
-C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+A. Keep everything in the most expensive hot class forever.  
+B. Use local disk snapshots as the only backup strategy.  
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.  
 D. Pick a database only by familiarity and ignore access patterns.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q12
+
 Scenario Focus: Cloud Spanner
+
 What is the best way to choose between a custom stack and a managed service?
 
-A. Use local disk snapshots as the only backup strategy.
-B. Pick a database only by familiarity and ignore access patterns.
-C. Store transactional records only in object storage.
+A. Use local disk snapshots as the only backup strategy.  
+B. Pick a database only by familiarity and ignore access patterns.  
+C. Store transactional records only in object storage.  
 D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q13
+
 Scenario Focus: Cloud Spanner
+
 How do you confirm a solution is production-ready for 
 
-A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
-B. Pick a database only by familiarity and ignore access patterns.
-C. Store transactional records only in object storage.
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.  
+B. Pick a database only by familiarity and ignore access patterns.  
+C. Store transactional records only in object storage.  
 D. Skip restore drills because backups are assumed valid.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q14
+
 Scenario Focus: Cloud Spanner
+
 Which pattern usually wins in ACE scenario tie-breakers?
 
-A. Store transactional records only in object storage.
-B. Managed-service-first plus least-privilege access plus clear observability usually wins.
-C. Skip restore drills because backups are assumed valid.
+A. Store transactional records only in object storage.  
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.  
+C. Skip restore drills because backups are assumed valid.  
 D. Keep everything in the most expensive hot class forever.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q15
+
 Scenario Focus: Cloud Spanner
+
 What is the best final check before locking the answer?
 
-A. Skip restore drills because backups are assumed valid.
-B. Keep everything in the most expensive hot class forever.
-C. Run a weighted check across security, reliability, cost, performance, and operability.
+A. Skip restore drills because backups are assumed valid.  
+B. Keep everything in the most expensive hot class forever.  
+C. Run a weighted check across security, reliability, cost, performance, and operability.  
 D. Use local disk snapshots as the only backup strategy.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 ### Quick Commands

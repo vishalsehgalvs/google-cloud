@@ -182,198 +182,228 @@ sequenceDiagram
 
 ### Extra Exam Practice (15 Questions)
 #### Q1
+
 Scenario Focus: Billing Administration Demo
+
 A project is constantly over budget. What is the highest-impact first step?
 
-A. Create budgets with alerts and investigate top cost drivers immediately.
-B. Wait until the invoice arrives, then react next month.
-C. Disable all monitoring because it has a minor cost.
+A. Create budgets with alerts and investigate top cost drivers immediately.  
+B. Wait until the invoice arrives, then react next month.  
+C. Disable all monitoring because it has a minor cost.  
 D. Give every team unrestricted quotas for speed.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q2
+
 Scenario Focus: Billing Administration Demo
+
 Which resource tagging strategy improves chargeback visibility?
 
-A. Disable all monitoring because it has a minor cost.
-B. Apply consistent labels for owner, environment, and cost center.
-C. Give every team unrestricted quotas for speed.
+A. Disable all monitoring because it has a minor cost.  
+B. Apply consistent labels for owner, environment, and cost center.  
+C. Give every team unrestricted quotas for speed.  
 D. Keep orphaned resources as backups without tracking.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q3
+
 Scenario Focus: Billing Administration Demo
+
 How should you control runaway spend in exam scenarios?
 
-A. Give every team unrestricted quotas for speed.
-B. Keep orphaned resources as backups without tracking.
-C. Use quotas, budgets, and alerting guardrails before incidents happen.
+A. Give every team unrestricted quotas for speed.  
+B. Keep orphaned resources as backups without tracking.  
+C. Use quotas, budgets, and alerting guardrails before incidents happen.  
 D. Use one shared project for all environments and teams.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q4
+
 Scenario Focus: Billing Administration Demo
+
 What is the best way to identify long-term cost trends?
 
-A. Keep orphaned resources as backups without tracking.
-B. Use one shared project for all environments and teams.
-C. Wait until the invoice arrives, then react next month.
+A. Keep orphaned resources as backups without tracking.  
+B. Use one shared project for all environments and teams.  
+C. Wait until the invoice arrives, then react next month.  
 D. Export billing data and analyze trends with dashboards and anomaly checks.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q5
+
 Scenario Focus: Billing Administration Demo
+
 Which decision reduces waste while preserving reliability?
 
-A. Right-size resources using utilization metrics and remove idle assets.
-B. Use one shared project for all environments and teams.
-C. Wait until the invoice arrives, then react next month.
+A. Right-size resources using utilization metrics and remove idle assets.  
+B. Use one shared project for all environments and teams.  
+C. Wait until the invoice arrives, then react next month.  
 D. Disable all monitoring because it has a minor cost.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q6
+
 Scenario Focus: Billing Administration Demo
+
 Two designs both satisfy the happy path for Billing Administration Demo. Which choice is most correct?
 
-A. Wait until the invoice arrives, then react next month.
-B. Choose the option that preserves reliability and security while reducing operational burden.
-C. Disable all monitoring because it has a minor cost.
+A. Wait until the invoice arrives, then react next month.  
+B. Choose the option that preserves reliability and security while reducing operational burden.  
+C. Disable all monitoring because it has a minor cost.  
 D. Give every team unrestricted quotas for speed.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q7
+
 Scenario Focus: Billing Administration Demo
+
 What should you validate first before choosing an architecture for Billing Administration Demo?
 
-A. Disable all monitoring because it has a minor cost.
-B. Give every team unrestricted quotas for speed.
-C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.
+A. Disable all monitoring because it has a minor cost.  
+B. Give every team unrestricted quotas for speed.  
+C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.  
 D. Keep orphaned resources as backups without tracking.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q8
+
 Scenario Focus: Billing Administration Demo
+
 A proposal lowers cost but increases failure risk. What is the best decision?
 
-A. Give every team unrestricted quotas for speed.
-B. Keep orphaned resources as backups without tracking.
-C. Use one shared project for all environments and teams.
+A. Give every team unrestricted quotas for speed.  
+B. Keep orphaned resources as backups without tracking.  
+C. Use one shared project for all environments and teams.  
 D. Reject it unless reliability and recovery objectives remain within required targets.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q9
+
 Scenario Focus: Billing Administration Demo
+
 Which option best reflects optimization for Predictable spend guardrails without reliability regression?
 
-A. Select the design that best meets Predictable spend guardrails without reliability regression while keeping constraints balanced.
-B. Keep orphaned resources as backups without tracking.
-C. Use one shared project for all environments and teams.
+A. Select the design that best meets Predictable spend guardrails without reliability regression while keeping constraints balanced.  
+B. Keep orphaned resources as backups without tracking.  
+C. Use one shared project for all environments and teams.  
 D. Wait until the invoice arrives, then react next month.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q10
+
 Scenario Focus: Billing Administration Demo
+
 How should you evaluate a design that needs frequent manual interventions?
 
-A. Use one shared project for all environments and teams.
-B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.
-C. Wait until the invoice arrives, then react next month.
+A. Use one shared project for all environments and teams.  
+B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.  
+C. Wait until the invoice arrives, then react next month.  
 D. Disable all monitoring because it has a minor cost.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q11
+
 Scenario Focus: Billing Administration Demo
+
 Two options have similar latency. Which tie-breaker is best?
 
-A. Wait until the invoice arrives, then react next month.
-B. Disable all monitoring because it has a minor cost.
-C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+A. Wait until the invoice arrives, then react next month.  
+B. Disable all monitoring because it has a minor cost.  
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.  
 D. Give every team unrestricted quotas for speed.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q12
+
 Scenario Focus: Billing Administration Demo
+
 What is the best way to choose between a custom stack and a managed service?
 
-A. Disable all monitoring because it has a minor cost.
-B. Give every team unrestricted quotas for speed.
-C. Keep orphaned resources as backups without tracking.
+A. Disable all monitoring because it has a minor cost.  
+B. Give every team unrestricted quotas for speed.  
+C. Keep orphaned resources as backups without tracking.  
 D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q13
+
 Scenario Focus: Billing Administration Demo
+
 How do you confirm a solution is production-ready for 
 
-A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
-B. Give every team unrestricted quotas for speed.
-C. Keep orphaned resources as backups without tracking.
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.  
+B. Give every team unrestricted quotas for speed.  
+C. Keep orphaned resources as backups without tracking.  
 D. Use one shared project for all environments and teams.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q14
+
 Scenario Focus: Billing Administration Demo
+
 Which pattern usually wins in ACE scenario tie-breakers?
 
-A. Keep orphaned resources as backups without tracking.
-B. Managed-service-first plus least-privilege access plus clear observability usually wins.
-C. Use one shared project for all environments and teams.
+A. Keep orphaned resources as backups without tracking.  
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.  
+C. Use one shared project for all environments and teams.  
 D. Wait until the invoice arrives, then react next month.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q15
+
 Scenario Focus: Billing Administration Demo
+
 What is the best final check before locking the answer?
 
-A. Use one shared project for all environments and teams.
-B. Wait until the invoice arrives, then react next month.
-C. Run a weighted check across security, reliability, cost, performance, and operability.
+A. Use one shared project for all environments and teams.  
+B. Wait until the invoice arrives, then react next month.  
+C. Run a weighted check across security, reliability, cost, performance, and operability.  
 D. Disable all monitoring because it has a minor cost.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 ### Quick Commands

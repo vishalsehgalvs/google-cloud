@@ -134,198 +134,228 @@ sequenceDiagram
 
 ### Extra Exam Practice (15 Questions)
 #### Q1
+
 Scenario Focus: IAM — Organization Restrictions
+
 Your team must grant temporary production access for incident response. Which approach is best?
 
-A. Grant a time-bound least-privilege role through group membership and audit the binding.
-B. Grant Owner role temporarily and remove it manually later.
-C. Share one administrator account for faster troubleshooting.
+A. Grant a time-bound least-privilege role through group membership and audit the binding.  
+B. Grant Owner role temporarily and remove it manually later.  
+C. Share one administrator account for faster troubleshooting.  
 D. Store service account keys in a shared drive because it is internal.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q2
+
 Scenario Focus: IAM — Organization Restrictions
+
 A workload is still using a JSON key file in source control. What is the best fix?
 
-A. Share one administrator account for faster troubleshooting.
-B. Move to service account impersonation or Workload Identity and disable long-lived keys.
-C. Store service account keys in a shared drive because it is internal.
+A. Share one administrator account for faster troubleshooting.  
+B. Move to service account impersonation or Workload Identity and disable long-lived keys.  
+C. Store service account keys in a shared drive because it is internal.  
 D. Apply organization-level broad roles so future access requests are avoided.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q3
+
 Scenario Focus: IAM — Organization Restrictions
+
 Which setup best reduces blast radius across environments?
 
-A. Store service account keys in a shared drive because it is internal.
-B. Apply organization-level broad roles so future access requests are avoided.
-C. Use separate projects per environment with narrow IAM bindings at project or resource level.
+A. Store service account keys in a shared drive because it is internal.  
+B. Apply organization-level broad roles so future access requests are avoided.  
+C. Use separate projects per environment with narrow IAM bindings at project or resource level.  
 D. Skip audit logs to reduce logging costs during non-peak hours.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q4
+
 Scenario Focus: IAM — Organization Restrictions
+
 What should you monitor first for IAM abuse detection?
 
-A. Apply organization-level broad roles so future access requests are avoided.
-B. Skip audit logs to reduce logging costs during non-peak hours.
-C. Grant Owner role temporarily and remove it manually later.
+A. Apply organization-level broad roles so future access requests are avoided.  
+B. Skip audit logs to reduce logging costs during non-peak hours.  
+C. Grant Owner role temporarily and remove it manually later.  
 D. Alert on IAM policy changes, service account key creation, and high-risk privilege grants.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q5
+
 Scenario Focus: IAM — Organization Restrictions
+
 A developer needs read-only billing visibility. Which decision is best?
 
-A. Assign a billing viewer role at the required scope instead of broad project editor access.
-B. Skip audit logs to reduce logging costs during non-peak hours.
-C. Grant Owner role temporarily and remove it manually later.
+A. Assign a billing viewer role at the required scope instead of broad project editor access.  
+B. Skip audit logs to reduce logging costs during non-peak hours.  
+C. Grant Owner role temporarily and remove it manually later.  
 D. Share one administrator account for faster troubleshooting.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q6
+
 Scenario Focus: IAM — Organization Restrictions
+
 Two designs both satisfy the happy path for IAM — Organization Restrictions. Which choice is most correct?
 
-A. Grant Owner role temporarily and remove it manually later.
-B. Choose the option that preserves reliability and security while reducing operational burden.
-C. Share one administrator account for faster troubleshooting.
+A. Grant Owner role temporarily and remove it manually later.  
+B. Choose the option that preserves reliability and security while reducing operational burden.  
+C. Share one administrator account for faster troubleshooting.  
 D. Store service account keys in a shared drive because it is internal.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q7
+
 Scenario Focus: IAM — Organization Restrictions
+
 What should you validate first before choosing an architecture for IAM — Organization Restrictions?
 
-A. Share one administrator account for faster troubleshooting.
-B. Store service account keys in a shared drive because it is internal.
-C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.
+A. Share one administrator account for faster troubleshooting.  
+B. Store service account keys in a shared drive because it is internal.  
+C. Validate SLO fit, blast radius, and least-privilege controls before comparing convenience.  
 D. Apply organization-level broad roles so future access requests are avoided.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q8
+
 Scenario Focus: IAM — Organization Restrictions
+
 A proposal lowers cost but increases failure risk. What is the best decision?
 
-A. Store service account keys in a shared drive because it is internal.
-B. Apply organization-level broad roles so future access requests are avoided.
-C. Skip audit logs to reduce logging costs during non-peak hours.
+A. Store service account keys in a shared drive because it is internal.  
+B. Apply organization-level broad roles so future access requests are avoided.  
+C. Skip audit logs to reduce logging costs during non-peak hours.  
 D. Reject it unless reliability and recovery objectives remain within required targets.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q9
+
 Scenario Focus: IAM — Organization Restrictions
+
 Which option best reflects optimization for Security posture and blast-radius minimization?
 
-A. Select the design that best meets Security posture and blast-radius minimization while keeping constraints balanced.
-B. Apply organization-level broad roles so future access requests are avoided.
-C. Skip audit logs to reduce logging costs during non-peak hours.
+A. Select the design that best meets Security posture and blast-radius minimization while keeping constraints balanced.  
+B. Apply organization-level broad roles so future access requests are avoided.  
+C. Skip audit logs to reduce logging costs during non-peak hours.  
 D. Grant Owner role temporarily and remove it manually later.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q10
+
 Scenario Focus: IAM — Organization Restrictions
+
 How should you evaluate a design that needs frequent manual interventions?
 
-A. Skip audit logs to reduce logging costs during non-peak hours.
-B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.
-C. Grant Owner role temporarily and remove it manually later.
+A. Skip audit logs to reduce logging costs during non-peak hours.  
+B. Treat it as high risk and prefer automation-friendly designs with observability and rollback.  
+C. Grant Owner role temporarily and remove it manually later.  
 D. Share one administrator account for faster troubleshooting.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q11
+
 Scenario Focus: IAM — Organization Restrictions
+
 Two options have similar latency. Which tie-breaker is best?
 
-A. Grant Owner role temporarily and remove it manually later.
-B. Share one administrator account for faster troubleshooting.
-C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+A. Grant Owner role temporarily and remove it manually later.  
+B. Share one administrator account for faster troubleshooting.  
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.  
 D. Store service account keys in a shared drive because it is internal.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q12
+
 Scenario Focus: IAM — Organization Restrictions
+
 What is the best way to choose between a custom stack and a managed service?
 
-A. Share one administrator account for faster troubleshooting.
-B. Store service account keys in a shared drive because it is internal.
-C. Apply organization-level broad roles so future access requests are avoided.
+A. Share one administrator account for faster troubleshooting.  
+B. Store service account keys in a shared drive because it is internal.  
+C. Apply organization-level broad roles so future access requests are avoided.  
 D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
 
-Answer: D
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: D  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q13
+
 Scenario Focus: IAM — Organization Restrictions
+
 How do you confirm a solution is production-ready for 
 
-A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
-B. Store service account keys in a shared drive because it is internal.
-C. Apply organization-level broad roles so future access requests are avoided.
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.  
+B. Store service account keys in a shared drive because it is internal.  
+C. Apply organization-level broad roles so future access requests are avoided.  
 D. Skip audit logs to reduce logging costs during non-peak hours.
 
-Answer: A
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: A  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q14
+
 Scenario Focus: IAM — Organization Restrictions
+
 Which pattern usually wins in ACE scenario tie-breakers?
 
-A. Apply organization-level broad roles so future access requests are avoided.
-B. Managed-service-first plus least-privilege access plus clear observability usually wins.
-C. Skip audit logs to reduce logging costs during non-peak hours.
+A. Apply organization-level broad roles so future access requests are avoided.  
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.  
+C. Skip audit logs to reduce logging costs during non-peak hours.  
 D. Grant Owner role temporarily and remove it manually later.
 
-Answer: B
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: B  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 #### Q15
+
 Scenario Focus: IAM — Organization Restrictions
+
 What is the best final check before locking the answer?
 
-A. Skip audit logs to reduce logging costs during non-peak hours.
-B. Grant Owner role temporarily and remove it manually later.
-C. Run a weighted check across security, reliability, cost, performance, and operability.
+A. Skip audit logs to reduce logging costs during non-peak hours.  
+B. Grant Owner role temporarily and remove it manually later.  
+C. Run a weighted check across security, reliability, cost, performance, and operability.  
 D. Share one administrator account for faster troubleshooting.
 
-Answer: C
-Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Answer: C  
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.  
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 ### Quick Commands
