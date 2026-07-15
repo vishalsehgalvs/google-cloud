@@ -180,7 +180,7 @@ sequenceDiagram
     Resources-->>Billing: Lower projected spend
 ```
 
-### Extra Exam Practice (10 Questions)
+### Extra Exam Practice (15 Questions)
 #### Q1
 Scenario Focus: Billing Administration Demo
 A project is constantly over budget. What is the highest-impact first step?
@@ -308,6 +308,71 @@ C. Wait until the invoice arrives, then react next month.
 D. Disable all monitoring because it has a minor cost.
 
 Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q11
+Scenario Focus: Billing Administration Demo
+Two options have similar latency. Which tie-breaker is best?
+
+A. Wait until the invoice arrives, then react next month.
+B. Disable all monitoring because it has a minor cost.
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+D. Give every team unrestricted quotas for speed.
+
+Answer: C
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q12
+Scenario Focus: Billing Administration Demo
+What is the best way to choose between a custom stack and a managed service?
+
+A. Disable all monitoring because it has a minor cost.
+B. Give every team unrestricted quotas for speed.
+C. Keep orphaned resources as backups without tracking.
+D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
+
+Answer: D
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q13
+Scenario Focus: Billing Administration Demo
+How do you confirm a solution is production-ready for 
+
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
+B. Give every team unrestricted quotas for speed.
+C. Keep orphaned resources as backups without tracking.
+D. Use one shared project for all environments and teams.
+
+Answer: A
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q14
+Scenario Focus: Billing Administration Demo
+Which pattern usually wins in ACE scenario tie-breakers?
+
+A. Keep orphaned resources as backups without tracking.
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.
+C. Use one shared project for all environments and teams.
+D. Wait until the invoice arrives, then react next month.
+
+Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q15
+Scenario Focus: Billing Administration Demo
+What is the best final check before locking the answer?
+
+A. Use one shared project for all environments and teams.
+B. Wait until the invoice arrives, then react next month.
+C. Run a weighted check across security, reliability, cost, performance, and operability.
+D. Disable all monitoring because it has a minor cost.
+
+Answer: C
 Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 

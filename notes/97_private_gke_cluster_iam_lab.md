@@ -204,7 +204,7 @@ sequenceDiagram
     API-->>SA: Authorized response
 ```
 
-### Extra Exam Practice (10 Questions)
+### Extra Exam Practice (15 Questions)
 #### Q1
 Scenario Focus: Private GKE Cluster with Custom IAM Role — Lab Walkthrough
 Your team must grant temporary production access for incident response. Which approach is best?
@@ -332,6 +332,71 @@ C. Grant Owner role temporarily and remove it manually later.
 D. Share one administrator account for faster troubleshooting.
 
 Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q11
+Scenario Focus: Private GKE Cluster with Custom IAM Role — Lab Walkthrough
+Two options have similar latency. Which tie-breaker is best?
+
+A. Grant Owner role temporarily and remove it manually later.
+B. Share one administrator account for faster troubleshooting.
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+D. Store service account keys in a shared drive because it is internal.
+
+Answer: C
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q12
+Scenario Focus: Private GKE Cluster with Custom IAM Role — Lab Walkthrough
+What is the best way to choose between a custom stack and a managed service?
+
+A. Share one administrator account for faster troubleshooting.
+B. Store service account keys in a shared drive because it is internal.
+C. Apply organization-level broad roles so future access requests are avoided.
+D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
+
+Answer: D
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q13
+Scenario Focus: Private GKE Cluster with Custom IAM Role — Lab Walkthrough
+How do you confirm a solution is production-ready for 
+
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
+B. Store service account keys in a shared drive because it is internal.
+C. Apply organization-level broad roles so future access requests are avoided.
+D. Skip audit logs to reduce logging costs during non-peak hours.
+
+Answer: A
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q14
+Scenario Focus: Private GKE Cluster with Custom IAM Role — Lab Walkthrough
+Which pattern usually wins in ACE scenario tie-breakers?
+
+A. Apply organization-level broad roles so future access requests are avoided.
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.
+C. Skip audit logs to reduce logging costs during non-peak hours.
+D. Grant Owner role temporarily and remove it manually later.
+
+Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q15
+Scenario Focus: Private GKE Cluster with Custom IAM Role — Lab Walkthrough
+What is the best final check before locking the answer?
+
+A. Skip audit logs to reduce logging costs during non-peak hours.
+B. Grant Owner role temporarily and remove it manually later.
+C. Run a weighted check across security, reliability, cost, performance, and operability.
+D. Share one administrator account for faster troubleshooting.
+
+Answer: C
 Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 

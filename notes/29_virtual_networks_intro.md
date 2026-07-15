@@ -295,7 +295,7 @@ sequenceDiagram
     LB->>Logs: Emit latency and error metrics
 ```
 
-### Extra Exam Practice (10 Questions)
+### Extra Exam Practice (15 Questions)
 #### Q1
 Scenario Focus: 🌐 Virtual Networks in Google Cloud
 A service must be reachable only from internal VMs. Which design is best?
@@ -423,6 +423,71 @@ C. Expose the service publicly and rely on app-level passwords.
 D. Use one VM with a static external IP to simplify architecture.
 
 Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q11
+Scenario Focus: 🌐 Virtual Networks in Google Cloud
+Two options have similar latency. Which tie-breaker is best?
+
+A. Expose the service publicly and rely on app-level passwords.
+B. Use one VM with a static external IP to simplify architecture.
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+D. Allow 0.0.0.0/0 ingress to speed up troubleshooting.
+
+Answer: C
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q12
+Scenario Focus: 🌐 Virtual Networks in Google Cloud
+What is the best way to choose between a custom stack and a managed service?
+
+A. Use one VM with a static external IP to simplify architecture.
+B. Allow 0.0.0.0/0 ingress to speed up troubleshooting.
+C. Disable health checks to avoid accidental failover.
+D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
+
+Answer: D
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q13
+Scenario Focus: 🌐 Virtual Networks in Google Cloud
+How do you confirm a solution is production-ready for 
+
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
+B. Allow 0.0.0.0/0 ingress to speed up troubleshooting.
+C. Disable health checks to avoid accidental failover.
+D. Route all traffic through manual bastion hops in production.
+
+Answer: A
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q14
+Scenario Focus: 🌐 Virtual Networks in Google Cloud
+Which pattern usually wins in ACE scenario tie-breakers?
+
+A. Disable health checks to avoid accidental failover.
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.
+C. Route all traffic through manual bastion hops in production.
+D. Expose the service publicly and rely on app-level passwords.
+
+Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q15
+Scenario Focus: 🌐 Virtual Networks in Google Cloud
+What is the best final check before locking the answer?
+
+A. Route all traffic through manual bastion hops in production.
+B. Expose the service publicly and rely on app-level passwords.
+C. Run a weighted check across security, reliability, cost, performance, and operability.
+D. Use one VM with a static external IP to simplify architecture.
+
+Answer: C
 Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 

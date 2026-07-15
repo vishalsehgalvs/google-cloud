@@ -126,7 +126,7 @@ sequenceDiagram
     OnCall->>Logging: Investigate root cause
 ```
 
-### Extra Exam Practice (10 Questions)
+### Extra Exam Practice (15 Questions)
 #### Q1
 Scenario Focus: Google Cloud Observability — Overview
 Latency increases only for one endpoint. What is the best first triage action?
@@ -254,6 +254,71 @@ C. Restart all services immediately without diagnosis.
 D. Rely only on CPU metrics and ignore user-facing latency.
 
 Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q11
+Scenario Focus: Google Cloud Observability — Overview
+Two options have similar latency. Which tie-breaker is best?
+
+A. Restart all services immediately without diagnosis.
+B. Rely only on CPU metrics and ignore user-facing latency.
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+D. Disable alerts during busy periods to avoid noise.
+
+Answer: C
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q12
+Scenario Focus: Google Cloud Observability — Overview
+What is the best way to choose between a custom stack and a managed service?
+
+A. Rely only on CPU metrics and ignore user-facing latency.
+B. Disable alerts during busy periods to avoid noise.
+C. Investigate incidents only from one log line sample.
+D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
+
+Answer: D
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q13
+Scenario Focus: Google Cloud Observability — Overview
+How do you confirm a solution is production-ready for 
+
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
+B. Disable alerts during busy periods to avoid noise.
+C. Investigate incidents only from one log line sample.
+D. Skip retrospectives once service is healthy again.
+
+Answer: A
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q14
+Scenario Focus: Google Cloud Observability — Overview
+Which pattern usually wins in ACE scenario tie-breakers?
+
+A. Investigate incidents only from one log line sample.
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.
+C. Skip retrospectives once service is healthy again.
+D. Restart all services immediately without diagnosis.
+
+Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q15
+Scenario Focus: Google Cloud Observability — Overview
+What is the best final check before locking the answer?
+
+A. Skip retrospectives once service is healthy again.
+B. Restart all services immediately without diagnosis.
+C. Run a weighted check across security, reliability, cost, performance, and operability.
+D. Rely only on CPU metrics and ignore user-facing latency.
+
+Answer: C
 Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 

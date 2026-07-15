@@ -157,7 +157,7 @@ sequenceDiagram
     BI-->>Warehouse: Dashboard refresh
 ```
 
-### Extra Exam Practice (10 Questions)
+### Extra Exam Practice (15 Questions)
 #### Q1
 Scenario Focus: Dataprep by Trifacta
 You need low-latency event processing with autoscaling transforms. Which service is best?
@@ -285,6 +285,71 @@ C. Run all ETL manually from local scripts on one VM.
 D. Store analytical aggregates only in flat files.
 
 Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q11
+Scenario Focus: Dataprep by Trifacta
+Two options have similar latency. Which tie-breaker is best?
+
+A. Run all ETL manually from local scripts on one VM.
+B. Store analytical aggregates only in flat files.
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+D. Disable job retry and ignore dead-letter handling.
+
+Answer: C
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q12
+Scenario Focus: Dataprep by Trifacta
+What is the best way to choose between a custom stack and a managed service?
+
+A. Store analytical aggregates only in flat files.
+B. Disable job retry and ignore dead-letter handling.
+C. Use unpartitioned large tables for all query workloads.
+D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
+
+Answer: D
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q13
+Scenario Focus: Dataprep by Trifacta
+How do you confirm a solution is production-ready for 
+
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
+B. Disable job retry and ignore dead-letter handling.
+C. Use unpartitioned large tables for all query workloads.
+D. Treat data quality checks as optional in production.
+
+Answer: A
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q14
+Scenario Focus: Dataprep by Trifacta
+Which pattern usually wins in ACE scenario tie-breakers?
+
+A. Use unpartitioned large tables for all query workloads.
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.
+C. Treat data quality checks as optional in production.
+D. Run all ETL manually from local scripts on one VM.
+
+Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q15
+Scenario Focus: Dataprep by Trifacta
+What is the best final check before locking the answer?
+
+A. Treat data quality checks as optional in production.
+B. Run all ETL manually from local scripts on one VM.
+C. Run a weighted check across security, reliability, cost, performance, and operability.
+D. Store analytical aggregates only in flat files.
+
+Answer: C
 Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 

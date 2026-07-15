@@ -138,7 +138,7 @@ sequenceDiagram
     Operations-->>Team: Alert and feedback loop
 ```
 
-### Extra Exam Practice (10 Questions)
+### Extra Exam Practice (15 Questions)
 #### Q1
 Scenario Focus: Choosing the Right Load Balancer
 Which design pattern is usually best for fast, safe cloud adoption?
@@ -266,6 +266,71 @@ C. Start with manual scripts and unrestricted access, then harden later.
 D. Use one project for everything to reduce setup effort.
 
 Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q11
+Scenario Focus: Choosing the Right Load Balancer
+Two options have similar latency. Which tie-breaker is best?
+
+A. Start with manual scripts and unrestricted access, then harden later.
+B. Use one project for everything to reduce setup effort.
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+D. Ignore telemetry until after first production incident.
+
+Answer: C
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q12
+Scenario Focus: Choosing the Right Load Balancer
+What is the best way to choose between a custom stack and a managed service?
+
+A. Use one project for everything to reduce setup effort.
+B. Ignore telemetry until after first production incident.
+C. Pick only the cheapest service regardless of reliability needs.
+D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
+
+Answer: D
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q13
+Scenario Focus: Choosing the Right Load Balancer
+How do you confirm a solution is production-ready for 
+
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
+B. Ignore telemetry until after first production incident.
+C. Pick only the cheapest service regardless of reliability needs.
+D. Keep architecture opaque to avoid governance overhead.
+
+Answer: A
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q14
+Scenario Focus: Choosing the Right Load Balancer
+Which pattern usually wins in ACE scenario tie-breakers?
+
+A. Pick only the cheapest service regardless of reliability needs.
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.
+C. Keep architecture opaque to avoid governance overhead.
+D. Start with manual scripts and unrestricted access, then harden later.
+
+Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q15
+Scenario Focus: Choosing the Right Load Balancer
+What is the best final check before locking the answer?
+
+A. Keep architecture opaque to avoid governance overhead.
+B. Start with manual scripts and unrestricted access, then harden later.
+C. Run a weighted check across security, reliability, cost, performance, and operability.
+D. Use one project for everything to reduce setup effort.
+
+Answer: C
 Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 

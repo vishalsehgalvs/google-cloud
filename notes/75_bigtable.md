@@ -254,7 +254,7 @@ sequenceDiagram
     DB->>Backup: Schedule snapshot
 ```
 
-### Extra Exam Practice (10 Questions)
+### Extra Exam Practice (15 Questions)
 #### Q1
 Scenario Focus: Bigtable
 Your logs are rarely accessed after 90 days. What storage policy is best?
@@ -382,6 +382,71 @@ C. Keep everything in the most expensive hot class forever.
 D. Use local disk snapshots as the only backup strategy.
 
 Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q11
+Scenario Focus: Bigtable
+Two options have similar latency. Which tie-breaker is best?
+
+A. Keep everything in the most expensive hot class forever.
+B. Use local disk snapshots as the only backup strategy.
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+D. Pick a database only by familiarity and ignore access patterns.
+
+Answer: C
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q12
+Scenario Focus: Bigtable
+What is the best way to choose between a custom stack and a managed service?
+
+A. Use local disk snapshots as the only backup strategy.
+B. Pick a database only by familiarity and ignore access patterns.
+C. Store transactional records only in object storage.
+D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
+
+Answer: D
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q13
+Scenario Focus: Bigtable
+How do you confirm a solution is production-ready for 
+
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
+B. Pick a database only by familiarity and ignore access patterns.
+C. Store transactional records only in object storage.
+D. Skip restore drills because backups are assumed valid.
+
+Answer: A
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q14
+Scenario Focus: Bigtable
+Which pattern usually wins in ACE scenario tie-breakers?
+
+A. Store transactional records only in object storage.
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.
+C. Skip restore drills because backups are assumed valid.
+D. Keep everything in the most expensive hot class forever.
+
+Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q15
+Scenario Focus: Bigtable
+What is the best final check before locking the answer?
+
+A. Skip restore drills because backups are assumed valid.
+B. Keep everything in the most expensive hot class forever.
+C. Run a weighted check across security, reliability, cost, performance, and operability.
+D. Use local disk snapshots as the only backup strategy.
+
+Answer: C
 Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 

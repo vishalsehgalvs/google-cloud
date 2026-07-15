@@ -190,7 +190,7 @@ sequenceDiagram
     Autoscaler->>Compute: Scale out or in
 ```
 
-### Extra Exam Practice (10 Questions)
+### Extra Exam Practice (15 Questions)
 #### Q1
 Scenario Focus: kubectl — Configuration and Usage
 Traffic triples during business hours and falls overnight. Which compute pattern is best?
@@ -318,6 +318,71 @@ C. Pin capacity to peak traffic all day for safety.
 D. Restart failed instances manually as incidents occur.
 
 Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q11
+Scenario Focus: kubectl — Configuration and Usage
+Two options have similar latency. Which tie-breaker is best?
+
+A. Pin capacity to peak traffic all day for safety.
+B. Restart failed instances manually as incidents occur.
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+D. Use one large VM because horizontal scaling is complex.
+
+Answer: C
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q12
+Scenario Focus: kubectl — Configuration and Usage
+What is the best way to choose between a custom stack and a managed service?
+
+A. Restart failed instances manually as incidents occur.
+B. Use one large VM because horizontal scaling is complex.
+C. Deploy all changes at once without canary checks.
+D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
+
+Answer: D
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q13
+Scenario Focus: kubectl — Configuration and Usage
+How do you confirm a solution is production-ready for 
+
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
+B. Use one large VM because horizontal scaling is complex.
+C. Deploy all changes at once without canary checks.
+D. Ignore utilization metrics and optimize only by guesswork.
+
+Answer: A
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q14
+Scenario Focus: kubectl — Configuration and Usage
+Which pattern usually wins in ACE scenario tie-breakers?
+
+A. Deploy all changes at once without canary checks.
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.
+C. Ignore utilization metrics and optimize only by guesswork.
+D. Pin capacity to peak traffic all day for safety.
+
+Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q15
+Scenario Focus: kubectl — Configuration and Usage
+What is the best final check before locking the answer?
+
+A. Ignore utilization metrics and optimize only by guesswork.
+B. Pin capacity to peak traffic all day for safety.
+C. Run a weighted check across security, reliability, cost, performance, and operability.
+D. Restart failed instances manually as incidents occur.
+
+Answer: C
 Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 

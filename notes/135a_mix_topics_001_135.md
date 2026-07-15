@@ -135,7 +135,7 @@ sequenceDiagram
     Validation-->>Candidate: Keep only balanced option
 ```
 
-### Extra Exam Practice (10 Questions)
+### Extra Exam Practice (15 Questions)
 #### Q1
 Scenario Focus: Cross-Topic Mix Set 135
 A mixed-topic scenario has one option that is fast but insecure. What should you do?
@@ -263,6 +263,71 @@ C. Pick the shortest option because it saves reading time.
 D. Optimize only for cost and ignore reliability requirements.
 
 Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q11
+Scenario Focus: Cross-Topic Mix Set 135
+Two options have similar latency. Which tie-breaker is best?
+
+A. Pick the shortest option because it saves reading time.
+B. Optimize only for cost and ignore reliability requirements.
+C. Pick the option with stronger operability, clearer failure isolation, and simpler incident response.
+D. Assume manual fixes later are acceptable in production.
+
+Answer: C
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q12
+Scenario Focus: Cross-Topic Mix Set 135
+What is the best way to choose between a custom stack and a managed service?
+
+A. Optimize only for cost and ignore reliability requirements.
+B. Assume manual fixes later are acceptable in production.
+C. Prefer options with broad admin access for simplicity.
+D. Prefer managed services when they meet requirements with lower long-term maintenance effort.
+
+Answer: D
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q13
+Scenario Focus: Cross-Topic Mix Set 135
+How do you confirm a solution is production-ready for 
+
+A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.
+B. Assume manual fixes later are acceptable in production.
+C. Prefer options with broad admin access for simplicity.
+D. Skip checking observability and backup strategy.
+
+Answer: A
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q14
+Scenario Focus: Cross-Topic Mix Set 135
+Which pattern usually wins in ACE scenario tie-breakers?
+
+A. Prefer options with broad admin access for simplicity.
+B. Managed-service-first plus least-privilege access plus clear observability usually wins.
+C. Skip checking observability and backup strategy.
+D. Pick the shortest option because it saves reading time.
+
+Answer: B
+Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
+Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
+
+#### Q15
+Scenario Focus: Cross-Topic Mix Set 135
+What is the best final check before locking the answer?
+
+A. Skip checking observability and backup strategy.
+B. Pick the shortest option because it saves reading time.
+C. Run a weighted check across security, reliability, cost, performance, and operability.
+D. Optimize only for cost and ignore reliability requirements.
+
+Answer: C
 Why the other options are weaker: They typically ignore at least one hard constraint such as security, reliability, cost efficiency, or operational simplicity.
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
