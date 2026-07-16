@@ -42,6 +42,7 @@ flowchart TD
 ```
 
 Notes:
+
 - Projects can live directly under the organization or inside folders.
 - Different teams can have their own folders and multiple projects.
 - Resources always live inside a project.
@@ -123,6 +124,7 @@ Security in the cloud is a **shared responsibility** regardless of which cloud p
 ## ACE Exam-Style Practice Questions
 
 ### Q1
+
 In a Resource Hierarchy Projects Iam requirement, resources must be restricted to approved regions only. What should you use?
 
 A. Budget alerts
@@ -134,6 +136,7 @@ Answer: B
 Trap: IAM controls who can act; Org Policy controls what can be created under governance constraints.
 
 ### Q2
+
 A new team needs isolated IAM, APIs, quotas, and billing in a Resource Hierarchy Projects Iam setup. What is best first step?
 
 A. Create new project for the team
@@ -145,9 +148,11 @@ Answer: A
 Trap: Project is the operational boundary for billing, IAM bindings, API enablement, and quotas.
 
 <!-- ACE_DEEP_ENRICHMENT_START -->
+
 ## ACE Deep Enrichment
 
 ### Think Like a Google Engineer
+
 - Primary optimization axis: Security posture and blast-radius minimization.
 - Start with constraints first: SLO, security, compliance, latency, budget, and team operations capacity.
 - Prefer managed services if they satisfy requirements with lower long-term operational toil.
@@ -155,30 +160,35 @@ Trap: Project is the operational boundary for billing, IAM bindings, API enablem
 - Design for day-2 operations: observability, rollback strategy, and quota or budget guardrails.
 
 ### Most Correct Option Filter (60 Seconds)
+
 1. Eliminate options with broad access, single points of failure, or missing monitoring.
 2. Confirm the option meets non-negotiables first: security and reliability requirements.
 3. Compare remaining options on operational simplicity and long-term maintainability.
 4. Use cost as an optimizer only after requirements and risk controls are satisfied.
 
 ### Weighted Decision Matrix
-| Dimension | Weight | Strong Signal |
-| --- | --- | --- |
-| Security | 3 | Least privilege, secure defaults, no exposed blast radius |
-| Reliability | 3 | Multi-zone or HA design, health checks, tested recovery path |
-| Operability | 2 | Clear monitoring, alerting, rollout and rollback simplicity |
-| Cost Efficiency | 2 | Right-sized resources, no waste, no reliability regression |
-| Performance | 1 | Meets latency and throughput targets with headroom |
+
+| Dimension       | Weight | Strong Signal                                                |
+| --------------- | ------ | ------------------------------------------------------------ |
+| Security        | 3      | Least privilege, secure defaults, no exposed blast radius    |
+| Reliability     | 3      | Multi-zone or HA design, health checks, tested recovery path |
+| Operability     | 2      | Clear monitoring, alerting, rollout and rollback simplicity  |
+| Cost Efficiency | 2      | Right-sized resources, no waste, no reliability regression   |
+| Performance     | 1      | Meets latency and throughput targets with headroom           |
 
 ### Real-Life Scenario
+
 A fintech team is onboarding 40 engineers and 12 workloads in one quarter. They need strict access boundaries, auditability, and zero long-lived credentials while still shipping features fast.
 
 ### Worked Example
+
 - Create separate projects for dev, staging, and prod so IAM and quotas are isolated.
 - Map users to Google Groups and grant predefined roles at the narrowest scope.
 - Use service accounts for workloads and rotate to short-lived credentials through Workload Identity.
 - Enable audit logs and alert on policy changes and service account key creation.
 
 ### Flowchart
+
 ```mermaid
 flowchart TD
     A[New Access Request] --> B{Human or Workload?}
@@ -192,6 +202,7 @@ flowchart TD
 ```
 
 ### Optimization Decision Flow
+
 ```mermaid
 flowchart TD
     A[Read Requirement] --> B[Identify Hard Constraints]
@@ -207,6 +218,7 @@ flowchart TD
 ```
 
 ### Interaction Sequence
+
 ```mermaid
 sequenceDiagram
     participant User
@@ -222,6 +234,7 @@ sequenceDiagram
 ```
 
 ### Extra Exam Practice (15 Questions)
+
 #### Q1
 
 Scenario Focus: Google Cloud Resource Hierarchy, Projects, and IAM
@@ -406,7 +419,7 @@ Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainabilit
 
 Scenario Focus: Google Cloud Resource Hierarchy, Projects, and IAM
 
-How do you confirm a solution is production-ready for 
+How do you confirm a solution is production-ready for
 
 A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.  
 B. Store service account keys in a shared drive because it is internal.  
@@ -448,6 +461,7 @@ Why the other options are weaker: They typically ignore at least one hard constr
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 ### Quick Commands
+
 ```bash
 gcloud projects get-iam-policy PROJECT_ID
 gcloud projects add-iam-policy-binding PROJECT_ID --member=group:team@example.com --role=roles/viewer
@@ -456,6 +470,7 @@ gcloud logging read "protoPayload.methodName=\"SetIamPolicy\"" --freshness=7d --
 ```
 
 ### Fast Recall
+
 - Least privilege beats convenience in all exam scenarios.
 - Prefer groups for humans and service accounts for workloads.
 - Avoid long-lived keys whenever possible.

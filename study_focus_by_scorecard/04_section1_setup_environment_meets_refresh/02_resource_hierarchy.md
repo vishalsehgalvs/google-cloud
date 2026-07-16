@@ -42,6 +42,7 @@ flowchart TD
 ```
 
 Notes:
+
 - Projects can live directly under the organization or inside folders.
 - Different teams can have their own folders and multiple projects.
 - Resources always live inside a project.
@@ -292,6 +293,7 @@ gcloud resource-manager folders describe FOLDER_ID
 ## ACE Exam-Style Practice Questions
 
 ### Q1
+
 In a Resource Hierarchy requirement, resources must be restricted to approved regions only. What should you use?
 
 A. Budget alerts
@@ -303,6 +305,7 @@ Answer: B
 Trap: IAM controls who can act; Org Policy controls what can be created under governance constraints.
 
 ### Q2
+
 A new team needs isolated IAM, APIs, quotas, and billing in a Resource Hierarchy setup. What is best first step?
 
 A. Create new project for the team
@@ -314,9 +317,11 @@ Answer: A
 Trap: Project is the operational boundary for billing, IAM bindings, API enablement, and quotas.
 
 <!-- ACE_DEEP_ENRICHMENT_START -->
+
 ## ACE Deep Enrichment
 
 ### Think Like a Google Engineer
+
 - Primary optimization axis: Managed-service-first design with reliability and security by default.
 - Start with constraints first: SLO, security, compliance, latency, budget, and team operations capacity.
 - Prefer managed services if they satisfy requirements with lower long-term operational toil.
@@ -324,30 +329,35 @@ Trap: Project is the operational boundary for billing, IAM bindings, API enablem
 - Design for day-2 operations: observability, rollback strategy, and quota or budget guardrails.
 
 ### Most Correct Option Filter (60 Seconds)
+
 1. Eliminate options with broad access, single points of failure, or missing monitoring.
 2. Confirm the option meets non-negotiables first: security and reliability requirements.
 3. Compare remaining options on operational simplicity and long-term maintainability.
 4. Use cost as an optimizer only after requirements and risk controls are satisfied.
 
 ### Weighted Decision Matrix
-| Dimension | Weight | Strong Signal |
-| --- | --- | --- |
-| Security | 3 | Least privilege, secure defaults, no exposed blast radius |
-| Reliability | 3 | Multi-zone or HA design, health checks, tested recovery path |
-| Operability | 2 | Clear monitoring, alerting, rollout and rollback simplicity |
-| Cost Efficiency | 2 | Right-sized resources, no waste, no reliability regression |
-| Performance | 1 | Meets latency and throughput targets with headroom |
+
+| Dimension       | Weight | Strong Signal                                                |
+| --------------- | ------ | ------------------------------------------------------------ |
+| Security        | 3      | Least privilege, secure defaults, no exposed blast radius    |
+| Reliability     | 3      | Multi-zone or HA design, health checks, tested recovery path |
+| Operability     | 2      | Clear monitoring, alerting, rollout and rollback simplicity  |
+| Cost Efficiency | 2      | Right-sized resources, no waste, no reliability regression   |
+| Performance     | 1      | Meets latency and throughput targets with headroom           |
 
 ### Real-Life Scenario
+
 A growing startup is moving from manual infrastructure to Google Cloud. They need fast delivery, better reliability, and clear operational controls while keeping architecture simple.
 
 ### Worked Example
+
 - Translate business goals into technical constraints before selecting services.
 - Favor managed services to reduce operational burden where possible.
 - Apply least-privilege IAM and private-by-default networking decisions.
 - Add monitoring, logging, and budget controls from the start.
 
 ### Flowchart
+
 ```mermaid
 flowchart TD
     A[Business Goal] --> B[Technical Constraints]
@@ -361,6 +371,7 @@ flowchart TD
 ```
 
 ### Optimization Decision Flow
+
 ```mermaid
 flowchart TD
     A[Read Requirement] --> B[Identify Hard Constraints]
@@ -376,6 +387,7 @@ flowchart TD
 ```
 
 ### Interaction Sequence
+
 ```mermaid
 sequenceDiagram
     participant Team
@@ -389,6 +401,7 @@ sequenceDiagram
 ```
 
 ### Extra Exam Practice (15 Questions)
+
 #### Q1
 
 Scenario Focus: 🏗️ Google Cloud Resource Hierarchy
@@ -573,7 +586,7 @@ Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainabilit
 
 Scenario Focus: 🏗️ Google Cloud Resource Hierarchy
 
-How do you confirm a solution is production-ready for 
+How do you confirm a solution is production-ready for
 
 A. Verify monitoring, alerting, rollback path, quota and budget controls, and secure defaults.  
 B. Ignore telemetry until after first production incident.  
@@ -615,6 +628,7 @@ Why the other options are weaker: They typically ignore at least one hard constr
 Google-engineer check: Reconfirm SLO fit, blast radius, and day-2 maintainability before finalizing.
 
 ### Quick Commands
+
 ```bash
 gcloud config list
 gcloud projects describe PROJECT_ID
@@ -623,6 +637,7 @@ gcloud logging read "severity>=WARNING" --project=PROJECT_ID --freshness=2d --li
 ```
 
 ### Fast Recall
+
 - Good cloud design is constraint-driven, not tool-driven.
 - Managed services usually improve delivery speed and reliability.
 - Security and observability should be built in from day one.
