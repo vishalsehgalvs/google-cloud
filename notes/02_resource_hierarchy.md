@@ -1,5 +1,51 @@
 # 🏗️ Google Cloud Resource Hierarchy
 
+## Visual Hierarchy (Multi-Team Example)
+
+```mermaid
+flowchart TD
+  ORG[Organization: example.com]
+
+  ORG --> F_SHARED[Folder: Shared Services]
+  ORG --> F_ENGINEERING[Folder: Engineering]
+  ORG --> F_DATA[Folder: Data Platform]
+  ORG --> P_SANDBOX[Project: org-sandbox]
+
+  F_ENGINEERING --> F_TEAM_ALPHA[Folder: Team Alpha]
+  F_ENGINEERING --> F_TEAM_BETA[Folder: Team Beta]
+
+  F_SHARED --> P_IDENTITY[Project: identity-prod]
+  F_SHARED --> P_NET[Project: network-hub-prod]
+
+  F_TEAM_ALPHA --> P_ALPHA_DEV[Project: alpha-dev]
+  F_TEAM_ALPHA --> P_ALPHA_PROD[Project: alpha-prod]
+
+  F_TEAM_BETA --> P_BETA_DEV[Project: beta-dev]
+  F_TEAM_BETA --> P_BETA_PROD[Project: beta-prod]
+
+  F_DATA --> P_DATALAKE[Project: data-lake-prod]
+  F_DATA --> P_BI[Project: bi-reporting-prod]
+
+  P_IDENTITY --> R_IDENTITY[Resources: IAM policies, service accounts, KMS keys]
+  P_NET --> R_NET[Resources: VPC, subnets, firewall rules, Cloud NAT]
+
+  P_ALPHA_DEV --> R_ALPHA_DEV[Resources: Cloud Run, Artifact Registry, Secret Manager]
+  P_ALPHA_PROD --> R_ALPHA_PROD[Resources: GKE, Cloud SQL, Load Balancer]
+
+  P_BETA_DEV --> R_BETA_DEV[Resources: Compute Engine, Cloud Storage]
+  P_BETA_PROD --> R_BETA_PROD[Resources: GKE, Memorystore, Pub/Sub]
+
+  P_DATALAKE --> R_DATA[Resources: BigQuery, Dataproc, Dataflow]
+  P_BI --> R_BI[Resources: BigQuery datasets, scheduled queries]
+
+  P_SANDBOX --> R_SANDBOX[Resources: test VMs, temporary buckets]
+```
+
+Notes:
+- Projects can live directly under the organization or inside folders.
+- Different teams can have their own folders and multiple projects.
+- Resources always live inside a project.
+
 ## The 4 Levels (Bottom → Top)
 
 ```
