@@ -10,6 +10,8 @@
 | **Google Workspace Domain** | All Google Accounts in an org's Google Workspace (e.g. `username@example.com`)                       |
 | **Cloud Identity Domain**   | Same as Workspace but without Gmail, Docs, Drive, Calendar — just user/group management              |
 
+- IAM identity principals are users, groups of users, service accounts, and domains.
+
 > IAM cannot create or manage users/groups — use **Cloud Identity** or **Google Workspace** for that.
 
 ---

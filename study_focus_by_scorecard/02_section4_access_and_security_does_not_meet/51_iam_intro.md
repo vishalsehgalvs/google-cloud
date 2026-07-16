@@ -79,6 +79,7 @@ An IAM policy is a collection of **bindings**:
 ```
 
 - **Member types**: `user:`, `serviceAccount:`, `group:`, `domain:`, `allAuthenticatedUsers`, `allUsers`
+- **IAM identity principals**: users, groups of users, service accounts, and domains
 - A policy can have up to **1500 members per role binding** and **1500 bindings** total
 
 ---

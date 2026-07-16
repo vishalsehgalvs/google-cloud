@@ -102,6 +102,8 @@ Notes:
 | **Can do what**       | Defined by an **IAM role**                                                                            |
 | **On which resource** | The resource the policy applies to                                                                    |
 
+- IAM identity principals are users, groups of users, service accounts, and domains.
+
 ### IAM Roles
 
 - A role is a **collection of permissions**

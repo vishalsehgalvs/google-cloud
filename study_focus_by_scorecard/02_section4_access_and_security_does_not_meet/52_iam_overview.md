@@ -7,6 +7,7 @@ IAM answers three questions:
 - **Who** — a person, group, or application
 - **Can do what** — specific privileges or actions
 - **On which resource** — any Google Cloud service
+- **Identity principals** — users, groups of users, service accounts, and domains
 
 ### Example
 
